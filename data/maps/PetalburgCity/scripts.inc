@@ -720,6 +720,12 @@ PetalburgCity_EventScript_GymBoy:: @ 81DC82E
 	msgbox PetalburgCity_Text_AreYouRookieTrainer, MSGBOX_NPC
 	end
 
+PetalburgCity_EventScript_Teste:: @ 81DC82E
+	msgbox PetalburgCity_Text_Funny, MSGBOX_NPC
+	applymovement 10, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	end
+
 PetalburgCity_Text_WhereIsWally: @ 81DC837
 	.string "Where has our WALLY gone?\p"
 	.string "We have to leave for VERDANTURF TOWN\n"
@@ -741,11 +747,7 @@ PetalburgCity_Text_ThisIsGymSign: @ 81DC93E
 	.string "whenever you're looking for a GYM.$"
 
 PetalburgCity_Text_WaterReflection: @ 81DC985
-	.string "My face is reflected in the water.\p"
-	.string "It's a shining grin full of hope…\p"
-	.string "Or it could be a look of somber silence\n"
-	.string "struggling with fear…\p"
-	.string "What do you see reflected in your face?$"
+	.string "Limao.$"
 
 PetalburgCity_Text_FullPartyExplanation: @ 81DCA30
 	.string "Let's say you have six POKéMON.\n"
@@ -781,3 +783,6 @@ PetalburgCity_Text_ImLookingForTalentedTrainers: @ 81DCC09
 	.string "I'm roaming the land in search of\n"
 	.string "talented TRAINERS.\p"
 	.string "I'm sorry to have taken your time.$"
+
+PetalburgCity_Text_Funny:
+	.string "Esse cara é engraçado.$"

@@ -959,6 +959,11 @@ LittlerootTown_EventScript_GiveRunningShoes:: @ 81E8693
 	closemessage
 	delay 30
 	return
+	
+LittlerootTown_EventScript_Rjv:: @ 81E863D
+	msgbox LittlerootTown_Text_BestCoke, MSGBOX_DEFAULT
+	release
+	end
 
 LittlerootTown_Text_OurNewHomeLetsGoInside: @ 81E86BC
 	.string "MOM: {PLAYER}, we're here, honey!\p"
@@ -1069,4 +1074,7 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "I gave you?\p"
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
+	
+LittlerootTown_Text_BestCoke:
+	.string "cocaina RJV, a melhor que existe!"
 

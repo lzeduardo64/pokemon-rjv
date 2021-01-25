@@ -1,25 +1,22 @@
-gText_Birch_Welcome:: @ 82C897B
-	.string "Hi! Sorry to keep you waiting!\p"
-	.string "Welcome to the world of POKéMON!\p"
-	.string "My name is BIRCH.\p"
-	.string "But everyone calls me the POKéMON\n"
-	.string "PROFESSOR.\p"
+gText_Birch_Welcome:: @ 82C897B texto antes do pokemon
+	.string "Entao voce chegou...\n"
+	.string "Parabens. Poucos sao capazes disto!\p"
 	.string "$"
 
-gText_Birch_Pokemon:: @ 82C89FB
-	.string "This is what we call a “POKéMON.”\p"
+gText_Birch_Pokemon:: @ 82C89FB texto ao soltar o pokemon (supostamente)
+	.string "Vamos ver se é digno de estar aqui.”\p"
 	.string "\n"
 	.string "$"
 
-gText_Birch_MainSpeech:: @ 82C8A1F
-	.string "This world is widely inhabited by\n"
-	.string "creatures known as POKéMON.\p"
-	.string "We humans live alongside POKéMON,\n"
-	.string "at times as friendly playmates, and\l"
-	.string "at times as cooperative workmates.\p"
-	.string "And sometimes, we band together\n"
-	.string "and battle others like us.\p"
-	.string "But despite our closeness, we don't\n"
+gText_Birch_MainSpeech:: @ 82C8A1F Texto apos o pokemon
+	.string "...\n"
+	.string "...\l"
+	.string "...\l"
+	.string "...\l"
+	.string "...\l"
+	.string "...\p"
+	.string "Ha ha ha. Nada mal\n"
+	.string "Mas ainda tem muito que aprender\p"
 	.string "know everything about POKéMON.\p"
 	.string "In fact, there are many, many\n"
 	.string "secrets surrounding POKéMON.\p"
