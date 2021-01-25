@@ -93,7 +93,9 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125"
+    "Underwater_Route125",
+    "Casa_Do_Mendigo",
+    "Casa_Do_Mendigo_Real"
   ],
   "gMapGroup1": [
     "LittlerootTown_BrendansHouse_1F",
@@ -609,7 +611,8 @@
     "Route110_SeasideCyclingRoadSouthEntrance"
   ],
   "gMapGroup30": [
-    "Route113_GlassWorkshop"
+    "Route113_GlassWorkshop",
+    "NewMap1"
   ],
   "gMapGroup31": [
     "Route123_BerryMastersHouse"
