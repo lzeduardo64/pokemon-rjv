@@ -1063,6 +1063,3 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 
 	.include "data/maps/Casa_Do_Mendigo/scripts.inc"
 
-	.include "data/maps/Casa_Do_Mendigo_Real/scripts.inc"
-
-	.include "data/maps/NewMap1/scripts.inc"

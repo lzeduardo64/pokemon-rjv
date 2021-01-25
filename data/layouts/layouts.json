@@ -4414,32 +4414,12 @@
     {
       "id": "LAYOUT_CASA_DO_MENDIGO",
       "name": "Casa_Do_Mendigo_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 4,
+      "height": 4,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Casa_Do_Mendigo/border.bin",
       "blockdata_filepath": "data/layouts/Casa_Do_Mendigo/map.bin"
-    },
-    {
-      "id": "LAYOUT_CASA_DO_MENDIGO_REAL",
-      "name": "Casa_Do_Mendigo_Real_Layout",
-      "width": 10,
-      "height": 10,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/Casa_Do_Mendigo_Real/border.bin",
-      "blockdata_filepath": "data/layouts/Casa_Do_Mendigo_Real/map.bin"
-    },
-    {
-      "id": "LAYOUT_NEW_MAP1",
-      "name": "NewMap1_Layout",
-      "width": 10,
-      "height": 8,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/NewMap1/border.bin",
-      "blockdata_filepath": "data/layouts/NewMap1/map.bin"
     }
   ]
 }
