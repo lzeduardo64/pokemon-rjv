@@ -17,11 +17,6 @@
       "direction": "up",
       "offset": 0,
       "map": "MAP_OLDALE_TOWN"
-    },
-    {
-      "direction": "down",
-      "offset": 0,
-      "map": "MAP_LITTLEROOT_TOWN"
     }
   ],
   "object_events": [

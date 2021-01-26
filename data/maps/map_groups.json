@@ -46,7 +46,7 @@
     "MossdeepCity",
     "SootopolisCity",
     "EverGrandeCity",
-    "LittlerootTown",
+    "YurusitaTown",
     "OldaleTown",
     "DewfordTown",
     "LavaridgeTown",
@@ -93,15 +93,15 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125",
-    "Casa_Do_Mendigo"
+    "Underwater_Route125"
   ],
   "gMapGroup1": [
-    "LittlerootTown_BrendansHouse_1F",
-    "LittlerootTown_BrendansHouse_2F",
-    "LittlerootTown_MaysHouse_1F",
-    "LittlerootTown_MaysHouse_2F",
-    "LittlerootTown_ProfessorBirchsLab"
+    "YurusitaTown_BrendansHouse_1F",
+    "YurusitaTown_BrendansHouse_2F",
+    "YurusitaTown_MaysHouse_1F",
+    "YurusitaTown_MaysHouse_2F",
+    "YurusitaTown_ProfessorBirchsLab",
+    "YurusitaTown_Mendigo"
   ],
   "gMapGroup2": [
     "OldaleTown_House1",

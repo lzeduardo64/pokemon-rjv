@@ -1,16 +1,16 @@
 {
-  "id": "MAP_CASA_DO_MENDIGO",
-  "name": "Casa_Do_Mendigo",
-  "layout": "LAYOUT_CASA_DO_MENDIGO",
-  "music": "MUS_ABANDONED_SHIP",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "id": "MAP_YURUSITA_TOWN_MENDIGO",
+  "name": "YurusitaTown_Mendigo",
+  "layout": "LAYOUT_YURUSITA_TOWN_MENDIGO",
+  "music": "MUS_LITTLEROOT",
+  "region_map_section": "MAPSEC_YURUSITA_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
-  "show_map_name": true,
+  "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
@@ -33,14 +33,14 @@
       "x": 1,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN",
+      "dest_map": "MAP_YURUSITA_TOWN",
       "dest_warp_id": 4
     },
     {
       "x": 2,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN",
+      "dest_map": "MAP_YURUSITA_TOWN",
       "dest_warp_id": 4
     }
   ],

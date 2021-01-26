@@ -15,7 +15,7 @@
 #define MAP_MOSSDEEP_CITY       (6 | (0 << 8))
 #define MAP_SOOTOPOLIS_CITY     (7 | (0 << 8))
 #define MAP_EVER_GRANDE_CITY    (8 | (0 << 8))
-#define MAP_LITTLEROOT_TOWN     (9 | (0 << 8))
+#define MAP_YURUSITA_TOWN       (9 | (0 << 8))
 #define MAP_OLDALE_TOWN         (10 | (0 << 8))
 #define MAP_DEWFORD_TOWN        (11 | (0 << 8))
 #define MAP_LAVARIDGE_TOWN      (12 | (0 << 8))
@@ -63,14 +63,14 @@
 #define MAP_UNDERWATER_ROUTE129 (54 | (0 << 8))
 #define MAP_UNDERWATER_ROUTE105 (55 | (0 << 8))
 #define MAP_UNDERWATER_ROUTE125 (56 | (0 << 8))
-#define MAP_CASA_DO_MENDIGO     (57 | (0 << 8))
 
 // Map Group 1
-#define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
-#define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F    (1 | (1 << 8))
-#define MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F        (2 | (1 << 8))
-#define MAP_LITTLEROOT_TOWN_MAYS_HOUSE_2F        (3 | (1 << 8))
+#define MAP_YURUSITA_TOWN_BRENDANS_HOUSE_1F      (0 | (1 << 8))
+#define MAP_YURUSITA_TOWN_BRENDANS_HOUSE_2F      (1 | (1 << 8))
+#define MAP_YURUSITA_TOWN_MAYS_HOUSE_1F          (2 | (1 << 8))
+#define MAP_YURUSITA_TOWN_MAYS_HOUSE_2F          (3 | (1 << 8))
 #define MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (4 | (1 << 8))
+#define MAP_YURUSITA_TOWN_MENDIGO                (5 | (1 << 8))
 
 // Map Group 2
 #define MAP_OLDALE_TOWN_HOUSE1            (0 | (2 << 8))
