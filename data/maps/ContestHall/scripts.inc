@@ -75,7 +75,7 @@ ContestHall_EventScript_Contest:: @ 823B829
 
 ContestHall_EventScript_SetContestObjects:: @ 823B834
 	special LoadLinkContestPlayerPalettes
-	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_LITTLEROOT_TOWN
+	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_YURUSITA_TOWN
 	call ContestHall_EventScript_CreateAudience
 	end
 

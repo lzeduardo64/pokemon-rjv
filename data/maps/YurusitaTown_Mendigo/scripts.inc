@@ -1,4 +1,4 @@
-Casa_Do_Mendigo_MapScripts::
+YurusitaTown_Mendigo_MapScripts::
 	.byte 0
 	
 Casa_Do_Mendigo_Script_Mendigo::

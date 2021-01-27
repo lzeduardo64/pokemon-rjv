@@ -114,7 +114,7 @@ Route111_OnWarp: @ 81F0E46
 	.2byte 0
 
 Route111_EventScript_HidePlayerForMirageTower:: @ 81F0E50
-	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_LITTLEROOT_TOWN
+	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_YURUSITA_TOWN
 	end
 
 Route111_OnFrame: @ 81F0E56
@@ -130,7 +130,7 @@ Route111_EventScript_MirageTowerDisappear:: @ 81F0E60
 	addobject LOCALID_PLAYER_FALLING
 	special StartPlayerDescendMirageTower
 	waitstate
-	showobjectat OBJ_EVENT_ID_PLAYER, MAP_LITTLEROOT_TOWN
+	showobjectat OBJ_EVENT_ID_PLAYER, MAP_YURUSITA_TOWN
 	removeobject LOCALID_PLAYER_FALLING
 	delay 16
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH

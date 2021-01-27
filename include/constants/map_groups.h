@@ -65,12 +65,12 @@
 #define MAP_UNDERWATER_ROUTE125 (56 | (0 << 8))
 
 // Map Group 1
-#define MAP_YURUSITA_TOWN_BRENDANS_HOUSE_1F      (0 | (1 << 8))
-#define MAP_YURUSITA_TOWN_BRENDANS_HOUSE_2F      (1 | (1 << 8))
-#define MAP_YURUSITA_TOWN_MAYS_HOUSE_1F          (2 | (1 << 8))
-#define MAP_YURUSITA_TOWN_MAYS_HOUSE_2F          (3 | (1 << 8))
-#define MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (4 | (1 << 8))
-#define MAP_YURUSITA_TOWN_MENDIGO                (5 | (1 << 8))
+#define MAP_YURUSITA_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
+#define MAP_YURUSITA_TOWN_BRENDANS_HOUSE_2F    (1 | (1 << 8))
+#define MAP_YURUSITA_TOWN_MAYS_HOUSE_1F        (2 | (1 << 8))
+#define MAP_YURUSITA_TOWN_MAYS_HOUSE_2F        (3 | (1 << 8))
+#define MAP_YURUSITA_TOWN_PROFESSOR_BIRCHS_LAB (4 | (1 << 8))
+#define MAP_YURUSITA_TOWN_MENDIGO              (5 | (1 << 8))
 
 // Map Group 2
 #define MAP_OLDALE_TOWN_HOUSE1            (0 | (2 << 8))

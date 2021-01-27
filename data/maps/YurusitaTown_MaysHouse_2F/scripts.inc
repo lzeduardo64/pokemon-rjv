@@ -1,6 +1,6 @@
 .set LOCALID_RIVAL, 1
 
-LittlerootTown_MaysHouse_2F_MapScripts:: @ 81F9296
+YurusitaTown_MaysHouse_2F_MapScripts:: @ 81F9296
 	map_script MAP_SCRIPT_ON_TRANSITION, LittlerootTown_MaysHouse_2F_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_MaysHouse_2F_OnWarp
 	.byte 0

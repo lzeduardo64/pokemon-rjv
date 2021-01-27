@@ -245,7 +245,7 @@ Route101_EventScript_BirchsBag:: @ 81EBE16
 	call_if_eq Route101_EventScript_HideMayInBedroom
 	compare VAR_RESULT, FEMALE
 	call_if_eq Route101_EventScript_HideBrendanInBedroom
-	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 255, 6, 5
+	warp MAP_YURUSITA_TOWN_PROFESSOR_BIRCHS_LAB, 255, 6, 5
 	waitstate
 	release
 	end

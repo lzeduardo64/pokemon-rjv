@@ -1,4 +1,4 @@
-LittlerootTown_MapScripts::
+YurusitaTown_MapScripts::
 	.byte 0
 	
 LittlerootTown_Script_ESquisito::
@@ -24,4 +24,13 @@ LittlerootTown_Text_Away::
 LittlerootTown_Move_Away::
 	face_up
 	walk_left
-	step_end	
+	step_end
+	
+LittlerootTown_Script_eita::
+	msgbox LittlerootTown_Text_eita, MSGBOX_NPC
+	end
+	
+LittlerootTown_Text_eita:
+	.string "Fui entrar em casa e minha mulher\n"
+	.string "tava com o vizinho.\p"
+	.string "Eles ainda nao terminaram...$"
