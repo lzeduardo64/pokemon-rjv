@@ -1063,3 +1063,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 
 	.include "data/maps/YurusitaTown_Mendigo/scripts.inc"
 
+
+	.include "data/maps/YurusitaTown_ProfessorHouse/scripts.inc"
