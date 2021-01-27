@@ -34,3 +34,18 @@ LittlerootTown_Text_eita:
 	.string "Fui entrar em casa e minha mulher\n"
 	.string "tava com o vizinho.\p"
 	.string "Eles ainda nao terminaram...$"
+	
+LittlerootTown_Script_Guarda::
+	msgbox LittlerootTown_Text_Guarda, MSGBOX_NPC
+	applymovement 1, LittlerootTown_Move_Guarda
+	waitmovement 0
+	end
+	
+LittlerootTown_Text_Guarda::
+	.string "Imagina querer sair da cidade depois de\n"
+	.string "apanhar pro Juca.\l"
+	.string "Limao.$"
+
+LittlerootTown_Move_Guarda::
+	face_down
+	step_end
