@@ -49,3 +49,26 @@ LittlerootTown_Text_Guarda::
 LittlerootTown_Move_Guarda::
 	face_down
 	step_end
+
+LittlerootTown_Script_Givepkm::
+	setflag FLAG_SYS_POKEMON_GET
+	special ChooseStarter
+	waitstate
+	special HealPlayerParty
+	@msgbox LittlerootTown_Text_Givepkm, MSGBOX_NPC
+	@getpartysize
+	@compare VAR_RESULT, 6
+	@goto_if_eq LittlerootTown_Script_Fullptr
+	@givemon SPECIES_TORCHIC, 5, ITEM_NONE
+	end
+	
+LittlerootTown_Text_Givepkm::
+	.string "Toma aqui esse pokemon.$"
+	
+LittlerootTown_Script_Fullptr::
+	msgbox LittlerootTown_Text_Fullptr, MSGBOX_NPC
+	end
+	
+LittlerootTown_Text_Fullptr::
+	.string "Opa! Sua equipe esta cheia...$"
+	
