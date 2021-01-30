@@ -16,12 +16,12 @@
     {
       "direction": "right",
       "offset": 10,
-      "map": "MAP_ROUTE102"
+      "map": "MAP_ROUTE101"
     },
     {
       "direction": "left",
-      "offset": 0,
-      "map": "MAP_YURUSITA_TOWN"
+      "offset": 3,
+      "map": "MAP_ROUTE103"
     }
   ],
   "object_events": [

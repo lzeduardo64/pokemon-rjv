@@ -22,11 +22,6 @@
       "direction": "down",
       "offset": 0,
       "map": "MAP_SLATEPORT_CITY"
-    },
-    {
-      "direction": "left",
-      "offset": 60,
-      "map": "MAP_ROUTE103"
     }
   ],
   "object_events": [

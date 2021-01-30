@@ -4424,8 +4424,8 @@
     {
       "id": "LAYOUT_YURUSITA_TOWN_PROFESSOR_HOUSE",
       "name": "YurusitaTown_ProfessorHouse_Layout",
-      "width": 20,
-      "height": 15,
+      "width": 18,
+      "height": 14,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/YurusitaTown_ProfessorHouse/border.bin",
