@@ -208,7 +208,7 @@ void NewGameInitData(void)
     ResetContestLinkResults();
     gSaveBlock2Ptr->expShare = 0;
     memset(&gSaveBlock2Ptr->itemFlags, 0, sizeof(gSaveBlock2Ptr->itemFlags));
-    
+    gSaveBlock1Ptr->coolNumber = 0x20;
 }
 
 static void ResetMiniGamesResults(void)
