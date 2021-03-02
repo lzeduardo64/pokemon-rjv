@@ -1747,6 +1747,7 @@ const u16 gEasyChatWordsByLetter_T[] = {
     EC_WORD_TRUST,
     EC_WORD_TRY,
     EC_WORD_TUESDAY,
+    EC_POKEMON(TURTWIG),
     EC_MOVE2(TWINEEDLE),
     EC_WORD_TWIRLING,
     EC_MOVE2(TWISTER),

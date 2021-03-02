@@ -52,9 +52,13 @@ LittlerootTown_Move_Guarda::
 
 LittlerootTown_Script_Givepkm::
 	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_SYS_POKEDEX_GET
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	setflag FLAG_SYS_NATIONAL_DEX
+	special EnableNationalPokedex
 	special ChooseStarter
 	waitstate
-	special HealPlayerParty
 	@msgbox LittlerootTown_Text_Givepkm, MSGBOX_NPC
 	@getpartysize
 	@compare VAR_RESULT, 6
