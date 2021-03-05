@@ -29,7 +29,7 @@ Route102_Text_RouteSignYurusita:
 	.string "{LEFT_ARROW} Vila de Yurusita$"
 
 Route102_EventScript_Tiozin::
-	msgbox Route102_Text_VoPegarPokemonPaCarai:, MSGBOX_NPC
+	msgbox Route102_Text_VoPegarPokemonPaCarai, MSGBOX_NPC
 	end
 
 Route102_Text_VoPegarPokemonPaCarai:

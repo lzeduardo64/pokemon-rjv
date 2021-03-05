@@ -32,10 +32,10 @@ OldaleTown_EventScript_MoveMartEmployee:: @ 81E8EDE
 	return
 
 OldaleTown_EventScript_CitySign:: @ 81E8EEA
-	msgbox Slakurg_Text_CitySign, MSGBOX_SIGN
+	msgbox SlakurgTown_Text_CitySign, MSGBOX_SIGN
 	end
 
-SlakurgTown_Text_CitySign: @ 81E94DA
+SlakurgTown_Text_CitySign:: @ 81E94DA
 	.string "Slakurg City\n"
 	.string "“Onde tudo é pequeno e escasso”$"
 
