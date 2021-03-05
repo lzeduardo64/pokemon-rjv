@@ -1,56 +1,69 @@
 YurusitaTown_MapScripts::
 	.byte 0
+
+YurusitaTown_Script_MeninaGasosa::
+        msgbox YurusitaTown_Text_MeninaGasosa, MSGBOX_NPC
+        end
+
+YurusitaTown_Text_MeninaGasosa::
+	.string "MEU DEUS!!!\n"
+	.string "essa menina tá mt boca suja\l"
+	.string "vo falar com a mãe dela!$"
 	
-LittlerootTown_Script_ESquisito::
-	msgbox LittlerootTown_Text_ESquisito, MSGBOX_NPC
+YurusitaTown_Script_MolequinNinja::
+	msgbox YurusitaTown_Text_MolequinNinja, MSGBOX_NPC
 	end
 	
-LittlerootTown_Text_ESquisito::
-	.string "vai se fuder, {PLAYER}!\n"
-	.string "mlk um dia te deito na porrada.$"
+YurusitaTown_Text_MolequinNinja::
+	.string "qual foi, {PLAYER}?\p"
+	.string "hã? vai se fuder mlk.\n"
+	.string "ainda te quebro na porrada.$"
 	
-LittlerootTown_Script_Uepa::
+YurusitaTown_Script_Uepa::
 	lock
-	msgbox LittlerootTown_Text_Away, MSGBOX_DEFAULT
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Move_Away
+	msgbox YurusitaTown_Text_Away, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, YurusitaTown_Move_Away
 	waitmovement 0
 	release
 	end
 
-LittlerootTown_Text_Away::
-	.string "Essa area ainda nao ta pronta.\n"
-	.string "Volte para dentro.$"
+YurusitaTown_Text_Away::
+	.string "Qual foi {PLAYER}?\n"
+	.string "tu não pode sair ainda mlk\l"
+	.string "não sou eu que faço as regras.$"
 	
-LittlerootTown_Move_Away::
+YurusitaTown_Move_Away::
 	face_up
 	walk_left
 	step_end
 	
-LittlerootTown_Script_eita::
-	msgbox LittlerootTown_Text_eita, MSGBOX_NPC
+YurusitaTown_Script_CornoConformado::
+	msgbox YurusitaTown_Text_CornoConformado, MSGBOX_NPC
 	end
 	
-LittlerootTown_Text_eita:
-	.string "Fui entrar em casa e minha mulher\n"
-	.string "tava com o vizinho.\p"
-	.string "Eles ainda nao terminaram...$"
+YurusitaTown_Text_CornoConformado:
+	.string "minha mulher anda bastante com o\n"
+	.string "vizinho, eles são muito amigos,\p"
+	.string "ela até já dormiu na casa dele.\p"
+	.string "acho que vou dar um presente a \n"
+	.string "ele por ser um amigo tão bom$"
 	
-LittlerootTown_Script_Guarda::
-	msgbox LittlerootTown_Text_Guarda, MSGBOX_NPC
+YurusitaTown_Script_Guarda::
+	msgbox YurusitaTown_Text_Guarda, MSGBOX_NPC
 	applymovement 1, LittlerootTown_Move_Guarda
 	waitmovement 0
 	end
 	
-LittlerootTown_Text_Guarda::
-	.string "Imagina querer sair da cidade depois de\n"
-	.string "apanhar pro Juca.\l"
-	.string "Limao.$"
+YurusitaTown_Text_Guarda::
+	.string "E aí {PLAYER}?\n"
+	.string "quer sair da cidade?.\l"
+	.string "Limão. tu nem tem pokemon$"
 
-LittlerootTown_Move_Guarda::
+YurusitaTown_Move_Guarda::
 	face_down
 	step_end
 
-LittlerootTown_Script_Givepkm::
+YurusitaTown_Script_Givepkm::
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
@@ -59,20 +72,23 @@ LittlerootTown_Script_Givepkm::
 	special EnableNationalPokedex
 	special ChooseStarter
 	waitstate
-	@msgbox LittlerootTown_Text_Givepkm, MSGBOX_NPC
+	@msgbox YurusitaTown_Text_Givepkm, MSGBOX_NPC
 	@getpartysize
 	@compare VAR_RESULT, 6
 	@goto_if_eq LittlerootTown_Script_Fullptr
 	@givemon SPECIES_TORCHIC, 5, ITEM_NONE
 	end
 	
-LittlerootTown_Text_Givepkm::
-	.string "Toma aqui esse pokemon.$"
+YurusitaTown_Text_Givepkm::
+	.string "Aqui mlk, do jeito que tu pediu.\n"
+	.string "só escolhe um logo.\p"
+	.string "se não.... você sabe o que...\n"
+	.string "eu não quero ser preso agora.$"
 	
-LittlerootTown_Script_Fullptr::
-	msgbox LittlerootTown_Text_Fullptr, MSGBOX_NPC
+YurusitaTown_Script_Fullptr::
+	msgbox YurusitaTown_Text_Fullptr, MSGBOX_NPC
 	end
 	
-LittlerootTown_Text_Fullptr::
+YurusitaTown_Text_Fullptr::
 	.string "Opa! Sua equipe esta cheia...$"
 	
