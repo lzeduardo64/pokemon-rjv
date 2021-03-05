@@ -2,11 +2,13 @@
 .set LOCALID_FOOTPRINTS_MAN, 3
 .set LOCALID_RIVAL, 4
 
-OldaleTown_MapScripts:: @ 81E8EA2
+OldaleTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, OldaleTown_OnTransition
 	.byte 0
 
-OldaleTown_OnTransition: @ 81E8EA8
+@to deixando esses comandos pq eu planejo fazer o mesmo na saida de cima ~vinicius
+
+OldaleTown_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	setflag FLAG_VISITED_OLDALE_TOWN
 	call_if_unset FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_BlockWestEntrance
@@ -15,7 +17,7 @@ OldaleTown_OnTransition: @ 81E8EA8
 	end
 
 @ This script seems pointless because nothing uses VAR_OLDALE_TOWN_STATE
-OldaleTown_EventScript_SetOldaleState:: @ 81E8ECC
+OldaleTown_EventScript_SetOldaleState::
 	setvar VAR_OLDALE_TOWN_STATE, 1
 	return
 
@@ -30,8 +32,13 @@ OldaleTown_EventScript_MoveMartEmployee:: @ 81E8EDE
 	return
 
 OldaleTown_EventScript_CitySign:: @ 81E8EEA
-	msgbox OldaleTown_Text_CitySign, MSGBOX_SIGN
+	msgbox Slakurg_Text_CitySign, MSGBOX_SIGN
 	end
+
+SlakurgTown_Text_CitySign: @ 81E94DA
+	.string "Slakurg City\n"
+	.string "“Onde tudo é pequeno e escasso”$"
+
 
 OldaleTown_EventScript_Girl:: @ 81E8EF3
 	msgbox OldaleTown_Text_SavingMyProgress, MSGBOX_NPC
@@ -354,54 +361,51 @@ OldaleTown_Text_SavingMyProgress: @ 81E918E
 	.string "progress.$"
 
 OldaleTown_Text_IWorkAtPokemonMart: @ 81E91C0
-	.string "Hi!\n"
-	.string "I work at a POKéMON MART.\p"
-	.string "Can I get you to come with me?$"
+	.string "Oi,\n"
+	.string "Eu trabalho em uma loja pokemon,\p"
+	.string "você pode vir comigo um instante?$"
 
 OldaleTown_Text_ThisIsAPokemonMart: @ 81E91FD
-	.string "This is a POKéMON MART.\n"
-	.string "Just look for our blue roof.\p"
-	.string "We sell a variety of goods including\n"
-	.string "POKé BALLS for catching POKéMON.\p"
-	.string "Here, I'd like you to have this as\n"
-	.string "a promotional item.$"
+	.string "Isso é uma Loja Pokemon,\n"
+	.string "é só olhar pro nosso telhado azul.\p"
+	.string "a gente vende tudo quanto é coisa,\n"
+	.string "desde pokebolas até poções\p"
+	.string "Se liga; pode tomar uma amostra,\p"
+	.string "essa poção pode ser usada para\n"
+	.string "curar seus pokemons dentro ou fora\l"
+	.string "da batalha!$"
 
 OldaleTown_Text_PotionExplanation: @ 81E92AF
-	.string "A POTION can be used anytime, so it's\n"
-	.string "even more useful than a POKéMON CENTER\l"
-	.string "in certain situations.$"
+	.string "uma poção pode ser usada em qualquer\n"
+	.string "hora, assim sendo as vezes até mais\l"
+	.string "úteis que um Pokécentro.$"
 
 OldaleTown_Text_WaitDontComeInHere: @ 81E9313
-	.string "Aaaaah! Wait!\n"
-	.string "Please don't come in here.\p"
-	.string "I just discovered the footprints of\n"
-	.string "a rare POKéMON!\p"
-	.string "Wait until I finish sketching\n"
-	.string "them, okay?$"
+	.string "Wow Wow Wow Wow Wow\n"
+	.string "calma lá amigão,\p"
+	.string "se liga; acabei de encontrar\n"
+	.string "uma pegada de um Pokemon raro!\p"
+	.string "espera aí até eu terminar aqui,\n"
+	.string "beleza?$"
 
-OldaleTown_Text_DiscoveredFootprints: @ 81E939A
-	.string "I just discovered the footprints of\n"
-	.string "a rare POKéMON!\p"
-	.string "Wait until I finish sketching\n"
-	.string "them, okay?$"
+OldaleTown_Text_DiscoveredFootprints:
+	.string "se liga, acabei de encontrar\n"
+	.string "uma pegada de um Pokemon raro!\p"
+	.string "espera aí até eu terminar aqui,\n"
+	.string "beleza?$"
 
 OldaleTown_Text_FinishedSketchingFootprints: @ 81E93F8
-	.string "I finished sketching the footprints of\n"
-	.string "a rare POKéMON.\p"
-	.string "But it turns out they were only my\n"
-	.string "own footprints…$"
+	.string "Acabei de investigar as pegadas\n"
+	.string "do pokemon raro\p"
+	.string "infelizmente eles eram só\n"
+	.string "minhas próprias pegadas...$"
 
 OldaleTown_Text_MayLetsGoBack: @ 81E9462
 	.string "MAY: {PLAYER}{KUN}!\n"
-	.string "Over here!\l"
-	.string "Let's hurry home!$"
+	.string "Por aqui\l"
+	.string "Rapido, vamos pra casa!$"
 
 OldaleTown_Text_BrendanLetsGoBack: @ 81E948A
-	.string "BRENDAN: I'm heading back to my dad's\n"
-	.string "LAB now.\l"
-	.string "{PLAYER}, you should hustle back, too.$"
-
-OldaleTown_Text_CitySign: @ 81E94DA
-	.string "OLDALE TOWN\n"
-	.string "“Where things start off scarce.”$"
-
+	.string "BRENDAN: Eu to voltando para\n"
+	.string "o laboratório do meu pai agora,\l"
+	.string "{PLAYER}, você devia voltar tbm$"
