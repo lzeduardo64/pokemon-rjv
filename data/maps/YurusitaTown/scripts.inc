@@ -50,7 +50,7 @@ YurusitaTown_Text_CornoConformado:
 	
 YurusitaTown_Script_Guarda::
 	msgbox YurusitaTown_Text_Guarda, MSGBOX_NPC
-	applymovement 1, LittlerootTown_Move_Guarda
+	applymovement 1, YurusitaTown_Move_Guarda
 	waitmovement 0
 	end
 	
