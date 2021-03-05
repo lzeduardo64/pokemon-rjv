@@ -15,7 +15,7 @@
   "connections": [
     {
       "direction": "right",
-      "offset": 5,
+      "offset": 0,
       "map": "MAP_ROUTE102"
     }
   ],
@@ -23,14 +23,14 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ANABEL",
       "x": 34,
-      "y": 11,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "LittlerootTown_Script_Guarda",
+      "script": "YurusitaTown_Script_Guarda",
       "flag": "FLAG_TEMP_1"
     },
     {
@@ -43,7 +43,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_Script_ESquisito",
+      "script": "YurusitaTown_Script_MeninaGasosa",
       "flag": "0"
     },
     {
@@ -69,7 +69,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_Script_ESquisito",
+      "script": "YurusitaTown_Script_MolequinNinja",
       "flag": "0"
     },
     {
@@ -82,33 +82,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_Script_eita",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": -1,
-      "y": 25,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 0,
-      "y": 25,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "YurusitaTown_Text_CornoConformado",
       "flag": "0"
     }
   ],
@@ -153,7 +127,7 @@
     {
       "type": "trigger",
       "x": 34,
-      "y": 12,
+      "y": 9,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -162,7 +136,7 @@
     {
       "type": "trigger",
       "x": 34,
-      "y": 13,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",

@@ -20,7 +20,7 @@
     },
     {
       "direction": "left",
-      "offset": -5,
+      "offset": 0,
       "map": "MAP_YURUSITA_TOWN"
     }
   ],
