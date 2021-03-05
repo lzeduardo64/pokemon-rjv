@@ -1,23 +1,42 @@
-Route102_MapScripts:: @ 81EC0E0
+Route102_MapScripts::
 	.byte 0
 
-Route102_EventScript_LittleBoy:: @ 81EC0E1
-	msgbox Route102_Text_ImNotVeryTall, MSGBOX_NPC
+Route102_EventScript_LittleBoy::
+	msgbox Route102_Text_Baixin, MSGBOX_NPC
 	end
 
-Route102_EventScript_RouteSignOldale:: @ 81EC0EA
-	msgbox Route102_Text_RouteSignOldale, MSGBOX_SIGN
+Route102_Text_Baixin:
+	.string "Eu não sou muito alto, então eu só\n"
+	.string "afundo na grama alta.\p"
+	.string "a grama para no meu nariz e... e..\n"
+	.string "Fwafwafwafwafwa…\p"
+	.string "Fwatchoo!$"
+
+Route102_EventScript_RouteSignSlakurg::
+	msgbox Route102_Text_RouteSignSlakurg, MSGBOX_SIGN
 	end
 
-Route102_EventScript_RouteSignPetalburg:: @ 81EC0F3
-	msgbox Route102_Text_RouteSignPetalburg, MSGBOX_SIGN
+Route102_Text_RouteSignSlakurg:
+	.string "ROUTE 102\n"
+	.string "{RIGHT_ARROW} Slakurg City$"
+
+Route102_EventScript_RouteSignYurusita:: 
+	msgbox Route102_Text_RouteSignYurusita, MSGBOX_SIGN
 	end
 
-Route102_EventScript_Boy:: @ 81EC0FC
-	msgbox Route102_Text_CatchWholeBunchOfPokemon, MSGBOX_NPC
+Route102_Text_RouteSignYurusita: 
+	.string "ROUTE 102\n"
+	.string "{LEFT_ARROW} Vila de Yurusita$"
+
+Route102_EventScript_Tiozin::
+	msgbox Route102_Text_VoPegarPokemonPaCarai:, MSGBOX_NPC
 	end
 
-Route102_EventScript_Calvin:: @ 81EC105
+Route102_Text_VoPegarPokemonPaCarai:
+	.string "Eu vô pegar um montão de\n"
+	.string "pokémon, anota aí.$"
+
+Route102_EventScript_Calvin::
 	trainerbattle_single TRAINER_CALVIN_1, Route102_Text_CalvinIntro, Route102_Text_CalvinDefeated, Route102_EventScript_CalvinRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	compare VAR_RESULT, TRUE
@@ -30,37 +49,37 @@ Route102_EventScript_Calvin:: @ 81EC105
 	release
 	end
 
-Route102_EventScript_CalvinRegisterMatchCallAfterBattle:: @ 81EC146
+Route102_EventScript_CalvinRegisterMatchCallAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	goto_if_set FLAG_HAS_MATCH_CALL, Route102_EventScript_CalvinRegisterMatchCall
 	release
 	end
 
-Route102_EventScript_CalvinRegisterMatchCall:: @ 81EC157
+Route102_EventScript_CalvinRegisterMatchCall::
 	msgbox Route102_Text_CalvinRegisterShort, MSGBOX_DEFAULT
 	register_matchcall TRAINER_CALVIN_1
 	release
 	end
 
-Route102_EventScript_CalvinTryRegister:: @ 81EC170
+Route102_EventScript_CalvinTryRegister::
 	goto_if_set FLAG_HAS_MATCH_CALL, Route102_EventScript_CalvinRegister
 	msgbox Route102_Text_CalvinPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
-Route102_EventScript_CalvinRegister:: @ 81EC183
+Route102_EventScript_CalvinRegister::
 	msgbox Route102_Text_CalvinRegister, MSGBOX_DEFAULT
 	register_matchcall TRAINER_CALVIN_1
 	release
 	end
 
-Route102_EventScript_CalvinRematch:: @ 81EC19C
+Route102_EventScript_CalvinRematch::
 	trainerbattle_rematch TRAINER_CALVIN_1, Route102_Text_CalvinRematchIntro, Route102_Text_CalvinRematchDefeated
 	msgbox Route102_Text_CalvinRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route102_EventScript_Rick:: @ 81EC1B3
+Route102_EventScript_Rick::
 	trainerbattle_single TRAINER_RICK, Route102_Text_RickIntro, Route102_Text_RickDefeated
 	msgbox Route102_Text_RickPostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -77,35 +96,17 @@ Route102_EventScript_Allen:: @ 81EC1E1
 
 Route102_Text_WatchMeCatchPokemon: @ 81EC1F8
 	.string "WALLY: {PLAYER}…\n"
-	.string "POKéMON hide in tall grass like this,\l"
-	.string "don't they?\p"
-	.string "Please watch me and see if I can\n"
-	.string "catch one properly.\p"
-	.string "…Whoa!$"
+	.string "Os pokemons se escondem na grama,\l"
+	.string "bem por aqui né?\p"
+	.string "Por favor, veja se eu consigo\n"
+	.string "pegar um direito\p"
+	.string "Ah!$"
 
 Route102_Text_WallyIDidIt: @ 81EC271
-	.string "WALLY: I did it… It's my…\n"
-	.string "My POKéMON!$"
+	.string "WALLY: Eu consegui!!! é....\n"
+	.string "é o meu primeiro pokemon$"
 
 Route102_Text_LetsGoBack: @ 81EC297
-	.string "{PLAYER}, thank you!\n"
-	.string "Let's go back to the GYM!$"
+	.string "{PLAYER}, Obrigado!\n"
+	.string "Vamos voltar à cidade$"
 
-Route102_Text_ImNotVeryTall: @ 81EC2C0
-	.string "I'm…not very tall, so I sink right\n"
-	.string "into tall grass.\p"
-	.string "The grass goes up my nose and…\n"
-	.string "Fwafwafwafwafwa…\p"
-	.string "Fwatchoo!$"
-
-Route102_Text_CatchWholeBunchOfPokemon: @ 81EC32E
-	.string "I'm going to catch a whole bunch of\n"
-	.string "POKéMON!$"
-
-Route102_Text_RouteSignOldale: @ 81EC35B
-	.string "ROUTE 102\n"
-	.string "{RIGHT_ARROW} OLDALE TOWN$"
-
-Route102_Text_RouteSignPetalburg: @ 81EC373
-	.string "ROUTE 102\n"
-	.string "{LEFT_ARROW} PETALBURG CITY$"
