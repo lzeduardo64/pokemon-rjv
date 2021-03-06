@@ -1943,6 +1943,10 @@ Cry_Turtwig::
 	.incbin "sound/direct_sound_samples/cries/turtwig.bin"
 
 	.align 2
+Cry_Grotle::
+	.incbin "sound/direct_sound_samples/cries/grotle.bin"
+
+	.align 2
 DirectSoundWaveData_register_noise::
 	.incbin "sound/direct_sound_samples/register_noise.bin"
 

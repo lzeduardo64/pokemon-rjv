@@ -389,6 +389,7 @@ gCryTable:: @ 869DCF4
 	cry Cry_Deoxys  @ 869EF0C
 	cry Cry_Chimecho  @ 869EF18
 	cry Cry_Turtwig  @ 869EF18
+	cry Cry_Grotle  @ 869EF18
 
 	.align 2
 gCryTable2:: @ 869EF24
@@ -781,3 +782,4 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Deoxys  @ 86A013C
 	cry2 Cry_Chimecho  @ 86A0148
 	cry2 Cry_Turtwig  @ 869EF18
+	cry2 Cry_Grotle  @ 869EF18

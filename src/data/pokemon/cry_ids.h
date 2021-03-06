@@ -136,4 +136,5 @@ const u16 gSpeciesIdToCryId[] =
     [SPECIES_DEOXYS - 277] = 386,
     [SPECIES_CHIMECHO - 277] = 387,
     [SPECIES_TURTWIG - 277] = 388,
+    [SPECIES_GROTLE - 277] = 389,
 };

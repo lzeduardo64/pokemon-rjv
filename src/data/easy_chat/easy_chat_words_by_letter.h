@@ -634,6 +634,7 @@ const u16 gEasyChatWordsByLetter_G[] = {
     -1, 2, // Doubled pokemon species name
     EC_POKEMON(GRIMER),
     EC_POKEMON2(GRIMER),
+    EC_POKEMON(GROTLE),
     EC_POKEMON(GROUDON),
     EC_WORD_GROUND,
     EC_WORD_GROUP,
