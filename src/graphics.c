@@ -952,7 +952,6 @@ const u32 gUnknownPal_C2F9E0[] = INCBIN_U32("graphics/unknown/unknown_C2F9E0.gba
 #include "data/graphics/trainers.h"
 
 const u8 gMonIcon_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mark/icon.4bpp");
-const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mark/footprint.1bpp");
 
 const u32 gUnknown_08D778F0[] = INCBIN_U32("graphics/battle_transitions/vs_frame.4bpp.lz");
 const u32 gUnknown_08D779D8[] = INCBIN_U32("graphics/battle_transitions/vs_frame.bin.lz");

@@ -393,7 +393,7 @@ const struct ApprenticeTrainer gApprentices[NUM_APPRENTICES] =
         .speechLost = {EC_WORD_LOSING, EC_WORD_DOESN_T, EC_MOVE(CUT), EC_WORD_ME, EC_WORD_DEEP, EC_WORD_OK_QUES},
     },
     {
-        .name = {_("リュウジ"), _("LAMONT"), _("XAV"), _("ORFEO"), _("JÜRGEN"), _("JORGE")},
+        .name = {_("リュウジ"), _("LAMONT"), _("XAV"), _("ORFEO"), _("JŨRGEN"), _("JORGE")},
         .otId = 0xE590,
         .facilityClass = FACILITY_CLASS_GUITARIST,
         .species = {SPECIES_ABSOL, SPECIES_CROBAT, SPECIES_EXPLOUD, SPECIES_MAGNETON, SPECIES_SHARPEDO, SPECIES_MANECTRIC, SPECIES_METAGROSS, SPECIES_ELECTRODE, SPECIES_NOSEPASS, SPECIES_WEEZING},

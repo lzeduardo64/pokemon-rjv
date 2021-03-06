@@ -4655,4 +4655,16 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 290,
         .trainerOffset = 2,
     },
+
+    [NATIONAL_DEX_GROTLE] =
+    {
+        .categoryName = _("GROVE"),
+        .height = 11,
+        .weight = 970,
+        .description = gGrotlePokedexText,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 290,
+        .trainerOffset = 2,
+    },
 };

@@ -2325,3 +2325,9 @@ const u8 gTurtwigPokedexText[] = _(
     "On a very healthy Turtwig,\n"
     "the shell should feel moist.\n"
     "Texto aleatorio");
+
+const u8 gGrotlePokedexText[] = _(
+    "It lives along water in forests.\n"
+    "In the daytime,\n"
+    "it leaves the forest\n"
+    "to sunbathe its treed shell.");
