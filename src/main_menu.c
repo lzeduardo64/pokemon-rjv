@@ -175,6 +175,7 @@ static EWRAM_DATA u8 gUnknown_02022D04 = 0;
 static EWRAM_DATA u16 sCurrItemAndOptionMenuCheck = 0;
 
 static u8 sBirchSpeechMainTaskId;
+static u8 iconsIDs[6];
 
 // Static ROM declarations
 
@@ -1172,6 +1173,7 @@ static void Task_DisplayMainMenuInvalidActionError(u8 taskId)
 
 static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 isScrolled)
 {
+	u8 i;
     SetGpuReg(REG_OFFSET_WIN0H, MENU_WIN_HCOORDS);
 
     switch (menuType)
@@ -1195,12 +1197,27 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
                 case 0:
                 default:
                     SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(2));
+                    for (i = 0; i < gPlayerPartyCount; i++)
+                    {
+                    	gSprites[iconsIDs[i]].callback = SpriteCB_MonIcon;
+                    
+                    }
                     break;
                 case 1:
                     SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(3));
+                    for (i = 0; i < gPlayerPartyCount; i++)
+                    {
+                    	gSprites[iconsIDs[i]].callback = SpriteCallbackDummy;
+                    
+                    }
                     break;
                 case 2:
                     SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(4));
+                    for (i = 0; i < gPlayerPartyCount; i++)
+                    {
+                    	gSprites[iconsIDs[i]].callback = SpriteCallbackDummy;
+                    
+                    }
                     break;
             }
             break;
@@ -2323,7 +2340,8 @@ static void RenderPlayerParty()
         species = GetMonData(gPlayerParty + i, MON_DATA_SPECIES);
         pid = GetMonData(gPlayerParty + i, MON_DATA_PERSONALITY);
 
-        id = CreateMonIcon(species, SpriteCB_MonIcon, 32 * i + 40, 64, 4, pid, 1);
+        id = CreateMonIcon(species, SpriteCallbackDummy, 32 * i + 40, 64, 4, pid, 1);
+        iconsIDs[i] = id;
         gSprites[id].oam.priority = 4;
     }
 }
