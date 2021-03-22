@@ -1,73 +1,80 @@
-Route102_Text_CalvinIntro: @ 8294513
-	.string "If you have POKéMON with you, then\n"
-	.string "you're an official POKéMON TRAINER!\l"
-	.string "You can't say no to my challenge!$"
+Route102_Text_CalvinIntro:
+	.string "A regra é clara: se você tem um\n"
+	.string "Pokemon, então você é um treinador!\l"
+	.string "e um treinador não foge de um duelo!$"
 
-Route102_Text_CalvinDefeated: @ 829457C
-	.string "Arrgh, I lost…\n"
-	.string "I should have trained mine more…$"
+Route102_Text_CalvinDefeated:
+	.string "Merda, eu perdi...\n"
+	.string "Eu devia ter treinado mais$"
 
-Route102_Text_CalvinPostBattle: @ 82945AC
-	.string "Listen, you. If you're strong,\n"
-	.string "you should have told me before!$"
+Route102_Text_CalvinPostBattle:
+	.string "Mermão, se tu era forte tu devia\n"
+	.string "ter dito na hora né?!$"
 
-Route102_Text_CalvinRegister: @ 82945EB
-	.string "I've been working hard at this since\n"
-	.string "I saw you before.\p"
-	.string "I'd like to battle you again, so can\n"
-	.string "you register me in your POKéNAV?$"
+Route102_Text_CalvinRegister:
+	.string "Eu tenho trabalhado duro desde que\n"
+	.string "eu te encontrei, aliás, porque você\p"
+	.string "não me adiciona na sua pokénav?\n"
+	.string "Eu gostaria de duelar alguma outra\l"
+	.string "vez com você$"
 
-Route102_Text_CalvinRegisterShort: @ 8294668
-	.string "I'd like to battle you again, so can\n"
-	.string "you register me in your POKéNAV?$"
+Route102_Text_CalvinRegisterShort:
+	.string "Eu gostaria de batalhar com você\n"
+	.string "novamente, se importaria de\l"
+	.string "me registrar na  sua Pokénav?$"
 
-Route102_Text_CalvinRematchIntro: @ 82946AE
-	.string "Ever since I lost to you, I desperately\n"
-	.string "trained my POKéMON.\l"
-	.string "You can't say no to my challenge!$"
+Route102_Text_CalvinRematchIntro:
+	.string "Desde que eu perdi para você eu\n"
+	.string "treinei constantemente meus\l"
+	.string "Pokémons, você não deve fugir\l"
+	.string "do meu desafio!$"
 
-Route102_Text_CalvinRematchDefeated: @ 829470C
-	.string "Arrgh, I lost…\n"
-	.string "Is my training method not right?$"
+Route102_Text_CalvinRematchDefeated:
+	.string "Droga, de novo derrotado...\n"
+	.string "Será que eu estou treinando eles\l
+	.string "do jeito errado?$"
 
-Route102_Text_CalvinRematchPostBattle: @ 829473C
-	.string "If you're going to get stronger,\n"
-	.string "I'll get stronger, too.$"
+Route102_Text_CalvinRematchPostBattle:
+	.string "Se você for ficar mais forte...\n"
+	.string "Eu também irei!!!$"
 
-Route102_Text_AllenIntro: @ 8294775
-	.string "Did you just become a TRAINER?\n"
-	.string "We're both beginners!$"
+Route102_Text_AllenIntro:
+	.string "Você acabou de virar um treinador?\n"
+	.string "Eu também!!!$"
 
-Route102_Text_AllenDefeated: @ 82947AA
-	.string "I called you because I thought\n"
-	.string "I could beat you…$"
+Route102_Text_AllenDefeated:
+	.string "Eu duelei contigo porque eu pensava\n"
+	.string "que conseguia ganhar...$"
 
-Route102_Text_AllenPostBattle: @ 82947DB
-	.string "I haven't won once yet…\n"
-	.string "I wish I would win soon…$"
+Route102_Text_AllenPostBattle:
+	.string "eu ainda não ganhei...\n"
+	.string "mas eu acredito que ganharei!\l"
+	.string "no futuro...$"
 
-Route102_Text_RickIntro: @ 829480C
-	.string "Hahah! Our eyes met!\n"
-	.string "I'll take you on with my BUG POKéMON!$"
+Route102_Text_RickIntro:
+	.string "Hahah! Nós cruzamos olhares!\n"
+	.string "A nossa batalha será LENDÁRIA!!!!$"
 
-Route102_Text_RickDefeated: @ 8294847
-	.string "Ow! Down and out!$"
+Route102_Text_RickDefeated:
+	.string "Ai ai ai, foi só uma$"
 
-Route102_Text_RickPostBattle: @ 8294859
-	.string "If you lock eyes with a TRAINER,\n"
-	.string "you have to challenge! It's a rule!$"
+Route102_Text_RickPostBattle:
+	.string "Se você cruzar olhares com\n"
+	.string "um treinador você tem que desafiá-lo!\l"
+	.string "a regra é clara$"
 
-Route102_Text_TianaIntro: @ 829489E
-	.string "I'm going to keep winning and aim\n"
-	.string "to be the best TRAINER.\p"
-	.string "Help me further my career!$"
+Route102_Text_TianaIntro:
+	.string "Eu vou ganhar de todos os fracassados,\n"
+	.string "para ser a melhor treinadora Pokémon!\p"
+	.string "Vamos, me ajude a realizar meu sonho!$"
 
-Route102_Text_TianaDefeated: @ 82948F3
-	.string "I ended up furthering your career…$"
+Route102_Text_TianaDefeated:
+	.string "Eu acabei ajudando o seu sonho...$"
 
-Route102_Text_TianaPostBattle: @ 8294916
-	.string "To keep winning my way up, I see that\n"
-	.string "I have to catch more POKéMON.$"
+Route102_Text_TianaPostBattle:
+	.string "Eu finalmente percebi...\n"
+	.string "Eu sou fraca, mas eu irei pegar\l
+	.string "vários Pokémons!!!$"
 
 Route103_Text_DaisyIntro: @ 829495A
 	.string "Did you feel the tug of our\n"
