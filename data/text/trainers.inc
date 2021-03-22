@@ -31,7 +31,7 @@ Route102_Text_CalvinRematchIntro:
 
 Route102_Text_CalvinRematchDefeated:
 	.string "Droga, de novo derrotado...\n"
-	.string "Será que eu estou treinando eles\l
+	.string "Será que eu estou treinando eles\l"
 	.string "do jeito errado?$"
 
 Route102_Text_CalvinRematchPostBattle:
@@ -73,7 +73,7 @@ Route102_Text_TianaDefeated:
 
 Route102_Text_TianaPostBattle:
 	.string "Eu finalmente percebi...\n"
-	.string "Eu sou fraca, mas eu irei pegar\l
+	.string "Eu sou fraca, mas eu irei pegar\l"
 	.string "vários Pokémons!!!$"
 
 Route103_Text_DaisyIntro: @ 829495A
