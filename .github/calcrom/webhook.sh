@@ -9,4 +9,4 @@ if [ ! -f $map_file ]; then
 fi
 
 zip -r $build_name.zip $map_file
-bash $(dirname "$0")/discord.sh --text "rom atual do github" --file $build_name.zip
+bash $(dirname "$0")/discord.sh --webhook-url="$DISCORD_WEBHOOK" --text "rom atual do github" --file $build_name.zip
