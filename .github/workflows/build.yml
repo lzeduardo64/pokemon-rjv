@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Install binutils
-        run: sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi
+        run: sudo apt install gcc-arm-none-eabi binutils-arm-none-eabi jq
         # build-essential, git, and libpng-dev are already installed
         # gcc-arm-none-eabi is only needed for the modern build
         # as an alternative to dkP
@@ -27,3 +27,11 @@ jobs:
           
       - name: Modern
         run: make -j${nproc} modern
+        
+      - name: Webhook
+        if: ${{ github.event_name == 'push' }}
+        env:
+          CALCROM_DISCORD_WEBHOOK_USERNAME: OK
+          CALCROM_DISCORD_WEBHOOK_AVATAR_URL: https://i.imgur.com/38BQHdd.png
+          CALCROM_DISCORD_WEBHOOK_URL: ${{ secrets.CALCROM_DISCORD_WEBHOOK_URL }}
+        run: sh .github/calcrom/webhook.sh pokeemerald
