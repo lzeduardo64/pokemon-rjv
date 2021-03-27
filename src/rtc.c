@@ -301,9 +301,9 @@ void RtcInitLocalTimeOffset(s32 hour, s32 minute)
 void RtcCalcLocalTimeOffset(s32 days, s32 hours, s32 minutes, s32 seconds)
 {
     gLocalTime.days = days;
-    gLocalTime.hours = hours;
+    /*gLocalTime.hours = hours;
     gLocalTime.minutes = minutes;
-    gLocalTime.seconds = seconds;
+    gLocalTime.seconds = seconds;*/
     RtcGetInfo(&sRtc);
     RtcCalcTimeDifference(&sRtc, &gSaveBlock2Ptr->localTimeOffset, &gLocalTime);
 }

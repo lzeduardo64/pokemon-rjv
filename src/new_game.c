@@ -209,6 +209,8 @@ void NewGameInitData(void)
     gSaveBlock2Ptr->expShare = 0;
     memset(&gSaveBlock2Ptr->itemFlags, 0, sizeof(gSaveBlock2Ptr->itemFlags));
     gSaveBlock1Ptr->coolNumber = Random() % 0xFF;
+    RtcInitLocalTimeOffset(0, 0);
+    FlagSet(FLAG_SET_WALL_CLOCK);
 }
 
 static void ResetMiniGamesRecords(void)
