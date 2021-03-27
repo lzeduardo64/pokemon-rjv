@@ -11,13 +11,17 @@ YurusitaTown_Text_MeninaGasosa::
 	.string "vo falar com a mãe dela!$"
 	
 YurusitaTown_Script_MolequinNinja::
+	gettime
+	buffernumberstring 0, VAR_0x8000
 	msgbox YurusitaTown_Text_MolequinNinja, MSGBOX_NPC
 	end
 	
 YurusitaTown_Text_MolequinNinja::
 	.string "qual foi, {PLAYER}?\p"
 	.string "hã? vai se fuder mlk.\n"
-	.string "ainda te quebro na porrada.$"
+	.string "ainda te quebro na porrada.\p"
+	.string "no meu relogio são {STR_VAR_1} horas, yey!$"
+
 	
 YurusitaTown_Script_Uepa::
 	lock
