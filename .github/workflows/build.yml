@@ -31,11 +31,3 @@ jobs:
           
       - name: Modern
         run: make -j${nproc} modern
-        
-      - name: Webhook
-        if: ${{ github.event_name == 'push' }}
-        env:
-          CALCROM_DISCORD_WEBHOOK_USERNAME: OK
-          CALCROM_DISCORD_WEBHOOK_AVATAR_URL: https://i.imgur.com/38BQHdd.png
-          DISCORD_WEBHOOK: https://discord.com/api/webhooks/823661173831761940/WomZB9N0ED_CMF3rhEs12_NvQySBAuWQNEgLF8EI9wDgh6WsEroL_x_car98XhuExscO
-        run: sh .github/calcrom/webhook.sh pokeemerald
