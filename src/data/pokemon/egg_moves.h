@@ -1305,18 +1305,6 @@ const u16 gEggMoves[] = {
               MOVE_CURSE,
               MOVE_HYPNOSIS,
               MOVE_DREAM_EATER),
-              
-    egg_moves(TURTWIG,
-              MOVE_AMNESIA,
-              MOVE_BODY_SLAM,
-              MOVE_DOUBLE_EDGE,
-              MOVE_GROWTH,
-              MOVE_SAND_TOMB,
-              MOVE_SPIT_UP,
-              MOVE_STOCKPILE,
-              MOVE_SWALLOW,
-              MOVE_THRASH,
-              MOVE_TICKLE),
 
     EGG_MOVES_TERMINATOR
 };
