@@ -1030,7 +1030,6 @@ static void CB2_HandleStartBattle(void)
             gTasks[taskId].data[4] = gBlockRecvBuffer[enemyMultiplayerId][1];
             RecordedBattle_SetFrontierPassFlagFromHword(gBlockRecvBuffer[playerMultiplayerId][1]);
             RecordedBattle_SetFrontierPassFlagFromHword(gBlockRecvBuffer[enemyMultiplayerId][1]);
-            SetDeoxysStats();
             gBattleCommunication[MULTIUSE_STATE]++;
         }
         break;
@@ -1611,7 +1610,6 @@ static void CB2_HandleStartMultiBattle(void)
             ResetBlockReceivedFlags();
             FindLinkBattleMaster(4, playerMultiplayerId);
             SetAllPlayersBerryData();
-            SetDeoxysStats();
             var = CreateTask(InitLinkBattleVsScreen, 0);
             gTasks[var].data[1] = 0x10E;
             gTasks[var].data[2] = 0x5A;
@@ -2695,6 +2693,7 @@ extern const struct MonCoords gCastformFrontSpriteCoords[];
 void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
 {
     u8 battler = sprite->sBattler;
+    u32 personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_PERSONALITY);
     u16 species;
     u8 yOffset;
 
@@ -2707,16 +2706,8 @@ void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
 
     if (species == SPECIES_UNOWN)
     {
-        u32 personalityValue = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_PERSONALITY);
-        u16 unownForm = GET_UNOWN_LETTER(personalityValue);
-        u16 unownSpecies;
-
-        if (unownForm == 0)
-            unownSpecies = SPECIES_UNOWN;  // Use the A Unown form.
-        else
-            unownSpecies = NUM_SPECIES + unownForm;  // Use one of the other Unown letters.
-
-        yOffset = gMonFrontPicCoords[unownSpecies].y_offset;
+        species = GetUnownSpeciesId(personality);
+        yOffset = gMonFrontPicCoords[species].y_offset;
     }
     else if (species == SPECIES_CASTFORM)
     {
@@ -4100,7 +4091,7 @@ static void HandleTurnActionSelectionState(void)
             }
             break;
         case STATE_WAIT_ACTION_CHOSEN: // Try to perform an action.
-            if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF0000000) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 0xC))))
+            if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF << 28) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 12))))
             {
                 RecordedBattle_SetBattlerAction(gActiveBattler, gBattleBufferB[gActiveBattler][1]);
                 gChosenActionByBattler[gActiveBattler] = gBattleBufferB[gActiveBattler][1];
@@ -4279,7 +4270,7 @@ static void HandleTurnActionSelectionState(void)
             }
             break;
         case STATE_WAIT_ACTION_CASE_CHOSEN:
-            if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF0000000) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 0xC))))
+            if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF << 28) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 12))))
             {
                 switch (gChosenActionByBattler[gActiveBattler])
                 {
@@ -4388,7 +4379,7 @@ static void HandleTurnActionSelectionState(void)
             break;
         case STATE_WAIT_ACTION_CONFIRMED_STANDBY:
             if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) 
-                                                | (0xF0000000) 
+                                                | (0xF << 28)
                                                 | (gBitTable[gActiveBattler] << 4) 
                                                 | (gBitTable[gActiveBattler] << 8) 
                                                 | (gBitTable[gActiveBattler] << 12))))
@@ -4413,7 +4404,7 @@ static void HandleTurnActionSelectionState(void)
             }
             break;
         case STATE_WAIT_ACTION_CONFIRMED:
-            if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF0000000) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 0xC))))
+            if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF << 28) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 12))))
             {
                 gBattleCommunication[ACTIONS_CONFIRMED_COUNT]++;
             }
@@ -4427,7 +4418,7 @@ static void HandleTurnActionSelectionState(void)
             {
                 gBattlerAttacker = gActiveBattler;
                 gBattlescriptCurrInstr = gSelectionBattleScripts[gActiveBattler];
-                if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF0000000) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 0xC))))
+                if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF << 28) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 12))))
                 {
                     gBattleScriptingCommandsTable[gBattlescriptCurrInstr[0]]();
                 }
@@ -4435,7 +4426,7 @@ static void HandleTurnActionSelectionState(void)
             }
             break;
         case STATE_WAIT_SET_BEFORE_ACTION:
-            if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF0000000) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 0xC))))
+            if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF << 28) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 12))))
             {
                 gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
             }
@@ -4459,7 +4450,7 @@ static void HandleTurnActionSelectionState(void)
             {
                 gBattlerAttacker = gActiveBattler;
                 gBattlescriptCurrInstr = gSelectionBattleScripts[gActiveBattler];
-                if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF0000000) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 0xC))))
+                if (!(gBattleControllerExecFlags & ((gBitTable[gActiveBattler]) | (0xF << 28) | (gBitTable[gActiveBattler] << 4) | (gBitTable[gActiveBattler] << 8) | (gBitTable[gActiveBattler] << 12))))
                 {
                     gBattleScriptingCommandsTable[gBattlescriptCurrInstr[0]]();
                 }
@@ -5122,7 +5113,7 @@ static void TryEvolvePokemon(void)
                 levelUpBits &= ~(gBitTable[i]);
                 gLeveledUpInBattle = levelUpBits;
 
-                species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, levelUpBits);
+                species = GetEvolutionTargetSpecies(&gPlayerParty[i], EVO_MODE_NORMAL, levelUpBits, SPECIES_NONE);
                 if (species != SPECIES_NONE)
                 {
                     FreeAllWindowBuffers();

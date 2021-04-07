@@ -4049,11 +4049,11 @@ static void LoadCursorMonSprite(void)
     u16 tileStart;
     u8 palSlot;
     u8 spriteId;
-    struct SpriteSheet sheet = {sPSSData->field_22C4, 0x800, TAG_TILE_2};
+    struct SpriteSheet sheet = {sPSSData->field_22C4, MON_PIC_SIZE, TAG_TILE_2};
     struct SpritePalette palette = {sPSSData->field_2244, TAG_PAL_DAC6};
     struct SpriteTemplate template = sSpriteTemplate_CursorMon;
 
-    for (i = 0; i < 0x800; i++)
+    for (i = 0; i < MON_PIC_SIZE; i++)
         sPSSData->field_22C4[i] = 0;
     for (i = 0; i < 0x10; i++)
         sPSSData->field_2244[i] = 0;
@@ -4095,7 +4095,7 @@ static void LoadCursorMonGfx(u16 species, u32 pid)
     {
         LoadSpecialPokePic(&gMonFrontPicTable[species], sPSSData->field_22C4, species, pid, TRUE);
         LZ77UnCompWram(sPSSData->cursorMonPalette, sPSSData->field_2244);
-        CpuCopy32(sPSSData->field_22C4, sPSSData->field_223C, 0x800);
+        CpuCopy32(sPSSData->field_22C4, sPSSData->field_223C, MON_PIC_SIZE);
         LoadPalette(sPSSData->field_2244, sPSSData->field_223A, 0x20);
         sPSSData->cursorMonSprite->invisible = FALSE;
     }
@@ -5145,7 +5145,7 @@ static void sub_80CC100(struct Sprite *sprite)
     sprite->pos1.y = sPSSData->field_CB4->pos1.y + sPSSData->field_CB4->pos2.y + 4;
 }
 
-static u16 sub_80CC124(u16 species)
+static u16 sub_80CC124(u16 species, u32 personality)
 {
     u16 i, var;
 
@@ -5169,7 +5169,7 @@ static u16 sub_80CC124(u16 species)
     sPSSData->field_B58[i] = species;
     sPSSData->field_B08[i]++;
     var = 16 * i;
-    CpuCopy32(GetMonIconTiles(species, TRUE), (void*)(OBJ_VRAM0) + var * 32, 0x200);
+    CpuCopy32(GetMonIconTiles(species, personality), (void*)(OBJ_VRAM0) + var * 32, 0x200);
 
     return var;
 }
@@ -5197,7 +5197,7 @@ static struct Sprite *CreateMonIconSprite(u16 species, u32 personality, s16 x, s
 
     species = GetIconSpecies(species, personality);
     tempalte.paletteTag = 0xDAC0 + gMonIconPaletteIndices[species];
-    tileNum = sub_80CC124(species);
+    tileNum = sub_80CC124(species, personality);
     if (tileNum == 0xFFFF)
         return NULL;
 
@@ -8335,7 +8335,7 @@ static void sub_80D07B0(u8 arg0, u8 arg1)
 
     if (species != SPECIES_NONE)
     {
-        const u8 *iconGfx = GetMonIconPtr(species, personality, 1);
+        const u8 *iconGfx = GetMonIconPtr(species, personality);
         u8 index = GetValidMonIconPalIndex(species) + 8;
 
         BlitBitmapRectToWindow4BitTo8Bit(sPSSData->field_2200,

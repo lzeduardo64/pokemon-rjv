@@ -529,7 +529,7 @@ static const union AnimCmd * const sAnims_Select_Pokeball[] =
     sAnim_Select_Pokeball_Moving,
 };
 
-static const union AffineAnimCmd gUnknown_0861050C[] =
+static const union AffineAnimCmd sAffineAnim_Select_MonPicBg_Opening[] =
 {
     AFFINEANIMCMD_FRAME(5, 5, 0, 0),
     AFFINEANIMCMD_FRAME(0, 0, 0, 1),
@@ -545,7 +545,7 @@ static const union AffineAnimCmd gUnknown_0861050C[] =
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd gUnknown_0861056C[] =
+static const union AffineAnimCmd sAffineAnim_Select_MonPicBg_Closing[] =
 {
     AFFINEANIMCMD_FRAME(128, 5, 0, 0),
     AFFINEANIMCMD_FRAME(0, 0, 0, 1),
@@ -559,7 +559,7 @@ static const union AffineAnimCmd gUnknown_0861056C[] =
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd gUnknown_086105BC[] =
+static const union AffineAnimCmd sAffineAnim_Select_MonPicBg_Open[] =
 {
     AFFINEANIMCMD_FRAME(256, 256, 0, 0),
     AFFINEANIMCMD_END,
@@ -567,9 +567,9 @@ static const union AffineAnimCmd gUnknown_086105BC[] =
 
 static const union AffineAnimCmd * const sAffineAnims_Select_MonPicBgAnim[] =
 {
-    gUnknown_0861050C,
-    gUnknown_0861056C,
-    gUnknown_086105BC,
+    sAffineAnim_Select_MonPicBg_Opening,
+    sAffineAnim_Select_MonPicBg_Closing,
+    sAffineAnim_Select_MonPicBg_Open,
 };
 
 static const struct SpriteTemplate sSpriteTemplate_Select_Pokeball =
@@ -780,7 +780,7 @@ static const union AnimCmd * const sAnims_Swap_Pokeball[] =
     sAnim_Swap_Pokeball_Moving,
 };
 
-static const union AffineAnimCmd gUnknown_08610768[] =
+static const union AffineAnimCmd sAffineAnim_Swap_MonPicBg_Opening[] =
 {
     AFFINEANIMCMD_FRAME(5, 5, 0, 0),
     AFFINEANIMCMD_FRAME(0, 0, 0, 1),
@@ -796,7 +796,7 @@ static const union AffineAnimCmd gUnknown_08610768[] =
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd gUnknown_086107C8[] =
+static const union AffineAnimCmd sAffineAnim_Swap_MonPicBg_Closing[] =
 {
     AFFINEANIMCMD_FRAME(128, 5, 0, 0),
     AFFINEANIMCMD_FRAME(0, 0, 0, 1),
@@ -810,7 +810,7 @@ static const union AffineAnimCmd gUnknown_086107C8[] =
     AFFINEANIMCMD_END,
 };
 
-static const union AffineAnimCmd gUnknown_08610818[] =
+static const union AffineAnimCmd sAffineAnim_Swap_MonPicBg_Open[] =
 {
     AFFINEANIMCMD_FRAME(256, 256, 0, 0),
     AFFINEANIMCMD_END,
@@ -818,9 +818,9 @@ static const union AffineAnimCmd gUnknown_08610818[] =
 
 static const union AffineAnimCmd * const sAffineAnims_Swap_MonPicBgAnim[] =
 {
-    gUnknown_08610768,
-    gUnknown_086107C8,
-    gUnknown_08610818,
+    sAffineAnim_Swap_MonPicBg_Opening,
+    sAffineAnim_Swap_MonPicBg_Closing,
+    sAffineAnim_Swap_MonPicBg_Open,
 };
 
 static const struct SpriteTemplate sSpriteTemplate_Swap_Pokeball =
@@ -2008,7 +2008,7 @@ static void Select_CreateMonSprite(void)
     u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
     u32 otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
 
-    sFactorySelectScreen->monPics[1].monSpriteId = CreateMonPicSprite_HandleDeoxys(species, otId, personality, TRUE, 88, 32, 15, 0xFFFF);
+    sFactorySelectScreen->monPics[1].monSpriteId = CreateMonPicSprite(species, otId, personality, TRUE, 88, 32, 15, 0xFFFF);
     gSprites[sFactorySelectScreen->monPics[1].monSpriteId].centerToCornerVecX = 0;
     gSprites[sFactorySelectScreen->monPics[1].monSpriteId].centerToCornerVecY = 0;
 
@@ -2034,7 +2034,7 @@ static void Select_ReshowMonSprite(void)
     personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
     otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
 
-    sFactorySelectScreen->monPics[1].monSpriteId = CreateMonPicSprite_HandleDeoxys(species, otId, personality, TRUE, 88, 32, 15, 0xFFFF);
+    sFactorySelectScreen->monPics[1].monSpriteId = CreateMonPicSprite(species, otId, personality, TRUE, 88, 32, 15, 0xFFFF);
     gSprites[sFactorySelectScreen->monPics[1].monSpriteId].centerToCornerVecX = 0;
     gSprites[sFactorySelectScreen->monPics[1].monSpriteId].centerToCornerVecY = 0;
 
@@ -2056,7 +2056,7 @@ static void Select_CreateChosenMonsSprites(void)
                 u32 personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
                 u32 otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
 
-                sFactorySelectScreen->monPics[i].monSpriteId = CreateMonPicSprite_HandleDeoxys(species, otId, personality, TRUE, (i * 72) + 16, 32, i + 13, 0xFFFF);
+                sFactorySelectScreen->monPics[i].monSpriteId = CreateMonPicSprite(species, otId, personality, TRUE, (i * 72) + 16, 32, i + 13, 0xFFFF);
                 gSprites[sFactorySelectScreen->monPics[i].monSpriteId].centerToCornerVecX = 0;
                 gSprites[sFactorySelectScreen->monPics[i].monSpriteId].centerToCornerVecY = 0;
                 break;
@@ -4072,9 +4072,9 @@ static void Swap_ShowSummaryMonSprite(void)
     otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
 
 #ifdef BUGFIX
-    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite_HandleDeoxys(species, otId, personality, TRUE, 88, 32, 15, 0xFFFF);
+    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite(species, otId, personality, TRUE, 88, 32, 15, 0xFFFF);
 #else
-    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite_HandleDeoxys(species, personality, otId, TRUE, 88, 32, 15, 0xFFFF);
+    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite(species, personality, otId, TRUE, 88, 32, 15, 0xFFFF);
 #endif
     gSprites[sFactorySwapScreen->monPic.monSpriteId].centerToCornerVecX = 0;
     gSprites[sFactorySwapScreen->monPic.monSpriteId].centerToCornerVecY = 0;
@@ -4291,7 +4291,7 @@ static void Swap_CreateMonSprite(void)
     personality = GetMonData(mon, MON_DATA_PERSONALITY, NULL);
     otId = GetMonData(mon, MON_DATA_OT_ID, NULL);
 
-    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite_HandleDeoxys(species, otId, personality, TRUE, 88, 32, 15, 0xFFFF);
+    sFactorySwapScreen->monPic.monSpriteId = CreateMonPicSprite(species, otId, personality, TRUE, 88, 32, 15, 0xFFFF);
     gSprites[sFactorySwapScreen->monPic.monSpriteId].centerToCornerVecX = 0;
     gSprites[sFactorySwapScreen->monPic.monSpriteId].centerToCornerVecY = 0;
 

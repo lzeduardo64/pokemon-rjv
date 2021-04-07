@@ -87,7 +87,7 @@ void CopyTrainerId(u8 *dst, u8 *src)
 
 static void InitPlayerTrainerId(void)
 {
-    u32 trainerId = (Random() << 0x10) | GetGeneratedTrainerIdLower();
+    u32 trainerId = (Random() << 16) | GetGeneratedTrainerIdLower();
     SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
 }
 
@@ -105,8 +105,8 @@ static void SetDefaultOptions(void)
 static void ClearPokedexFlags(void)
 {
     gUnusedPokedexU8 = 0;
-    memset(&gSaveBlock2Ptr->pokedex.owned, 0, sizeof(gSaveBlock2Ptr->pokedex.owned));
-    memset(&gSaveBlock2Ptr->pokedex.seen, 0, sizeof(gSaveBlock2Ptr->pokedex.seen));
+    memset(&gSaveBlock1Ptr->dexCaught, 0, sizeof(gSaveBlock1Ptr->dexCaught));
+    memset(&gSaveBlock1Ptr->dexSeen, 0, sizeof(gSaveBlock1Ptr->dexSeen));
 }
 
 void ClearAllContestWinnerPics(void)
@@ -208,7 +208,6 @@ void NewGameInitData(void)
     ResetContestLinkResults();
     gSaveBlock2Ptr->expShare = 0;
     memset(&gSaveBlock2Ptr->itemFlags, 0, sizeof(gSaveBlock2Ptr->itemFlags));
-    gSaveBlock1Ptr->coolNumber = Random() % 0xFF;
     RtcInitLocalTimeOffset(0, 0);
     FlagSet(FLAG_SET_WALL_CLOCK);
 }

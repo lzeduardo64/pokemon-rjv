@@ -2341,7 +2341,7 @@ static void RenderPlayerParty()
         species = GetMonData(gPlayerParty + i, MON_DATA_SPECIES);
         pid = GetMonData(gPlayerParty + i, MON_DATA_PERSONALITY);
 
-        id = CreateMonIcon(species, SpriteCallbackDummy, 32 * i + 40, 64, 4, pid, 1);
+        id = CreateMonIcon(species, SpriteCallbackDummy, 32 * i + 40, 64, 4, pid);
         iconsIDs[i] = id;
         gSprites[id].oam.priority = 4;
     }
