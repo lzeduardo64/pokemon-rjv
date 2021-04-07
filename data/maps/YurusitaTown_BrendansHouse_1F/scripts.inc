@@ -450,3 +450,40 @@ PlayersHouse_1F_Text_WhatColorDidTheySay: @ 81F8351
 PlayersHouse_1F_Text_StillUnknownPokemon: @ 81F83A1
 	.string "MOM: Well, isn't that something!\n"
 	.string "There are still unknown POKéMON.$"
+
+YurusitaTown_BrendansHouse_1F_Script_Bag::
+	goto_if_set FLAG_SYS_POKEMON_GET, YurusitaTown_BrendansHouse_1F_Script_Sus
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox YurusitaTown_BrendansHouse_1F_Text_BagMoscando, MSGBOX_SIGN
+	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_SYS_POKEDEX_GET
+	special SetUnlockedPokedexFlags
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	setflag FLAG_SYS_NATIONAL_DEX
+	special EnableNationalPokedex
+	special ChooseStarter
+	waitstate
+	bufferleadmonspeciesname 0
+	msgbox YurusitaTown_BrendansHouse_1F_Text_BagSteal, MSGBOX_SIGN
+	end
+	
+YurusitaTown_BrendansHouse_1F_Text_BagMoscando::
+	.string "Uma mochila com uma pokédex e\n"
+	.string "alguns pokémons...\l"
+	.string "Não tem ninguém em casa...\l"
+	.string "Parece que hoje é meu dia de sorte!$"
+
+YurusitaTown_BrendansHouse_1F_Text_BagSteal::
+	.string "Belo {STR_VAR_1}!$"
+
+YurusitaTown_BrendansHouse_1F_Script_Sus::
+	msgbox YurusitaTown_BrendansHouse_1F_Text_Sus, MSGBOX_SIGN
+	end
+
+YurusitaTown_BrendansHouse_1F_Text_Sus::
+	.string "Se eu pegar mais de um vai ser muito\n"
+	.string "suspeito... Melhor não ser tão ganancioso.$"
+	
+
+

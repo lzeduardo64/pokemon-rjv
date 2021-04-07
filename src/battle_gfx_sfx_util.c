@@ -575,9 +575,9 @@ void BattleLoadOpponentMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
 
     otId = GetMonData(mon, MON_DATA_OT_ID);
     position = GetBattlerPosition(battlerId);
-    HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[species],
-                                              gMonSpritesGfxPtr->sprites.ptr[position],
-                                              species, currentPersonality);
+    HandleLoadSpecialPokePic(&gMonFrontPicTable[species],
+                             gMonSpritesGfxPtr->sprites.ptr[position],
+                             species, currentPersonality);
 
     paletteOffset = 0x100 + battlerId * 16;
 
@@ -629,18 +629,9 @@ void BattleLoadPlayerMonSpriteGfx(struct Pokemon *mon, u8 battlerId)
     otId = GetMonData(mon, MON_DATA_OT_ID);
     position = GetBattlerPosition(battlerId);
 
-    if (ShouldIgnoreDeoxysForm(1, battlerId) == TRUE || gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies != SPECIES_NONE)
-    {
-        HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonBackPicTable[species],
-                                                  gMonSpritesGfxPtr->sprites.ptr[position],
-                                                  species, currentPersonality);
-    }
-    else
-    {
-        HandleLoadSpecialPokePic(&gMonBackPicTable[species],
-                                gMonSpritesGfxPtr->sprites.ptr[position],
-                                species, currentPersonality);
-    }
+    HandleLoadSpecialPokePic(&gMonBackPicTable[species],
+                             gMonSpritesGfxPtr->sprites.ptr[position],
+                             species, currentPersonality);
 
     paletteOffset = 0x100 + battlerId * 16;
 
@@ -680,18 +671,18 @@ void BattleGfxSfxDummy2(u16 species)
 void DecompressTrainerFrontPic(u16 frontPicId, u8 battlerId)
 {
     u8 position = GetBattlerPosition(battlerId);
-    DecompressPicFromTable_2(&gTrainerFrontPicTable[frontPicId],
-                             gMonSpritesGfxPtr->sprites.ptr[position],
-                             SPECIES_NONE);
+    DecompressPicFromTable(&gTrainerFrontPicTable[frontPicId],
+                           gMonSpritesGfxPtr->sprites.ptr[position],
+                           SPECIES_NONE);
     LoadCompressedSpritePalette(&gTrainerFrontPicPaletteTable[frontPicId]);
 }
 
 void DecompressTrainerBackPic(u16 backPicId, u8 battlerId)
 {
     u8 position = GetBattlerPosition(battlerId);
-    DecompressPicFromTable_2(&gTrainerBackPicTable[backPicId],
-                             gMonSpritesGfxPtr->sprites.ptr[position],
-                             SPECIES_NONE);
+    DecompressPicFromTable(&gTrainerBackPicTable[backPicId],
+                           gMonSpritesGfxPtr->sprites.ptr[position],
+                           SPECIES_NONE);
     LoadCompressedPalette(gTrainerBackPicPaletteTable[backPicId].data,
                           0x100 + 16 * battlerId, 0x20);
 }
@@ -929,10 +920,10 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 notTransform
             personalityValue = gContestResources->moveAnim->personality;
             otId = gContestResources->moveAnim->otId;
 
-            HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonBackPicTable[targetSpecies],
-                                                      gMonSpritesGfxPtr->sprites.ptr[0],
-                                                      targetSpecies,
-                                                      gContestResources->moveAnim->targetPersonality);
+            HandleLoadSpecialPokePic(&gMonBackPicTable[targetSpecies],
+                                     gMonSpritesGfxPtr->sprites.ptr[0],
+                                     targetSpecies,
+                                     gContestResources->moveAnim->targetPersonality);
         }
         else
         {
@@ -948,26 +939,26 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 notTransform
                 personalityValue = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_PERSONALITY);
                 otId = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_OT_ID);
 
-                HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonBackPicTable[targetSpecies],
-                                                          gMonSpritesGfxPtr->sprites.ptr[position],
-                                                          targetSpecies,
-                                                          gTransformedPersonalities[battlerAtk]);
+                HandleLoadSpecialPokePic(&gMonBackPicTable[targetSpecies],
+                                         gMonSpritesGfxPtr->sprites.ptr[position],
+                                         targetSpecies,
+                                         gTransformedPersonalities[battlerAtk]);
             }
             else
             {
                 personalityValue = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_PERSONALITY);
                 otId = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerAtk]], MON_DATA_OT_ID);
 
-                HandleLoadSpecialPokePic_DontHandleDeoxys(&gMonFrontPicTable[targetSpecies],
-                                                          gMonSpritesGfxPtr->sprites.ptr[position],
-                                                          targetSpecies,
-                                                          gTransformedPersonalities[battlerAtk]);
+                HandleLoadSpecialPokePic(&gMonFrontPicTable[targetSpecies],
+                                         gMonSpritesGfxPtr->sprites.ptr[position],
+                                         targetSpecies,
+                                         gTransformedPersonalities[battlerAtk]);
             }
         }
 
         src = gMonSpritesGfxPtr->sprites.ptr[position];
         dst = (void *)(OBJ_VRAM0 + gSprites[gBattlerSpriteIds[battlerAtk]].oam.tileNum * 32);
-        DmaCopy32(3, src, dst, 0x800);
+        DmaCopy32(3, src, dst, MON_PIC_SIZE);
         paletteOffset = 0x100 + battlerAtk * 16;
         lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(targetSpecies, otId, personalityValue);
         LZDecompressWram(lzPaletteData, gDecompressionBuffer);
@@ -1014,7 +1005,7 @@ void BattleLoadSubstituteOrMonSpriteGfx(u8 battlerId, bool8 loadMonSprite)
 
         for (i = 1; i < 4; i++)
         {
-            Dma3CopyLarge32_(gMonSpritesGfxPtr->sprites.ptr[position], &gMonSpritesGfxPtr->sprites.byte[position][0x800 * i], 0x800);
+            Dma3CopyLarge32_(gMonSpritesGfxPtr->sprites.ptr[position], &gMonSpritesGfxPtr->sprites.byte[position][MON_PIC_SIZE * i], MON_PIC_SIZE);
         }
 
         palOffset = (battlerId * 16) + 0x100;
@@ -1259,8 +1250,8 @@ void AllocateMonSpritesGfx(void)
 
         for (j = 0; j < 4; j++)
         {
-            gMonSpritesGfxPtr->field_74[i][j].data = gMonSpritesGfxPtr->sprites.ptr[i] + (j * 0x800);
-            gMonSpritesGfxPtr->field_74[i][j].size = 0x800;
+            gMonSpritesGfxPtr->field_74[i][j].data = gMonSpritesGfxPtr->sprites.ptr[i] + (j * MON_PIC_SIZE);
+            gMonSpritesGfxPtr->field_74[i][j].size = MON_PIC_SIZE;
         }
 
         gMonSpritesGfxPtr->templates[i].images = gMonSpritesGfxPtr->field_74[i];

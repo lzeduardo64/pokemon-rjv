@@ -2292,7 +2292,7 @@ void AnimTask_TransformMon(u8 taskId)
 
         src = gMonSpritesGfxPtr->sprites.ptr[position] + (gBattleMonForms[gBattleAnimAttacker] << 11);
         dest = animBg.bgTiles;
-        CpuCopy32(src, dest, 0x800);
+        CpuCopy32(src, dest, MON_PIC_SIZE);
         LoadBgTiles(1, animBg.bgTiles, 0x800, animBg.tilesOffset);
         if (IsContest())
         {
@@ -3248,7 +3248,7 @@ void AnimTask_RolePlaySilhouette(u8 taskId)
 
     coord1 = GetBattlerSpriteCoord(gBattleAnimAttacker, 0);
     coord2 = GetBattlerSpriteCoord(gBattleAnimAttacker, 1);
-    spriteId = CreateAdditionalMonSpriteForMoveAnim(species, isBackPic, 0, coord1 + xOffset, coord2, 5, personality, otId, gBattleAnimTarget, TRUE);
+    spriteId = CreateAdditionalMonSpriteForMoveAnim(species, isBackPic, 0, coord1 + xOffset, coord2, 5, personality, otId, gBattleAnimTarget);
 
     gSprites[spriteId].oam.priority = priority;
     gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
@@ -5066,7 +5066,7 @@ void AnimTask_SnatchOpposingMonMove(u8 taskId)
             }
         }
 
-        spriteId2 = CreateAdditionalMonSpriteForMoveAnim(species, isBackPic, 0, x, GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y), subpriority, personality, otId, gBattleAnimAttacker, FALSE);
+        spriteId2 = CreateAdditionalMonSpriteForMoveAnim(species, isBackPic, 0, x, GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y), subpriority, personality, otId, gBattleAnimAttacker);
         if (gBattleSpritesDataPtr->battlerData[gBattleAnimAttacker].transformSpecies != SPECIES_NONE)
             BlendPalette((gSprites[spriteId2].oam.paletteNum * 16) | 0x100, 16, 6, RGB_WHITE);
 

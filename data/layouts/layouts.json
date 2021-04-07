@@ -94,8 +94,8 @@
     {
       "id": "LAYOUT_YURUSITA_TOWN",
       "name": "YurusitaTown_Layout",
-      "width": 35,
-      "height": 30,
+      "width": 34,
+      "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/YurusitaTown/border.bin",
