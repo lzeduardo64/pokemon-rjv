@@ -103,7 +103,7 @@ static const u16 sPoints_MoveEffect[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_SPECIAL_DEFENSE_UP] = 1, 
     [EFFECT_ACCURACY_UP] = 1,
     [EFFECT_EVASION_UP] = 1, 
-    [EFFECT_ALWAYS_HIT] = 2, 
+//    [EFFECT_ALWAYS_HIT] = 2, 
     [EFFECT_ATTACK_DOWN] = 1, 
     [EFFECT_DEFENSE_DOWN] = 1, 
     [EFFECT_SPEED_DOWN] = 1, 
@@ -125,16 +125,16 @@ static const u16 sPoints_MoveEffect[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_TRI_ATTACK] = 1, 
     [EFFECT_REST] = 7, 
     [EFFECT_OHKO] = 7, 
-    [EFFECT_RAZOR_WIND] = 1, 
+//    [EFFECT_RAZOR_WIND] = 1, 
     [EFFECT_SUPER_FANG] = 5, 
     [EFFECT_DRAGON_RAGE] = 2, 
     [EFFECT_TRAP] = 4, 
-    [EFFECT_HIGH_CRITICAL] = 1, 
+//    [EFFECT_HIGH_CRITICAL] = 1, 
     [EFFECT_DOUBLE_HIT] = 1, 
     [EFFECT_RECOIL_IF_MISS] = 1, 
     [EFFECT_MIST] = 5, 
     [EFFECT_FOCUS_ENERGY] = 1,
-    [EFFECT_RECOIL] = 2, 
+    [EFFECT_RECOIL_25] = 2, 
     [EFFECT_CONFUSE] = 4, 
     [EFFECT_ATTACK_UP_2] = 1, 
     [EFFECT_DEFENSE_UP_2] = 1, 
@@ -161,7 +161,7 @@ static const u16 sPoints_MoveEffect[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_SPECIAL_DEFENSE_DOWN_HIT] = 1, 
     [EFFECT_ACCURACY_DOWN_HIT] = 1, 
     [EFFECT_EVASION_DOWN_HIT] = 1, 
-    [EFFECT_SKY_ATTACK] = 4, 
+//    [EFFECT_SKY_ATTACK] = 4, 
     [EFFECT_CONFUSE_HIT] = 1, 
     [EFFECT_TWINEEDLE] = 1, 
     [EFFECT_VITAL_THROW] = 1, 
@@ -171,7 +171,7 @@ static const u16 sPoints_MoveEffect[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_MIMIC] = 4, 
     [EFFECT_METRONOME] = 1, 
     [EFFECT_LEECH_SEED] = 4, 
-    [EFFECT_SPLASH] = 1, 
+    [EFFECT_DO_NOTHING] = 1, 
     [EFFECT_DISABLE] = 7, 
     [EFFECT_LEVEL_DAMAGE] = 2, 
     [EFFECT_PSYWAVE] = 1, 
@@ -182,21 +182,21 @@ static const u16 sPoints_MoveEffect[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_CONVERSION_2] = 4, 
     [EFFECT_LOCK_ON] = 3, 
     [EFFECT_SKETCH] = 3,
-    [EFFECT_UNUSED_60] = 3, 
+//    [EFFECT_UNUSED_60] = 3, 
     [EFFECT_SLEEP_TALK] = 3, 
     [EFFECT_DESTINY_BOND] = 3, 
     [EFFECT_FLAIL] = 2, 
     [EFFECT_SPITE] = 4, 
     [EFFECT_FALSE_SWIPE] = 1, 
     [EFFECT_HEAL_BELL] = 5, 
-    [EFFECT_QUICK_ATTACK] = 1, 
+//    [EFFECT_QUICK_ATTACK] = 1, 
     [EFFECT_TRIPLE_KICK] = 1, 
     [EFFECT_THIEF] = 4, 
     [EFFECT_MEAN_LOOK] = 5, 
     [EFFECT_NIGHTMARE] = 3, 
     [EFFECT_MINIMIZE] = 1, 
     [EFFECT_CURSE] = 2, 
-    [EFFECT_UNUSED_6E] = 1, 
+//    [EFFECT_UNUSED_6E] = 1, 
     [EFFECT_PROTECT] = 5,
     [EFFECT_SPIKES] = 4, 
     [EFFECT_FORESIGHT] = 3, 
@@ -217,7 +217,7 @@ static const u16 sPoints_MoveEffect[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_PURSUIT] = 2, 
     [EFFECT_RAPID_SPIN] = 2, 
     [EFFECT_SONICBOOM] = 1, 
-    [EFFECT_UNUSED_83] = 1, 
+//    [EFFECT_UNUSED_83] = 1, 
     [EFFECT_MORNING_SUN] = 4, 
     [EFFECT_SYNTHESIS] = 4, 
     [EFFECT_MOONLIGHT] = 4, 
@@ -227,7 +227,7 @@ static const u16 sPoints_MoveEffect[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_DEFENSE_UP_HIT] = 1, 
     [EFFECT_ATTACK_UP_HIT] = 1, 
     [EFFECT_ALL_STATS_UP_HIT] = 1, 
-    [EFFECT_UNUSED_8D] = 1, 
+//    [EFFECT_UNUSED_8D] = 1, 
     [EFFECT_BELLY_DRUM] = 7, 
     [EFFECT_PSYCH_UP] = 7,
     [EFFECT_MIRROR_COAT] = 6, 
@@ -249,7 +249,7 @@ static const u16 sPoints_MoveEffect[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_STOCKPILE] = 3, 
     [EFFECT_SPIT_UP] = 3, 
     [EFFECT_SWALLOW] = 3, 
-    [EFFECT_UNUSED_A3] = 1, 
+//    [EFFECT_UNUSED_A3] = 1, 
     [EFFECT_HAIL] = 4, 
     [EFFECT_TORMENT] = 7, 
     [EFFECT_FLATTER] = 7, 
@@ -284,9 +284,9 @@ static const u16 sPoints_MoveEffect[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_SNATCH] = 1, 
     [EFFECT_LOW_KICK] = 1, 
     [EFFECT_SECRET_POWER] = 1, 
-    [EFFECT_DOUBLE_EDGE] = 2, 
+    [EFFECT_RECOIL_33] = 2, 
     [EFFECT_TEETER_DANCE] = 6, 
-    [EFFECT_BLAZE_KICK] = 1, 
+//    [EFFECT_BLAZE_KICK] = 1, 
     [EFFECT_MUD_SPORT] = 4, 
     [EFFECT_POISON_FANG] = 1, 
     [EFFECT_WEATHER_BALL] = 1, 
@@ -295,7 +295,7 @@ static const u16 sPoints_MoveEffect[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_COSMIC_POWER] = 1, 
     [EFFECT_SKY_UPPERCUT] = 1,
     [EFFECT_BULK_UP] = 1, 
-    [EFFECT_POISON_TAIL] = 1, 
+//    [EFFECT_POISON_TAIL] = 1, 
     [EFFECT_WATER_SPORT] = 4, 
     [EFFECT_CALM_MIND] = 1, 
     [EFFECT_DRAGON_DANCE] = 1, 
@@ -1458,20 +1458,9 @@ static void TrySetBattleSeminarShow(void)
         powerOverride = 0;
         if (ShouldCalculateDamage(gCurrentMove, &dmgByMove[i], &powerOverride))
         {
-            u8 moveResultFlags;
-            u16 sideStatus = gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)];
-            gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[gBattlerAttacker], &gBattleMons[gBattlerTarget], gCurrentMove,
-                                                    sideStatus, powerOverride,
-                                                    0, gBattlerAttacker, gBattlerTarget);
-
-            if (gStatuses3[gBattlerAttacker] & STATUS3_CHARGED_UP && gBattleMoves[gCurrentMove].type == TYPE_ELECTRIC)
-                gBattleMoveDamage *= 2;
-            if (gProtectStructs[gBattlerAttacker].helpingHand)
-                gBattleMoveDamage = gBattleMoveDamage * 15 / 10;
-
-            moveResultFlags = TypeCalc(gCurrentMove, gBattlerAttacker, gBattlerTarget);
+            gBattleMoveDamage = CalculateMoveDamage(gCurrentMove, gBattlerAttacker, gBattlerTarget, gBattleMoves[gCurrentMove].type, powerOverride, FALSE, FALSE, FALSE);
             dmgByMove[i] = gBattleMoveDamage;
-            if (dmgByMove[i] == 0 && !(moveResultFlags & MOVE_RESULT_NO_EFFECT))
+            if (dmgByMove[i] == 0 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
                 dmgByMove[i] = 1;
         }
     }
