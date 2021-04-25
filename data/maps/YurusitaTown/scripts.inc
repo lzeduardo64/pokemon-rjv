@@ -96,3 +96,10 @@ YurusitaTown_Script_Fullptr::
 YurusitaTown_Text_Fullptr::
 	.string "Opa! Sua equipe esta cheia...$"
 	
+YurusitaTown_Script_Sign::
+	msgbox YurusitaTown_Text_Sign, MSGBOX_SIGN
+	end
+
+YurusitaTown_Text_Sign::
+	.string "Vila de Yurusita,\n"
+	.string "onde tudo começa.$"
