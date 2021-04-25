@@ -61,7 +61,9 @@
 
 #define ITEM5_FRIENDSHIP_ALL    (ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID | ITEM5_FRIENDSHIP_HIGH)
 
-// fields 6 and onwards are item-specific arguments
+#define ITEM10_IS_VITAMIN       0x1
+
+// fields 6 and onwards (except field 10) are item-specific arguments
 #define ITEM_EFFECT_ARG_START 6
 
 // Special HP recovery amounts for ITEM4_HEAL_HP
@@ -75,6 +77,7 @@
 // Amount of EV modified by ITEM4_EV_HP, ITEM4_EV_ATK, ITEM5_EV_DEF, ITEM5_EV_SPEED, ITEM5_EV_SPDEF and ITEM5_EV_SPATK
 #define ITEM6_ADD_EV       10
 #define ITEM6_SUBTRACT_EV -10
+#define ITEM6_ADD_ONE_EV    1
 
 // Used for GetItemEffectType.
 #define ITEM_EFFECT_X_ITEM 0
