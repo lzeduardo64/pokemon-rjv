@@ -25,6 +25,15 @@ YurusitaTown_Text_MolequinNinja::
 	
 YurusitaTown_Script_Uepa::
 	lock
+	getpartysize
+	compare VAR_RESULT, 1
+	goto_if_le YurusitaTown_Script_MoveAway
+	release
+	end
+	
+YurusitaTown_Script_MoveAway::
+	applymovement OBJ_EVENT_ID_PLAYER, YurusitaTown_Move_FaceUp
+	waitmovement 0
 	msgbox YurusitaTown_Text_Away, MSGBOX_DEFAULT
 	applymovement OBJ_EVENT_ID_PLAYER, YurusitaTown_Move_Away
 	waitmovement 0
@@ -36,8 +45,11 @@ YurusitaTown_Text_Away::
 	.string "tu não pode sair ainda mlk\l"
 	.string "não sou eu que faço as regras.$"
 	
-YurusitaTown_Move_Away::
+YurusitaTown_Move_FaceUp::
 	face_up
+	step_end
+	
+YurusitaTown_Move_Away::
 	walk_left
 	step_end
 	

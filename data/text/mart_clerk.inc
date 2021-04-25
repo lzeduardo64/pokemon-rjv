@@ -1,10 +1,10 @@
 gText_HowMayIServeYou:: @ 8272A21
-	.string "Welcome!\p"
-	.string "How may I serve you?$"
+	.string "Bem vindo!\p"
+	.string "Como eu posso te servir?$"
 
 gText_PleaseComeAgain:: @ 8272A3F
-	.string "Please come again!$"
+	.string "Por favor venha de novo!$"
 
 gText_PlayerWhatCanIDoForYou:: @ 8272A52
-	.string "{PLAYER}{STRING 5}, welcome!\p"
-	.string "What can I do for you?$"
+	.string "{PLAYER}{STRING 5}, bem vindo!\p"
+	.string "O que eu posso fazer por você?$"
