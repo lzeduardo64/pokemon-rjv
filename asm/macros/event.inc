@@ -1650,7 +1650,21 @@
     .macro hideitemdesc
     .byte 0xe4
     .endm
+    
+    .macro createicons left:req, right:req
+    .byte 0xe5
+    .byte \left
+    .byte \right
+    .endm
 
+    .macro destroyicons
+    .byte 0xe6
+    .endm
+    
+    .macro updateicons state:req
+    .byte 0xe7
+    .byte \state
+    .endm
 
 @ Supplementary
 

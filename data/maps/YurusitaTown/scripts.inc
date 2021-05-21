@@ -2,13 +2,22 @@ YurusitaTown_MapScripts::
 	.byte 0
 
 YurusitaTown_Script_MeninaGasosa::
+		createicons ICON_PLAYER_FEMALE, ICON_PLAYER_MALE
+		updateicons 0 @ n funciona ainda
         msgbox YurusitaTown_Text_MeninaGasosa, MSGBOX_NPC
+        destroyicons
+        createicons ICON_PLAYER_MALE, ICON_PLAYER_FEMALE
+        updateicons 0 @ n funciona ainda
+        msgbox YurusitaTown_Text_MeninaGasosa, MSGBOX_NPC
+        destroyicons
         end
 
 YurusitaTown_Text_MeninaGasosa::
-	.string "MEU DEUS!!!\n"
-	.string "essa menina tá mt boca suja\l"
-	.string "vo falar com a mãe dela!$"
+	.string "Steven: O Luiz é meu Deus.\n"
+	.string "{PLAYER}: Concordo plenamente.$"
+	@.string "MEU DEUS!!!\n"
+	@.string "essa menina tá mt boca suja\l"
+	@.string "vo falar com a mãe dela!$"
 	
 YurusitaTown_Script_MolequinNinja::
 	gettime

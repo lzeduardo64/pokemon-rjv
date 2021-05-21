@@ -50,6 +50,7 @@
 #include "tv.h"
 #include "window.h"
 #include "constants/event_objects.h"
+#include "mugshots.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(void);
@@ -2345,3 +2346,29 @@ bool8 ScrCmd_hideitemdesc(struct ScriptContext *ctx)
     HideHeaderBox();
     return FALSE;
 }
+
+bool8 ScrCmd_createicons(struct ScriptContext *ctx)
+{
+	u8 l = ScriptReadByte(ctx);
+	u8 r = ScriptReadByte(ctx);
+	
+	drawIcons(l, r);
+	return FALSE;
+}
+
+bool8 ScrCmd_destroyicons(struct ScriptContext *ctx)
+{	
+	destroyIcons();
+	return FALSE;
+}
+
+bool8 ScrCmd_updateicons(struct ScriptContext *ctx)
+{
+	u8 value = ScriptReadByte(ctx);
+	u8 l = 0;
+	u8 r = 0;
+	
+	updateIcons(l, r);
+	return FALSE;
+}
+
