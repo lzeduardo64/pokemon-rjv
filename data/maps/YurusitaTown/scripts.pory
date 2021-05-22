@@ -1,0 +1,127 @@
+mapscripts YurusitaTown_MapScripts {}
+
+script YurusitaTown_Script_MeninaGasosa
+{
+	createicons(ICON_PLAYER_FEMALE, ICON_PLAYER_MALE)
+	updateicons(0) // n funciona ainda
+	msgbox(YurusitaTown_Text_MeninaGasosa, MSGBOX_NPC)
+    destroyicons
+    createicons(ICON_PLAYER_MALE, ICON_PLAYER_FEMALE)
+    updateicons(0) // n funciona ainda
+    msgbox(YurusitaTown_Text_MeninaGasosa, MSGBOX_NPC)
+    destroyicons
+    end
+}
+
+text YurusitaTown_Text_MeninaGasosa
+{
+	format(
+	"Steven: O Luiz é meu Deus.\n"
+	"{PLAYER}: Concordo plenamente."
+	)
+}
+
+	//"MEU DEUS!!!\n"
+	//"essa menina tá mt boca suja\l"
+	//"vo falar com a mãe dela!$"
+	
+script YurusitaTown_Script_MolequinNinja
+{
+	gettime
+	buffernumberstring(0, VAR_0x8000)
+	msgbox(YurusitaTown_Text_MolequinNinja, MSGBOX_NPC)
+	end
+}
+
+text YurusitaTown_Text_MolequinNinja
+{
+	"qual foi, {PLAYER}?\p"
+	"hã? vai se fuder mlk.\n"
+	"ainda te quebro na porrada.\p"
+	"no meu relogio são {STR_VAR_1} horas, yey!"
+}
+
+script YurusitaTown_Script_Uepa
+{
+	getpartysize
+	if (var(VAR_RESULT) < 1)
+	{
+		applymovement(OBJ_EVENT_ID_PLAYER, YurusitaTown_Move_FaceUp)
+		waitmovement(0)
+		msgbox(YurusitaTown_Text_Away, MSGBOX_DEFAULT)
+		closemessage
+		applymovement(OBJ_EVENT_ID_PLAYER, YurusitaTown_Move_Away)
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+text YurusitaTown_Text_Away
+{
+	"Qual foi {PLAYER}?\n"
+	"tu não pode sair ainda mlk\l"
+	"não sou eu que faço as regras."
+}
+
+movement YurusitaTown_Move_FaceUp
+{
+	face_up
+}
+
+movement YurusitaTown_Move_Away
+{
+	walk_left
+}
+
+script YurusitaTown_Script_CornoConformado
+{
+	msgbox(format("minha mulher anda bastante com o vizinho, eles são muito amigos, ela até já dormiu na casa dele.\n"
+	"Acho que vou dar um presente a ele por ser um amigo tão bom!"), MSGBOX_NPC)
+	end
+}
+
+script YurusitaTown_Script_Guarda
+{
+	getpartysize
+	if (var(VAR_RESULT) < 1)
+	{
+		msgbox(format("E aí {PLAYER}? Quer sair da cidade? Nem Pokémon tu tem limao."), MSGBOX_NPC)
+	} else {
+		msgbox(format("Onde tu conseguiu isso?"), MSGBOX_NPC)
+	}
+	applymovement(1, YurusitaTown_Move_Guarda)
+	waitmovement(0)
+	end
+}
+
+movement YurusitaTown_Move_Guarda
+{
+	face_down
+}
+
+script YurusitaTown_Script_Givepkm
+{
+	setflag(FLAG_SYS_POKEMON_GET)
+	setflag(FLAG_SYS_POKEDEX_GET)
+	special(SetUnlockedPokedexFlags)
+	setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
+	setflag(FLAG_SYS_NATIONAL_DEX)
+	special(EnableNationalPokedex)
+	msgbox(format("Aqui mlk, do jeito que tu pediu. Só escolhe um logo. "
+				  "Se não.... você sabe o que... Eu não quero ser preso agora."), MSGBOX_NPC)
+	special(ChooseStarter)
+	waitstate
+	end
+}
+
+raw `
+YurusitaTown_Script_Sign::
+	msgbox YurusitaTown_Text_Sign, MSGBOX_SIGN
+	end
+
+YurusitaTown_Text_Sign::
+	.string "Vila de Yurusita,\n"
+	.string "onde tudo começa.$"
+`
+
