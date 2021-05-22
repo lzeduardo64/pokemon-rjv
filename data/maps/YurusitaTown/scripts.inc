@@ -40,6 +40,7 @@ YurusitaTown_Script_Uepa_2:
 
 
 YurusitaTown_Move_FaceUp:
+	emote_exclamation_mark
 	face_up
 	step_end
 
@@ -85,12 +86,9 @@ YurusitaTown_Script_Givepkm::
 
 
 YurusitaTown_Script_Sign::
-	msgbox YurusitaTown_Text_Sign, MSGBOX_SIGN
+	msgbox YurusitaTown_Script_Sign_Text_0, MSGBOX_SIGN
 	end
 
-YurusitaTown_Text_Sign::
-	.string "Vila de Yurusita,\n"
-	.string "onde tudo começa.$"
 
 YurusitaTown_Script_CornoConformado_Text_0:
 	.string "minha mulher anda bastante com o\n"
@@ -110,6 +108,10 @@ YurusitaTown_Script_Givepkm_Text_0:
 	.string "Aqui mlk, do jeito que tu pediu. Só\n"
 	.string "escolhe um logo. Se não.... você sabe o\l"
 	.string "que... Eu não quero ser preso agora.$"
+
+YurusitaTown_Script_Sign_Text_0:
+	.string "Vila de Yurusita,\n"
+	.string "onde tudo começa.$"
 
 YurusitaTown_Text_MeninaGasosa::
 	.string "Steven: O Luiz é meu Deus.\n"
