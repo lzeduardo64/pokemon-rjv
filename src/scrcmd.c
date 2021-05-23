@@ -2366,7 +2366,7 @@ bool8 ScrCmd_updateicons(struct ScriptContext *ctx)
 {
 	u8 value = ScriptReadByte(ctx);
 	
-	updateIcons(0);
+	updateIcons(value % 4);
 	return FALSE;
 }
 

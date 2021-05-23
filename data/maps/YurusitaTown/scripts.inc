@@ -4,7 +4,7 @@ YurusitaTown_MapScripts::
 
 YurusitaTown_Script_MeninaGasosa::
 	createicons ICON_PLAYER_FEMALE, ICON_PLAYER_MALE
-	updateicons RL_DARK
+	updateicons R_ACTIVE
 	msgbox YurusitaTown_Text_MeninaGasosa, MSGBOX_NPC
 	destroyicons
 	end

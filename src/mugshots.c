@@ -7,6 +7,8 @@
 #include "constants/mugshots.h"
 #include "constants/rgb.h"
 #include "util.h"
+#include "printf.h"
+#include "mgba.h"
 
 #define MUGSHOT_SPRITE(id, data) [id] = { data, MUG_SIZE, mugshotTag + id }
 #define MUGSHOT_PAL(id, data) [id] = { data, mugshotTag + id }
@@ -21,9 +23,19 @@ static const struct OamData MugshotOam =
 	.matrixNum = 0, // scale
 };
 
-static EWRAM_DATA struct SpriteTemplate template = {};
+static const struct SpriteTemplate baseTemplate = {
+	.images = NULL,
+   	.affineAnims = NULL,
+    .callback = SpriteCallbackDummy,
+    .anims = gDummySpriteAnimTable,
+	.oam = &MugshotOam
+};
+
+static EWRAM_DATA struct SpriteTemplate templates[2] = {};
+
 static EWRAM_DATA u8 id[2];
 static EWRAM_DATA u8 loadedID[2];
+static EWRAM_DATA u8 state;
 
 static void restoreSprite(u8 id, u8 loaded);
 
@@ -32,35 +44,40 @@ static void restoreSprite(u8 id, u8 loaded);
 
 void drawIcons(u8 left, u8 right)
 {
-	u8 leftToLoad, rightToLoad;
-	template.images = NULL;
-    template.affineAnims = NULL;
-    template.callback = SpriteCallbackDummy;
-    template.anims = gDummySpriteAnimTable;
-    template.oam = &MugshotOam;
+	u8 i;
+	
+	for (i = 0; i < 2; i++)
+	{
+		templates[i] = baseTemplate;
+	}
 
-    leftToLoad = left == ICON_PLAYER ? gSaveBlock2Ptr->playerGender : left;
-    rightToLoad = right == ICON_PLAYER ? gSaveBlock2Ptr->playerGender : right;
+    left = left == ICON_PLAYER ? gSaveBlock2Ptr->playerGender : left;
+    right = right == ICON_PLAYER ? gSaveBlock2Ptr->playerGender : right;
 
-	template.tileTag = gMugshotsTable[left].tag;
-	template.paletteTag = gMugshotsPalTable[left].tag;
+	templates[0].tileTag = gMugshotsTable[left].tag;
+	templates[0].paletteTag = gMugshotsPalTable[left].tag;
 	LoadCompressedSpriteSheet(&gMugshotsTable[left]);
 	LoadSpritePalette(&gMugshotsPalTable[left]);
-	lID = CreateSprite(&template, 32, 83, 0);
+	lID = CreateSprite(&templates[0], 32, 83, 0);
 
-	template.tileTag = gMugshotsTable[right].tag;
-	template.paletteTag = gMugshotsPalTable[right].tag;
+	templates[1].tileTag = gMugshotsTable[right].tag;
+	templates[1].paletteTag = gMugshotsPalTable[right].tag;
 	LoadCompressedSpriteSheet(&gMugshotsTable[right]);
 	LoadSpritePalette(&gMugshotsPalTable[right]);
-	rID = CreateSprite(&template, 204, 83, 0);
+	rID = CreateSprite(&templates[1], 204, 83, 0);
 	gSprites[rID].oam.matrixNum = 8;
 
-	loadedID[0] = leftToLoad;
-	loadedID[1] = rightToLoad;
+	loadedID[0] = left;
+	loadedID[1] = right;
+	
+	mgba_printf(MGBA_LOG_DEBUG, "LID: %d", lID);
+	mgba_printf(MGBA_LOG_DEBUG, "RID: %d", rID);
+	mgba_printf(MGBA_LOG_DEBUG, "LTAG - create: %d", gSprites[lID].template->paletteTag);
+	mgba_printf(MGBA_LOG_DEBUG, "RTAG - create: %d", gSprites[rID].template->paletteTag);
 }
 
 void updateIcons(u8 state)
-{	
+{
 	switch (state)
 	{
 		case R_ACTIVE:
@@ -92,7 +109,7 @@ static void restoreSprite(u8 id, u8 loaded)
 	u16 palette[16];
 	u16 index;
 	index = IndexOfSpritePaletteTag(gSprites[id].template->paletteTag) * 16;
-	
+
 	memcpy(palette, gMugshotsPalTable[loaded].data, 32);
 	LoadPalette(palette, index, 32);
 }
