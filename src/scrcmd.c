@@ -2365,10 +2365,8 @@ bool8 ScrCmd_destroyicons(struct ScriptContext *ctx)
 bool8 ScrCmd_updateicons(struct ScriptContext *ctx)
 {
 	u8 value = ScriptReadByte(ctx);
-	u8 l = 0;
-	u8 r = 0;
 	
-	updateIcons(l, r);
+	updateIcons(0);
 	return FALSE;
 }
 

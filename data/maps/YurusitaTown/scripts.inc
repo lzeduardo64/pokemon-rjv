@@ -4,11 +4,7 @@ YurusitaTown_MapScripts::
 
 YurusitaTown_Script_MeninaGasosa::
 	createicons ICON_PLAYER_FEMALE, ICON_PLAYER_MALE
-	updateicons 0
-	msgbox YurusitaTown_Text_MeninaGasosa, MSGBOX_NPC
-	destroyicons
-	createicons ICON_PLAYER_MALE, ICON_PLAYER_FEMALE
-	updateicons 0
+	updateicons RL_DARK
 	msgbox YurusitaTown_Text_MeninaGasosa, MSGBOX_NPC
 	destroyicons
 	end
@@ -17,7 +13,9 @@ YurusitaTown_Script_MeninaGasosa::
 YurusitaTown_Script_MolequinNinja::
 	gettime
 	buffernumberstring 0, VAR_0x8000
+	createicons ICON_PLAYER_FEMALE, ICON_PLAYER_MALE
 	msgbox YurusitaTown_Text_MolequinNinja, MSGBOX_NPC
+	destroyicons
 	end
 
 

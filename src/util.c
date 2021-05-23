@@ -277,3 +277,18 @@ void BlendPalette(u16 palOffset, u16 numEntries, u8 coeff, u16 blendColor)
                                       b + (((data2->b - b) * coeff) >> 4));
     }
 }
+
+void BlendPalette_Grayscale(u16 palOffset, u16 numEntries)
+{
+    u16 i, gray;
+    for (i = 0; i < numEntries; i++)
+    {
+        u16 index = i + palOffset;
+        struct PlttData *data1 = (struct PlttData *)&gPlttBufferUnfaded[index];
+        s8 r = data1->r;
+        s8 g = data1->g;
+        s8 b = data1->b;
+        gray = (r * Q_8_8(0.3) + g * Q_8_8(0.59) + b * Q_8_8(0.1133)) >> 8;
+        gPlttBufferFaded[index] = RGB2(gray, gray, gray);
+    }
+}
