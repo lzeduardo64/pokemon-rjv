@@ -50,6 +50,7 @@
 #include "tv.h"
 #include "window.h"
 #include "constants/event_objects.h"
+#include "mugshots.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(void);
@@ -63,6 +64,7 @@ static EWRAM_DATA u16 sMovingNpcMapId = 0;
 static EWRAM_DATA u16 sFieldEffectScriptId = 0;
 
 static u8 gBrailleWindowId;
+static bool8 gIsScriptedWildDouble;
 
 extern const SpecialFunc gSpecials[];
 extern const u8 *gStdScripts[];
@@ -1874,15 +1876,37 @@ bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
     u16 species = ScriptReadHalfword(ctx);
     u8 level = ScriptReadByte(ctx);
     u16 item = ScriptReadHalfword(ctx);
+    u16 species2 = ScriptReadHalfword(ctx);
+    u8 level2 = ScriptReadByte(ctx);
+    u16 item2 = ScriptReadHalfword(ctx);
 
-    CreateScriptedWildMon(species, level, item);
+    if(species2 == SPECIES_NONE)
+    {
+        CreateScriptedWildMon(species, level, item);
+        gIsScriptedWildDouble = FALSE;
+    }
+    else
+    { 
+        CreateScriptedDoubleWildMon(species, level, item, species2, level2, item2);
+        gIsScriptedWildDouble = TRUE;
+    }
+
     return FALSE;
 }
 
 bool8 ScrCmd_dowildbattle(struct ScriptContext *ctx)
 {
-    BattleSetup_StartScriptedWildBattle();
-    ScriptContext1_Stop();
+    if(gIsScriptedWildDouble == FALSE)
+    {
+        BattleSetup_StartScriptedWildBattle();
+        ScriptContext1_Stop();
+    }
+    else
+    {
+        BattleSetup_StartScriptedDoubleWildBattle();
+        ScriptContext1_Stop();
+    }
+
     return TRUE;
 }
 
@@ -2322,3 +2346,29 @@ bool8 ScrCmd_hideitemdesc(struct ScriptContext *ctx)
     HideHeaderBox();
     return FALSE;
 }
+
+bool8 ScrCmd_createicons(struct ScriptContext *ctx)
+{
+	u8 l = ScriptReadByte(ctx);
+	u8 r = ScriptReadByte(ctx);
+	
+	drawIcons(l, r);
+	return FALSE;
+}
+
+bool8 ScrCmd_destroyicons(struct ScriptContext *ctx)
+{	
+	destroyIcons();
+	return FALSE;
+}
+
+bool8 ScrCmd_updateicons(struct ScriptContext *ctx)
+{
+	u8 value = ScriptReadByte(ctx);
+	u8 l = 0;
+	u8 r = 0;
+	
+	updateIcons(l, r);
+	return FALSE;
+}
+

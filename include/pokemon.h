@@ -11,35 +11,36 @@
 
 struct PokemonSubstruct0
 {
-    u16 species;
-    u16 heldItem;
-    u32 experience;
-    u8 ppBonuses;
-    u8 friendship;
-    u16 filler;
-};
+    /*0x00*/ u16 species;
+    /*0x02*/ u16 heldItem;
+    /*0x04*/ u32 experience;
+    /*0x08*/ u8 ppBonuses;
+    /*0x09*/ u8 friendship;
+    /*0x0A*/ u16 pokeball:5; //31 balls
+             u16 filler:11;
+}; /* size = 12 */
 
 struct PokemonSubstruct1
 {
-    u16 moves[MAX_MON_MOVES];
-    u8 pp[MAX_MON_MOVES];
-};
+    /*0x00*/ u16 moves[MAX_MON_MOVES];
+    /*0x08*/ u8 pp[MAX_MON_MOVES];
+}; /* size = 12 */
 
 struct PokemonSubstruct2
 {
-    u8 hpEV;
-    u8 attackEV;
-    u8 defenseEV;
-    u8 speedEV;
-    u8 spAttackEV;
-    u8 spDefenseEV;
-    u8 cool;
-    u8 beauty;
-    u8 cute;
-    u8 smart;
-    u8 tough;
-    u8 sheen;
-};
+    /*0x00*/ u8 hpEV;
+    /*0x01*/ u8 attackEV;
+    /*0x02*/ u8 defenseEV;
+    /*0x03*/ u8 speedEV;
+    /*0x04*/ u8 spAttackEV;
+    /*0x05*/ u8 spDefenseEV;
+    /*0x06*/ u8 cool;
+    /*0x07*/ u8 beauty;
+    /*0x08*/ u8 cute;
+    /*0x09*/ u8 smart;
+    /*0x0A*/ u8 tough;
+    /*0x0B*/ u8 sheen;
+}; /* size = 12 */
 
 struct PokemonSubstruct3
 {
@@ -48,7 +49,7 @@ struct PokemonSubstruct3
 
  /* 0x02 */ u16 metLevel:7;
  /* 0x02 */ u16 metGame:4;
- /* 0x03 */ u16 pokeball:4;
+ /* 0x03 */ u16 unused3_3:4;
  /* 0x03 */ u16 otGender:1;
 
  /* 0x04 */ u32 hpIV:5;
@@ -79,7 +80,7 @@ struct PokemonSubstruct3
  /* 0x0B */ u32 unusedRibbons:2; // discarded in Gen 4
  /* 0x0B */ u32 abilityNum:2;
  /* 0x0B */ u32 eventLegal:1; // controls Mew & Deoxys obedience; if set, Pokémon is a fateful encounter in Gen 4+; set for in-game event island legendaries, some distributed events, and Pokémon from XD: Gale of Darkness.
-};
+}; /* size = 12 */
 
 union PokemonSubstruct
 {
@@ -158,24 +159,24 @@ struct BattlePokemon
     /*0x17*/ u32 spDefenseIV:5;
     /*0x17*/ u32 abilityNum:2;
     /*0x18*/ s8 statStages[NUM_BATTLE_STATS];
-    /*0x20*/ u8 ability;
-    /*0x21*/ u8 type1;
-    /*0x22*/ u8 type2;
-    /*0x23*/ u8 unknown;
-    /*0x24*/ u8 pp[MAX_MON_MOVES];
-    /*0x28*/ u16 hp;
-    /*0x2A*/ u8 level;
-    /*0x2B*/ u8 friendship;
-    /*0x2C*/ u16 maxHP;
-    /*0x2E*/ u16 item;
-    /*0x30*/ u8 nickname[POKEMON_NAME_LENGTH + 1];
-    /*0x3B*/ u8 ppBonuses;
-    /*0x3C*/ u8 otName[PLAYER_NAME_LENGTH + 1];
-    /*0x44*/ u32 experience;
-    /*0x48*/ u32 personality;
-    /*0x4C*/ u32 status1;
-    /*0x50*/ u32 status2;
-    /*0x54*/ u32 otId;
+    /*0x20*/ u16 ability;
+    /*0x22*/ u8 type1;
+    /*0x23*/ u8 type2;
+    /*0x24*/ u8 type3;
+    /*0x25*/ u8 pp[MAX_MON_MOVES];
+    /*0x29*/ u16 hp;
+    /*0x2B*/ u8 level;
+    /*0x2C*/ u8 friendship;
+    /*0x2D*/ u16 maxHP;
+    /*0x2F*/ u16 item;
+    /*0x31*/ u8 nickname[POKEMON_NAME_LENGTH + 1];
+    /*0x3C*/ u8 ppBonuses;
+    /*0x3D*/ u8 otName[PLAYER_NAME_LENGTH + 1];
+    /*0x45*/ u32 experience;
+    /*0x49*/ u32 personality;
+    /*0x4D*/ u32 status1;
+    /*0x51*/ u32 status2;
+    /*0x55*/ u32 otId;
 };
 
 struct BaseStats
@@ -204,17 +205,20 @@ struct BaseStats
  /* 0x13 */ u8 growthRate;
  /* 0x14 */ u8 eggGroup1;
  /* 0x15 */ u8 eggGroup2;
- /* 0x16 */ u8 abilities[2];
- /* 0x18 */ u8 abilityHidden;
- /* 0x19 */ u8 safariZoneFleeRate;
- /* 0x1A */ u8 bodyColor : 7;
+ /* 0x16 */ u16 abilities[2];
+#ifdef POKEMON_EXPANSION
+            u16 abilityHidden;
+#endif
+            u8 safariZoneFleeRate;
+            u8 bodyColor : 7;
             u8 noFlip : 1;
  /* 0x1B */ u8 flags;
 };
 
+#include "constants/battle_config.h"
 struct BattleMove
 {
-    u8 effect;
+    u16 effect;
     u8 power;
     u8 type;
     u8 accuracy;
@@ -222,7 +226,9 @@ struct BattleMove
     u8 secondaryEffectChance;
     u8 target;
     s8 priority;
-    u8 flags;
+    u32 flags;
+    u8 split;
+    u8 argument;
 };
 
 struct SpindaSpot
@@ -310,7 +316,6 @@ void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon);
 u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove);
 void DeleteFirstMoveAndGiveMoveToMon(struct Pokemon *mon, u16 move);
 void DeleteFirstMoveAndGiveMoveToBoxMon(struct BoxPokemon *boxMon, u16 move);
-s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *defender, u32 move, u16 sideStatus, u16 powerOverride, u8 typeOverride, u8 bankAtk, u8 bankDef);
 
 u8 CountAliveMonsInBattle(u8 caseId);
 #define BATTLE_ALIVE_EXCEPT_ACTIVE  0
@@ -342,8 +347,8 @@ u8 CalculatePlayerPartyCount(void);
 u8 CalculateEnemyPartyCount(void);
 u8 GetMonsStateToDoubles(void);
 u8 GetMonsStateToDoubles_2(void);
-u8 GetAbilityBySpecies(u16 species, u8 abilityNum);
-u8 GetMonAbility(struct Pokemon *mon);
+u16 GetAbilityBySpecies(u16 species, u8 abilityNum);
+u16 GetMonAbility(struct Pokemon *mon);
 void CreateSecretBaseEnemyParty(struct SecretBase *secretBaseRecord);
 u8 GetSecretBaseTrainerPicIndex(void);
 u8 GetSecretBaseTrainerClass(void);
@@ -353,6 +358,7 @@ void GetSpeciesName(u8 *name, u16 species);
 u8 CalculatePPWithBonus(u16 move, u8 ppBonuses, u8 moveIndex);
 void RemoveMonPPBonus(struct Pokemon *mon, u8 moveIndex);
 void RemoveBattleMonPPBonus(struct BattlePokemon *mon, u8 moveIndex);
+void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst);
 void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex);
 bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex);
 bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 moveIndex, u8 e);

@@ -36,12 +36,20 @@ const u8 gItemEffect_MaxPotion[7] = {
 
 const u8 gItemEffect_HyperPotion[7] = {
     [4] = ITEM4_HEAL_HP,
+#if I_LEGACY_HEALING_ITEMS >= GEN_7
+    [6] = 120, // Amount of HP to recover
+#else
     [6] = 200, // Amount of HP to recover
+#endif
 };
 
 const u8 gItemEffect_SuperPotion[7] = {
     [4] = ITEM4_HEAL_HP,
+#if I_LEGACY_HEALING_ITEMS >= GEN_7
+    [6] = 60, // Amount of HP to recover
+#else
     [6] = 50, // Amount of HP to recover
+#endif
 };
 
 const u8 gItemEffect_FullHeal[6] = {
@@ -60,17 +68,29 @@ const u8 gItemEffect_MaxRevive[7] = {
 
 const u8 gItemEffect_FreshWater[7] = {
     [4] = ITEM4_HEAL_HP,
+#if I_LEGACY_HEALING_ITEMS >= GEN_7
+    [6] = 30, // Amount of HP to recover
+#else
     [6] = 50, // Amount of HP to recover
+#endif
 };
 
 const u8 gItemEffect_SodaPop[7] = {
     [4] = ITEM4_HEAL_HP,
+#if I_LEGACY_HEALING_ITEMS >= GEN_7
+    [6] = 50, // Amount of HP to recover
+#else
     [6] = 60, // Amount of HP to recover
+#endif
 };
 
 const u8 gItemEffect_Lemonade[7] = {
     [4] = ITEM4_HEAL_HP,
+#if I_LEGACY_HEALING_ITEMS >= GEN_7
+    [6] = 70, // Amount of HP to recover
+#else
     [6] = 80, // Amount of HP to recover
+#endif
 };
 
 const u8 gItemEffect_MoomooMilk[7] = {
@@ -81,16 +101,24 @@ const u8 gItemEffect_MoomooMilk[7] = {
 const u8 gItemEffect_EnergyPowder[10] = {
     [4] = ITEM4_HEAL_HP,
     [5] = ITEM5_FRIENDSHIP_ALL,
-    [6] = 50,  // Amount of HP to recover
-    [7] = -5,  // Friendship change, low
-    [8] = -5,  // Friendship change, mid
+#if I_LEGACY_HEALING_ITEMS >= GEN_7
+    [6] = 60, // Amount of HP to recover
+#else
+    [6] = 50, // Amount of HP to recover
+#endif
+    [7] = -5, // Friendship change, low
+    [8] = -5, // Friendship change, mid
     [9] = -10, // Friendship change, high
 };
 
 const u8 gItemEffect_EnergyRoot[10] = {
     [4] = ITEM4_HEAL_HP,
     [5] = ITEM5_FRIENDSHIP_ALL,
+#if I_LEGACY_HEALING_ITEMS >= GEN_7
+    [6] = 120, // Amount of HP to recover
+#else
     [6] = 200, // Amount of HP to recover
+#endif
     [7] = -10, // Friendship change, low
     [8] = -10, // Friendship change, mid
     [9] = -15, // Friendship change, high
@@ -154,6 +182,19 @@ const u8 gItemEffect_BerryJuice[7] = {
     [6] = 20, // Amount of HP to recover
 };
 
+const u8 gItemEffect_SweetHeart[7] = {
+    [4] = ITEM4_HEAL_HP,
+    [6] = 20,
+};
+
+const u8 gItemEffect_BigMalasada[6] = {
+    [3] = ITEM3_STATUS_ALL,
+};
+
+const u8 gItemEffect_OldGateau[6] = {
+    [3] = ITEM3_STATUS_ALL,
+};
+
 const u8 gItemEffect_SacredAsh[7] = {
     [0] = ITEM0_SACRED_ASH,
     [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
@@ -165,36 +206,97 @@ const u8 gItemEffect_SacredAsh[7] = {
     [(i) + 1] = 3, /* Friendship change, mid */  \
     [(i) + 2] = 2  /* Friendship change, high */
 
-const u8 gItemEffect_HPUp[10] = {
+const u8 gItemEffect_HPUp[11] = {
     [4] = ITEM4_EV_HP,
     [5] = ITEM5_FRIENDSHIP_ALL,
     [6] = ITEM6_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(7),
+    [10] = ITEM10_IS_VITAMIN,
 };
 
-const u8 gItemEffect_Protein[10] = {
+const u8 gItemEffect_Protein[11] = {
     [4] = ITEM4_EV_ATK,
     [5] = ITEM5_FRIENDSHIP_ALL,
     [6] = ITEM6_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(7),
+    [10] = ITEM10_IS_VITAMIN,
 };
 
-const u8 gItemEffect_Iron[10] = {
+const u8 gItemEffect_Iron[11] = {
     [5] = ITEM5_EV_DEF | ITEM5_FRIENDSHIP_ALL,
     [6] = ITEM6_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(7),
+    [10] = ITEM10_IS_VITAMIN,
 };
 
-const u8 gItemEffect_Carbos[10] = {
+const u8 gItemEffect_Carbos[11] = {
     [5] = ITEM5_EV_SPEED | ITEM5_FRIENDSHIP_ALL,
     [6] = ITEM6_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(7),
+    [10] = ITEM10_IS_VITAMIN,
 };
 
-const u8 gItemEffect_Calcium[10] = {
+const u8 gItemEffect_Calcium[11] = {
     [5] = ITEM5_EV_SPATK | ITEM5_FRIENDSHIP_ALL,
     [6] = ITEM6_ADD_EV,
     VITAMIN_FRIENDSHIP_CHANGE(7),
+    [10] = ITEM10_IS_VITAMIN,
+};
+
+const u8 gItemEffect_Zinc[11] = {
+    [5] = ITEM5_EV_SPDEF | ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_ADD_EV,
+    VITAMIN_FRIENDSHIP_CHANGE(7),
+    [10] = ITEM10_IS_VITAMIN,
+};
+
+#define WING_FRIENDSHIP_CHANGE(i)                \
+    [(i) + 0] = 3, /* Friendship change, low */  \
+    [(i) + 1] = 2, /* Friendship change, mid */  \
+    [(i) + 2] = 1  /* Friendship change, high */
+
+const u8 gItemEffect_HpWing[11] = {
+    [4] = ITEM4_EV_HP,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_ADD_ONE_EV,
+    WING_FRIENDSHIP_CHANGE(7),
+    [10] = 0,
+};
+
+const u8 gItemEffect_AtkWing[11] = {
+    [4] = ITEM4_EV_ATK,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_ADD_ONE_EV,
+    WING_FRIENDSHIP_CHANGE(7),
+    [10] = 0,
+};
+
+const u8 gItemEffect_DefWing[11] = {
+    [5] = ITEM5_EV_DEF | ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_ADD_ONE_EV,
+    WING_FRIENDSHIP_CHANGE(7),
+    [10] = 0,
+};
+
+const u8 gItemEffect_SpeedWing[11] = {
+    [5] = ITEM5_EV_SPEED | ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_ADD_ONE_EV,
+    WING_FRIENDSHIP_CHANGE(7),
+    [10] = 0,
+};
+
+const u8 gItemEffect_SpatkWing[11] = {
+    [5] = ITEM5_EV_SPATK | ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_ADD_ONE_EV,
+    WING_FRIENDSHIP_CHANGE(7),
+    [10] = 0,
+};
+
+const u8 gItemEffect_SpdefWing[11] = {
+    [5] = ITEM5_EV_SPDEF | ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_ADD_ONE_EV,
+    WING_FRIENDSHIP_CHANGE(7),
+    [10] = 0,
 };
 
 const u8 gItemEffect_RareCandy[10] = {
@@ -209,12 +311,6 @@ const u8 gItemEffect_PPUp[9] = {
     [4] = ITEM4_PP_UP,
     [5] = ITEM5_FRIENDSHIP_ALL,
     VITAMIN_FRIENDSHIP_CHANGE(6),
-};
-
-const u8 gItemEffect_Zinc[10] = {
-    [5] = ITEM5_EV_SPDEF | ITEM5_FRIENDSHIP_ALL,
-    [6] = ITEM6_ADD_EV,
-    VITAMIN_FRIENDSHIP_CHANGE(7),
 };
 
 const u8 gItemEffect_PPMax[9] = {
@@ -243,56 +339,64 @@ const u8 gItemEffect_DireHit[8] = {
 };
 
 const u8 gItemEffect_XAttack[8] = {
+#ifdef BATTLE_ENGINE
+    [1] = ITEM1_X_ATTACK,
+#else
     [0] = 1, // ITEM0_X_ATTACK
+#endif
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
-const u8 gItemEffect_XDefend[8] = {
-    [1] = 1 << 4, /// ITEM1_X_DEFEND
+const u8 gItemEffect_XDefense[8] = {
+#ifdef BATTLE_ENGINE
+    [1] = ITEM1_X_DEFENSE,
+#else
+    [1] = 1 << 4, // ITEM1_X_DEFEND
+#endif
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
 const u8 gItemEffect_XSpeed[8] = {
+#ifdef BATTLE_ENGINE
+    [1] = ITEM1_X_SPEED,
+#else
     [1] = 1, // ITEM1_X_SPEED
+#endif
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
 const u8 gItemEffect_XAccuracy[8] = {
+#ifdef BATTLE_ENGINE
+    [1] = ITEM1_X_ACCURACY,
+#else
     [2] = 1 << 4, // ITEM2_X_ACCURACY
+#endif
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
-const u8 gItemEffect_XSpecial[8] = {
+const u8 gItemEffect_XSpecialAttack[8] = {
+#ifdef BATTLE_ENGINE
+    [1] = ITEM1_X_SPATK,
+#else
     [2] = 1, // ITEM2_X_SPATK
+#endif
     [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
     STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
-const u8 gItemEffect_SunStone[6] = {
-    [4] = ITEM4_EVO_STONE,
+const u8 gItemEffect_XSpecialDefense[8] = {
+#ifdef BATTLE_ENGINE
+    [1] = ITEM1_X_SPDEF,
+#endif
+    [5] = ITEM5_FRIENDSHIP_LOW | ITEM5_FRIENDSHIP_MID,
+    STAT_BOOST_FRIENDSHIP_CHANGE,
 };
 
-const u8 gItemEffect_MoonStone[6] = {
-    [4] = ITEM4_EVO_STONE,
-};
-
-const u8 gItemEffect_FireStone[6] = {
-    [4] = ITEM4_EVO_STONE,
-};
-
-const u8 gItemEffect_ThunderStone[6] = {
-    [4] = ITEM4_EVO_STONE,
-};
-
-const u8 gItemEffect_WaterStone[6] = {
-    [4] = ITEM4_EVO_STONE,
-};
-
-const u8 gItemEffect_LeafStone[6] = {
+const u8 gItemEffect_EvoStone[6] = {
     [4] = ITEM4_EVO_STONE,
 };
 
@@ -414,6 +518,9 @@ const u8 *const gItemEffectTable[] =
     [ITEM_YELLOW_FLUTE - ITEM_POTION]  = gItemEffect_YellowFlute,
     [ITEM_RED_FLUTE - ITEM_POTION]     = gItemEffect_RedFlute,
     [ITEM_BERRY_JUICE - ITEM_POTION]   = gItemEffect_BerryJuice,
+    [ITEM_SWEET_HEART - ITEM_POTION]   = gItemEffect_SweetHeart,
+    [ITEM_BIG_MALASADA - ITEM_POTION]  = gItemEffect_BigMalasada,
+    [ITEM_OLD_GATEAU - ITEM_POTION]    = gItemEffect_OldGateau,
     [ITEM_SACRED_ASH - ITEM_POTION]    = gItemEffect_SacredAsh,
     [ITEM_HP_UP - ITEM_POTION]         = gItemEffect_HPUp,
     [ITEM_PROTEIN - ITEM_POTION]       = gItemEffect_Protein,
@@ -423,20 +530,31 @@ const u8 *const gItemEffectTable[] =
     [ITEM_RARE_CANDY - ITEM_POTION]    = gItemEffect_RareCandy,
     [ITEM_PP_UP - ITEM_POTION]         = gItemEffect_PPUp,
     [ITEM_ZINC - ITEM_POTION]          = gItemEffect_Zinc,
+    [ITEM_HEALTH_WING - ITEM_POTION]   = gItemEffect_HpWing,
+    [ITEM_MUSCLE_WING - ITEM_POTION]   = gItemEffect_AtkWing,
+    [ITEM_RESIST_WING - ITEM_POTION]   = gItemEffect_DefWing,
+    [ITEM_GENIUS_WING - ITEM_POTION]   = gItemEffect_SpatkWing,
+    [ITEM_CLEVER_WING - ITEM_POTION]   = gItemEffect_SpdefWing,
+    [ITEM_SWIFT_WING - ITEM_POTION]    = gItemEffect_SpeedWing,
     [ITEM_PP_MAX - ITEM_POTION]        = gItemEffect_PPMax,
     [ITEM_GUARD_SPEC - ITEM_POTION]    = gItemEffect_GuardSpec,
     [ITEM_DIRE_HIT - ITEM_POTION]      = gItemEffect_DireHit,
     [ITEM_X_ATTACK - ITEM_POTION]      = gItemEffect_XAttack,
-    [ITEM_X_DEFEND - ITEM_POTION]      = gItemEffect_XDefend,
+    [ITEM_X_DEFENSE - ITEM_POTION]     = gItemEffect_XDefense,
     [ITEM_X_SPEED - ITEM_POTION]       = gItemEffect_XSpeed,
     [ITEM_X_ACCURACY - ITEM_POTION]    = gItemEffect_XAccuracy,
-    [ITEM_X_SPECIAL - ITEM_POTION]     = gItemEffect_XSpecial,
-    [ITEM_SUN_STONE - ITEM_POTION]     = gItemEffect_SunStone,
-    [ITEM_MOON_STONE - ITEM_POTION]    = gItemEffect_MoonStone,
-    [ITEM_FIRE_STONE - ITEM_POTION]    = gItemEffect_FireStone,
-    [ITEM_THUNDER_STONE - ITEM_POTION] = gItemEffect_ThunderStone,
-    [ITEM_WATER_STONE - ITEM_POTION]   = gItemEffect_WaterStone,
-    [ITEM_LEAF_STONE - ITEM_POTION]    = gItemEffect_LeafStone,
+    [ITEM_X_SP_ATK - ITEM_POTION]      = gItemEffect_XSpecialAttack,
+    [ITEM_X_SP_DEF - ITEM_POTION]      = gItemEffect_XSpecialDefense,
+    [ITEM_SUN_STONE - ITEM_POTION]     = gItemEffect_EvoStone,
+    [ITEM_MOON_STONE - ITEM_POTION]    = gItemEffect_EvoStone,
+    [ITEM_FIRE_STONE - ITEM_POTION]    = gItemEffect_EvoStone,
+    [ITEM_THUNDER_STONE - ITEM_POTION] = gItemEffect_EvoStone,
+    [ITEM_WATER_STONE - ITEM_POTION]   = gItemEffect_EvoStone,
+    [ITEM_LEAF_STONE - ITEM_POTION]    = gItemEffect_EvoStone,
+    [ITEM_DAWN_STONE - ITEM_POTION]    = gItemEffect_EvoStone,
+    [ITEM_DUSK_STONE - ITEM_POTION]    = gItemEffect_EvoStone,
+    [ITEM_SHINY_STONE - ITEM_POTION]   = gItemEffect_EvoStone,
+    [ITEM_ICE_STONE - ITEM_POTION]     = gItemEffect_EvoStone,
     [ITEM_CHERI_BERRY - ITEM_POTION]   = gItemEffect_CheriBerry,
     [ITEM_CHESTO_BERRY - ITEM_POTION]  = gItemEffect_ChestoBerry,
     [ITEM_PECHA_BERRY - ITEM_POTION]   = gItemEffect_PechaBerry,
