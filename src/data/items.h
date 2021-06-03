@@ -5591,6 +5591,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_FIRE,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_SPLASH_PLATE] =
@@ -5605,6 +5606,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_WATER,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_ZAP_PLATE] =
@@ -5619,6 +5621,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_ELECTRIC,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_MEADOW_PLATE] =
@@ -5633,6 +5636,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_GRASS,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_ICICLE_PLATE] =
@@ -5647,6 +5651,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_ICE,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_FIST_PLATE] =
@@ -5661,6 +5666,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_FIGHTING,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_TOXIC_PLATE] =
@@ -5675,6 +5681,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_POISON,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_EARTH_PLATE] =
@@ -5689,6 +5696,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_GROUND,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_SKY_PLATE] =
@@ -5703,6 +5711,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_FLYING,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_MIND_PLATE] =
@@ -5717,6 +5726,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_PSYCHIC,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_INSECT_PLATE] =
@@ -5731,6 +5741,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_BUG,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_STONE_PLATE] =
@@ -5745,6 +5756,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_ROCK,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_SPOOKY_PLATE] =
@@ -5759,6 +5771,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_GHOST,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_DRACO_PLATE] =
@@ -5773,6 +5786,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_DRAGON,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_DREAD_PLATE] =
@@ -5787,6 +5801,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_DARK,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_IRON_PLATE] =
@@ -5801,6 +5816,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_STEEL,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_EVIOLITE] =
@@ -6299,6 +6315,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_FAIRY,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_SAFETY_GOGGLES] =

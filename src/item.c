@@ -6,6 +6,7 @@
 #include "event_data.h"
 #include "malloc.h"
 #include "secret_base.h"
+#include "item_give.h"
 #include "item_menu.h"
 #include "strings.h"
 #include "load_save.h"
@@ -1149,4 +1150,12 @@ static void DestroyItemIconSprite(void)
         FreeSpriteOamMatrix(&gSprites[sItemIconSpriteId2]);
         DestroySprite(&gSprites[sItemIconSpriteId2]);
     }
+}
+
+ItemGiveFunc ItemId_GetGiveFunc(u16 itemId)
+{
+	if (gItems[itemId].gtFunc)
+		return gItems[itemId].gtFunc;
+		
+	else return NULL;
 }

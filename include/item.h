@@ -5,6 +5,7 @@
 #include "constants/item_config.h"
 
 typedef void (*ItemUseFunc)(u8);
+typedef void (*ItemGiveFunc)(struct Pokemon*, u8);
 
 struct Item
 {
@@ -22,6 +23,7 @@ struct Item
     u8 battleUsage;
     ItemUseFunc battleUseFunc;
     u8 secondaryId;
+    ItemGiveFunc gtFunc;
 };
 
 struct BagPocket
@@ -77,6 +79,7 @@ ItemUseFunc ItemId_GetBattleFunc(u16 itemId);
 u8 ItemId_GetSecondaryId(u16 itemId);
 void DrawHeaderBox(void);
 void HideHeaderBox(void);
+ItemGiveFunc ItemId_GetGiveFunc(u16 itemId);
 
 enum ItemObtainFlags
 {

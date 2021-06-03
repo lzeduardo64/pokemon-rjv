@@ -1732,6 +1732,8 @@ static void GiveItemToMon(struct Pokemon *mon, u16 item)
     itemBytes[0] = item;
     itemBytes[1] = item >> 8;
     SetMonData(mon, MON_DATA_HELD_ITEM, itemBytes);
+    if (ItemId_GetGiveFunc(item))
+    	ItemId_GetGiveFunc(item)(mon, 0);
 }
 
 static u8 TryTakeMonItem(struct Pokemon* mon)
@@ -1742,6 +1744,9 @@ static u8 TryTakeMonItem(struct Pokemon* mon)
         return 0;
     if (AddBagItem(item, 1) == FALSE)
         return 1;
+
+    if (ItemId_GetGiveFunc(item))
+    	ItemId_GetGiveFunc(item)(mon, 1);
 
     item = ITEM_NONE;
     SetMonData(mon, MON_DATA_HELD_ITEM, &item);
