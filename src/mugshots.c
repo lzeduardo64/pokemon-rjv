@@ -69,11 +69,6 @@ void drawIcons(u8 left, u8 right)
 
 	loadedID[0] = left;
 	loadedID[1] = right;
-	
-	mgba_printf(MGBA_LOG_DEBUG, "LID: %d", lID);
-	mgba_printf(MGBA_LOG_DEBUG, "RID: %d", rID);
-	mgba_printf(MGBA_LOG_DEBUG, "LTAG - create: %d", gSprites[lID].template->paletteTag);
-	mgba_printf(MGBA_LOG_DEBUG, "RTAG - create: %d", gSprites[rID].template->paletteTag);
 }
 
 void updateIcons(u8 state)

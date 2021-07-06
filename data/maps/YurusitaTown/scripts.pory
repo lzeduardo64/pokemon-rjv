@@ -11,10 +11,8 @@ script YurusitaTown_Script_MeninaGasosa
 
 text YurusitaTown_Text_MeninaGasosa
 {
-	format(
 	"Steven: O Luiz é meu Deus.\n"
 	"{PLAYER}: Concordo plenamente."
-	)
 }
 	//"MEU DEUS!!!\n"
 	//"essa menina tá mt boca suja\l"
