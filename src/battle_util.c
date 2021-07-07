@@ -3040,29 +3040,6 @@ void TryClearRageAndFuryCutter(void)
     }
 }
 
-bool32 IsThawingMove(u8 battlerId, u16 move)
-{
-    switch (move)
-    {
-    case MOVE_BURN_UP:
-        if (!IS_BATTLER_OF_TYPE(battlerId, TYPE_FIRE))
-            return FALSE;
-        //fallthrough
-    case MOVE_FLAME_WHEEL:
-    case MOVE_FLARE_BLITZ:
-    case MOVE_FUSION_FLARE:
-    case MOVE_PYRO_BALL:
-    case MOVE_SACRED_FIRE:
-    case MOVE_SCALD:
-    case MOVE_SCORCHING_SANDS:
-    case MOVE_SIZZLY_SLIDE:
-    case MOVE_STEAM_ERUPTION:
-        return TRUE;
-    default:
-        return FALSE;
-    }
-}
-
 enum
 {
     CANCELLER_FLAGS,
@@ -3147,20 +3124,12 @@ u8 AtkCanceller_UnableToUseMove(void)
             gBattleStruct->atkCancellerTracker++;
             break;
         case CANCELLER_FROZEN: // check being frozen
-            if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE)
+            if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE && !(gBattleMoves[gCurrentMove].flags & FLAG_THAW_USER))
             {
                 if (Random() % 5)
                 {
-                    if (gBattleMoves[gCurrentMove].effect != EFFECT_THAW_HIT) // unfreezing via a move effect happens in case 13
-                    {
-                        gBattlescriptCurrInstr = BattleScript_MoveUsedIsFrozen;
-                        gHitMarker |= HITMARKER_NO_ATTACKSTRING;
-                    }
-                    else
-                    {
-                        gBattleStruct->atkCancellerTracker++;
-                        break;
-                    }
+                    gBattlescriptCurrInstr = BattleScript_MoveUsedIsFrozen;
+                    gHitMarker |= HITMARKER_NO_ATTACKSTRING;
                 }
                 else // unfreeze
                 {
@@ -3362,7 +3331,7 @@ u8 AtkCanceller_UnableToUseMove(void)
         case CANCELLER_THAW: // move thawing
             if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE)
             {
-                if (IsThawingMove(gBattlerAttacker, gCurrentMove))
+                if (!(gBattleMoves[gCurrentMove].effect == EFFECT_BURN_UP && !IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_FIRE)))
                 {
                     gBattleMons[gBattlerAttacker].status1 &= ~(STATUS1_FREEZE);
                     BattleScriptPushCursor();
@@ -3923,6 +3892,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 && !(gBattleStruct->illusion[BATTLE_OPPOSITE(battler)].on)
                 && !(gStatuses3[BATTLE_OPPOSITE(battler)] & STATUS3_SEMI_INVULNERABLE))
             {
+                gBattlerAttacker = battler;
                 gBattlerTarget = BATTLE_OPPOSITE(battler);
                 BattleScriptPushCursorAndCallback(BattleScript_ImposterActivates);
                 effect++;
@@ -4648,7 +4618,8 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
              && (gMultiHitCounter == 0 || gMultiHitCounter == 1)
              && !(GetBattlerAbility(gBattlerAttacker) == ABILITY_SHEER_FORCE && gBattleMoves[gCurrentMove].flags & FLAG_SHEER_FORCE_BOOST)
              && (CanBattlerSwitch(battler) || !(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
-             && !(gBattleTypeFlags & BATTLE_TYPE_ARENA))
+             && !(gBattleTypeFlags & BATTLE_TYPE_ARENA)
+             && CountUsablePartyMons(battler) > 0)
             {
                 gBattleResources->flags->flags[battler] |= RESOURCE_FLAG_EMERGENCY_EXIT;
                 effect++;
