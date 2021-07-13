@@ -329,7 +329,7 @@ static const struct SpriteTemplate sHealthbarSpriteTemplates[MAX_BATTLERS_COUNT]
 static const struct Subsprite sUnknown_0832C258[] =
 {
     {
-        .x = 240,
+        .x = DISPLAY_WIDTH,
         .y = 0,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),
@@ -349,7 +349,7 @@ static const struct Subsprite sUnknown_0832C258[] =
 static const struct Subsprite sUnknown_0832C260[] =
 {
     {
-        .x = 240,
+        .x = DISPLAY_WIDTH,
         .y = 0,
         .shape = SPRITE_SHAPE(32x8),
         .size = SPRITE_SIZE(32x8),
@@ -365,7 +365,7 @@ static const struct Subsprite sUnknown_0832C260[] =
         .priority = 1
     },
     {
-        .x = 224,
+        .x = DISPLAY_WIDTH - 16,
         .y = 0,
         .shape = SPRITE_SHAPE(8x8),
         .size = SPRITE_SIZE(8x8),
@@ -734,8 +734,8 @@ u8 CreateBattlerHealthboxSprites(u8 battlerId)
     {
         if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
         {
-            healthboxLeftSpriteId = CreateSprite(&sHealthboxPlayerSpriteTemplates[0], 240, 160, 1);
-            healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxPlayerSpriteTemplates[0], 240, 160, 1);
+            healthboxLeftSpriteId = CreateSprite(&sHealthboxPlayerSpriteTemplates[0], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
+            healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxPlayerSpriteTemplates[0], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
 
             gSprites[healthboxLeftSpriteId].oam.shape = ST_OAM_SQUARE;
 
@@ -744,8 +744,8 @@ u8 CreateBattlerHealthboxSprites(u8 battlerId)
         }
         else
         {
-            healthboxLeftSpriteId = CreateSprite(&sHealthboxOpponentSpriteTemplates[0], 240, 160, 1);
-            healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxOpponentSpriteTemplates[0], 240, 160, 1);
+            healthboxLeftSpriteId = CreateSprite(&sHealthboxOpponentSpriteTemplates[0], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
+            healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxOpponentSpriteTemplates[0], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
 
             gSprites[healthboxRightSpriteId].oam.tileNum += 32;
 
@@ -760,8 +760,8 @@ u8 CreateBattlerHealthboxSprites(u8 battlerId)
     {
         if (GetBattlerSide(battlerId) == B_SIDE_PLAYER)
         {
-            healthboxLeftSpriteId = CreateSprite(&sHealthboxPlayerSpriteTemplates[GetBattlerPosition(battlerId) / 2], 240, 160, 1);
-            healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxPlayerSpriteTemplates[GetBattlerPosition(battlerId) / 2], 240, 160, 1);
+            healthboxLeftSpriteId = CreateSprite(&sHealthboxPlayerSpriteTemplates[GetBattlerPosition(battlerId) / 2], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
+            healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxPlayerSpriteTemplates[GetBattlerPosition(battlerId) / 2], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
 
             gSprites[healthboxLeftSpriteId].oam.affineParam = healthboxRightSpriteId;
 
@@ -773,8 +773,8 @@ u8 CreateBattlerHealthboxSprites(u8 battlerId)
         }
         else
         {
-            healthboxLeftSpriteId = CreateSprite(&sHealthboxOpponentSpriteTemplates[GetBattlerPosition(battlerId) / 2], 240, 160, 1);
-            healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxOpponentSpriteTemplates[GetBattlerPosition(battlerId) / 2], 240, 160, 1);
+            healthboxLeftSpriteId = CreateSprite(&sHealthboxOpponentSpriteTemplates[GetBattlerPosition(battlerId) / 2], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
+            healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxOpponentSpriteTemplates[GetBattlerPosition(battlerId) / 2], DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
 
             gSprites[healthboxLeftSpriteId].oam.affineParam = healthboxRightSpriteId;
 
@@ -819,8 +819,8 @@ u8 CreateSafariPlayerHealthboxSprites(void)
 {
     u8 healthboxLeftSpriteId, healthboxRightSpriteId;
 
-    healthboxLeftSpriteId = CreateSprite(&sHealthboxSafariSpriteTemplate, 240, 160, 1);
-    healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxSafariSpriteTemplate, 240, 160, 1);
+    healthboxLeftSpriteId = CreateSprite(&sHealthboxSafariSpriteTemplate, DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
+    healthboxRightSpriteId = CreateSpriteAtEnd(&sHealthboxSafariSpriteTemplate, DISPLAY_WIDTH, DISPLAY_HEIGHT, 1);
 
     gSprites[healthboxLeftSpriteId].oam.shape = ST_OAM_SQUARE;
     gSprites[healthboxRightSpriteId].oam.shape = ST_OAM_SQUARE;
@@ -943,12 +943,12 @@ static void TryToggleHealboxVisibility(u8 priority, u8 healthboxLeftSpriteId, u8
 {
     u8 spriteIds[4] = {healthboxLeftSpriteId, healthboxRightSpriteId, healthbarSpriteId, indicatorSpriteId};
     int i;
-    
+
     for (i = 0; i < NELEMS(spriteIds); i++)
     {
         if (spriteIds[i] == 0xFF)
             continue;
-        
+
         switch (priority)
         {
         case 0: //start of anim -> make invisible
@@ -964,7 +964,7 @@ static void TryToggleHealboxVisibility(u8 priority, u8 healthboxLeftSpriteId, u8
 void UpdateOamPriorityInAllHealthboxes(u8 priority, bool32 hideHPBoxes)
 {
     s32 i;
-    
+
     for (i = 0; i < gBattlersCount; i++)
     {
         u8 healthboxLeftSpriteId = gHealthboxSpriteIds[i];
@@ -977,7 +977,7 @@ void UpdateOamPriorityInAllHealthboxes(u8 priority, bool32 hideHPBoxes)
         gSprites[healthbarSpriteId].oam.priority = priority;
         if (indicatorSpriteId != 0xFF)
             gSprites[indicatorSpriteId].oam.priority = priority;
-        
+
         #if B_HIDE_HEALTHBOXES_DURING_ANIMS
         if (hideHPBoxes && IsBattlerAlive(i))
             TryToggleHealboxVisibility(priority, healthboxLeftSpriteId, healthboxRightSpriteId, healthbarSpriteId, indicatorSpriteId);
@@ -1029,32 +1029,24 @@ static void UpdateLvlInHealthbox(u8 healthboxSpriteId, u8 lvl)
     u32 windowId, spriteTileNum;
     u8 *windowTileData;
     u8 text[16];
-    u32 xPos, var1;
-    void *objVram;
+    u32 xPos;
+    u8 *objVram;
     u8 battler = gSprites[healthboxSpriteId].hMain_Battler;
 
     // Don't print Lv char if mon is mega evolved.
     if (gBattleStruct->mega.evolvedPartyIds[GetBattlerSide(battler)] & gBitTable[gBattlerPartyIndexes[battler]])
     {
-        xPos = (u32) ConvertIntToDecimalStringN(text, lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
+        objVram = ConvertIntToDecimalStringN(text, lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
     }
     else
     {
-        text[0] = 0xF9;
-        text[1] = 5;
+        text[0] = CHAR_EXTRA_SYMBOL;
+        text[1] = CHAR_LV_2;
 
-        xPos = (u32) ConvertIntToDecimalStringN(text + 2, lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
+        objVram = ConvertIntToDecimalStringN(text + 2, lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
     }
 
-    // Alright, that part was unmatchable. It's basically doing:
-    // xPos = 5 * (3 - (u32)(&text[2]));
-    xPos--;
-    xPos--;
-    xPos -= ((u32)(text));
-    var1 = (3 - xPos);
-    xPos = 4 * var1;
-    xPos += var1;
-
+    xPos = 5 * (3 - (objVram - (text + 2)));
     windowTileData = AddTextPrinterAndCreateWindowOnHealthbox(text, xPos, 3, 2, &windowId);
     spriteTileNum = gSprites[healthboxSpriteId].oam.tileNum * TILE_SIZE_4BPP;
 
@@ -1483,8 +1475,11 @@ bool32 IsMegaTriggerSpriteActive(void)
 
 void HideMegaTriggerSprite(void)
 {
-    ChangeMegaTriggerSprite(gBattleStruct->mega.triggerSpriteId, 0);
-    gSprites[gBattleStruct->mega.triggerSpriteId].tHide = TRUE;
+    if (gBattleStruct->mega.triggerSpriteId != 0xFF)
+    {
+        ChangeMegaTriggerSprite(gBattleStruct->mega.triggerSpriteId, 0);
+        gSprites[gBattleStruct->mega.triggerSpriteId].tHide = TRUE;
+    }
 }
 
 void DestroyMegaTriggerSprite(void)
@@ -2882,7 +2877,7 @@ static void PrintBattlerOnAbilityPopUp(u8 battlerId, u8 spriteId1, u8 spriteId2)
         name[0] = CHAR_s;
         name++;
     }
-    
+
     name[0] = EOS;
     PrintOnAbilityPopUp((const u8 *)monName,
                         (void*)(OBJ_VRAM0) + (gSprites[spriteId1].oam.tileNum * 32),
@@ -3011,7 +3006,7 @@ void CreateAbilityPopUp(u8 battlerId, u32 ability, bool32 isDoubleBattle)
 
     if (!B_ABILITY_POP_UP)
         return;
-    
+
     if (gBattleScripting.abilityPopupOverwrite != 0)
         ability = gBattleScripting.abilityPopupOverwrite;
 
@@ -3058,7 +3053,7 @@ void CreateAbilityPopUp(u8 battlerId, u32 ability, bool32 isDoubleBattle)
         gSprites[spriteId1].tRightToLeft = FALSE;
         gSprites[spriteId2].tRightToLeft = FALSE;
     }
-    
+
     gBattleStruct->abilityPopUpSpriteIds[gBattleAnimAttacker][0] = spriteId1;
     gBattleStruct->abilityPopUpSpriteIds[gBattleAnimAttacker][1] = spriteId2;
 
@@ -3085,7 +3080,7 @@ static void SpriteCb_AbilityPopUp(struct Sprite *sprite)
     if (!sprite->tHide) // Show
     {
         if (sprite->tIsMain && ++sprite->tFrames == 4)
-            PlaySE(SE_SELECT);
+            PlaySE(SE_BALL_TRAY_ENTER);
         if ((!sprite->tRightToLeft && (sprite->pos1.x -= 4) <= sprite->tOriginalX)
             || (sprite->tRightToLeft && (sprite->pos1.x += 4) >= sprite->tOriginalX)
            )

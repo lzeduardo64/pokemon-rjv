@@ -10,6 +10,7 @@
 #include "constants/vars.h"
 #include "constants/species.h"
 #include "constants/berry.h"
+#include "constants/expansion_branches.h"
 
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
@@ -113,7 +114,7 @@
 #define T2_READ_PTR(ptr) (void*) T2_READ_32(ptr)
 
 // Macros for checking the joypad
-#define TEST_BUTTON(field, button) ({(field) & (button);})
+#define TEST_BUTTON(field, button) ((field) & (button))
 #define JOY_NEW(button) TEST_BUTTON(gMain.newKeys,  button)
 #define JOY_HELD(button)  TEST_BUTTON(gMain.heldKeys, button)
 #define JOY_HELD_RAW(button) TEST_BUTTON(gMain.heldKeysRaw, button)
@@ -126,14 +127,6 @@
     if(v < 0) f += 65536.0f; \
     f;                       \
 })
-
-// Branch defines: Used by other branches to detect each other.
-// Each define must be here for each of RHH's branch you have pulled.
-// e.g. If you have both the battle_engine and pokemon_expansion branch,
-//      then both BATTLE_ENGINE and POKEMON_EXPANSION must be defined here.
-#define POKEMON_EXPANSION
-#define BATTLE_ENGINE
-#define ITEM_EXPANSION
 
 #define ROUND_BITS_TO_BYTES(numBits)(((numBits) / 8) + (((numBits) % 8) ? 1 : 0))
 
@@ -193,7 +186,6 @@ struct Pokedex
     /*0x04*/ u32 unownPersonality; // set when you first see Unown
     /*0x08*/ u32 spindaPersonality; // set when you first see Spinda
     /*0x0C*/ u32 unknown3;
-    /*0x10*/ u8 filler[0x68]; // Previously Dex Flags, feel free to remove.
 };
 
 struct PokemonJumpRecords
@@ -745,7 +737,7 @@ struct ContestWinner
     u8 contestRank;
 };
 
-struct DayCareMail
+struct DaycareMail
 {
     struct MailStruct message;
     u8 OT_name[PLAYER_NAME_LENGTH + 1];
@@ -757,7 +749,7 @@ struct DayCareMail
 struct DaycareMon
 {
     struct BoxPokemon mon;
-    struct DayCareMail mail;
+    struct DaycareMail mail;
     u32 steps;
 };
 
@@ -768,9 +760,9 @@ struct DayCare
     u8 stepCounter;
 };
 
-struct RecordMixingDayCareMail
+struct RecordMixingDaycareMail
 {
-    struct DayCareMail mail[DAYCARE_MON_COUNT];
+    struct DaycareMail mail[DAYCARE_MON_COUNT];
     u32 numDaycareMons;
     bool16 holdsItem[DAYCARE_MON_COUNT];
 };
@@ -997,7 +989,6 @@ struct SaveBlock1
     /*0x690*/ struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
     /*0x790*/ struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
     /*0x848*/ struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
-    /*0x988*/ u8 filler1[0x34]; // Previously Dex Flags, feel free to remove.
     /*0x9BC*/ u16 berryBlenderRecords[3];
     /*0x9C2*/ u8 field_9C2[6];
     /*0x9C8*/ u16 trainerRematchStepCounter;
@@ -1070,16 +1061,6 @@ struct MapPosition
     s16 x;
     s16 y;
     s8 height;
-};
-
-struct TradeRoomPlayer
-{
-    u8 playerId;
-    u8 isLocalPlayer;
-    u8 c;
-    u8 facing;
-    struct MapPosition pos;
-    u16 field_C;
 };
 
 #endif // GUARD_GLOBAL_H

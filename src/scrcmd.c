@@ -1470,15 +1470,15 @@ bool8 ScrCmd_hidemonpic(struct ScriptContext *ctx)
     return TRUE;
 }
 
-bool8 ScrCmd_showcontestwinner(struct ScriptContext *ctx)
+bool8 ScrCmd_showcontestpainting(struct ScriptContext *ctx)
 {
     u8 contestWinnerId = ScriptReadByte(ctx);
 
-    // Don't save artist's painting yet
+    // Artist's painting is temporary and already has its data loaded
     if (contestWinnerId != CONTEST_WINNER_ARTIST)
         SetContestWinnerForPainting(contestWinnerId);
 
-    ShowContestWinnerPainting();
+    ShowContestPainting();
     ScriptContext1_Stop();
     return TRUE;
 }
@@ -2365,10 +2365,8 @@ bool8 ScrCmd_destroyicons(struct ScriptContext *ctx)
 bool8 ScrCmd_updateicons(struct ScriptContext *ctx)
 {
 	u8 value = ScriptReadByte(ctx);
-	u8 l = 0;
-	u8 r = 0;
 	
-	updateIcons(l, r);
+	updateIcons(value % 4);
 	return FALSE;
 }
 

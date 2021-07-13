@@ -5,13 +5,17 @@
 #include "palette.h"
 #include "day_night.h"
 #include "constants/mugshots.h"
+#include "constants/rgb.h"
+#include "util.h"
+#include "printf.h"
+#include "mgba.h"
 
 #define MUGSHOT_SPRITE(id, data) [id] = { data, MUG_SIZE, mugshotTag + id }
 #define MUGSHOT_PAL(id, data) [id] = { data, mugshotTag + id }
 
 #include "data/graphics/mugshots.h"
 
-static const struct OamData LeftActive =
+static const struct OamData MugshotOam =
 {
     .size = SPRITE_SIZE(64x64),
     .shape = SPRITE_SHAPE(64x64),
@@ -19,94 +23,74 @@ static const struct OamData LeftActive =
 	.matrixNum = 0, // scale
 };
 
-static const struct OamData LeftInactive =
-{
-    .size = SPRITE_SIZE(64x64),
-    .shape = SPRITE_SHAPE(64x64),
-    .priority = 0,
-    .matrixNum = 0, // scale
+static const struct SpriteTemplate baseTemplate = {
+	.images = NULL,
+   	.affineAnims = NULL,
+    .callback = SpriteCallbackDummy,
+    .anims = gDummySpriteAnimTable,
+	.oam = &MugshotOam
 };
 
-static const struct OamData RightActive =
-{
-    .size = SPRITE_SIZE(64x64),
-    .shape = SPRITE_SHAPE(64x64),
-    .priority = 0,
-    .matrixNum = 8,
-};
+static EWRAM_DATA struct SpriteTemplate templates[2] = {};
 
-static const struct OamData RightInactive =
-{
-    .size = SPRITE_SIZE(64x64),
-    .shape = SPRITE_SHAPE(64x64),
-    .priority = 0,
-    .matrixNum = 8, // scale and vflip
-};
-
-static const union AffineAnimCmd scale[] = 
-{ 
-	AFFINEANIMCMD_FRAME(2, 3, 0, 1),
-	AFFINEANIMCMD_END,
-};
-
-static const union AffineAnimCmd* const Anim[] = 
-{
-	scale,
-};
-
-static EWRAM_DATA struct SpriteTemplate template = {};
 static EWRAM_DATA u8 id[2];
 static EWRAM_DATA u8 loadedID[2];
+static EWRAM_DATA u8 state;
 
-static void MugshotSpriteCallback(struct Sprite*);
+static void restoreSprite(u8 id, u8 loaded);
 
 #define rID id[1]
 #define lID id[0]
 
 void drawIcons(u8 left, u8 right)
 {
-	template.images = NULL;
-    template.affineAnims = Anim;
-    template.callback = SpriteCallbackDummy;
-    template.anims = gDummySpriteAnimTable;
-    
+	u8 i;
+	
+	for (i = 0; i < 2; i++)
+	{
+		templates[i] = baseTemplate;
+	}
+
     left = left == ICON_PLAYER ? gSaveBlock2Ptr->playerGender : left;
     right = right == ICON_PLAYER ? gSaveBlock2Ptr->playerGender : right;
 
-	template.oam = &LeftActive;
-	template.tileTag = gMugshotsTable[left].tag;
-	template.paletteTag = gMugshotsPalTable[left].tag;
+	templates[0].tileTag = gMugshotsTable[left].tag;
+	templates[0].paletteTag = gMugshotsPalTable[left].tag;
 	LoadCompressedSpriteSheet(&gMugshotsTable[left]);
 	LoadSpritePalette(&gMugshotsPalTable[left]);
-	lID = CreateSprite(&template, 32, 83, 0);
+	lID = CreateSprite(&templates[0], 32, 83, 0);
 
-	template.oam = &RightActive;
-	template.tileTag = gMugshotsTable[right].tag;
-	template.paletteTag = gMugshotsPalTable[right].tag;
+	templates[1].tileTag = gMugshotsTable[right].tag;
+	templates[1].paletteTag = gMugshotsPalTable[right].tag;
 	LoadCompressedSpriteSheet(&gMugshotsTable[right]);
 	LoadSpritePalette(&gMugshotsPalTable[right]);
-	rID = CreateSprite(&template, 204, 83, 0);
-	
+	rID = CreateSprite(&templates[1], 204, 83, 0);
+	gSprites[rID].oam.matrixNum = 8;
+
 	loadedID[0] = left;
 	loadedID[1] = right;
 }
 
-void updateIcons(u8 left, u8 right)
+void updateIcons(u8 state)
 {
-	u16 pal[16];
-	u8 index;
-
-	index = IndexOfSpritePaletteTag(gSprites[lID].template->paletteTag);
-	memcpy(pal, gMugshotsPalTable[loadedID[0]].data, 32);
-	TintPalette_GrayScale2(pal, 16);
-	LoadPalette(pal, 16 * index - 16 + 0x100, 32);
-	
-
-	/*rIndex = IndexOfSpritePaletteTag(gSprites[rID].template->paletteTag);
-	GetPalette(rPal, 16 * rIndex + 0x100, 32);
-	TintPalette_GrayScale2(rPal, 16);
-	LoadPalette(rPal, 16 * rIndex + 0x100, 32);*/
-	
+	switch (state)
+	{
+		case R_ACTIVE:
+			BlendPalette_Grayscale(IndexOfSpritePaletteTag(gSprites[lID].template->paletteTag) * 16 + 0x100, 16);
+			restoreSprite(rID, loadedID[1]);
+			break;
+		case L_ACTIVE:
+			restoreSprite(lID, loadedID[0]);
+			BlendPalette_Grayscale(IndexOfSpritePaletteTag(gSprites[rID].template->paletteTag) * 16 + 0x100, 16);
+			break;
+		case RL_ACTIVE:
+			restoreSprite(lID, loadedID[0]);
+			restoreSprite(rID, loadedID[1]);
+			break;
+		default:
+			BlendPalette_Grayscale(IndexOfSpritePaletteTag(gSprites[lID].template->paletteTag) * 16 + 0x100, 16);
+			BlendPalette_Grayscale(IndexOfSpritePaletteTag(gSprites[rID].template->paletteTag) * 16 + 0x100, 16);
+	}
 }
 
 void destroyIcons()
@@ -115,10 +99,12 @@ void destroyIcons()
 	DestroySpriteAndFreeResources(&gSprites[id[1]]);
 }
 
-static void MugshotSpriteCallback(struct Sprite* sprite)
+static void restoreSprite(u8 id, u8 loaded)
 {
-	if (sprite->animEnded)
-	{
-	
-	}
+	u16 palette[16];
+	u16 index;
+	index = IndexOfSpritePaletteTag(gSprites[id].template->paletteTag) * 16;
+
+	memcpy(palette, gMugshotsPalTable[loaded].data, 32);
+	LoadPalette(palette, index, 32);
 }

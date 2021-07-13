@@ -166,7 +166,6 @@ extern const u8 BattleScript_BRNPrevention[];
 extern const u8 BattleScript_PRLZPrevention[];
 extern const u8 BattleScript_PSNPrevention[];
 extern const u8 BattleScript_ObliviousPreventsAttraction[];
-extern const u8 BattleScript_FlinchPrevention[];
 extern const u8 BattleScript_OwnTempoPrevents[];
 extern const u8 BattleScript_SoundproofProtected[];
 extern const u8 BattleScript_AbilityNoSpecificStatLoss[];
@@ -367,5 +366,8 @@ extern const u8 BattleScript_CustapBerryActivation[];
 extern const u8 BattleScript_MicleBerryActivateEnd2[];
 extern const u8 BattleScript_MicleBerryActivateRet[];
 extern const u8 BattleScript_JabocaRowapBerryActivates[];
+extern const u8 BattleScript_NotAffectedAbilityPopUp[];
+extern const u8 BattleScript_BattlerShookOffTaunt[];
+extern const u8 BattleScript_BattlerGotOverItsInfatuation[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

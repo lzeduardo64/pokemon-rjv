@@ -579,6 +579,8 @@ gStdScripts_End:: @ 81DC2CC
 	.include "data/scripts/new_game.inc"
 	.include "data/scripts/hall_of_fame.inc"
 
+	.include "data/scripts/debug.inc"
+
 EventScript_WhiteOut:: @ 8271857
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour
 	goto EventScript_ResetMrBriney
@@ -739,7 +741,7 @@ EventScript_RegionMap:: @ 827208F
 
 Common_EventScript_PlayBrineysBoatMusic:: @ 82720A0
 	setflag FLAG_DONT_TRANSITION_MUSIC
-	playbgm MUS_SAILING, 0
+	playbgm MUS_SAILING, FALSE
 	return
 
 Common_EventScript_StopBrineysBoatMusic:: @ 82720A8

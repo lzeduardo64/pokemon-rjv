@@ -3,22 +3,16 @@ mapscripts YurusitaTown_MapScripts {}
 script YurusitaTown_Script_MeninaGasosa
 {
 	createicons(ICON_PLAYER_FEMALE, ICON_PLAYER_MALE)
-	updateicons(0) // n funciona ainda
+	updateicons(R_ACTIVE)
 	msgbox(YurusitaTown_Text_MeninaGasosa, MSGBOX_NPC)
-    destroyicons
-    createicons(ICON_PLAYER_MALE, ICON_PLAYER_FEMALE)
-    updateicons(0) // n funciona ainda
-    msgbox(YurusitaTown_Text_MeninaGasosa, MSGBOX_NPC)
     destroyicons
     end
 }
 
 text YurusitaTown_Text_MeninaGasosa
 {
-	format(
 	"Steven: O Luiz é meu Deus.\n"
 	"{PLAYER}: Concordo plenamente."
-	)
 }
 	//"MEU DEUS!!!\n"
 	//"essa menina tá mt boca suja\l"
@@ -28,7 +22,9 @@ script YurusitaTown_Script_MolequinNinja
 {
 	gettime
 	buffernumberstring(0, VAR_0x8000)
+	createicons(ICON_PLAYER_FEMALE, ICON_PLAYER_MALE)
 	msgbox(YurusitaTown_Text_MolequinNinja, MSGBOX_NPC)
+	destroyicons
 	end
 }
 

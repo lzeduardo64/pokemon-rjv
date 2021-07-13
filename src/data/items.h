@@ -2223,7 +2223,7 @@ const struct Item gItems[] =
         .name = _("Micle Berry"),
         .itemId = ITEM_MICLE_BERRY,
         .price = 20,
-        .holdEffect = HOLD_EFFECT_NONE, // Placeholder
+        .holdEffect = HOLD_EFFECT_MICLE_BERRY,
         .holdEffectParam = 4,
         .description = sMicleBerryDesc,
         .pocket = POCKET_BERRIES,
@@ -2483,8 +2483,8 @@ const struct Item gItems[] =
         .name = _("Custap Berry"),
         .itemId = ITEM_CUSTAP_BERRY,
         .price = 20,
-        .holdEffect = HOLD_EFFECT_NONE, // To Do
-        .holdEffectParam = TYPE_FAIRY,
+        .holdEffect = HOLD_EFFECT_CUSTAP_BERRY,
+        .holdEffectParam = 4,
         .description = sCustapBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -2496,8 +2496,7 @@ const struct Item gItems[] =
         .name = _("Jaboca Berry"),
         .itemId = ITEM_JABOCA_BERRY,
         .price = 20,
-        .holdEffect = HOLD_EFFECT_NONE, // To Do
-        .holdEffectParam = TYPE_FAIRY,
+        .holdEffect = HOLD_EFFECT_JABOCA_BERRY,
         .description = sJabocaBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -2509,8 +2508,7 @@ const struct Item gItems[] =
         .name = _("Rowap Berry"),
         .itemId = ITEM_ROWAP_BERRY,
         .price = 20,
-        .holdEffect = HOLD_EFFECT_NONE, // To Do
-        .holdEffectParam = TYPE_FAIRY,
+        .holdEffect = HOLD_EFFECT_ROWAP_BERRY,
         .description = sRowapBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -2522,8 +2520,7 @@ const struct Item gItems[] =
         .name = _("Kee Berry"),
         .itemId = ITEM_KEE_BERRY,
         .price = 20,
-        .holdEffect = HOLD_EFFECT_NONE, // To Do
-        .holdEffectParam = TYPE_FAIRY,
+        .holdEffect = HOLD_EFFECT_KEE_BERRY,
         .description = sKeeBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -2535,8 +2532,7 @@ const struct Item gItems[] =
         .name = _("Maranga Berry"),
         .itemId = ITEM_MARANGA_BERRY,
         .price = 20,
-        .holdEffect = HOLD_EFFECT_NONE, // To Do
-        .holdEffectParam = TYPE_FAIRY,
+        .holdEffect = HOLD_EFFECT_MARANGA_BERRY,
         .description = sMarangaBerryDesc,
         .pocket = POCKET_BERRIES,
         .type = ITEM_USE_BAG_MENU,
@@ -2902,7 +2898,7 @@ const struct Item gItems[] =
         .name = _("Razor Claw"),
         .itemId = ITEM_RAZOR_CLAW,
         .price = 5000,
-        .holdEffect = HOLD_EFFECT_NONE, // Placeholder.
+        .holdEffect = HOLD_EFFECT_SCOPE_LENS,
         .description = sRazorClawDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -5591,6 +5587,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_FIRE,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_SPLASH_PLATE] =
@@ -5605,6 +5602,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_WATER,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_ZAP_PLATE] =
@@ -5619,6 +5617,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_ELECTRIC,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_MEADOW_PLATE] =
@@ -5633,6 +5632,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_GRASS,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_ICICLE_PLATE] =
@@ -5647,6 +5647,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_ICE,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_FIST_PLATE] =
@@ -5661,6 +5662,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_FIGHTING,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_TOXIC_PLATE] =
@@ -5675,6 +5677,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_POISON,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_EARTH_PLATE] =
@@ -5689,6 +5692,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_GROUND,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_SKY_PLATE] =
@@ -5703,6 +5707,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_FLYING,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_MIND_PLATE] =
@@ -5717,6 +5722,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_PSYCHIC,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_INSECT_PLATE] =
@@ -5731,6 +5737,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_BUG,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_STONE_PLATE] =
@@ -5745,6 +5752,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_ROCK,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_SPOOKY_PLATE] =
@@ -5759,6 +5767,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_GHOST,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_DRACO_PLATE] =
@@ -5773,6 +5782,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_DRAGON,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_DREAD_PLATE] =
@@ -5787,6 +5797,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_DARK,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_IRON_PLATE] =
@@ -5801,6 +5812,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_STEEL,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_EVIOLITE] =
@@ -6299,6 +6311,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = TYPE_FAIRY,
+        .gtFunc = ItemGive_Plate,
     },
 
     [ITEM_SAFETY_GOGGLES] =
@@ -6984,96 +6997,78 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_HEALTH_WING] =
+    [ITEM_HEALTH_FEATHER] =
     {
         .name = _("HealthFeather"),
-        .itemId = ITEM_HEALTH_WING,
+        .itemId = ITEM_HEALTH_FEATHER,
         .price = 300,
-        .holdEffect = 0,
-        .holdEffectParam = 4,
-        .description = sHealthWingDesc,
+        .description = sHealthFeatherDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = STAT_HP,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
     },
 
-    [ITEM_MUSCLE_WING] =
+    [ITEM_MUSCLE_FEATHER] =
     {
         .name = _("MuscleFeather"),
-        .itemId = ITEM_MUSCLE_WING,
+        .itemId = ITEM_MUSCLE_FEATHER,
         .price = 300,
-        .holdEffect = 0,
-        .holdEffectParam = 4,
-        .description = sMuscleWingDesc,
+        .description = sMuscleFeatherDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = STAT_ATK,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
     },
 
-    [ITEM_RESIST_WING] =
+    [ITEM_RESIST_FEATHER] =
     {
         .name = _("ResistFeather"),
-        .itemId = ITEM_RESIST_WING,
+        .itemId = ITEM_RESIST_FEATHER,
         .price = 300,
-        .holdEffect = 0,
-        .holdEffectParam = 4,
-        .description = sResistWingDesc,
+        .description = sResistFeatherDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = STAT_DEF,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
     },
 
-    [ITEM_GENIUS_WING] =
+    [ITEM_GENIUS_FEATHER] =
     {
         .name = _("GeniusFeather"),
-        .itemId = ITEM_GENIUS_WING,
+        .itemId = ITEM_GENIUS_FEATHER,
         .price = 300,
-        .holdEffect = 0,
-        .holdEffectParam = 4,
-        .description = sGeniusWingDesc,
+        .description = sGeniusFeatherDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = STAT_SPATK,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
     },
 
-    [ITEM_CLEVER_WING] =
+    [ITEM_CLEVER_FEATHER] =
     {
         .name = _("CleverFeather"),
-        .itemId = ITEM_CLEVER_WING,
+        .itemId = ITEM_CLEVER_FEATHER,
         .price = 300,
-        .holdEffect = 0,
-        .holdEffectParam = 4,
-        .description = sCleverWingDesc,
+        .description = sCleverFeatherDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = STAT_SPDEF,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
     },
 
-    [ITEM_SWIFT_WING] =
+    [ITEM_SWIFT_FEATHER] =
     {
-        .name = _("Swift Feather"),
-        .itemId = ITEM_SWIFT_WING,
+        .name = _("SwiftFeather"),
+        .itemId = ITEM_SWIFT_FEATHER,
         .price = 300,
-        .holdEffect = 0,
-        .holdEffectParam = 4,
-        .description = sSwiftWingDesc,
+        .description = sSwiftFeatherDesc,
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = STAT_SPEED,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
     },
 
-    [ITEM_PRETTY_WING] =
+    [ITEM_PRETTY_FEATHER] =
     {
         .name = _("PrettyFeather"),
-        .itemId = ITEM_PRETTY_WING,
+        .itemId = ITEM_PRETTY_FEATHER,
         .price = 1000,
-        .description = sPrettyWingDesc,
+        .description = sPrettyFeatherDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
