@@ -294,17 +294,17 @@ Route103_EventScript_Isabelle:: @ 81EC78F
 	end
 
 Route103_Text_MayRoute103Pokemon: @ 81EC7A6
-	.string "MAY: Let's see… The POKéMON found\n"
-	.string "on ROUTE 103 include…$"
+	.string "MAY: Hmmm, os pokemons\n"
+	.string "que ficam na rota 103 são…$"
 
 Route103_Text_MayLetsBattle: @ 81EC7DE
-	.string "Oh, hi, {PLAYER}{KUN}!\p"
-	.string "…Oh, I see, my dad gave you\n"
-	.string "a POKéMON as a gift.\p"
-	.string "Since we're here, let's have a quick\n"
-	.string "battle!\p"
-	.string "I'll give you a taste of what being\n"
-	.string "a TRAINER is like.$"
+	.string "Ah, olá, {PLAYER}{KUN}!\p"
+	.string "Hum... eu notei que meu pai lhe deu\n"
+	.string "esse pokemon de presente\p"
+	.string "Já que a gente tá aqui com os pokémons\n"
+	.string "fáceis, bora um x1 rapidin\p"
+	.string "eu vo te mostrar o que é um treinador\n"
+	.string "de respeito!$"
 
 Route103_Text_MayDefeated: @ 81EC881
 	.string "Wow! That's great!\n"
@@ -325,12 +325,13 @@ Route103_Text_BrendanRoute103Pokemon: @ 81EC989
 	.string "that one that live on ROUTE 103…$"
 
 Route103_Text_BrendanLetsBattle: @ 81EC9CE
-	.string "Hey, it's {PLAYER}!\p"
-	.string "…Oh, yeah, Dad gave you a POKéMON.\p"
-	.string "Since we're here, how about a little\n"
-	.string "battle?\p"
-	.string "I'll teach you what being a TRAINER's\n"
-	.string "about!$"
+	.string "Ah, qual foi, {PLAYER}{KUN}!\p"
+	.string "Hum... eu me lembro que meu pai te deu\n"
+	.string "esse pokemon de presente...\p"
+	.string "Já que a gente tá aqui com os pokémons\n"
+	.string "fáceis, bora um x1 rapidin\p"
+	.string "eu vo te mostrar o que é um treinador\n"
+	.string "de respeito!$"
 
 Route103_Text_BrendanDefeated: @ 81ECA59
 	.string "Huh, {PLAYER}, you're not too shabby.$"
@@ -346,15 +347,13 @@ Route103_Text_BrendanTimeToHeadBack: @ 81ECA79
 	.string "We should head back to the LAB.$"
 
 Route103_Text_ShouldHaveBroughtPotion: @ 81ECB73
-	.string "My POKéMON is staggeringly tired…\n"
-	.string "I should have brought a POTION…$"
+	.string "Meu Pokémon tá sofrendo tanto,\n"
+	.string "eu deveria trazer uma poção$"
 
 Route103_Text_ShortcutToOldale: @ 81ECBB5
 	.string "If you cross the sea from here,\n"
 	.string "it'll be a shortcut to OLDALE TOWN.\p"
 	.string "Fufufu, that's useful, isn't it?$"
 
-Route103_Text_RouteSign: @ 81ECC1A
-	.string "ROUTE 103\n"
-	.string "{DOWN_ARROW} OLDALE TOWN$"
+
 

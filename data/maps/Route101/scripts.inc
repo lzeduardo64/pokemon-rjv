@@ -214,8 +214,8 @@ Route101_EventScript_Boy:: @ 81EBE04
 	msgbox Route101_Text_WildPokemonInTallGrass, MSGBOX_NPC
 	end
 
-Route101_EventScript_RouteSign:: @ 81EBE0D
-	msgbox Route101_Text_RouteSign, MSGBOX_SIGN
+Route102_EventScript_RouteSign:: @ 81EBE0D
+	msgbox Route102_Text_RouteSign, MSGBOX_SIGN
 	end
 
 Route101_EventScript_BirchsBag:: @ 81EBE16
@@ -298,7 +298,51 @@ Route101_Text_WildPokemonInTallGrass: @ 81EC04A
 	.string "If you want to catch POKéMON, you have\n"
 	.string "to go into the tall grass and search.$"
 
-Route101_Text_RouteSign: @ 81EC0C8
-	.string "ROUTE 101\n"
-	.string "{UP_ARROW} OLDALE TOWN$"
 
+Route102_Text_RouteSign: @ 81ECC1A
+	.string "ROUTE 102\n"
+	.string "{UP_ARROW} Slakurg City$"
+
+
+Route102_EventScript_Calvin::
+	trainerbattle_single TRAINER_CALVIN_1, Route102_Text_CalvinIntro, Route102_Text_CalvinDefeated, Route102_EventScript_CalvinRegisterMatchCallAfterBattle
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route102_EventScript_CalvinRematch
+	setvar VAR_0x8004, TRAINER_CALVIN_1
+	specialvar VAR_RESULT, IsTrainerRegistered
+	compare VAR_RESULT, FALSE
+	goto_if_eq Route102_EventScript_CalvinTryRegister
+	msgbox Route102_Text_CalvinPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route102_EventScript_CalvinRegisterMatchCallAfterBattle::
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	goto_if_set FLAG_HAS_MATCH_CALL, Route102_EventScript_CalvinRegisterMatchCall
+	release
+	end
+
+Route102_EventScript_CalvinRegisterMatchCall::
+	msgbox Route102_Text_CalvinRegisterShort, MSGBOX_DEFAULT
+	register_matchcall TRAINER_CALVIN_1
+	release
+	end
+
+Route102_EventScript_CalvinTryRegister::
+	goto_if_set FLAG_HAS_MATCH_CALL, Route102_EventScript_CalvinRegister
+	msgbox Route102_Text_CalvinPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+Route102_EventScript_CalvinRegister::
+	msgbox Route102_Text_CalvinRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_CALVIN_1
+	release
+	end
+
+Route102_EventScript_CalvinRematch::
+	trainerbattle_rematch TRAINER_CALVIN_1, Route102_Text_CalvinRematchIntro, Route102_Text_CalvinRematchDefeated
+	msgbox Route102_Text_CalvinRematchPostBattle, MSGBOX_AUTOCLOSE
+	end
