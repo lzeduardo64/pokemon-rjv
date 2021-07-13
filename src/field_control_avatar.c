@@ -3,6 +3,7 @@
 #include "bike.h"
 #include "coord_event_weather.h"
 #include "daycare.h"
+#include "debug.h"
 #include "faraway_island.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -67,7 +68,7 @@ static bool8 TryStartCoordEventScript(struct MapPosition *);
 static bool8 TryStartWarpEventScript(struct MapPosition *, u16);
 static bool8 TryStartMiscWalkingScripts(u16);
 static bool8 TryStartStepCountScript(u16);
-static void UpdateHappinessStepCounter(void);
+static void UpdateFriendshipStepCounter(void);
 static bool8 UpdatePoisonStepCounter(void);
 
 void FieldClearPlayerInput(struct FieldInput *input)
@@ -130,6 +131,35 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
         input->dpadDirection = DIR_WEST;
     else if (heldKeys & DPAD_RIGHT)
         input->dpadDirection = DIR_EAST;
+
+
+    //DEBUG
+    if (heldKeys & R_BUTTON) 
+    {
+        if(input->pressedSelectButton)
+        {
+            input->input_field_1_0 = TRUE;
+            input->pressedSelectButton = FALSE;
+        }else if(input->pressedStartButton) 
+        {
+            input->input_field_1_2 = TRUE;
+            input->pressedStartButton = FALSE;
+        }
+    }
+    if (heldKeys & L_BUTTON) 
+    {
+        if(input->pressedSelectButton)
+        {
+            input->input_field_1_1 = TRUE;
+            input->pressedSelectButton = FALSE;
+        }else if(input->pressedStartButton) 
+        {
+            input->input_field_1_3 = TRUE;
+            input->pressedStartButton = FALSE;
+        }
+    }
+    //
+
 }
 
 int ProcessPlayerFieldInput(struct FieldInput *input)
@@ -188,6 +218,15 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     }
     if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
         return TRUE;
+
+#if DEBUGGING
+    if (input->input_field_1_2)
+    {
+        PlaySE(SE_WIN_OPEN);
+        Debug_ShowMainMenu();
+        return TRUE;
+    }
+#endif
 
     return FALSE;
 }
@@ -542,7 +581,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
     }
 
     IncrementRematchStepCounter();
-    UpdateHappinessStepCounter();
+    UpdateFriendshipStepCounter();
     UpdateFarawayIslandStepCounter();
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED_MOVE) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior))
@@ -607,14 +646,15 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
     return FALSE;
 }
 
-void Unref_ClearHappinessStepCounter(void)
+// Unused
+static void ClearFriendshipStepCounter(void)
 {
-    VarSet(VAR_HAPPINESS_STEP_COUNTER, 0);
+    VarSet(VAR_FRIENDSHIP_STEP_COUNTER, 0);
 }
 
-static void UpdateHappinessStepCounter(void)
+static void UpdateFriendshipStepCounter(void)
 {
-    u16 *ptr = GetVarPointer(VAR_HAPPINESS_STEP_COUNTER);
+    u16 *ptr = GetVarPointer(VAR_FRIENDSHIP_STEP_COUNTER);
     int i;
 
     (*ptr)++;
@@ -668,6 +708,9 @@ void RestartWildEncounterImmunitySteps(void)
 
 static bool8 CheckStandardWildEncounter(u16 metatileBehavior)
 {
+    if (FlagGet(FLAG_SYS_NO_ENCOUNTER)) //DEBUG
+        return FALSE;//
+
     if (sWildEncounterImmunitySteps < 4)
     {
         sWildEncounterImmunitySteps++;
@@ -683,7 +726,7 @@ static bool8 CheckStandardWildEncounter(u16 metatileBehavior)
     }
 
     sPreviousPlayerMetatileBehavior = metatileBehavior;
-    return FALSE;
+    return FALSE;   
 }
 
 static bool8 TryArrowWarp(struct MapPosition *position, u16 metatileBehavior, u8 direction)

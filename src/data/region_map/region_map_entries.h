@@ -252,7 +252,6 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_LAVENDER_TOWN]              = {0, 0, 1, 1, sMapName_LavenderTown},
     [MAPSEC_LILYCOVE_CITY]              = {18, 3, 2, 1, sMapName_LilycoveCity},
     [MAPSEC_LIPTOO_CHAMBER]             = {0, 0, 1, 1, sMapName_LiptooChamber},
-    [MAPSEC_YURUSITA_TOWN]            = {4, 11, 1, 1, sMapName_YurusitaTown},
     [MAPSEC_LOST_CAVE]                  = {0, 0, 1, 1, sMapName_LostCave},
     [MAPSEC_MAGMA_HIDEOUT]              = {6, 3, 1, 1, sMapName_MagmaHideout},
     [MAPSEC_MARINE_CAVE]                = {0, 0, 1, 1, sMapName_MarineCave},
@@ -413,6 +412,7 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_WATER_LABYRINTH]            = {0, 0, 1, 1, sMapName_WaterLabyrinth},
     [MAPSEC_WATER_PATH]                 = {0, 0, 1, 1, sMapName_WaterPath},
     [MAPSEC_WEEPTH_CHAMBER]             = {0, 0, 1, 1, sMapName_WeepthChamber},
+    [MAPSEC_YURUSITA_TOWN]              = {4, 11, 1, 1, sMapName_YurusitaTown},
 };
 
 #endif // GUARD_DATA_REGION_MAP_REGION_MAP_ENTRIES_H

@@ -9,6 +9,7 @@
 #include "sound.h"
 #include "trig.h"
 #include "util.h"
+#include "constants/moves.h"
 
 static void AnimConfuseRayBallBounce(struct Sprite *);
 static void AnimConfuseRayBallBounce_Step1(struct Sprite *);
@@ -18,7 +19,6 @@ static void AnimConfuseRayBallSpiral(struct Sprite *);
 static void AnimConfuseRayBallSpiral_Step(struct Sprite *);
 static void AnimTask_NightShadeClone_Step1(u8 taskId);
 static void AnimTask_NightShadeClone_Step2(u8 taskId);
-static void AnimShadowBall(struct Sprite *);
 static void AnimShadowBall_Step(struct Sprite *);
 static void AnimLick(struct Sprite *);
 static void AnimLick_Step(struct Sprite *);
@@ -35,12 +35,10 @@ static void AnimCurseNail(struct Sprite *);
 static void AnimCurseNail_Step1(struct Sprite *);
 static void AnimCurseNail_Step2(struct Sprite *);
 static void AnimCurseNail_End(struct Sprite *);
-static void AnimGhostStatusSprite(struct Sprite *);
 static void AnimGhostStatusSprite_Step(struct Sprite *);
-static void AnimTask_GrudgeFlames_Step(u8 taskId);
 static void AnimGrudgeFlame(struct Sprite *);
-static void AnimUnused_8112F60(struct Sprite *);
-static void AnimUnused_8112F60_Step(struct Sprite *);
+static void AnimMonMoveCircular(struct Sprite *);
+static void AnimMonMoveCircular_Step(struct Sprite *);
 
 static const union AffineAnimCmd sAffineAnim_ConfuseRayBallBounce[] =
 {
@@ -82,7 +80,7 @@ static const union AffineAnimCmd sAffineAnim_ShadowBall[] =
     AFFINEANIMCMD_JUMP(0),
 };
 
-static const union AffineAnimCmd *const sAffineAnims_ShadowBall[] =
+const union AffineAnimCmd *const gAffineAnims_ShadowBall[] =
 {
     sAffineAnim_ShadowBall,
 };
@@ -94,8 +92,41 @@ const struct SpriteTemplate gShadowBallSpriteTemplate =
     .oam = &gOamData_AffineNormal_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
-    .affineAnims = sAffineAnims_ShadowBall,
+    .affineAnims = gAffineAnims_ShadowBall,
     .callback = AnimShadowBall,
+};
+
+const struct SpriteTemplate gEnergyBallSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ENERGY_BALL,
+    .paletteTag = ANIM_TAG_ENERGY_BALL,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_ShadowBall,
+    .callback = AnimShadowBall,
+};
+
+const struct SpriteTemplate gBattleAnimSpriteTemplate_LeafStorm =
+{
+    .tileTag = ANIM_TAG_RAZOR_LEAF,
+    .paletteTag = ANIM_TAG_RAZOR_LEAF,
+    .oam = &gOamData_AffineOff_ObjNormal_32x16,
+    .anims = gAffineAnims_AirWaveCrescent,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimAirWaveCrescent,
+};
+
+const struct SpriteTemplate gBattleAnimSpriteTemplate_LeafStorm2 =
+{
+    .tileTag = ANIM_TAG_LEAF,
+    .paletteTag = ANIM_TAG_LEAF,
+    .oam = &gOamData_AffineDouble_ObjNormal_16x16,
+    .anims = gRazorLeafParticleAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_PoisonProjectile,
+    .callback = AnimNeedleArmSpike,
 };
 
 static const union AnimCmd sAnim_Lick[] =
@@ -124,16 +155,16 @@ const struct SpriteTemplate gLickSpriteTemplate =
     .callback = AnimLick,
 };
 
-static const union AffineAnimCmd sAnim_Unused_08596DA4[] =
+static const union AffineAnimCmd sAffineAnim_Unused[] =
 {
     AFFINEANIMCMD_FRAME(0x200, 0x200, 0, 0),
     AFFINEANIMCMD_END,
 };
 
 // Unused
-static const union AffineAnimCmd *const gAnims_Unused_08596DB4[] =
+static const union AffineAnimCmd *const sAffineAnims_Unused[] =
 {
-    sAnim_Unused_08596DA4,
+    sAffineAnim_Unused,
 };
 
 const struct SpriteTemplate gDestinyBondWhiteShadowSpriteTemplate =
@@ -145,6 +176,17 @@ const struct SpriteTemplate gDestinyBondWhiteShadowSpriteTemplate =
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = AnimDestinyBondWhiteShadow,
+};
+
+const struct SpriteTemplate gDarkVoidBlackHoleTemplate =
+{
+    .tileTag = ANIM_TAG_WHITE_SHADOW,
+    .paletteTag = ANIM_TAG_QUICK_GUARD_HAND,
+    .oam = &gOamData_AffineOff_ObjBlend_64x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimDestinyBondWhiteShadow
 };
 
 const struct SpriteTemplate gCurseNailSpriteTemplate =
@@ -206,7 +248,7 @@ const struct SpriteTemplate gGrudgeFlameSpriteTemplate =
 };
 
 // Unused
-const struct SpriteTemplate gUnusedSpriteTemplate_08596E48 =
+static const struct SpriteTemplate sMonMoveCircularSpriteTemplate =
 {
     .tileTag = 0,
     .paletteTag = 0,
@@ -214,7 +256,18 @@ const struct SpriteTemplate gUnusedSpriteTemplate_08596E48 =
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = AnimUnused_8112F60,
+    .callback = AnimMonMoveCircular,
+};
+
+const struct SpriteTemplate gFlashCannonBallMovementTemplate =
+{
+    .tileTag = ANIM_TAG_FLASH_CANNON_BALL,
+    .paletteTag = ANIM_TAG_FLASH_CANNON_BALL,
+    .oam = &gOamData_AffineNormal_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gAffineAnims_ShadowBall,
+    .callback = AnimShadowBall
 };
 
 static void AnimConfuseRayBallBounce(struct Sprite *sprite)
@@ -395,7 +448,7 @@ static void AnimTask_NightShadeClone_Step2(u8 taskId)
 // arg 0: duration step 1 (attacker -> center)
 // arg 1: duration step 2 (spin center)
 // arg 2: duration step 3 (center -> target)
-static void AnimShadowBall(struct Sprite *sprite)
+void AnimShadowBall(struct Sprite *sprite)
 {
     s16 oldPosX = sprite->pos1.x;
     s16 oldPosY = sprite->pos1.y;
@@ -817,7 +870,11 @@ void AnimTask_DestinyBondWhiteShadow(u8 taskId)
              && battler != (gBattleAnimAttacker ^ 2)
              && IsBattlerSpriteVisible(battler))
             {
-                spriteId = CreateSprite(&gDestinyBondWhiteShadowSpriteTemplate, baseX, baseY, 55);
+                if (gAnimMoveIndex == MOVE_DARK_VOID)
+                    spriteId = CreateSprite(&gDarkVoidBlackHoleTemplate, baseX, baseY, 55);   //dark void
+                else
+                    spriteId = CreateSprite(&gDestinyBondWhiteShadowSpriteTemplate, baseX, baseY, 55);   //destiny bond
+                
                 if (spriteId != MAX_SPRITES)
                 {
                     x = GetBattlerSpriteCoord(battler, 2);
@@ -839,7 +896,11 @@ void AnimTask_DestinyBondWhiteShadow(u8 taskId)
     }
     else
     {
-        spriteId = CreateSprite(&gDestinyBondWhiteShadowSpriteTemplate, baseX, baseY, 55);
+        if (gAnimMoveIndex == MOVE_DARK_VOID)
+            spriteId = CreateSprite(&gDarkVoidBlackHoleTemplate, baseX, baseY, 55);   //dark void
+        else
+            spriteId = CreateSprite(&gDestinyBondWhiteShadowSpriteTemplate, baseX, baseY, 55);   //destiny bond
+        
         if (spriteId != MAX_SPRITES)
         {
             x = 48;
@@ -950,19 +1011,19 @@ void AnimTask_CurseStretchingBlackBg(u8 taskId)
     SetGpuReg(REG_OFFSET_WINOUT, ((WINOUT_WIN01_BG_ALL | WINOUT_WIN01_OBJ) |
                                     (WINOUT_WINOBJ_BG_ALL | WINOUT_WINOBJ_OBJ | WINOUT_WINOBJ_CLR)));
     SetGpuReg(REG_OFFSET_BLDCNT, (BLDCNT_TGT1_BG3 | BLDCNT_EFFECT_DARKEN));
-    SetGpuReg(REG_OFFSET_BLDY, 0x10);
+    SetGpuReg(REG_OFFSET_BLDY, 16);
 
     if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER || IsContest())
         startX = 40;
     else
         startX = 200;
 
-    gBattle_WIN0H = (startX << 8) | startX;
+    gBattle_WIN0H = WIN_RANGE(startX, startX);
     startY = 40;
-    gBattle_WIN0V = (startY << 8) | startY;
+    gBattle_WIN0V = WIN_RANGE(startY, startY);
 
     leftDistance = startX;
-    rightDistance = 240 - startX;
+    rightDistance = DISPLAY_WIDTH - startX;
     topDistance = startY;
     bottomDistance = 72;
     gTasks[taskId].data[1] = leftDistance;
@@ -1001,7 +1062,7 @@ static void AnimTask_CurseStretchingBlackBg_Step1(u8 taskId)
     else
     {
         left = 0;
-        right = 240;
+        right = DISPLAY_WIDTH;
         top = 0;
         bottom = 112;
         selectedPalettes = GetBattleBgPalettesMask(1, 0, 0, 0, 0, 0, 0);
@@ -1009,8 +1070,8 @@ static void AnimTask_CurseStretchingBlackBg_Step1(u8 taskId)
         gTasks[taskId].func = AnimTask_CurseStretchingBlackBg_Step2;
     }
 
-    gBattle_WIN0H = (left << 8) | right;
-    gBattle_WIN0V = (top  << 8) | bottom;
+    gBattle_WIN0H = WIN_RANGE(left, right);
+    gBattle_WIN0V = WIN_RANGE(top, bottom);
 }
 
 static void AnimTask_CurseStretchingBlackBg_Step2(u8 taskId)
@@ -1120,7 +1181,7 @@ static void AnimCurseNail_End(struct Sprite *sprite)
     DestroyAnimSprite(sprite);
 }
 
-static void AnimGhostStatusSprite(struct Sprite *sprite)
+void AnimGhostStatusSprite(struct Sprite *sprite)
 {
     u16 coeffB;
     u16 coeffA;
@@ -1189,7 +1250,7 @@ void AnimTask_GrudgeFlames(u8 taskId)
     task->func = AnimTask_GrudgeFlames_Step;
 }
 
-static void AnimTask_GrudgeFlames_Step(u8 taskId)
+void AnimTask_GrudgeFlames_Step(u8 taskId)
 {
     u16 i;
     u8 spriteId;
@@ -1302,7 +1363,7 @@ static void AnimGrudgeFlame(struct Sprite *sprite)
     }
 }
 
-static void AnimUnused_8112F60(struct Sprite *sprite)
+static void AnimMonMoveCircular(struct Sprite *sprite)
 {
     sprite->invisible = TRUE;
     sprite->data[5] = gBattlerSpriteIds[gBattleAnimAttacker];
@@ -1310,12 +1371,12 @@ static void AnimUnused_8112F60(struct Sprite *sprite)
     sprite->data[1] = 10;
     sprite->data[2] = gBattleAnimArgs[0];
     sprite->data[3] = gBattleAnimArgs[1];
-    sprite->callback = AnimUnused_8112F60_Step;
+    sprite->callback = AnimMonMoveCircular_Step;
 
     gSprites[sprite->data[5]].pos1.y += 8;
 }
 
-static void AnimUnused_8112F60_Step(struct Sprite *sprite)
+static void AnimMonMoveCircular_Step(struct Sprite *sprite)
 {
     if (sprite->data[3])
     {

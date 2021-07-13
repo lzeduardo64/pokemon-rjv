@@ -1,1 +1,1 @@
-https://github.com/pret/pokeemerald
+TODO: Make a proper README

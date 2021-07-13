@@ -1,6 +1,7 @@
 #ifndef GUARD_GLOBAL_FIELDMAP_H
 #define GUARD_GLOBAL_FIELDMAP_H
 
+#define METATILE_BEHAVIOR_MASK 0x00FF
 #define METATILE_COLLISION_MASK 0x0C00
 #define METATILE_ID_MASK 0x03FF
 #define METATILE_ID_UNDEFINED 0x03FF
@@ -12,7 +13,9 @@
 
 enum
 {
-    CONNECTION_SOUTH = 1,
+    CONNECTION_INVALID = -1,
+    CONNECTION_NONE,
+    CONNECTION_SOUTH,
     CONNECTION_NORTH,
     CONNECTION_WEST,
     CONNECTION_EAST,
@@ -31,6 +34,7 @@ struct Tileset
     /*0x0c*/ u16 *metatiles;
     /*0x10*/ u16 *metatileAttributes;
     /*0x14*/ TilesetCB callback;
+    /*0x18*/ struct PaletteOverride *paletteOverrides;
 };
 
 struct MapLayout

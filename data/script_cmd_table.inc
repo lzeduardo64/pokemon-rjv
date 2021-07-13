@@ -119,7 +119,7 @@ gScriptCmdTable:: @ 81DB67C
 	.4byte ScrCmd_drawboxtext               @ 0x74
 	.4byte ScrCmd_showmonpic                @ 0x75
 	.4byte ScrCmd_hidemonpic                @ 0x76
-	.4byte ScrCmd_showcontestwinner         @ 0x77
+	.4byte ScrCmd_showcontestpainting       @ 0x77
 	.4byte ScrCmd_braillemessage            @ 0x78
 	.4byte ScrCmd_givemon                   @ 0x79
 	.4byte ScrCmd_giveegg                   @ 0x7a
@@ -229,6 +229,9 @@ gScriptCmdTable:: @ 81DB67C
 	.4byte ScrCmd_bufferitemnameplural      @ 0xe2
 	.4byte ScrCmd_showitemdesc              @ 0xe3
 	.4byte ScrCmd_hideitemdesc              @ 0xe4
+	.4byte ScrCmd_createicons				@ 0xe5
+	.4byte ScrCmd_destroyicons				@ 0xe6
+	.4byte ScrCmd_updateicons				@ 0xe7
 
 gScriptCmdTableEnd:: @ 81DBA08
 	.4byte ScrCmd_nop

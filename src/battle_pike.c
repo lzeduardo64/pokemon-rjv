@@ -17,6 +17,7 @@
 #include "constants/battle_frontier.h"
 #include "constants/frontier_util.h"
 #include "constants/abilities.h"
+#include "constants/battle_config.h"
 #include "constants/easy_chat.h"
 #include "constants/layouts.h"
 #include "constants/rgb.h"
@@ -57,8 +58,8 @@ static void GetRoomType(void);
 static void SetInWildMonRoom(void);
 static void ClearInWildMonRoom(void);
 static void SavePikeChallenge(void);
-static void nullsub_76(void);
-static void nullsub_124(void);
+static void PikeDummy1(void);
+static void PikeDummy2(void);
 static void GetRoomInflictedStatus(void);
 static void GetRoomInflictedStatusMon(void);
 static void HealOneOrTwoMons(void);
@@ -488,8 +489,8 @@ static void (* const sBattlePikeFunctions[])(void) =
     [BATTLE_PIKE_FUNC_SET_IN_WILD_MON_ROOM]    = SetInWildMonRoom,
     [BATTLE_PIKE_FUNC_CLEAR_IN_WILD_MON_ROOM]  = ClearInWildMonRoom,
     [BATTLE_PIKE_FUNC_SAVE]                    = SavePikeChallenge,
-    [BATTLE_PIKE_FUNC_NULL_9]                  = nullsub_76,
-    [BATTLE_PIKE_FUNC_NULL_10]                 = nullsub_124,
+    [BATTLE_PIKE_FUNC_DUMMY_1]                 = PikeDummy1,
+    [BATTLE_PIKE_FUNC_DUMMY_2]                 = PikeDummy2,
     [BATTLE_PIKE_FUNC_GET_ROOM_STATUS]         = GetRoomInflictedStatus,
     [BATTLE_PIKE_FUNC_GET_ROOM_STATUS_MON]     = GetRoomInflictedStatusMon,
     [BATTLE_PIKE_FUNC_HEAL_ONE_TWO_MONS]       = HealOneOrTwoMons,
@@ -711,16 +712,16 @@ static void SavePikeChallenge(void)
     gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
     VarSet(VAR_TEMP_0, 0);
     gSaveBlock2Ptr->frontier.challengePaused = TRUE;
-    save_serialize_map();
+    SaveMapView();
     TrySavingData(SAVE_LINK);
 }
 
-static void nullsub_76(void)
+static void PikeDummy1(void)
 {
 
 }
 
-static void nullsub_124(void)
+static void PikeDummy2(void)
 {
 
 }
@@ -810,7 +811,7 @@ static void HealMon(struct Pokemon *mon)
 
 static bool8 DoesAbilityPreventStatus(struct Pokemon *mon, u32 status)
 {
-    u8 ability = GetMonAbility(mon);
+    u16 ability = GetMonAbility(mon);
     bool8 ret = FALSE;
 
     switch (status)
@@ -855,8 +856,9 @@ static bool8 DoesTypePreventStatus(u16 species, u32 status)
             ret = TRUE;
         break;
     case STATUS1_PARALYSIS:
-        if (gBaseStats[species].type1 == TYPE_GROUND || gBaseStats[species].type1 == TYPE_ELECTRIC
-            || gBaseStats[species].type2 == TYPE_GROUND || gBaseStats[species].type2 == TYPE_ELECTRIC)
+        if (gBaseStats[species].type1 == TYPE_GROUND || gBaseStats[species].type2 == TYPE_GROUND
+            || (B_PARALYZE_ELECTRIC >= GEN_6 &&
+                (gBaseStats[species].type1 == TYPE_ELECTRIC || gBaseStats[species].type2 == TYPE_ELECTRIC)))
             ret = TRUE;
         break;
     case STATUS1_BURN:
@@ -1625,7 +1627,7 @@ static bool8 CanEncounterWildMon(u8 enemyMonLevel)
 {
     if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG))
     {
-        u8 monAbility = GetMonAbility(&gPlayerParty[0]);
+        u16 monAbility = GetMonAbility(&gPlayerParty[0]);
         if (monAbility == ABILITY_KEEN_EYE || monAbility == ABILITY_INTIMIDATE)
         {
             u8 playerMonLevel = GetMonData(&gPlayerParty[0], MON_DATA_LEVEL);

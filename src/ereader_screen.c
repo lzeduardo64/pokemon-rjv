@@ -41,16 +41,16 @@ static void sub_81D5084(u8);
 struct Unk03006370 gUnknown_03006370;
 
 extern const u8 gUnknown_089A3470[];
-extern const u8 gMultiBootProgram_BerryGlitchFix_Start[];
+//extern const u8 gMultiBootProgram_BerryGlitchFix_Start[];
 
 static void sub_81D4D50(struct Unk03006370 *arg0, int arg1, u32 *arg2)
 {
     volatile u16 backupIME = REG_IME;
     REG_IME = 0;
-    gIntrTable[1] = sub_81D3FAC;
-    gIntrTable[2] = sub_81D3F9C;
+    gIntrTable[1] = EReaderHelper_SerialCallback;
+    gIntrTable[2] = EReaderHelper_Timer3Callback;
     EReaderHelper_SaveRegsState();
-    sub_81D4238();
+    EReaderHelper_ClearSendRecvMgr();
     REG_IE |= INTR_FLAG_VCOUNT;
     REG_IME = backupIME;
     arg0->unk0 = 0;
@@ -62,7 +62,7 @@ static void sub_81D4DB8(struct Unk03006370 *arg0)
 {
     volatile u16 backupIME = REG_IME;
     REG_IME = 0;
-    sub_81D4238();
+    EReaderHelper_ClearSendRecvMgr();
     EReaderHelper_RestoreRegsState();
     RestoreSerialTimer3IntrHandlers();
     REG_IME = backupIME;
@@ -329,7 +329,7 @@ static void sub_81D5084(u8 taskId)
     case 8:
         AddTextPrinterToWindow1(gJPText_Connecting);
         // XXX: This (u32*) cast is discarding the const qualifier from gUnknown_089A3470
-        sub_81D4D50(&gUnknown_03006370, gMultiBootProgram_BerryGlitchFix_Start - gUnknown_089A3470, (u32*)gUnknown_089A3470);
+        //sub_81D4D50(&gUnknown_03006370, gMultiBootProgram_BerryGlitchFix_Start - gUnknown_089A3470, (u32*)gUnknown_089A3470);
         data->unk8 = 9;
         break;
     case 9:
@@ -401,7 +401,7 @@ static void sub_81D5084(u8 taskId)
         }
         break;
     case 15:
-        data->unkE = EReader_IsReceivedDataValid((struct EReaderTrainerHillSet *)gDecompressionBuffer);
+        data->unkE = ValidateTrainerHillData((struct EReaderTrainerHillSet *)gDecompressionBuffer);
         SetCloseLinkCallbackAndType(data->unkE);
         data->unk8 = 16;
         break;

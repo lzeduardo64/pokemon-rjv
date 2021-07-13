@@ -1,5 +1,8 @@
 gText_WantToUseSurf:: @ 8272FD6
-	.string "A água escura não mostra o fundo\nGostaria de usar SURF?$"
+ HEAD
+
+	.string "A água está num tom de azul bem fundo...\nVocê quer surfar?$"
 
 gText_PlayerUsedSurf:: @ 827300D
-	.string "{STR_VAR_1} Usou SURF!$"
+	.string "{STR_VAR_1} usou Surf!$"
+78406a70ede37d67c2d5f6f20ef083d9e66b27c6

@@ -63,8 +63,8 @@ void sub_801C61C(void);
 extern const struct OamData gOamData_AffineOff_ObjNormal_32x16;
 
 const u8 sTextColorTable[][3] = {
-    {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GREY, TEXT_COLOR_LIGHT_GREY},
-    {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GREY}
+    {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY},
+    {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY}
 };
 const u8 ALIGNED(4) gUnknown_082F0E18[3] = {7, 4, 7};
 const struct WindowTemplate gUnknown_082F0E1C[] = {
@@ -420,7 +420,7 @@ void sub_801C4C0(void)
     sWonderCardData->unk_017C = 0xFF;
     if (sWonderCardData->unk_014C.unk_06 != SPECIES_NONE)
     {
-        sWonderCardData->unk_017C = CreateMonIconNoPersonality(GetIconSpeciesNoPersonality(sWonderCardData->unk_014C.unk_06), SpriteCallbackDummy, 0xDC, 0x14, 0, FALSE);
+        sWonderCardData->unk_017C = CreateMonIconNoPersonality(GetIconSpeciesNoPersonality(sWonderCardData->unk_014C.unk_06), SpriteCallbackDummy, 0xDC, 0x14, 0);
         gSprites[sWonderCardData->unk_017C].oam.priority = 2;
     }
     if (sWonderCardData->unk_0000.unk_09 != 0 && sWonderCardData->unk_0000.unk_08_0 == 1)
@@ -434,7 +434,7 @@ void sub_801C4C0(void)
             sWonderCardData->unk_017D[r7][0] = CreateSprite(&gUnknown_082F1D48, 0xd8 - 32 * r7, 0x90, 8);
             if (sWonderCardData->unk_014C.unk_08[0][r7] != 0)
             {
-                sWonderCardData->unk_017D[r7][1] = CreateMonIconNoPersonality(GetIconSpeciesNoPersonality(sWonderCardData->unk_014C.unk_08[0][r7]), SpriteCallbackDummy, 0xd8 - 32 * r7, 0x88, 0, 0);
+                sWonderCardData->unk_017D[r7][1] = CreateMonIconNoPersonality(GetIconSpeciesNoPersonality(sWonderCardData->unk_014C.unk_08[0][r7]), SpriteCallbackDummy, 0xd8 - 32 * r7, 0x88, 0);
             }
         }
     }
@@ -584,10 +584,10 @@ s32 FadeToWonderNewsMenu(void)
             ChangeBgY(1, 0, 0);
             ChangeBgY(2, 0, 0);
             ChangeBgY(3, 0, 0);
-            SetGpuReg(REG_OFFSET_WIN0H, 0xF0);
-            SetGpuReg(REG_OFFSET_WIN0V, 0x1A98);
-            SetGpuReg(REG_OFFSET_WININ, 0x1F);
-            SetGpuReg(REG_OFFSET_WINOUT, 0x1B);
+            SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(0, DISPLAY_WIDTH));
+            SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(26, 152));
+            SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG_ALL | WININ_WIN0_OBJ);
+            SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_BG0 | WINOUT_WIN01_BG1 | WINOUT_WIN01_BG3 | WINOUT_WIN01_OBJ);
             SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON);
             break;
         case 2:
