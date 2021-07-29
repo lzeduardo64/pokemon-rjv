@@ -14,11 +14,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "direction": "down",
-      "offset": 0,
-      "map": "MAP_OLDALE_TOWN"
-    },
-    {
       "direction": "right",
       "offset": -3,
       "map": "MAP_PETALBURG_CITY"

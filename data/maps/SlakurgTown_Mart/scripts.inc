@@ -1,4 +1,4 @@
-OldaleTown_Mart_MapScripts:: @ 81FC23F
+SlakurgTown_Mart_MapScripts:: @ 81FC23F
 	.byte 0
 
 OldaleTown_Mart_EventScript_Clerk:: @ 81FC240

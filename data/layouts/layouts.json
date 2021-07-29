@@ -102,14 +102,14 @@
       "blockdata_filepath": "data/layouts/YurusitaTown/map.bin"
     },
     {
-      "id": "LAYOUT_OLDALE_TOWN",
-      "name": "OldaleTown_Layout",
-      "width": 20,
-      "height": 20,
+      "id": "LAYOUT_SLAKURG_TOWN",
+      "name": "SlakurgTown_Layout",
+      "width": 30,
+      "height": 25,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/OldaleTown/border.bin",
-      "blockdata_filepath": "data/layouts/OldaleTown/map.bin"
+      "border_filepath": "data/layouts/SlakurgTown/border.bin",
+      "blockdata_filepath": "data/layouts/SlakurgTown/map.bin"
     },
     {
       "id": "LAYOUT_DEWFORD_TOWN",

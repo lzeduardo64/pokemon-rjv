@@ -3,7 +3,7 @@
   "group_order": [
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorYurusita",
-    "gMapGroup_IndoorOldale",
+    "gMapGroup_IndoorSlakurg",
     "gMapGroup_IndoorDewford",
     "gMapGroup_IndoorLavaridge",
     "gMapGroup_IndoorFallarbor",
@@ -47,7 +47,7 @@
     "SootopolisCity",
     "EverGrandeCity",
     "YurusitaTown",
-    "OldaleTown",
+    "SlakurgTown",
     "DewfordTown",
     "LavaridgeTown",
     "FallarborTown",
@@ -104,12 +104,10 @@
     "YurusitaTown_Mendigo",
     "YurusitaTown_ProfessorHouse"
   ],
-  "gMapGroup_IndoorOldale": [
-    "OldaleTown_House1",
-    "OldaleTown_House2",
-    "OldaleTown_PokemonCenter_1F",
-    "OldaleTown_PokemonCenter_2F",
-    "OldaleTown_Mart"
+  "gMapGroup_IndoorSlakurg": [
+    "SlakurgTown_PokemonCenter_1F",
+    "SlakurgTown_PokemonCenter_2F",
+    "SlakurgTown_Mart"
   ],
   "gMapGroup_IndoorDewford": [
     "DewfordTown_House1",

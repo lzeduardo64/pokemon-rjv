@@ -1,8 +1,8 @@
 #ifndef GUARD_DATA_REGION_MAP_REGION_MAP_ENTRIES_H
 #define GUARD_DATA_REGION_MAP_REGION_MAP_ENTRIES_H
 
-static const u8 sMapName_YurusitaTown[] = _("Vila de Yurusita");
-static const u8 sMapName_OldaleTown[] = _("OLDALE TOWN");
+static const u8 sMapName_YurusitaTown[] = _("Yurusita town");
+static const u8 sMapName_OldaleTown[] = _("Slakurg town");
 static const u8 sMapName_DewfordTown[] = _("DEWFORD TOWN");
 static const u8 sMapName_LavaridgeTown[] = _("LAVARIDGE TOWN");
 static const u8 sMapName_FallarborTown[] = _("FALLARBOR TOWN");
@@ -270,7 +270,7 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_NAVEL_ROCK]                 = {0, 0, 1, 1, sMapName_NavelRock},
     [MAPSEC_NAVEL_ROCK_FRLG]            = {0, 0, 1, 1, sMapName_NavelRock},
     [MAPSEC_NEW_MAUVILLE]               = {8, 7, 1, 1, sMapName_NewMauville},
-    [MAPSEC_OLDALE_TOWN]                = {4, 9, 1, 1, sMapName_OldaleTown},
+    [MAPSEC_SLAKURG_TOWN]                = {4, 9, 1, 1, sMapName_OldaleTown},
     [MAPSEC_ONE_ISLAND]                 = {0, 0, 1, 1, sMapName_OneIsland},
     [MAPSEC_OUTCAST_ISLAND]             = {0, 0, 1, 1, sMapName_OutcastIsland},
     [MAPSEC_PACIFIDLOG_TOWN]            = {17, 10, 1, 1, sMapName_PacifidlogTown},
