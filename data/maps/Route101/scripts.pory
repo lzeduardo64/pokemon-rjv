@@ -1,0 +1,25 @@
+mapscripts Route101_MapScripts {}
+
+script Route101_SignSlakurg
+{
+	msgbox(Route101_Sign_SlakurgText, MSGBOX_SIGN)
+	end
+}
+
+text Route101_Sign_SlakurgText
+{
+	"ROUTE 101\n"
+	"{RIGHT_ARROW} Slakurg town$"
+}
+
+script Route101_SignYurusita
+{
+	msgbox(Route101_Sign_YurusitaText, MSGBOX_SIGN)
+	end
+}
+
+text Route101_Sign_YurusitaText
+{
+	"ROUTE 101\n"
+	"{LEFT_ARROW} Yurusita town$"
+}

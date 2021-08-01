@@ -355,5 +355,6 @@ Route103_Text_ShortcutToOldale: @ 81ECBB5
 	.string "it'll be a shortcut to OLDALE TOWN.\p"
 	.string "Fufufu, that's useful, isn't it?$"
 
-
+Route103_Text_RouteSign:
+	.string "lol please no error$"
 
