@@ -1,12 +1,12 @@
 .set LOCALID_NURSE, 1
 
-OldaleTown_PokemonCenter_1F_MapScripts:: @ 81FC006
+SlakurgTown_PokemonCenter_1F_MapScripts:: @ 81FC006
 	map_script MAP_SCRIPT_ON_TRANSITION, OldaleTown_PokemonCenter_1F_OnTransition
 	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
 
 OldaleTown_PokemonCenter_1F_OnTransition: @ 81FC011
-	setrespawn HEAL_LOCATION_OLDALE_TOWN
+	setrespawn HEAL_LOCATION_SLAKURG_TOWN
 	call Common_EventScript_UpdateBrineyLocation
 	end
 

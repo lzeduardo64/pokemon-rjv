@@ -641,3 +641,14 @@ u8 CreateBerryFlavorCircleSprite(s16 x)
 {
     return CreateSprite(&gBerryCheckCircleSpriteTemplate, x, 116, 0);
 }
+
+void HideBagItemIconSprite(u8 id)
+{
+    u8 *spriteId = &gBagMenu->spriteId[10];
+    if (spriteId[id] != 0xFF)
+    {
+        gSprites[spriteId[id]].invisible = TRUE;
+    }
+}
+
+

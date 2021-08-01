@@ -786,3 +786,4 @@ PetalburgCity_Text_ImLookingForTalentedTrainers: @ 81DCC09
 
 PetalburgCity_Text_Funny:
 	.string "Esse cara é engraçado.$"
+	
