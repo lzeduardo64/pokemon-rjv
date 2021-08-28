@@ -1,52 +1,39 @@
-gText_Birch_Welcome:: @ 82C897B texto antes do pokemon
+gText_Birch_Welcome:: @ texto antes do pokemon
 	.string "Entao voce chegou...\n"
 	.string "Parabens. Poucos sao capazes disto!\p"
 	.string "$"
 
-gText_Birch_Pokemon:: @ 82C89FB texto ao soltar o pokemon (supostamente)
+gText_Birch_Pokemon:: @ texto ao soltar o pokemon (supostamente)
 	.string "Vamos ver se é digno de estar aqui.”\p"
 	.string "\n"
 	.string "$"
 
-gText_Birch_MainSpeech:: @ 82C8A1F Texto apos o pokemon
-	.string "...\n"
-	.string "...\l"
-	.string "...\l"
-	.string "...\l"
-	.string "...\l"
-	.string "...\p"
-	.string "Ha ha ha. Nada mal\n"
-	.string "Mas ainda tem muito que aprender\p"
-	.string "know everything about POKéMON.\p"
-	.string "In fact, there are many, many\n"
-	.string "secrets surrounding POKéMON.\p"
-	.string "To unravel POKéMON mysteries,\n"
-	.string "I've been undertaking research.\l"
-	.string "That's what I do.\p"
+gText_Birch_MainSpeech:: @ Texto apos o pokemon
+	.string "Soltei o pokemon :thumbsup:"
 	.string "$"
 
-gText_Birch_AndYouAre:: @ 82C8BD0
+gText_Birch_AndYouAre::
 	.string "And you are?$"
 
-gText_Birch_BoyOrGirl:: @ 82C8BDD
+gText_Birch_BoyOrGirl::
 	.string "Are you a boy?\n"
 	.string "Or are you a girl?$"
 
-gText_Birch_WhatsYourName:: @ 82C8BFF
+gText_Birch_WhatsYourName::
 	.string "All right.\n"
 	.string "What's your name?$"
 
-gText_Birch_SoItsPlayer:: @ 82C8C1C
+gText_Birch_SoItsPlayer::
 	.string "So it's {PLAYER}{KUN}?$"
 
-gText_Birch_YourePlayer:: @ 82C8C2A
+gText_Birch_YourePlayer::
 	.string "Ah, okay!\p"
 	.string "You're {PLAYER}{KUN} who's moving to my\n"
 	.string "hometown of LITTLEROOT.\l"
 	.string "I get it now!\p"
 	.string "$"
 
-gText_Birch_AreYouReady:: @ 82C8C7A
+gText_Birch_AreYouReady::
 	.string "All right, are you ready?\p"
 	.string "Your very own adventure is about\n"
 	.string "to unfold.\p"

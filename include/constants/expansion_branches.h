@@ -6,7 +6,7 @@
 // e.g. If you have both the battle_engine and pokemon_expansion branch,
 //      then both BATTLE_ENGINE and POKEMON_EXPANSION must be defined here.
 #define BATTLE_ENGINE
-#define ITEM_EXPANSION
 #define POKEMON_EXPANSION
+#define ITEM_EXPANSION
 
 #endif
