@@ -47,7 +47,7 @@ struct TypePower
 
 extern const struct TypePower gNaturalGiftTable[];
 
-bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide);
+bool32 IsAffectedByFollowMe(u32 battlerAtk, u32 defSide, u32 move);
 void HandleAction_UseMove(void);
 void HandleAction_Switch(void);
 void HandleAction_UseItem(void);
@@ -151,6 +151,8 @@ void SortBattlersBySpeed(u8 *battlers, bool8 slowToFast);
 bool32 CompareStat(u8 battlerId, u8 statId, u8 cmpTo, u8 cmpKind);
 bool32 TryRoomService(u8 battlerId);
 void BufferStatChange(u8 battlerId, u8 statId, u8 stringId);
+void DoBurmyFormChange(u32 monId);
+bool32 BlocksPrankster(u16 move, u8 battlerPrankster, u8 battlerDef);
 
 // ability checks
 bool32 IsRolePlayBannedAbilityAtk(u16 ability);

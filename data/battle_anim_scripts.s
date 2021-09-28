@@ -532,7 +532,7 @@ gBattleAnims_Moves::
 	.4byte Move_QUASH
 	.4byte Move_ACROBATICS
 	.4byte Move_REFLECT_TYPE
-	.4byte Move_RETALITATE
+	.4byte Move_RETALIATE
 	.4byte Move_FINAL_GAMBIT
 	.4byte Move_BESTOW
 	.4byte Move_INFERNO
@@ -5610,7 +5610,7 @@ Move_REFLECT_TYPE:
 	blendoff
 	end
 
-Move_RETALITATE:
+Move_RETALIATE:
 	loadspritegfx ANIM_TAG_CUT @Cut
 	monbg ANIM_DEF_PARTNER
 	setalpha 9, 8
@@ -13481,7 +13481,7 @@ Move_BODY_PRESS::
 	end
 
 Move_DECORATE::
-	end @to do:
+	goto Move_FLOWER_SHIELD
 
 Move_DRUM_BEATING::
 	loadspritegfx ANIM_TAG_MUSIC_NOTES
@@ -13957,7 +13957,7 @@ Move_EXPANDING_FORCE::
 	end @to do:
 
 Move_STEEL_ROLLER::
-	end @to do:
+	goto Move_GYRO_BALL
 
 Move_SCALE_SHOT::
 	end @to do:
@@ -13984,7 +13984,7 @@ Move_SKITTER_SMACK::
 	end @to do:
 
 Move_BURNING_JEALOUSY::
-	end @to do:
+	goto Move_OVERHEAT
 
 Move_LASH_OUT::
 	end @to do:
@@ -14011,7 +14011,7 @@ Move_SCORCHING_SANDS::
 	end @to do:
 
 Move_JUNGLE_HEALING::
-	end @to do:
+	goto Move_AROMATHERAPY
 
 Move_WICKED_BLOW::
 	end @to do:
