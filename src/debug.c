@@ -1832,7 +1832,7 @@ static void DebugAction_Give_Pokemon_SelectLevel(u8 taskId)
         if (gTasks[taskId].data[5] == 0)
         {
             PlaySE(MUS_LEVEL_UP);
-            ScriptGiveMon(sDebugMonData->mon_speciesId, gTasks[taskId].data[3], ITEM_NONE, 0,0,0);
+            ScriptGiveMon(sDebugMonData->mon_speciesId, gTasks[taskId].data[3], ITEM_NONE);
             Free(sDebugMonData); //Frees EWRAM of MonData Struct
             DebugAction_DestroyExtraWindow(taskId);
         }
