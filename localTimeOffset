@@ -1,0 +1,1524 @@
+gflib/string_util.c:    return gSaveBlock2Ptr->playerName;
+gflib/string_util.c:    if (gSaveBlock2Ptr->playerGender == MALE)
+gflib/string_util.c:    if (gSaveBlock2Ptr->playerGender == MALE)
+src/apprentice.c:#define PLAYER_APPRENTICE gSaveBlock2Ptr->playerApprentice
+src/apprentice.c:    num = gSaveBlock2Ptr->apprentices[saveApprenticeId].number;
+src/apprentice.c:    StringCopy7(gStringVar1, gSaveBlock2Ptr->apprentices[saveApprenticeId].playerName);
+src/apprentice.c:    ConvertInternationalString(gStringVar1, gSaveBlock2Ptr->apprentices[saveApprenticeId].language);
+src/apprentice.c:    ConvertIntToDecimalStringN(gStringVar2, gSaveBlock2Ptr->apprentices[saveApprenticeId].number, STR_CONV_MODE_RIGHT_ALIGN, i);
+src/apprentice.c:    challengeText = sApprenticeChallengeTexts[gSaveBlock2Ptr->apprentices[saveApprenticeId].id];
+src/apprentice.c:        for (j = 0; j < ARRAY_COUNT(gSaveBlock2Ptr->apprentices[i].speechWon); j++)
+src/apprentice.c:            gSaveBlock2Ptr->apprentices[i].speechWon[j] = EC_EMPTY_WORD;
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[i].id = NUM_APPRENTICES;
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[i].playerName[0] = EOS;
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[i].lvlMode = 0;
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[i].number = 0;
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[i].numQuestions = 0;
+src/apprentice.c:            gSaveBlock2Ptr->apprentices[i].playerId[j] = 0;
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[i].language = gGameLanguage;
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[i].checksum = 0;
+src/apprentice.c:    if (gSaveBlock2Ptr->apprentices[0].number == 0)
+src/apprentice.c:        } while (PLAYER_APPRENTICE.id == gSaveBlock2Ptr->apprentices[0].id);
+src/apprentice.c:        } while (PLAYER_APPRENTICE.id == gSaveBlock2Ptr->apprentices[0].id);
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[0].party[i].species = SPECIES_NONE;
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[0].party[i].item = ITEM_NONE;
+src/apprentice.c:            gSaveBlock2Ptr->apprentices[0].party[i].moves[j] = MOVE_NONE;
+src/apprentice.c:        apprenticeMons[j] = &gSaveBlock2Ptr->apprentices[0].party[i];
+src/apprentice.c:        FrontierSpeechToString(gSaveBlock2Ptr->apprentices[0].speechWon);
+src/apprentice.c:    if (gSaveBlock2Ptr->apprentices[0].playerName[0] == EOS)
+src/apprentice.c:        if (gSaveBlock2Ptr->apprentices[i + 1].playerName[0] == EOS)
+src/apprentice.c:            gSaveBlock2Ptr->apprentices[i + 1] = gSaveBlock2Ptr->apprentices[0];
+src/apprentice.c:        if (GetTrainerId(gSaveBlock2Ptr->apprentices[i].playerId) == GetTrainerId(gSaveBlock2Ptr->playerTrainerId)
+src/apprentice.c:            && gSaveBlock2Ptr->apprentices[i].number < apprenticeNum)
+src/apprentice.c:            apprenticeNum = gSaveBlock2Ptr->apprentices[i].number;
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[apprenticeIdx] = gSaveBlock2Ptr->apprentices[0];
+src/apprentice.c:    gSaveBlock2Ptr->apprentices[0].id = PLAYER_APPRENTICE.id;
+src/apprentice.c:    gSaveBlock2Ptr->apprentices[0].lvlMode = PLAYER_APPRENTICE.lvlMode;
+src/apprentice.c:    gSaveBlock2Ptr->apprentices[0].numQuestions = i;
+src/apprentice.c:    if (gSaveBlock2Ptr->apprentices[0].number < 255)
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[0].number++;
+src/apprentice.c:    SaveApprenticeParty(gSaveBlock2Ptr->apprentices[0].numQuestions);
+src/apprentice.c:        gSaveBlock2Ptr->apprentices[0].playerId[i] = gSaveBlock2Ptr->playerTrainerId[i];
+src/apprentice.c:    StringCopy(gSaveBlock2Ptr->apprentices[0].playerName, gSaveBlock2Ptr->playerName);
+src/apprentice.c:    gSaveBlock2Ptr->apprentices[0].language = gGameLanguage;
+src/apprentice.c:    CalcApprenticeChecksum(&gSaveBlock2Ptr->apprentices[0]);
+src/apprentice.c:    u8 class = gApprentices[gSaveBlock2Ptr->apprentices[0].id].facilityClass;
+src/battle_arena.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_arena.c:    gSaveBlock2Ptr->frontier.challengeStatus = 0;
+src/battle_arena.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum = 0;
+src/battle_arena.c:    gSaveBlock2Ptr->frontier.challengePaused = FALSE;
+src/battle_arena.c:    gSaveBlock2Ptr->frontier.disableRecordBattle = FALSE;
+src/battle_arena.c:        isCurrent = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_ARENA_OPEN;
+src/battle_arena.c:        isCurrent = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_ARENA_50;
+src/battle_arena.c:        gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode] = 0;
+src/battle_arena.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_arena.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.arenaPrize;
+src/battle_arena.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode];
+src/battle_arena.c:            gSpecialVar_Result = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_ARENA_OPEN;
+src/battle_arena.c:            gSpecialVar_Result = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_ARENA_50;
+src/battle_arena.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_arena.c:        gSaveBlock2Ptr->frontier.arenaPrize = gSpecialVar_0x8006;
+src/battle_arena.c:        gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode] = gSpecialVar_0x8006;
+src/battle_arena.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags |= STREAK_ARENA_OPEN;
+src/battle_arena.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags &= ~(STREAK_ARENA_OPEN);
+src/battle_arena.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags |= STREAK_ARENA_50;
+src/battle_arena.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags &= ~(STREAK_ARENA_50);
+src/battle_arena.c:    gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
+src/battle_arena.c:    gSaveBlock2Ptr->frontier.challengePaused = TRUE;
+src/battle_arena.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_arena.c:    if (gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode] > 41)
+src/battle_arena.c:        gSaveBlock2Ptr->frontier.arenaPrize = sLongStreakPrizeItems[Random() % ARRAY_COUNT(sLongStreakPrizeItems)];
+src/battle_arena.c:        gSaveBlock2Ptr->frontier.arenaPrize = sShortStreakPrizeItems[Random() % ARRAY_COUNT(sShortStreakPrizeItems)];
+src/battle_arena.c:    if (AddBagItem(gSaveBlock2Ptr->frontier.arenaPrize, 1) == TRUE)
+src/battle_arena.c:        CopyItemName(gSaveBlock2Ptr->frontier.arenaPrize, gStringVar1);
+src/battle_arena.c:        gSaveBlock2Ptr->frontier.arenaPrize = ITEM_NONE;
+src/battle_controller_link_opponent.c:    gSaveBlock2Ptr->frontier.disableRecordBattle = gBattleResources->bufferA[gActiveBattler][2];
+src/battle_controller_link_partner.c:    gSaveBlock2Ptr->frontier.disableRecordBattle = gBattleResources->bufferA[gActiveBattler][2];
+src/battle_controller_player.c:    if (JOY_REPEAT(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+src/battle_controller_player.c:    if (JOY_HELD(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+src/battle_controller_player.c:    if (JOY_HELD(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+src/battle_controller_player.c:    if (gMain.heldKeys & DPAD_ANY && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+src/battle_controller_player.c:        BattleGfxSfxDummy3(gSaveBlock2Ptr->playerGender);
+src/battle_controller_player.c:        trainerPicId = gSaveBlock2Ptr->playerGender;
+src/battle_controller_player.c:        trainerPicId = PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender);
+src/battle_controller_player.c:        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+src/battle_controller_player.c:    LoadCompressedPalette(gTrainerBackPicPaletteTable[gSaveBlock2Ptr->playerGender].data, 0x100 + paletteNum * 16, 32);
+src/battle_controller_player.c:    gSaveBlock2Ptr->frontier.disableRecordBattle = gBattleResources->bufferA[gActiveBattler][2];
+src/battle_controller_recorded_player.c:        trainerPicId = PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender);
+src/battle_controller_recorded_player.c:        trainerPicId = gSaveBlock2Ptr->playerGender;
+src/battle_controller_safari.c:    DecompressTrainerBackPic(gSaveBlock2Ptr->playerGender, gActiveBattler);
+src/battle_controller_safari.c:    SetMultiuseSpriteTemplateToTrainerBack(gSaveBlock2Ptr->playerGender, GetBattlerPosition(gActiveBattler));
+src/battle_controller_safari.c:      (8 - gTrainerBackPicCoords[gSaveBlock2Ptr->playerGender].size) * 4 + 80,
+src/battle_controllers.c:    sBattleBuffersTransferData[2] = gSaveBlock2Ptr->frontier.disableRecordBattle;
+src/battle_controllers.c:    sBattleBuffersTransferData[3] = gSaveBlock2Ptr->frontier.disableRecordBattle;
+src/battle_dome.c:#define DOME_TRAINERS gSaveBlock2Ptr->frontier.domeTrainers
+src/battle_dome.c:#define DOME_MONS     gSaveBlock2Ptr->frontier.domeMonIds
+src/battle_dome.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.challengeStatus = 0;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum = 0;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.challengePaused = FALSE;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.disableRecordBattle = FALSE;
+src/battle_dome.c:    if (!(gSaveBlock2Ptr->frontier.winStreakActiveFlags & sWinStreakFlags[battleMode][lvlMode]))
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode] = 0;
+src/battle_dome.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_dome.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode];
+src/battle_dome.c:        gSpecialVar_Result = ((gSaveBlock2Ptr->frontier.winStreakActiveFlags & sWinStreakFlags[battleMode][lvlMode]) != 0);
+src/battle_dome.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeAttemptedSingles50;
+src/battle_dome.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeAttemptedSinglesOpen;
+src/battle_dome.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeHasWonSingles50;
+src/battle_dome.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeHasWonSinglesOpen;
+src/battle_dome.c:                gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeAttemptedDoublesOpen;
+src/battle_dome.c:                gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeAttemptedDoubles50;
+src/battle_dome.c:                gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeAttemptedSinglesOpen;
+src/battle_dome.c:                gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeAttemptedSingles50;
+src/battle_dome.c:                gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeHasWonDoublesOpen;
+src/battle_dome.c:                gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeHasWonDoubles50;
+src/battle_dome.c:                gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeHasWonSinglesOpen;
+src/battle_dome.c:                gSpecialVar_Result = gSaveBlock2Ptr->frontier.domeHasWonSingles50;
+src/battle_dome.c:        gSelectedOrderFromParty[0] = gSaveBlock2Ptr->frontier.selectedPartyMons[3];
+src/battle_dome.c:        gSelectedOrderFromParty[1] = gSaveBlock2Ptr->frontier.selectedPartyMons[3] >> 8;
+src/battle_dome.c:        gSpecialVar_Result = (gSaveBlock2Ptr->frontier.domeLvlMode * 2) - 3 + gSaveBlock2Ptr->frontier.domeBattleMode;
+src/battle_dome.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode] = gSpecialVar_0x8006;
+src/battle_dome.c:            gSaveBlock2Ptr->frontier.winStreakActiveFlags |= sWinStreakFlags[battleMode][lvlMode];
+src/battle_dome.c:            gSaveBlock2Ptr->frontier.winStreakActiveFlags &= sWinStreakMasks[battleMode][lvlMode];
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domeAttemptedSingles50 = gSpecialVar_0x8006;
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domeAttemptedSinglesOpen = gSpecialVar_0x8006;
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domeHasWonSingles50 = gSpecialVar_0x8006;
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domeHasWonSinglesOpen = gSpecialVar_0x8006;
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeAttemptedDoublesOpen = gSpecialVar_0x8006;
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeAttemptedDoubles50 = gSpecialVar_0x8006;
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeAttemptedSinglesOpen = gSpecialVar_0x8006;
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeAttemptedSingles50 = gSpecialVar_0x8006;
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeHasWonDoublesOpen = gSpecialVar_0x8006;
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeHasWonDoubles50 = gSpecialVar_0x8006;
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeHasWonSinglesOpen = gSpecialVar_0x8006;
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeHasWonSingles50 = gSpecialVar_0x8006;
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.selectedPartyMons[3] = T1_READ_16(gSelectedOrderFromParty);
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.domeLvlMode = gSaveBlock2Ptr->frontier.lvlMode + 1;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.domeBattleMode = VarGet(VAR_FRONTIER_BATTLE_MODE) + 1;
+src/battle_dome.c:        DOME_MONS[0][i] = GetMonData(&gPlayerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1], MON_DATA_SPECIES, NULL);
+src/battle_dome.c:            gSaveBlock2Ptr->frontier.domePlayerPartyData[i].moves[j] = GetMonData(&gPlayerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1], MON_DATA_MOVE1 + j, NULL);
+src/battle_dome.c:            gSaveBlock2Ptr->frontier.domePlayerPartyData[i].evs[j] = GetMonData(&gPlayerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1], MON_DATA_HP_EV + j, NULL);
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domePlayerPartyData[i].nature = GetNature(&gPlayerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1]);
+src/battle_dome.c:        trainerId = gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1;
+src/battle_dome.c:    StringCopy(gStringVar1, gRoundsStringTable[gSaveBlock2Ptr->frontier.curChallengeBattleNum]);
+src/battle_dome.c:    StringCopy(gStringVar1, gRoundsStringTable[gSaveBlock2Ptr->frontier.curChallengeBattleNum]);
+src/battle_dome.c:    return DOME_TRAINERS[TournamentIdOfOpponent(gSaveBlock2Ptr->frontier.curChallengeBattleNum, TRAINER_PLAYER)].trainerId;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.challengePaused = TRUE;
+src/battle_dome.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_dome.c:    if (gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode] < 999)
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode]++;
+src/battle_dome.c:    if (gSaveBlock2Ptr->frontier.domeTotalChampionships[battleMode][lvlMode] < 999)
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domeTotalChampionships[battleMode][lvlMode]++;
+src/battle_dome.c:    if (gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode] > gSaveBlock2Ptr->frontier.domeRecordWinStreaks[battleMode][lvlMode])
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domeRecordWinStreaks[battleMode][lvlMode] = gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode];
+src/battle_dome.c:    int roundId = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_dome.c:    u16 roundId = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_dome.c:        sInfoCard->spriteIds[arrId] = CreateTrainerPicSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender), TRUE, x + 48, y + 64, palSlot + 12, 0xFFFF);
+src/battle_dome.c:        StringAppend(gStringVar1, gSaveBlock2Ptr->playerName);
+src/battle_dome.c:                    allocatedArray[k] += sBattleStyleMovePoints[gSaveBlock2Ptr->frontier.domePlayerPartyData[i].moves[j]][k];
+src/battle_dome.c:                    allocatedArray[j] = gSaveBlock2Ptr->frontier.domePlayerPartyData[i].evs[j];
+src/battle_dome.c:                    nature = gSaveBlock2Ptr->frontier.domePlayerPartyData[i].nature;
+src/battle_dome.c:                StringCopy(gStringVar1, gSaveBlock2Ptr->playerName);
+src/battle_dome.c:                StringCopy(gStringVar2, gMoveNames[gSaveBlock2Ptr->frontier.domeWinningMoves[tournamentId]]);
+src/battle_dome.c:                if (gSaveBlock2Ptr->frontier.domeWinningMoves[tournamentId] == MOVE_NONE && DOME_TRAINERS[tournamentId].forfeited == FALSE)
+src/battle_dome.c:                    StringCopy(gStringVar1, gSaveBlock2Ptr->playerName);
+src/battle_dome.c:        sInfoCard->spriteIds[arrId] = CreateTrainerPicSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender), TRUE, x + 48, y + 88, palSlot + 12, 0xFFFF);
+src/battle_dome.c:        sInfoCard->spriteIds[1 + arrId] = CreateTrainerPicSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender), TRUE, x + 192, y + 88, palSlot + 13, 0xFFFF);
+src/battle_dome.c:        StringCopy(gStringVar1, gSaveBlock2Ptr->playerName);
+src/battle_dome.c:        StringCopy(gStringVar1, gSaveBlock2Ptr->playerName);
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.lvlMode = gSaveBlock2Ptr->frontier.domeLvlMode - 1;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum = DOME_FINAL;
+src/battle_dome.c:    int roundId = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_dome.c:        DOME_TRAINERS[TrainerIdToTournamentId(gTrainerBattleOpponent_A)].eliminatedAt = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domeWinningMoves[TrainerIdToTournamentId(gTrainerBattleOpponent_A)] = gBattleResults.lastUsedMovePlayer;
+src/battle_dome.c:        if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < DOME_FINAL)
+src/battle_dome.c:            DecideRoundWinners(gSaveBlock2Ptr->frontier.curChallengeBattleNum);
+src/battle_dome.c:        DOME_TRAINERS[TrainerIdToTournamentId(TRAINER_PLAYER)].eliminatedAt = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_dome.c:        gSaveBlock2Ptr->frontier.domeWinningMoves[TrainerIdToTournamentId(TRAINER_PLAYER)] = gBattleResults.lastUsedMoveOpponent;
+src/battle_dome.c:        for (i = gSaveBlock2Ptr->frontier.curChallengeBattleNum; i < DOME_ROUNDS_COUNT; i++)
+src/battle_dome.c:            if (gSaveBlock2Ptr->frontier.domeWinningMoves[sub_81953E8(winnerTournamentId, i)] == moveIds[j])
+src/battle_dome.c:                else if (gSaveBlock2Ptr->frontier.curChallengeBattleNum != DOME_ROUND2)
+src/battle_dome.c:                    DrawTourneyAdvancementLine(i, gSaveBlock2Ptr->frontier.curChallengeBattleNum - 2);
+src/battle_dome.c:                else if (gSaveBlock2Ptr->frontier.curChallengeBattleNum != DOME_ROUND1)
+src/battle_dome.c:                        var2 = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_dome.c:                        var2 = gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1;
+src/battle_dome.c:                roundId = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_dome.c:                roundId = gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1;
+src/battle_dome.c:            if (    ((notInteractive == TRUE && DOME_TRAINERS[i].eliminatedAt < gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1)
+src/battle_dome.c:                if (DOME_TRAINERS[i].eliminatedAt == gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1
+src/battle_dome.c:                    int roundId = gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1;
+src/battle_dome.c:        int playerMonId = gSaveBlock2Ptr->frontier.selectedPartyMons[gSelectedOrderFromParty[i] - 1] - 1;
+src/battle_dome.c:        int playerMonId = gSaveBlock2Ptr->frontier.selectedPartyMons[gSelectedOrderFromParty[i] - 1] - 1;
+src/battle_dome.c:    if ((gSaveBlock2Ptr->frontier.domeLvlMode != -gSaveBlock2Ptr->frontier.domeBattleMode) && gSaveBlock2Ptr->frontier.challengeStatus != CHALLENGE_STATUS_SAVING)
+src/battle_dome.c:    lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.lvlMode = FRONTIER_LVL_50;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.domeLvlMode = zero1 + 1;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.domeBattleMode = zero2 + 1;
+src/battle_dome.c:    gSaveBlock2Ptr->frontier.lvlMode = lvlMode;
+src/battle_dome.c:            gSaveBlock2Ptr->frontier.domeWinningMoves[tournamentId2] = GetWinningMove(tournamentId1, tournamentId2, roundId);
+src/battle_dome.c:            gSaveBlock2Ptr->frontier.domeWinningMoves[tournamentId1] = GetWinningMove(tournamentId2, tournamentId1, roundId);
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeWinningMoves[tournamentId2] = GetWinningMove(tournamentId1, tournamentId2, roundId);
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeWinningMoves[tournamentId1] = GetWinningMove(tournamentId2, tournamentId1, roundId);
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeWinningMoves[tournamentId2] = GetWinningMove(tournamentId1, tournamentId2, roundId);
+src/battle_dome.c:                gSaveBlock2Ptr->frontier.domeWinningMoves[tournamentId1] = GetWinningMove(tournamentId2, tournamentId1, roundId);
+src/battle_dome.c:                str[i] = gSaveBlock2Ptr->playerName[i];
+src/battle_factory.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_factory.c:    gSaveBlock2Ptr->frontier.challengeStatus = 0;
+src/battle_factory.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum = 0;
+src/battle_factory.c:    gSaveBlock2Ptr->frontier.challengePaused = FALSE;
+src/battle_factory.c:    gSaveBlock2Ptr->frontier.disableRecordBattle = FALSE;
+src/battle_factory.c:    if (!(gSaveBlock2Ptr->frontier.winStreakActiveFlags & sWinStreakFlags[battleMode][lvlMode]))
+src/battle_factory.c:        gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] = 0;
+src/battle_factory.c:        gSaveBlock2Ptr->frontier.factoryRentsCount[battleMode][lvlMode] = 0;
+src/battle_factory.c:        gSaveBlock2Ptr->frontier.rentalMons[i].monId = 0xFFFF;
+src/battle_factory.c:    int lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_factory.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode];
+src/battle_factory.c:        gSpecialVar_Result = ((gSaveBlock2Ptr->frontier.winStreakActiveFlags & sWinStreakFlags[battleMode][lvlMode]) != 0);
+src/battle_factory.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.factoryRentsCount[battleMode][lvlMode];
+src/battle_factory.c:    int lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_factory.c:        gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] = gSpecialVar_0x8006;
+src/battle_factory.c:            gSaveBlock2Ptr->frontier.winStreakActiveFlags |= sWinStreakFlags[battleMode][lvlMode];
+src/battle_factory.c:            gSaveBlock2Ptr->frontier.winStreakActiveFlags &= sWinStreakMasks[battleMode][lvlMode];
+src/battle_factory.c:            gSaveBlock2Ptr->frontier.factoryRentsCount[battleMode][lvlMode] = gSpecialVar_0x8006;
+src/battle_factory.c:    gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
+src/battle_factory.c:    gSaveBlock2Ptr->frontier.challengePaused = TRUE;
+src/battle_factory.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_factory.c:    u32 winStreak = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode];
+src/battle_factory.c:        trainerId = GetRandomScaledFrontierTrainerId(challengeNum, gSaveBlock2Ptr->frontier.curChallengeBattleNum);
+src/battle_factory.c:        for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum; i++)
+src/battle_factory.c:            if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
+src/battle_factory.c:    } while (i != gSaveBlock2Ptr->frontier.curChallengeBattleNum);
+src/battle_factory.c:    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < 6)
+src/battle_factory.c:        gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum] = trainerId;
+src/battle_factory.c:            if (gFacilityTrainerMons[monId].species == gFacilityTrainerMons[gSaveBlock2Ptr->frontier.rentalMons[j].monId].species)
+src/battle_factory.c:    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_TENT)
+src/battle_factory.c:        gSaveBlock2Ptr->frontier.rentalMons[i + FRONTIER_PARTY_SIZE].monId = gFrontierTempParty[i];
+src/battle_factory.c:        gSaveBlock2Ptr->frontier.rentalMons[i + FRONTIER_PARTY_SIZE].ivs = GetBoxMonData(&gEnemyParty[i].box, MON_DATA_ATK_IV, NULL);
+src/battle_factory.c:        gSaveBlock2Ptr->frontier.rentalMons[i + FRONTIER_PARTY_SIZE].personality = GetMonData(&gEnemyParty[i], MON_DATA_PERSONALITY, NULL);
+src/battle_factory.c:        gSaveBlock2Ptr->frontier.rentalMons[i + FRONTIER_PARTY_SIZE].abilityNum = GetBoxMonData(&gEnemyParty[i].box, MON_DATA_ABILITY_NUM, NULL);
+src/battle_factory.c:    if (gSaveBlock2Ptr->frontier.lvlMode == FRONTIER_LVL_TENT)
+src/battle_factory.c:        if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_50)
+src/battle_factory.c:            monId = gSaveBlock2Ptr->frontier.rentalMons[i].monId;
+src/battle_factory.c:            ivs = gSaveBlock2Ptr->frontier.rentalMons[i].ivs;
+src/battle_factory.c:                      TRUE, gSaveBlock2Ptr->frontier.rentalMons[i].personality,
+src/battle_factory.c:            SetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM, &gSaveBlock2Ptr->frontier.rentalMons[i].abilityNum);
+src/battle_factory.c:            monId = gSaveBlock2Ptr->frontier.rentalMons[i + FRONTIER_PARTY_SIZE].monId;
+src/battle_factory.c:            ivs = gSaveBlock2Ptr->frontier.rentalMons[i + FRONTIER_PARTY_SIZE].ivs;
+src/battle_factory.c:                      TRUE, gSaveBlock2Ptr->frontier.rentalMons[i + FRONTIER_PARTY_SIZE].personality,
+src/battle_factory.c:            SetMonData(&gEnemyParty[i], MON_DATA_ABILITY_NUM, &gSaveBlock2Ptr->frontier.rentalMons[i + FRONTIER_PARTY_SIZE].abilityNum);
+src/battle_factory.c:    lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_factory.c:    challengeNum = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] / 7;
+src/battle_factory.c:    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_50)
+src/battle_factory.c:        gSaveBlock2Ptr->frontier.rentalMons[i].monId = monId;
+src/battle_factory.c:    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_TENT)
+src/battle_factory.c:                   &gBattleFrontierHeldItems[gFacilityTrainerMons[gSaveBlock2Ptr->frontier.rentalMons[i].monId].itemTableId]);
+src/battle_factory.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_factory.c:    u8 challengeNum = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] / 7;
+src/battle_factory.c:    otId = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
+src/battle_factory.c:            if (monId == gSaveBlock2Ptr->frontier.rentalMons[j].monId)
+src/battle_factory.c:    u8 rents = gSaveBlock2Ptr->frontier.factoryRentsCount[battleMode][lvlMode];
+src/battle_factory.c:    int lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_factory.c:        int challengeNum = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] / 7;
+src/battle_factory_screen.c:    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_TENT)
+src/battle_factory_screen.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_factory_screen.c:    u8 challengeNum = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] / 7;
+src/battle_factory_screen.c:    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_50)
+src/battle_factory_screen.c:    otId = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
+src/battle_factory_screen.c:        u16 monId = gSaveBlock2Ptr->frontier.rentalMons[i].monId;
+src/battle_factory_screen.c:    otId = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
+src/battle_factory_screen.c:        u16 monId = gSaveBlock2Ptr->frontier.rentalMons[i].monId;
+src/battle_factory_screen.c:                gSaveBlock2Ptr->frontier.rentalMons[i].monId = sFactorySelectScreen->mons[j].monId;
+src/battle_factory_screen.c:                gSaveBlock2Ptr->frontier.rentalMons[i].personality = GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY, NULL);
+src/battle_factory_screen.c:                gSaveBlock2Ptr->frontier.rentalMons[i].abilityNum = GetBoxMonData(&gPlayerParty[i].box, MON_DATA_ABILITY_NUM, NULL);
+src/battle_factory_screen.c:                gSaveBlock2Ptr->frontier.rentalMons[i].ivs = GetBoxMonData(&gPlayerParty[i].box, MON_DATA_ATK_IV, NULL);
+src/battle_factory_screen.c:    gSaveBlock2Ptr->frontier.rentalMons[sFactorySwapScreen->playerMonId].monId = gSaveBlock2Ptr->frontier.rentalMons[sFactorySwapScreen->enemyMonId + FRONTIER_PARTY_SIZE].monId;
+src/battle_factory_screen.c:    gSaveBlock2Ptr->frontier.rentalMons[sFactorySwapScreen->playerMonId].ivs = gSaveBlock2Ptr->frontier.rentalMons[sFactorySwapScreen->enemyMonId + FRONTIER_PARTY_SIZE].ivs;
+src/battle_factory_screen.c:    gSaveBlock2Ptr->frontier.rentalMons[sFactorySwapScreen->playerMonId].personality = GetMonData(&gEnemyParty[sFactorySwapScreen->enemyMonId], MON_DATA_PERSONALITY, NULL);
+src/battle_factory_screen.c:    gSaveBlock2Ptr->frontier.rentalMons[sFactorySwapScreen->playerMonId].abilityNum = GetBoxMonData(&gEnemyParty[sFactorySwapScreen->enemyMonId].box, MON_DATA_ABILITY_NUM, NULL);
+src/battle_main.c:    gSaveBlock2Ptr->frontier.disableRecordBattle = FALSE;
+src/battle_main.c:            if (!gSaveBlock2Ptr->frontier.disableRecordBattle && i == monsCount)
+src/battle_main.c:        if (!(gBattleTypeFlags & BATTLE_TYPE_LINK) && gSaveBlock2Ptr->optionsBattleSceneOff == TRUE)
+src/battle_main.c:    gBattleScripting.battleStyle = gSaveBlock2Ptr->optionsBattleStyle;
+src/battle_main.c:                gSaveBlock2Ptr->frontier.disableRecordBattle = TRUE;
+src/battle_main.c:        gSaveBlock2Ptr->frontier.disableRecordBattle = TRUE;
+src/battle_message.c:            toCpy = gSaveBlock2Ptr->playerName;
+src/battle_message.c:            toCpy = gSaveBlock2Ptr->playerName;
+src/battle_palace.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_palace.c:    gSaveBlock2Ptr->frontier.challengeStatus = 0;
+src/battle_palace.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum = 0;
+src/battle_palace.c:    gSaveBlock2Ptr->frontier.challengePaused = FALSE;
+src/battle_palace.c:    gSaveBlock2Ptr->frontier.disableRecordBattle = FALSE;
+src/battle_palace.c:    if (!(gSaveBlock2Ptr->frontier.winStreakActiveFlags & sWinStreakFlags[battleMode][lvlMode]))
+src/battle_palace.c:        gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode] = 0;
+src/battle_palace.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_palace.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.palacePrize;
+src/battle_palace.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode];
+src/battle_palace.c:        gSpecialVar_Result = ((gSaveBlock2Ptr->frontier.winStreakActiveFlags & sWinStreakFlags[battleMode][lvlMode]) != 0);
+src/battle_palace.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_palace.c:        gSaveBlock2Ptr->frontier.palacePrize = gSpecialVar_0x8006;
+src/battle_palace.c:        gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode] = gSpecialVar_0x8006;
+src/battle_palace.c:            gSaveBlock2Ptr->frontier.winStreakActiveFlags |= sWinStreakFlags[battleMode][lvlMode];
+src/battle_palace.c:            gSaveBlock2Ptr->frontier.winStreakActiveFlags &= sWinStreakMasks[battleMode][lvlMode];
+src/battle_palace.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_palace.c:    if (gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode] < 50)
+src/battle_palace.c:    else if (gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode] < 99)
+src/battle_palace.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_palace.c:    if (gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode] < MAX_STREAK)
+src/battle_palace.c:        gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode]++;
+src/battle_palace.c:        if (gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][(lvlMode > gSaveBlock2Ptr->frontier.palaceRecordWinStreaks[battleMode][lvlMode]) ? 1 : 0])
+src/battle_palace.c:            gSaveBlock2Ptr->frontier.palaceRecordWinStreaks[battleMode][lvlMode] = gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode];
+src/battle_palace.c:    gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
+src/battle_palace.c:    gSaveBlock2Ptr->frontier.challengePaused = TRUE;
+src/battle_palace.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_palace.c:    if (gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode] > 41)
+src/battle_palace.c:        gSaveBlock2Ptr->frontier.palacePrize = sBattlePalaceLatePrizes[Random() % ARRAY_COUNT(sBattlePalaceLatePrizes)];
+src/battle_palace.c:        gSaveBlock2Ptr->frontier.palacePrize = sBattlePalaceEarlyPrizes[Random() % ARRAY_COUNT(sBattlePalaceEarlyPrizes)];
+src/battle_palace.c:    if (AddBagItem(gSaveBlock2Ptr->frontier.palacePrize, 1) == TRUE)
+src/battle_palace.c:        CopyItemName(gSaveBlock2Ptr->frontier.palacePrize, gStringVar1);
+src/battle_palace.c:        gSaveBlock2Ptr->frontier.palacePrize = 0;
+src/battle_pike.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pike.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.pikePrize;
+src/battle_pike.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.pikeWinStreaks[gSaveBlock2Ptr->frontier.lvlMode];
+src/battle_pike.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.pikeRecordStreaks[gSaveBlock2Ptr->frontier.lvlMode];
+src/battle_pike.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.pikeTotalStreaks[gSaveBlock2Ptr->frontier.lvlMode];
+src/battle_pike.c:            gSpecialVar_Result = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_PIKE_OPEN;
+src/battle_pike.c:            gSpecialVar_Result = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_PIKE_50;
+src/battle_pike.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pike.c:        gSaveBlock2Ptr->frontier.pikePrize = gSpecialVar_0x8006;
+src/battle_pike.c:            gSaveBlock2Ptr->frontier.pikeWinStreaks[gSaveBlock2Ptr->frontier.lvlMode] = gSpecialVar_0x8006;
+src/battle_pike.c:        if (gSpecialVar_0x8006 <= MAX_STREAK && gSaveBlock2Ptr->frontier.pikeRecordStreaks[gSaveBlock2Ptr->frontier.lvlMode] < gSpecialVar_0x8006)
+src/battle_pike.c:            gSaveBlock2Ptr->frontier.pikeRecordStreaks[gSaveBlock2Ptr->frontier.lvlMode] = gSpecialVar_0x8006;
+src/battle_pike.c:            gSaveBlock2Ptr->frontier.pikeTotalStreaks[gSaveBlock2Ptr->frontier.lvlMode] = gSpecialVar_0x8006;
+src/battle_pike.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags |= STREAK_PIKE_OPEN;
+src/battle_pike.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags &= ~(STREAK_PIKE_OPEN);
+src/battle_pike.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags |= STREAK_PIKE_50;
+src/battle_pike.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags &= ~(STREAK_PIKE_50);
+src/battle_pike.c:    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum > 14)
+src/battle_pike.c:    gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
+src/battle_pike.c:    gSaveBlock2Ptr->frontier.challengePaused = TRUE;
+src/battle_pike.c:    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum <= 4)
+src/battle_pike.c:    else if (gSaveBlock2Ptr->frontier.curChallengeBattleNum <= 10)
+src/battle_pike.c:    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum <= 4)
+src/battle_pike.c:    else if (gSaveBlock2Ptr->frontier.curChallengeBattleNum <= 9)
+src/battle_pike.c:    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum <= 4)
+src/battle_pike.c:    else if (gSaveBlock2Ptr->frontier.curChallengeBattleNum <= 9)
+src/battle_pike.c:    if (gSaveBlock2Ptr->frontier.pikeHintedRoomType == PIKE_ROOM_BRAIN)
+src/battle_pike.c:        return gSaveBlock2Ptr->frontier.pikeHintedRoomType;
+src/battle_pike.c:    if (gSpecialVar_0x8007 == gSaveBlock2Ptr->frontier.pikeHintedRoomIndex)
+src/battle_pike.c:        if (gSaveBlock2Ptr->frontier.pikeHintedRoomType == PIKE_ROOM_STATUS)
+src/battle_pike.c:        return gSaveBlock2Ptr->frontier.pikeHintedRoomType;
+src/battle_pike.c:    roomHint = sRoomTypeHints[gSaveBlock2Ptr->frontier.pikeHintedRoomType];
+src/battle_pike.c:    if (gSaveBlock2Ptr->frontier.pikeHealingRoomsDisabled)
+src/battle_pike.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pike.c:    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_50)
+src/battle_pike.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pike.c:    u16 winStreak = gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode];
+src/battle_pike.c:        gSaveBlock2Ptr->frontier.pikeHintedRoomIndex = Random() % 6;
+src/battle_pike.c:        gSaveBlock2Ptr->frontier.pikeHintedRoomType = PIKE_ROOM_BRAIN;
+src/battle_pike.c:        gSaveBlock2Ptr->frontier.pikeHintedRoomIndex = Random() % 3;
+src/battle_pike.c:        if (gSaveBlock2Ptr->frontier.pikeHealingRoomsDisabled)
+src/battle_pike.c:            if (gSaveBlock2Ptr->frontier.pikeHealingRoomsDisabled)
+src/battle_pike.c:        gSaveBlock2Ptr->frontier.pikeHintedRoomType = roomCandidates[Random() % count];
+src/battle_pike.c:        if (gSaveBlock2Ptr->frontier.pikeHintedRoomType == PIKE_ROOM_STATUS && !AtLeastOneHealthyMon())
+src/battle_pike.c:            gSaveBlock2Ptr->frontier.pikeHintedRoomType = PIKE_ROOM_NPC;
+src/battle_pike.c:        if (gSaveBlock2Ptr->frontier.pikeHintedRoomType == PIKE_ROOM_DOUBLE_BATTLE && !AtLeastTwoAliveMons())
+src/battle_pike.c:            gSaveBlock2Ptr->frontier.pikeHintedRoomType = PIKE_ROOM_NPC;
+src/battle_pike.c:    gSpecialVar_Result = gSaveBlock2Ptr->frontier.pikeHintedRoomIndex;
+src/battle_pike.c:    gSpecialVar_Result = sRoomTypeHints[gSaveBlock2Ptr->frontier.pikeHintedRoomType];
+src/battle_pike.c:    lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pike.c:    challengeNum = gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode] / 14;
+src/battle_pike.c:        for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1; i++)
+src/battle_pike.c:            if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
+src/battle_pike.c:    } while (i != gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1);
+src/battle_pike.c:    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < 14)
+src/battle_pike.c:        gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1] = gTrainerBattleOpponent_A;
+src/battle_pike.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pike.c:    u16 challengeNum = gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode] / 14;
+src/battle_pike.c:        for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1; i++)
+src/battle_pike.c:            if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
+src/battle_pike.c:    } while (i != gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1);
+src/battle_pike.c:    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum <= 14)
+src/battle_pike.c:        gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum - 1] = gTrainerBattleOpponent_A;
+src/battle_pike.c:        for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum; i++)
+src/battle_pike.c:            if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
+src/battle_pike.c:    } while (i != gSaveBlock2Ptr->frontier.curChallengeBattleNum);
+src/battle_pike.c:    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < 14)
+src/battle_pike.c:        gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum - 2] = gTrainerBattleOpponent_B;
+src/battle_pike.c:        gSaveBlock2Ptr->frontier.trainerIds[i] = 0xFFFF;
+src/battle_pike.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pike.c:    u16 winStreak = gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode];
+src/battle_pike.c:    u8 toHealCount = sNumMonsToHealBeforePikeQueen[gSaveBlock2Ptr->frontier.pikeHintedRoomIndex][gSpecialVar_0x8007];
+src/battle_pike.c:    gSaveBlock2Ptr->frontier.pikeHealingRoomsDisabled = gSpecialVar_0x8005;
+src/battle_pike.c:        int heldItem = GetMonData(&gSaveBlock1Ptr->playerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1],
+src/battle_pike.c:        gSaveBlock2Ptr->frontier.pikeHeldItemsBackup[i] = heldItem;
+src/battle_pike.c:        SetMonData(&gPlayerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1],
+src/battle_pike.c:                   &gSaveBlock2Ptr->frontier.pikeHeldItemsBackup[i]);
+src/battle_pike.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pike.c:    gSaveBlock2Ptr->frontier.challengeStatus = 0;
+src/battle_pike.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum = 0;
+src/battle_pike.c:    gSaveBlock2Ptr->frontier.challengePaused = FALSE;
+src/battle_pike.c:    if (!(gSaveBlock2Ptr->frontier.winStreakActiveFlags & sWinStreakFlags[lvlMode]))
+src/battle_pike.c:        gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode] = 0;
+src/battle_pyramid.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pyramid.c:    gSaveBlock2Ptr->frontier.challengeStatus = 0;
+src/battle_pyramid.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum = 0;
+src/battle_pyramid.c:    gSaveBlock2Ptr->frontier.challengePaused = FALSE;
+src/battle_pyramid.c:        isCurrent = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_PYRAMID_OPEN;
+src/battle_pyramid.c:        isCurrent = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_PYRAMID_50;
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] = 0;
+src/battle_pyramid.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pyramid.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.pyramidPrize;
+src/battle_pyramid.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode];
+src/battle_pyramid.c:            gSpecialVar_Result = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_PYRAMID_OPEN;
+src/battle_pyramid.c:            gSpecialVar_Result = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_PYRAMID_50;
+src/battle_pyramid.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.pyramidWinStreaks[FRONTIER_LVL_50];
+src/battle_pyramid.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.pyramidWinStreaks[FRONTIER_LVL_OPEN];
+src/battle_pyramid.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_PYRAMID_50;
+src/battle_pyramid.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.winStreakActiveFlags & STREAK_PYRAMID_OPEN;
+src/battle_pyramid.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidPrize = gSpecialVar_0x8006;
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] = gSpecialVar_0x8006;
+src/battle_pyramid.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags |= STREAK_PYRAMID_OPEN;
+src/battle_pyramid.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags &= ~(STREAK_PYRAMID_OPEN);
+src/battle_pyramid.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags |= STREAK_PYRAMID_50;
+src/battle_pyramid.c:                gSaveBlock2Ptr->frontier.winStreakActiveFlags &= ~(STREAK_PYRAMID_50);
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidTrainerFlags = gSpecialVar_0x8006;
+src/battle_pyramid.c:    gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
+src/battle_pyramid.c:    gSaveBlock2Ptr->frontier.challengePaused = TRUE;
+src/battle_pyramid.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pyramid.c:    if (gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] > 41)
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidPrize = sLongStreakRewardItems[Random() % ARRAY_COUNT(sLongStreakRewardItems)];
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidPrize = sShortStreakRewardItems[Random() % ARRAY_COUNT(sShortStreakRewardItems)];
+src/battle_pyramid.c:    if (AddBagItem(gSaveBlock2Ptr->frontier.pyramidPrize, 1) == TRUE)
+src/battle_pyramid.c:        CopyItemName(gSaveBlock2Ptr->frontier.pyramidPrize, gStringVar1);
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidPrize = 0;
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidRandoms[i] = Random();
+src/battle_pyramid.c:    gSaveBlock2Ptr->frontier.pyramidTrainerFlags = 0;
+src/battle_pyramid.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pyramid.c:    u32 floor = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_pyramid.c:    u32 round = (gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] / 7) % TOTAL_ROUNDS;
+src/battle_pyramid.c:    rand = gSaveBlock2Ptr->frontier.pyramidRandoms[itemIndex / 2];
+src/battle_pyramid.c:                if (gBitTable[i] & gSaveBlock2Ptr->frontier.pyramidTrainerFlags)
+src/battle_pyramid.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pyramid.c:    if (gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] < 999)
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode]++;
+src/battle_pyramid.c:    if (gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] > gSaveBlock2Ptr->frontier.pyramidRecordStreaks[lvlMode])
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidRecordStreaks[lvlMode] = gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode];
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidLightRadius = gSpecialVar_0x8005;
+src/battle_pyramid.c:                if (gSaveBlock2Ptr->frontier.pyramidLightRadius >= 120)
+src/battle_pyramid.c:                    gSaveBlock2Ptr->frontier.pyramidLightRadius = 120;
+src/battle_pyramid.c:                gSaveBlock2Ptr->frontier.pyramidLightRadius++;
+src/battle_pyramid.c:                if (gSaveBlock2Ptr->frontier.pyramidLightRadius > 120)
+src/battle_pyramid.c:                    gSaveBlock2Ptr->frontier.pyramidLightRadius = 120;
+src/battle_pyramid.c:            if (gSaveBlock2Ptr->frontier.selectedPartyMons[j] != 0 && gSaveBlock2Ptr->frontier.selectedPartyMons[j] - 1 == i)
+src/battle_pyramid.c:        CpuCopy16(gUnknown_08D856C8[gSaveBlock2Ptr->frontier.curChallengeBattleNum], &gPlttBufferUnfaded[96], 32);
+src/battle_pyramid.c:        int partyIndex = gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1;
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.selectedPartyMons[i] = gSelectedOrderFromParty[i];
+src/battle_pyramid.c:    return gSaveBlock2Ptr->frontier.trainerIds[localId - 1];
+src/battle_pyramid.c:    return gSaveBlock2Ptr->frontier.pyramidTrainerFlags & gBitTable[gObjectEvents[eventId].localId - 1];
+src/battle_pyramid.c:        if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
+src/battle_pyramid.c:            gSaveBlock2Ptr->frontier.pyramidTrainerFlags |= gBitTable[i];
+src/battle_pyramid.c:    u32 lvl = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pyramid.c:    u16 round = (gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvl] / 7) % TOTAL_ROUNDS;
+src/battle_pyramid.c:    if (gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvl] >= 140)
+src/battle_pyramid.c:    if (gSaveBlock2Ptr->frontier.pyramidWinStreaks[gSaveBlock2Ptr->frontier.lvlMode] >= 140)
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.challengeStatus = CHALLENGE_STATUS_PAUSED;
+src/battle_pyramid.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pyramid.c:    u32 challengeNum = gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] / 7;
+src/battle_pyramid.c:    u32 battleNum = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_pyramid.c:                if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
+src/battle_pyramid.c:                if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.trainerIds[i] = 0xFFFF;
+src/battle_pyramid.c:    *entranceSquareId = gSaveBlock2Ptr->frontier.pyramidRandoms[3] % 16;
+src/battle_pyramid.c:    *exitSquareId = gSaveBlock2Ptr->frontier.pyramidRandoms[0] % 16;
+src/battle_pyramid.c:        *entranceSquareId = (gSaveBlock2Ptr->frontier.pyramidRandoms[3] + 1 ) % 16;
+src/battle_pyramid.c:        *exitSquareId = (gSaveBlock2Ptr->frontier.pyramidRandoms[0] + 15) % 16;
+src/battle_pyramid.c:    squareId = gSaveBlock2Ptr->frontier.pyramidRandoms[2] % 16;
+src/battle_pyramid.c:                    if (!(gBitTable[squareId] & gSaveBlock2Ptr->frontier.pyramidRandoms[3]))
+src/battle_pyramid.c:                    if (gBitTable[squareId] & gSaveBlock2Ptr->frontier.pyramidRandoms[3])
+src/battle_pyramid.c:                if (squareId == gSaveBlock2Ptr->frontier.pyramidRandoms[2] % 16)
+src/battle_pyramid.c:    if (gSaveBlock2Ptr->frontier.pyramidRandoms[0] & 1)
+src/battle_pyramid.c:                gSaveBlock2Ptr->frontier.trainerIds[objectEventId] = i;
+src/battle_pyramid.c:    int rand = (gSaveBlock2Ptr->frontier.pyramidRandoms[0]) | (gSaveBlock2Ptr->frontier.pyramidRandoms[1] << 16);
+src/battle_pyramid.c:            rand = (gSaveBlock2Ptr->frontier.pyramidRandoms[2]) | (gSaveBlock2Ptr->frontier.pyramidRandoms[3] << 16);
+src/battle_pyramid.c:    int rand = gSaveBlock2Ptr->frontier.pyramidRandoms[3] % 100;
+src/battle_pyramid.c:    int floor = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidBag.itemId[lvlMode][i] = ITEM_NONE;
+src/battle_pyramid.c:        gSaveBlock2Ptr->frontier.pyramidBag.quantity[lvlMode][i] = ITEM_NONE;
+src/battle_pyramid.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_pyramid.c:    int round = (gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] / 7);
+src/battle_pyramid_bag.c:    u16 *itemIds = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode];
+src/battle_pyramid_bag.c:            ShowItemIcon(gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode][itemIndex], gPyramidBagMenu->isAltIcon);
+src/battle_pyramid_bag.c:                               gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode][itemIndex],
+src/battle_pyramid_bag.c:        desc = ItemId_GetDescription(gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode][listMenuId]);
+src/battle_pyramid_bag.c:    u16 *itemIds = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode];
+src/battle_pyramid_bag.c:    u8 *quantities = gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode];
+src/battle_pyramid_bag.c:    u16 *itemIds = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode];
+src/battle_pyramid_bag.c:    u8 *quantities = gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode];
+src/battle_pyramid_bag.c:    u16 *itemIds = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode];
+src/battle_pyramid_bag.c:    u8 *quantities = gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode];
+src/battle_pyramid_bag.c:    u16 *itemIds = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode];
+src/battle_pyramid_bag.c:            gSpecialVar_ItemId = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode][listId];
+src/battle_pyramid_bag.c:            tQuantity = gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode][listId];
+src/battle_pyramid_bag.c:    CopyItemName(gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode][tListPos], gStringVar1);
+src/battle_pyramid_bag.c:    memcpy(newItems, gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode], PYRAMID_BAG_ITEMS_COUNT * sizeof(u16));
+src/battle_pyramid_bag.c:    memcpy(newQuantities, gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode], PYRAMID_BAG_ITEMS_COUNT * sizeof(u8));
+src/battle_pyramid_bag.c:            memcpy(gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode], newItems, PYRAMID_BAG_ITEMS_COUNT * sizeof(u16));
+src/battle_pyramid_bag.c:            memcpy(gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode], newQuantities, PYRAMID_BAG_ITEMS_COUNT * sizeof(u8));
+src/battle_pyramid_bag.c:    spritePalette.data = palPtr + (gSaveBlock2Ptr->frontier.lvlMode * 16);
+src/battle_script_commands.c:            if (gSaveBlock2Ptr->expShare) // exp share is turned on
+src/battle_script_commands.c:            if (!gSaveBlock2Ptr->expShare && !(gBattleStruct->sentInPokes & 1))
+src/battle_script_commands.c:                    if ((gSaveBlock2Ptr->expShare) && ((gBattleMoveDamage == 0) || (B_SPLIT_EXP < GEN_6)))
+src/battle_setup.c:    var = gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum * 2 + 0]
+src/battle_setup.c:        + gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum * 2 + 1];
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengeStatus = 0;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum = 0;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengePaused = FALSE;
+src/battle_tent.c:    gSpecialVar_Result = gSaveBlock2Ptr->frontier.verdanturfTentPrize;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.verdanturfTentPrize = gSpecialVar_0x8006;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengePaused = TRUE;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.verdanturfTentPrize = sVerdanturfTentRewards[Random() % ARRAY_COUNT(sVerdanturfTentRewards)];
+src/battle_tent.c:    if (AddBagItem(gSaveBlock2Ptr->frontier.verdanturfTentPrize, 1) == TRUE)
+src/battle_tent.c:        CopyItemName(gSaveBlock2Ptr->frontier.verdanturfTentPrize, gStringVar1);
+src/battle_tent.c:        gSaveBlock2Ptr->frontier.verdanturfTentPrize = ITEM_NONE;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengeStatus = 0;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum = 0;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengePaused = FALSE;
+src/battle_tent.c:    gSpecialVar_Result = gSaveBlock2Ptr->frontier.fallarborTentPrize;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.fallarborTentPrize = gSpecialVar_0x8006;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengePaused = TRUE;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.fallarborTentPrize = sFallarborTentRewards[Random() % ARRAY_COUNT(sFallarborTentRewards)];
+src/battle_tent.c:    if (AddBagItem(gSaveBlock2Ptr->frontier.fallarborTentPrize, 1) == TRUE)
+src/battle_tent.c:        CopyItemName(gSaveBlock2Ptr->frontier.fallarborTentPrize, gStringVar1);
+src/battle_tent.c:        gSaveBlock2Ptr->frontier.fallarborTentPrize = ITEM_NONE;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengeStatus = 0;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum = 0;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengePaused = FALSE;
+src/battle_tent.c:    gSpecialVar_Result = gSaveBlock2Ptr->frontier.slateportTentPrize;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.slateportTentPrize = gSpecialVar_0x8006;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.challengePaused = TRUE;
+src/battle_tent.c:    gSaveBlock2Ptr->frontier.slateportTentPrize = sSlateportTentRewards[Random() % ARRAY_COUNT(sSlateportTentRewards)];
+src/battle_tent.c:    if (AddBagItem(gSaveBlock2Ptr->frontier.slateportTentPrize, 1) == TRUE)
+src/battle_tent.c:        CopyItemName(gSaveBlock2Ptr->frontier.slateportTentPrize, gStringVar1);
+src/battle_tent.c:        gSaveBlock2Ptr->frontier.slateportTentPrize = ITEM_NONE;
+src/battle_tent.c:        gSaveBlock2Ptr->frontier.rentalMons[i].monId = monSetId;
+src/battle_tent.c:            for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum; i++)
+src/battle_tent.c:                if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
+src/battle_tent.c:        } while (i != gSaveBlock2Ptr->frontier.curChallengeBattleNum);
+src/battle_tent.c:    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < 2)
+src/battle_tent.c:        gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum] = gTrainerBattleOpponent_A;
+src/battle_tent.c:            if (gFacilityTrainerMons[sRandMonSetId].species == gFacilityTrainerMons[gSaveBlock2Ptr->frontier.rentalMons[j].monId].species)
+src/battle_tower.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:    gSaveBlock2Ptr->frontier.challengeStatus = CHALLENGE_STATUS_SAVING;
+src/battle_tower.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum = 0;
+src/battle_tower.c:    gSaveBlock2Ptr->frontier.challengePaused = FALSE;
+src/battle_tower.c:    gSaveBlock2Ptr->frontier.disableRecordBattle = FALSE;
+src/battle_tower.c:    if (!(gSaveBlock2Ptr->frontier.winStreakActiveFlags & sWinStreakFlags[battleMode][lvlMode]))
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] = 0;
+src/battle_tower.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:        gSpecialVar_Result = ((gSaveBlock2Ptr->frontier.winStreakActiveFlags & sWinStreakFlags[battleMode][lvlMode]) != 0);
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.towerLvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] = gSpecialVar_0x8006;
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.winStreakActiveFlags |= sWinStreakFlags[battleMode][lvlMode];
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.winStreakActiveFlags &= sWinStreakMasks[battleMode][lvlMode];
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.towerLvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:        ClearEReaderTrainer(&gSaveBlock2Ptr->frontier.ereaderTrainer);
+src/battle_tower.c:    if (gSaveBlock2Ptr->frontier.towerNumWins < MAX_STREAK)
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.towerNumWins++;
+src/battle_tower.c:    gSaveBlock2Ptr->frontier.curChallengeBattleNum++;
+src/battle_tower.c:    gSpecialVar_Result = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_tower.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:        u32 *record = (u32*)(&gSaveBlock2Ptr->frontier.towerRecords[i]);
+src/battle_tower.c:            if (gSaveBlock2Ptr->frontier.towerRecords[i].party[j].species != 0
+src/battle_tower.c:                && gSaveBlock2Ptr->frontier.towerRecords[i].party[j].level <= GetFrontierEnemyMonLevel(lvlMode))
+src/battle_tower.c:            && gSaveBlock2Ptr->frontier.towerRecords[i].winStreak == winStreak
+src/battle_tower.c:            && gSaveBlock2Ptr->frontier.towerRecords[i].lvlMode == lvlMode
+src/battle_tower.c:            && gSaveBlock2Ptr->frontier.towerRecords[i].checksum == checksum)
+src/battle_tower.c:            if (gSaveBlock2Ptr->apprentices[i].lvlMode != 0
+src/battle_tower.c:                && sApprenticeChallengeThreshold[gSaveBlock2Ptr->apprentices[i].numQuestions] == winStreak
+src/battle_tower.c:                && gSaveBlock2Ptr->apprentices[i].lvlMode - 1 == lvlMode)
+src/battle_tower.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:            id = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_tower.c:            gTrainerBattleOpponent_A = gSaveBlock2Ptr->frontier.trainerIds[id * 2];
+src/battle_tower.c:            gTrainerBattleOpponent_B = gSaveBlock2Ptr->frontier.trainerIds[id * 2 + 1];
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum] = gTrainerBattleOpponent_A;
+src/battle_tower.c:                id = GetRandomScaledFrontierTrainerId(challengeNum, gSaveBlock2Ptr->frontier.curChallengeBattleNum);
+src/battle_tower.c:                for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum; i++)
+src/battle_tower.c:                    if (gSaveBlock2Ptr->frontier.trainerIds[i] == id)
+src/battle_tower.c:                if (i == gSaveBlock2Ptr->frontier.curChallengeBattleNum)
+src/battle_tower.c:            if (gSaveBlock2Ptr->frontier.curChallengeBattleNum + 1 < 7)
+src/battle_tower.c:                gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum] = gTrainerBattleOpponent_A;
+src/battle_tower.c:        facilityClass = gSaveBlock2Ptr->frontier.ereaderTrainer.facilityClass;
+src/battle_tower.c:        facilityClass = gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
+src/battle_tower.c:        facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+src/battle_tower.c:        facilityClass = gSaveBlock2Ptr->frontier.ereaderTrainer.facilityClass;
+src/battle_tower.c:        facilityClass = gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
+src/battle_tower.c:        facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+src/battle_tower.c:            if (gSaveBlock2Ptr->frontier.towerRecords[i].trainerId[j] != newRecord->trainerId[j])
+src/battle_tower.c:                if (gSaveBlock2Ptr->frontier.towerRecords[i].name[k] != newRecord->name[k])
+src/battle_tower.c:                if (gSaveBlock2Ptr->frontier.towerRecords[i].name[j] != newRecord->name[j])
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.towerRecords[i] = *newRecord;
+src/battle_tower.c:        if (gSaveBlock2Ptr->frontier.towerRecords[i].winStreak == 0)
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.towerRecords[i] = *newRecord;
+src/battle_tower.c:    slotValues[0] = gSaveBlock2Ptr->frontier.towerRecords[0].winStreak;
+src/battle_tower.c:            if (gSaveBlock2Ptr->frontier.towerRecords[i].winStreak < slotValues[j])
+src/battle_tower.c:                slotValues[0] = gSaveBlock2Ptr->frontier.towerRecords[i].winStreak;
+src/battle_tower.c:            else if (gSaveBlock2Ptr->frontier.towerRecords[i].winStreak > slotValues[j])
+src/battle_tower.c:            slotValues[slotsCount] = gSaveBlock2Ptr->frontier.towerRecords[i].winStreak;
+src/battle_tower.c:    gSaveBlock2Ptr->frontier.towerRecords[slotIds[i]] = *newRecord;
+src/battle_tower.c:        return gFacilityClassToPicIndex[gSaveBlock2Ptr->frontier.ereaderTrainer.facilityClass];
+src/battle_tower.c:            return gFacilityClassToPicIndex[gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].facilityClass];
+src/battle_tower.c:            return gFacilityClassToPicIndex[gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass];
+src/battle_tower.c:        trainerClass = gFacilityClassToTrainerClass[gSaveBlock2Ptr->frontier.ereaderTrainer.facilityClass];
+src/battle_tower.c:            trainerClass = gFacilityClassToTrainerClass[gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].facilityClass];
+src/battle_tower.c:            trainerClass = gFacilityClassToTrainerClass[gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass];
+src/battle_tower.c:        facilityClass = gSaveBlock2Ptr->frontier.ereaderTrainer.facilityClass;
+src/battle_tower.c:            facilityClass = gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
+src/battle_tower.c:            facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+src/battle_tower.c:            dst[i] = gSaveBlock2Ptr->frontier.ereaderTrainer.name[i];
+src/battle_tower.c:            struct EmeraldBattleTowerRecord *record = &gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND];
+src/battle_tower.c:            struct Apprentice *apprentice = &gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE];
+src/battle_tower.c:        facilityClass = gSaveBlock2Ptr->frontier.ereaderTrainer.facilityClass;
+src/battle_tower.c:        facilityClass = gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
+src/battle_tower.c:        facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+src/battle_tower.c:            CreateBattleTowerMon(&gEnemyParty[i], &gSaveBlock2Ptr->frontier.ereaderTrainer.party[i - firstMonId]);
+src/battle_tower.c:            if (gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].party[j].species != 0
+src/battle_tower.c:                && gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].party[j].level <= level)
+src/battle_tower.c:                CreateBattleTowerMon2(&gEnemyParty[i], &gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].party[j], FALSE);
+src/battle_tower.c:            CreateApprenticeMon(&gEnemyParty[i], &gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE], i - firstMonId);
+src/battle_tower.c:    struct Apprentice *apprentice = &gSaveBlock2Ptr->apprentices[0];
+src/battle_tower.c:    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_50)
+src/battle_tower.c:    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_TENT)
+src/battle_tower.c:        u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode; // Unused variable.
+src/battle_tower.c:        u8 challengeNum = gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][0] / 7;
+src/battle_tower.c:        if (gSaveBlock2Ptr->frontier.curChallengeBattleNum < 6)
+src/battle_tower.c:            CreateBattleTowerMon(&gEnemyParty[i], &gSaveBlock2Ptr->frontier.ereaderTrainer.party[i - firstMonId]);
+src/battle_tower.c:    otID = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
+src/battle_tower.c:    u32 otID = T1_READ_32(gSaveBlock2Ptr->playerTrainerId);
+src/battle_tower.c:        FrontierSpeechToString(gSaveBlock2Ptr->frontier.ereaderTrainer.greeting);
+src/battle_tower.c:        FrontierSpeechToString(gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].greeting);
+src/battle_tower.c:        if (gSaveBlock2Ptr->frontier.battlesCount < 0xFFFFFF)
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.battlesCount++;
+src/battle_tower.c:            if (gSaveBlock2Ptr->frontier.battlesCount % 20 == 0)
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.battlesCount = 0xFFFFFF;
+src/battle_tower.c:            gPartnerTrainerId = gSaveBlock2Ptr->frontier.trainerIds[17];
+src/battle_tower.c:            CreateBattleTowerMon(&gEnemyParty[i], &gSaveBlock2Ptr->frontier.ereaderTrainer.party[i]);
+src/battle_tower.c:        if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_TENT)
+src/battle_tower.c:        if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_TENT)
+src/battle_tower.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:    if (gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] < winStreak)
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] = winStreak;
+src/battle_tower.c:    struct EmeraldBattleTowerRecord *playerRecord = &gSaveBlock2Ptr->frontier.towerPlayer;
+src/battle_tower.c:    lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:    if (gSaveBlock2Ptr->playerGender != MALE)
+src/battle_tower.c:        class = gTowerFemaleFacilityClasses[(gSaveBlock2Ptr->playerTrainerId[0] +
+src/battle_tower.c:                                       gSaveBlock2Ptr->playerTrainerId[1] +
+src/battle_tower.c:                                       gSaveBlock2Ptr->playerTrainerId[2] +
+src/battle_tower.c:                                       gSaveBlock2Ptr->playerTrainerId[3]) % ARRAY_COUNT(gTowerFemaleFacilityClasses)];
+src/battle_tower.c:        class = gTowerMaleFacilityClasses[(gSaveBlock2Ptr->playerTrainerId[0] +
+src/battle_tower.c:                                     gSaveBlock2Ptr->playerTrainerId[1] +
+src/battle_tower.c:                                     gSaveBlock2Ptr->playerTrainerId[2] +
+src/battle_tower.c:                                     gSaveBlock2Ptr->playerTrainerId[3]) % ARRAY_COUNT(gTowerMaleFacilityClasses)];
+src/battle_tower.c:    CopyTrainerId(playerRecord->trainerId, gSaveBlock2Ptr->playerTrainerId);
+src/battle_tower.c:    StringCopy7(playerRecord->name, gSaveBlock2Ptr->playerName);
+src/battle_tower.c:        if (gSaveBlock2Ptr->frontier.selectedPartyMons[i] != 0)
+src/battle_tower.c:            ConvertPokemonToBattleTowerPokemon(&gPlayerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1], &playerRecord->party[i]);
+src/battle_tower.c:    CalcEmeraldBattleTowerChecksum(&gSaveBlock2Ptr->frontier.towerPlayer);
+src/battle_tower.c:    u16 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:    s32 challengeNum = (signed)(gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] / 7);
+src/battle_tower.c:    if (gSpecialVar_0x8005 == 0 && (challengeNum > 1 || gSaveBlock2Ptr->frontier.curChallengeBattleNum != 0))
+src/battle_tower.c:    gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8005;
+src/battle_tower.c:    gSaveBlock2Ptr->frontier.challengePaused = TRUE;
+src/battle_tower.c:        u16 apprenticeSpecies = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].party[i].species;
+src/battle_tower.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:        if (gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].party[i].species != species1
+src/battle_tower.c:            && gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].party[i].species != species2
+src/battle_tower.c:            && gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].party[i].level <= GetFrontierEnemyMonLevel(lvlMode)
+src/battle_tower.c:            && gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].party[i].species != 0)
+src/battle_tower.c:    lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:    challengeNum = gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] / 7;
+src/battle_tower.c:                if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
+src/battle_tower.c:                if (gFacilityTrainers[gSaveBlock2Ptr->frontier.trainerIds[i]].facilityClass == gFacilityTrainers[trainerId].facilityClass)
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.trainerIds[j] = trainerId;
+src/battle_tower.c:        trainerId = gSaveBlock2Ptr->frontier.trainerIds[i];
+src/battle_tower.c:                if (j % 2 != 0 && gFacilityTrainerMons[gSaveBlock2Ptr->frontier.trainerIds[r10 - 1]].itemTableId == gFacilityTrainerMons[monId].itemTableId)
+src/battle_tower.c:                    if (gFacilityTrainerMons[gSaveBlock2Ptr->frontier.trainerIds[k]].species == gFacilityTrainerMons[monId].species)
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.trainerIds[r10] = monId;
+src/battle_tower.c:        if (gSaveBlock2Ptr->apprentices[i].lvlMode != 0
+src/battle_tower.c:            && sApprenticeChallengeThreshold[gSaveBlock2Ptr->apprentices[i].numQuestions] / 7 <= challengeNum
+src/battle_tower.c:            && gSaveBlock2Ptr->apprentices[i].lvlMode - 1 == lvlMode)
+src/battle_tower.c:                if (species1 != gSaveBlock2Ptr->apprentices[i].party[j].species
+src/battle_tower.c:                    && species2 != gSaveBlock2Ptr->apprentices[i].party[j].species)
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.trainerIds[6] = spArray[Random() % r10];
+src/battle_tower.c:        objEventTemplates[7].graphicsId = GetBattleFacilityTrainerGfxId(gSaveBlock2Ptr->frontier.trainerIds[6]);
+src/battle_tower.c:        GetApprenticeMultiPartnerParty(gSaveBlock2Ptr->frontier.trainerIds[6]);
+src/battle_tower.c:        u32 *record = (u32*)(&gSaveBlock2Ptr->frontier.towerRecords[i]);
+src/battle_tower.c:        if (gSaveBlock2Ptr->frontier.towerRecords[i].winStreak / 7 <= challengeNum
+src/battle_tower.c:            && gSaveBlock2Ptr->frontier.towerRecords[i].lvlMode == lvlMode
+src/battle_tower.c:            && gSaveBlock2Ptr->frontier.towerRecords[i].checksum == checksum)
+src/battle_tower.c:                if (species1 != gSaveBlock2Ptr->frontier.towerRecords[i].party[j].species
+src/battle_tower.c:                    && species2 != gSaveBlock2Ptr->frontier.towerRecords[i].party[j].species
+src/battle_tower.c:                    && gSaveBlock2Ptr->frontier.towerRecords[i].party[j].level <= GetFrontierEnemyMonLevel(lvlMode)
+src/battle_tower.c:                    && gSaveBlock2Ptr->frontier.towerRecords[i].party[j].species != 0)
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.trainerIds[7] = spArray[Random() % r10];
+src/battle_tower.c:        objEventTemplates[8].graphicsId = GetBattleFacilityTrainerGfxId(gSaveBlock2Ptr->frontier.trainerIds[7]);
+src/battle_tower.c:        GetRecordMixFriendMultiPartnerParty(gSaveBlock2Ptr->frontier.trainerIds[7]);
+src/battle_tower.c:            move = gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].party[gFrontierTempParty[gSpecialVar_0x8005 + 1]].moves[0];
+src/battle_tower.c:            species = gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].party[gFrontierTempParty[gSpecialVar_0x8005 + 1]].species;
+src/battle_tower.c:            move = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].party[gFrontierTempParty[gSpecialVar_0x8005 - 1]].moves[0];
+src/battle_tower.c:            species = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].party[gFrontierTempParty[gSpecialVar_0x8005 - 1]].species;
+src/battle_tower.c:                gStringVar3[i] = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].playerName[i];
+src/battle_tower.c:            ConvertInternationalString(gStringVar3, gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].language);
+src/battle_tower.c:    s32 trainerId = gSaveBlock2Ptr->frontier.trainerIds[k];
+src/battle_tower.c:                gStringVar1[i] = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].playerName[i];
+src/battle_tower.c:            ConvertInternationalString(gStringVar1, gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].language);
+src/battle_tower.c:            ConvertIntToDecimalStringN(gStringVar2, gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].number, STR_CONV_MODE_LEFT_ALIGN, 3);
+src/battle_tower.c:        monId = gSaveBlock2Ptr->frontier.trainerIds[8 + k * 2];
+src/battle_tower.c:        monId = gSaveBlock2Ptr->frontier.trainerIds[9 + k * 2];
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.trainerIds[18] = gSaveBlock2Ptr->frontier.trainerIds[8 + k * 2];
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.trainerIds[19] = gSaveBlock2Ptr->frontier.trainerIds[9 + k * 2];
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.trainerIds[18] = gFrontierTempParty[2];
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.trainerIds[19] = gFrontierTempParty[3];
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.trainerIds[18] = gFrontierTempParty[0];
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.trainerIds[19] = gFrontierTempParty[1];
+src/battle_tower.c:                    if (gSaveBlock2Ptr->frontier.trainerIds[j] == i)
+src/battle_tower.c:            gSaveBlock2Ptr->frontier.trainerIds[k] = i;
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.trainerIds[17] = trainerId;
+src/battle_tower.c:        u8 apprenticeId = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id;
+src/battle_tower.c:    u32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:    u32 battleNum = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/battle_tower.c:            challengeNum = gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] / 7;
+src/battle_tower.c:                        if (gSaveBlock2Ptr->frontier.trainerIds[j] == trainerId)
+src/battle_tower.c:                    gSaveBlock2Ptr->frontier.trainerIds[i] = trainerId;
+src/battle_tower.c:            SendBlock(bitmask_all_link_players_but_self(), &gSaveBlock2Ptr->frontier.trainerIds, sizeof(gSaveBlock2Ptr->frontier.trainerIds));
+src/battle_tower.c:            memcpy(&gSaveBlock2Ptr->frontier.trainerIds, gBlockRecvBuffer, sizeof(gSaveBlock2Ptr->frontier.trainerIds));
+src/battle_tower.c:            gTrainerBattleOpponent_A = gSaveBlock2Ptr->frontier.trainerIds[battleNum * 2];
+src/battle_tower.c:            gTrainerBattleOpponent_B = gSaveBlock2Ptr->frontier.trainerIds[battleNum * 2 + 1];
+src/battle_tower.c:    SetBattleFacilityTrainerGfxId(gSaveBlock2Ptr->frontier.trainerIds[17], 0xF);
+src/battle_tower.c:    StringCopy(gSaveBlock2Ptr->frontier.towerInterview.opponentName, text);
+src/battle_tower.c:    GetBattleTowerTrainerLanguage(&gSaveBlock2Ptr->frontier.towerInterview.opponentLanguage, gTrainerBattleOpponent_A);
+src/battle_tower.c:    gSaveBlock2Ptr->frontier.towerInterview.opponentSpecies = GetMonData(&gEnemyParty[gBattlerPartyIndexes[1]], MON_DATA_SPECIES, NULL);
+src/battle_tower.c:    gSaveBlock2Ptr->frontier.towerInterview.playerSpecies = GetMonData(&gPlayerParty[gBattlerPartyIndexes[0]], MON_DATA_SPECIES, NULL);
+src/battle_tower.c:        gSaveBlock2Ptr->frontier.towerInterview.opponentMonNickname[i] = gBattleMons[0].nickname[i];
+src/battle_tower.c:    gSaveBlock2Ptr->frontier.towerBattleOutcome = gBattleOutcome;
+src/battle_tower.c:    u32 *record = (u32*)(&gSaveBlock2Ptr->frontier.towerPlayer);
+src/battle_tower.c:    if (gSaveBlock2Ptr->frontier.towerPlayer.checksum != checksum)
+src/battle_tower.c:        ClearBattleTowerRecord(&gSaveBlock2Ptr->frontier.towerPlayer);
+src/battle_tower.c:        record = (u32*)(&gSaveBlock2Ptr->frontier.towerRecords[i]);
+src/battle_tower.c:        if (gSaveBlock2Ptr->frontier.towerRecords[i].checksum != checksum)
+src/battle_tower.c:            ClearBattleTowerRecord(&gSaveBlock2Ptr->frontier.towerRecords[i]);
+src/battle_tower.c:    u16 winStreak = gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode];
+src/battle_tower.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/battle_tower.c:            partyIndex = gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1;
+src/battle_tower.c:    struct BattleTowerEReaderTrainer *ereaderTrainer = &gSaveBlock2Ptr->frontier.ereaderTrainer;
+src/battle_tower.c:    if (gSaveBlock2Ptr->playerGender != MALE)
+src/battle_tower.c:        ereaderTrainer->facilityClass = gTowerFemaleFacilityClasses[(gSaveBlock2Ptr->playerTrainerId[0] + gSaveBlock2Ptr->playerTrainerId[1]
+src/battle_tower.c:                                                        + gSaveBlock2Ptr->playerTrainerId[2] + gSaveBlock2Ptr->playerTrainerId[3]) % ARRAY_COUNT(gTowerFemaleFacilityClasses)];
+src/battle_tower.c:        ereaderTrainer->facilityClass = gTowerMaleFacilityClasses[(gSaveBlock2Ptr->playerTrainerId[0] + gSaveBlock2Ptr->playerTrainerId[1]
+src/battle_tower.c:                                                        + gSaveBlock2Ptr->playerTrainerId[2] + gSaveBlock2Ptr->playerTrainerId[3]) % ARRAY_COUNT(gTowerMaleFacilityClasses)];
+src/battle_tower.c:    CopyTrainerId(ereaderTrainer->trainerId, gSaveBlock2Ptr->playerTrainerId);
+src/battle_tower.c:    StringCopy7(ereaderTrainer->name, gSaveBlock2Ptr->playerName);
+src/battle_tower.c:    return gFacilityClassToPicIndex[gSaveBlock2Ptr->frontier.ereaderTrainer.facilityClass];
+src/battle_tower.c:    return gFacilityClassToTrainerClass[gSaveBlock2Ptr->frontier.ereaderTrainer.facilityClass];
+src/battle_tower.c:        dst[i] = gSaveBlock2Ptr->frontier.ereaderTrainer.name[i];
+src/battle_tower.c:    ereaderTrainer = &gSaveBlock2Ptr->frontier.ereaderTrainer;
+src/battle_tower.c:    if (gSaveBlock2Ptr->frontier.ereaderTrainer.checksum != checksum)
+src/battle_tower.c:        ClearEReaderTrainer(&gSaveBlock2Ptr->frontier.ereaderTrainer);
+src/battle_tower.c:    FrontierSpeechToString(gSaveBlock2Ptr->frontier.ereaderTrainer.greeting);
+src/battle_tower.c:        FrontierSpeechToString(gSaveBlock2Ptr->frontier.ereaderTrainer.farewellPlayerWon);
+src/battle_tower.c:        FrontierSpeechToString(gSaveBlock2Ptr->frontier.ereaderTrainer.farewellPlayerLost);
+src/battle_tower.c:    if (gSaveBlock2Ptr->frontier.challengeStatus == CHALLENGE_STATUS_SAVING)
+src/battle_tower.c:            monId = gSaveBlock2Ptr->frontier.trainerIds[i + 18];
+src/battle_tower.c:            struct EmeraldBattleTowerRecord *record = &gSaveBlock2Ptr->frontier.towerRecords[trainerId];
+src/battle_tower.c:            struct BattleTowerPokemon monData = record->party[gSaveBlock2Ptr->frontier.trainerIds[18 + i]];
+src/battle_tower.c:            CreateApprenticeMon(&gPlayerParty[MULTI_PARTY_SIZE + i], &gSaveBlock2Ptr->apprentices[trainerId], gSaveBlock2Ptr->frontier.trainerIds[18 + i]);
+src/battle_tower.c:        u32 *data = (u32*) &gSaveBlock2Ptr->apprentices[i];
+src/battle_tower.c:        if (gSaveBlock2Ptr->apprentices[i].checksum != checksum)
+src/battle_tower.c:            ClearApprentice(&gSaveBlock2Ptr->apprentices[i]);
+src/battle_tower.c:            *dst = gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].language;
+src/battle_tower.c:            *dst = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].language;
+src/battle_tower.c:    if (gSaveBlock2Ptr->frontier.lvlMode == FRONTIER_LVL_TENT)
+src/battle_tower.c:        return GetFrontierEnemyMonLevel(gSaveBlock2Ptr->frontier.lvlMode);
+src/battle_tower.c:        for (i = 0; i < gSaveBlock2Ptr->frontier.curChallengeBattleNum; i++)
+src/battle_tower.c:            if (gSaveBlock2Ptr->frontier.trainerIds[i] == trainerId)
+src/battle_tower.c:    } while (i != gSaveBlock2Ptr->frontier.curChallengeBattleNum);
+src/battle_tower.c:    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum + 1 < 3)
+src/battle_tower.c:       gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum] = gTrainerBattleOpponent_A;
+src/battle_tower.c:    u32 *record = (u32*)(&gSaveBlock2Ptr->frontier.towerRecords[recordId]);
+src/battle_tower.c:    else if (gSaveBlock2Ptr->frontier.towerRecords[recordId].checksum != checksum)
+src/battle_tower.c:        ClearBattleTowerRecord(&gSaveBlock2Ptr->frontier.towerRecords[recordId]);
+src/battle_transition.c:    LoadPalette(sPlayerMugshotsPals[gSaveBlock2Ptr->playerGender], 0xFA, 0xC);
+src/battle_transition.c:    task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender), DISPLAY_WIDTH + 32, 106, 0, gDecompressionBuffer);
+src/battle_util.c:        gSaveBlock2Ptr->frontier.disableRecordBattle = TRUE;
+src/berry_blender.c:        StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
+src/berry_blender.c:        StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
+src/berry_blender.c:        StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
+src/berry_blender.c:        if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A && JOY_NEW(A_BUTTON))
+src/berry_crush.c:        if (sGame->pressingSpeed > gSaveBlock2Ptr->berryCrush.pressingSpeeds[0])
+src/berry_crush.c:            gSaveBlock2Ptr->berryCrush.pressingSpeeds[0] = sGame->pressingSpeed;
+src/berry_crush.c:        if (sGame->pressingSpeed > gSaveBlock2Ptr->berryCrush.pressingSpeeds[1])
+src/berry_crush.c:            gSaveBlock2Ptr->berryCrush.pressingSpeeds[1] = sGame->pressingSpeed;
+src/berry_crush.c:        if (sGame->pressingSpeed > gSaveBlock2Ptr->berryCrush.pressingSpeeds[2])
+src/berry_crush.c:            gSaveBlock2Ptr->berryCrush.pressingSpeeds[2] = sGame->pressingSpeed;
+src/berry_crush.c:        if (sGame->pressingSpeed > gSaveBlock2Ptr->berryCrush.pressingSpeeds[3])
+src/berry_crush.c:            gSaveBlock2Ptr->berryCrush.pressingSpeeds[3] = sGame->pressingSpeed;
+src/berry_crush.c:    switch (gSaveBlock2Ptr->optionsTextSpeed)
+src/berry_crush.c:    gTasks[taskId].tPressingSpeeds(0) = gSaveBlock2Ptr->berryCrush.pressingSpeeds[0];
+src/berry_crush.c:    gTasks[taskId].tPressingSpeeds(1) = gSaveBlock2Ptr->berryCrush.pressingSpeeds[1];
+src/berry_crush.c:    gTasks[taskId].tPressingSpeeds(2) = gSaveBlock2Ptr->berryCrush.pressingSpeeds[2];
+src/berry_crush.c:    gTasks[taskId].tPressingSpeeds(3) = gSaveBlock2Ptr->berryCrush.pressingSpeeds[3];
+src/berry_powder.c:    return *powder ^ gSaveBlock2Ptr->encryptionKey;
+src/berry_powder.c:    *powder = amount ^ gSaveBlock2Ptr->encryptionKey;
+src/berry_powder.c:    u32 *powder = &gSaveBlock2Ptr->berryCrush.berryPowderAmount;
+src/berry_powder.c:    u32 *powder = &gSaveBlock2Ptr->berryCrush.berryPowderAmount;
+src/berry_powder.c:    u32 *powder = &gSaveBlock2Ptr->berryCrush.berryPowderAmount;
+src/berry_powder.c:    u32 *powder = &gSaveBlock2Ptr->berryCrush.berryPowderAmount;
+src/berry_powder.c:    u32 *powder = &gSaveBlock2Ptr->berryCrush.berryPowderAmount;
+src/berry_powder.c:    u32 *powder = &gSaveBlock2Ptr->berryCrush.berryPowderAmount;
+src/berry_powder.c:    u32 *powder = &gSaveBlock2Ptr->berryCrush.berryPowderAmount;
+src/berry_tag_screen.c:        if (gSaveBlock2Ptr->playerGender == MALE)
+src/cable_car.c:            spriteId = AddPseudoObjectEvent(playerGraphicsIds[gSaveBlock2Ptr->playerGender], SpriteCB_Player, 200, 73, 102);
+src/cable_car.c:            spriteId = AddPseudoObjectEvent(playerGraphicsIds[gSaveBlock2Ptr->playerGender], SpriteCB_Player, 128, 39, 102);
+src/cable_club.c:        if (gSaveBlock2Ptr->frontier.lvlMode == FRONTIER_LVL_50)
+src/cable_club.c:        if (gSaveBlock2Ptr->frontier.lvlMode == FRONTIER_LVL_50)
+src/clock.c:    gSaveBlock2Ptr->lastBerryTreeUpdate = gLocalTime;
+src/clock.c:    CalcTimeDifference(&difference, &gSaveBlock2Ptr->lastBerryTreeUpdate, localTime);
+src/clock.c:            gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
+src/coins.c:    return gSaveBlock1Ptr->coins ^ gSaveBlock2Ptr->encryptionKey;
+src/coins.c:    gSaveBlock1Ptr->coins = coinAmount ^ gSaveBlock2Ptr->encryptionKey;
+src/contest.c:    StringCopy(name, gSaveBlock2Ptr->playerName);
+src/contest.c:    if (gSaveBlock2Ptr->playerGender == MALE)
+src/contest.c:        gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] =
+src/contest.c:        ((gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] + 1) > 9999) ? 9999 :
+src/contest.c:        (gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] + 1);
+src/contest.c:            gSaveBlock2Ptr->contestLinkResults[i][j] = 0;
+src/credits.c:        if (gSaveBlock2Ptr->playerGender == MALE)
+src/daycare.c:        StringCopy(daycareMon->mail.OT_name, gSaveBlock2Ptr->playerName);
+src/debug.c:    DoNamingScreen(0, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldContinueScript);
+src/debug.c:    if(gSaveBlock2Ptr->playerGender == 0) // 0 Male, 1 Female
+src/debug.c:        gSaveBlock2Ptr->playerGender = 1;
+src/debug.c:        gSaveBlock2Ptr->playerGender = 0;
+src/debug.c:    SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
+src/debug.c:        u32 otid = gSaveBlock2Ptr->playerTrainerId[0]
+src/debug.c:            | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+src/debug.c:            | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+src/debug.c:            | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+src/debug.c:    SetMonData(&mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
+src/debug.c:    SetMonData(&mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+src/decoration.c:    if (gSaveBlock2Ptr->playerGender == MALE)
+src/decoration.c:    if (gSaveBlock2Ptr->playerGender == MALE)
+src/decoration.c:    if (gSaveBlock2Ptr->playerGender == MALE)
+src/dodrio_berry_picking.c:    if (gSaveBlock2Ptr->berryPick.bestScore < score)
+src/dodrio_berry_picking.c:        gSaveBlock2Ptr->berryPick.bestScore = score;
+src/dodrio_berry_picking.c:    if (gSaveBlock2Ptr->berryPick.berriesPicked < berriesPicked)
+src/dodrio_berry_picking.c:        gSaveBlock2Ptr->berryPick.berriesPicked = berriesPicked;
+src/dodrio_berry_picking.c:    if (gSaveBlock2Ptr->berryPick.berriesPickedInRow < sGame->maxBerriesPickedInRow)
+src/dodrio_berry_picking.c:        gSaveBlock2Ptr->berryPick.berriesPickedInRow = sGame->maxBerriesPickedInRow;
+src/dodrio_berry_picking.c:    recordNums[0] = gSaveBlock2Ptr->berryPick.berriesPicked;
+src/dodrio_berry_picking.c:    recordNums[1] = gSaveBlock2Ptr->berryPick.bestScore;
+src/dodrio_berry_picking.c:    recordNums[2] = gSaveBlock2Ptr->berryPick.berriesPickedInRow;
+src/dodrio_berry_picking.c:        LoadWindowFrameGfx(gSaveBlock2Ptr->optionsWindowFrameType);
+src/easy_chat.c:        words = gSaveBlock2Ptr->apprentices[0].speechWon;
+src/easy_chat.c:        gSaveBlock2Ptr->playerGender == MALE ? OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL : OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
+src/egg_hatch.c:            || StringCompareWithoutExtCtrlCodes(gSaveBlock2Ptr->playerName, daycareMon->mail.OT_name) != 0))
+src/event_data.c:    gSaveBlock2Ptr->pokedex.nationalMagic = 0;
+src/event_data.c:    gSaveBlock2Ptr->pokedex.nationalMagic = 0xDA;
+src/event_data.c:    gSaveBlock2Ptr->pokedex.mode = DEX_MODE_NATIONAL;
+src/event_data.c:    gSaveBlock2Ptr->pokedex.order = 0;
+src/event_data.c:    if (gSaveBlock2Ptr->pokedex.nationalMagic == 0xDA && VarGet(VAR_NATIONAL_DEX) == 0x302 && FlagGet(FLAG_SYS_NATIONAL_DEX))
+src/field_screen_effect.c:    SetFlashScanlineEffectWindowBoundaries(&gScanlineEffectRegBuffers[0][0], DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2, gSaveBlock2Ptr->frontier.pyramidLightRadius);
+src/field_specials.c:    return (u16)((gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0]) % 10;
+src/field_specials.c:    if (gSaveBlock2Ptr->playerGender == MALE)
+src/field_specials.c:    if (gSaveBlock2Ptr->playerGender == MALE)
+src/field_specials.c:    if (!StringCompare(gSaveBlock2Ptr->playerName, gStringVar1))
+src/field_specials.c:            if (gSaveBlock2Ptr->frontier.towerWinStreaks[facility][FRONTIER_LVL_50] 
+src/field_specials.c:                >= gSaveBlock2Ptr->frontier.towerWinStreaks[facility][FRONTIER_LVL_OPEN])
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.towerWinStreaks[facility][FRONTIER_LVL_50];
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.towerWinStreaks[facility][FRONTIER_LVL_OPEN];
+src/field_specials.c:            if (gSaveBlock2Ptr->frontier.domeWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50] 
+src/field_specials.c:                >= gSaveBlock2Ptr->frontier.domeWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN])
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.domeWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50];
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.domeWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN];
+src/field_specials.c:            if (gSaveBlock2Ptr->frontier.factoryWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50] 
+src/field_specials.c:                >= gSaveBlock2Ptr->frontier.factoryWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN])
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.factoryWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50];
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.factoryWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN];
+src/field_specials.c:            if (gSaveBlock2Ptr->frontier.palaceWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50] 
+src/field_specials.c:                >= gSaveBlock2Ptr->frontier.palaceWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN])
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.palaceWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_50];
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.palaceWinStreaks[FRONTIER_MODE_SINGLES][FRONTIER_LVL_OPEN];
+src/field_specials.c:            if (gSaveBlock2Ptr->frontier.arenaWinStreaks[FRONTIER_LVL_50] 
+src/field_specials.c:                >= gSaveBlock2Ptr->frontier.arenaWinStreaks[FRONTIER_LVL_OPEN])
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.arenaWinStreaks[FRONTIER_LVL_50];
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.arenaWinStreaks[FRONTIER_LVL_OPEN];
+src/field_specials.c:            if (gSaveBlock2Ptr->frontier.pikeWinStreaks[FRONTIER_LVL_50] 
+src/field_specials.c:                >= gSaveBlock2Ptr->frontier.pikeWinStreaks[FRONTIER_LVL_OPEN])
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.pikeWinStreaks[FRONTIER_LVL_50];
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.pikeWinStreaks[FRONTIER_LVL_OPEN];
+src/field_specials.c:            if (gSaveBlock2Ptr->frontier.pyramidWinStreaks[FRONTIER_LVL_50] 
+src/field_specials.c:                >= gSaveBlock2Ptr->frontier.pyramidWinStreaks[FRONTIER_LVL_OPEN])
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.pyramidWinStreaks[FRONTIER_LVL_50];
+src/field_specials.c:                winStreak = gSaveBlock2Ptr->frontier.pyramidWinStreaks[FRONTIER_LVL_OPEN];
+src/field_specials.c:    u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/field_specials.c:        if (sBattleTowerStreakThresholds[i] > gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode])
+src/field_specials.c:    StringCopy(ConvertIntToDecimalStringN(string, gSaveBlock2Ptr->frontier.battlePoints, STR_CONV_MODE_RIGHT_ALIGN, 4), gText_BP);
+src/field_specials.c:    if (gSaveBlock2Ptr->frontier.battlePoints < gSpecialVar_0x8004)
+src/field_specials.c:        gSaveBlock2Ptr->frontier.battlePoints = 0;
+src/field_specials.c:        gSaveBlock2Ptr->frontier.battlePoints -= gSpecialVar_0x8004;
+src/field_specials.c:    if (gSaveBlock2Ptr->frontier.battlePoints + gSpecialVar_0x8004 > MAX_BATTLE_FRONTIER_POINTS)
+src/field_specials.c:        gSaveBlock2Ptr->frontier.battlePoints = MAX_BATTLE_FRONTIER_POINTS;
+src/field_specials.c:        gSaveBlock2Ptr->frontier.battlePoints = gSaveBlock2Ptr->frontier.battlePoints + gSpecialVar_0x8004;
+src/field_specials.c:    return gSaveBlock2Ptr->frontier.battlePoints;
+src/field_specials.c:        gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] = gSaveBlock2Ptr->playTimeHours;
+src/field_specials.c:        gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] = gSaveBlock2Ptr->playTimeHours;
+src/field_specials.c:    if (gSaveBlock2Ptr->playTimeHours < 999)
+src/field_specials.c:                gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] = gSaveBlock2Ptr->playTimeHours;
+src/field_specials.c:            else if (gSaveBlock2Ptr->playTimeHours - gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] < 12)
+src/frontier_pass.c:    sPassData->battlePoints = gSaveBlock2Ptr->frontier.battlePoints;
+src/frontier_pass.c:        sprite.paletteTag = gSaveBlock2Ptr->playerGender + TAG_HEAD_MALE; // TAG_HEAD_FEMALE if gender is FEMALE
+src/frontier_pass.c:        if (gSaveBlock2Ptr->playerGender != MALE)
+src/frontier_util.c:    switch (gSaveBlock2Ptr->frontier.challengeStatus)
+src/frontier_util.c:        VarSet(VAR_TEMP_0, gSaveBlock2Ptr->frontier.challengeStatus);
+src/frontier_util.c:        VarSet(VAR_TEMP_0, gSaveBlock2Ptr->frontier.challengeStatus);
+src/frontier_util.c:        VarSet(VAR_TEMP_0, gSaveBlock2Ptr->frontier.challengeStatus);
+src/frontier_util.c:        VarSet(VAR_TEMP_0, gSaveBlock2Ptr->frontier.challengeStatus);
+src/frontier_util.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.challengeStatus;
+src/frontier_util.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.lvlMode;
+src/frontier_util.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/frontier_util.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.challengePaused;
+src/frontier_util.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.disableRecordBattle;
+src/frontier_util.c:        gSpecialVar_Result = gSaveBlock2Ptr->frontier.battledBrainFlags & sBattledBrainBitFlags[facility][hasSymbol];
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.challengeStatus = gSpecialVar_0x8006;
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.lvlMode = gSpecialVar_0x8006;
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.curChallengeBattleNum = gSpecialVar_0x8006;
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.challengePaused = gSpecialVar_0x8006;
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.selectedPartyMons[i] = gSelectedOrderFromParty[i];
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.disableRecordBattle = gSpecialVar_0x8006;
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.battledBrainFlags |= sBattledBrainBitFlags[facility][hasSymbol];
+src/frontier_util.c:        gSelectedOrderFromParty[i] = gSaveBlock2Ptr->frontier.selectedPartyMons[i];
+src/frontier_util.c:        u16 monId = gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1;
+src/frontier_util.c:            gSaveBlock1Ptr->playerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1] = gPlayerParty[i];
+src/frontier_util.c:    if (gSaveBlock2Ptr->frontier.winStreakActiveFlags & challenge)
+src/frontier_util.c:    u16 num = gSaveBlock2Ptr->frontier.towerRecordWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:    u16 winStreak = gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:    u16 winStreak = gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:    PrintTwoStrings(gText_Record, gText_ClearStreak, gSaveBlock2Ptr->frontier.domeRecordWinStreaks[battleMode][FRONTIER_LVL_50], 64, 121, 49);
+src/frontier_util.c:    PrintTwoStrings(gText_Total, gText_Championships, gSaveBlock2Ptr->frontier.domeTotalChampionships[battleMode][FRONTIER_LVL_50], 64, 112, 65);
+src/frontier_util.c:    PrintTwoStrings(gText_Record, gText_ClearStreak, gSaveBlock2Ptr->frontier.domeRecordWinStreaks[battleMode][FRONTIER_LVL_OPEN], 64, 121, 113);
+src/frontier_util.c:    PrintTwoStrings(gText_Total, gText_Championships, gSaveBlock2Ptr->frontier.domeTotalChampionships[battleMode][FRONTIER_LVL_OPEN], 64, 112, 129);
+src/frontier_util.c:    u16 num = gSaveBlock2Ptr->frontier.palaceRecordWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:    u16 winStreak = gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:    u16 winStreak = gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode];
+src/frontier_util.c:    PikePrintCleared(gText_Record, gText_RoomsCleared, gSaveBlock2Ptr->frontier.pikeRecordStreaks[FRONTIER_LVL_50], 64, 114, 49);
+src/frontier_util.c:    PikePrintCleared(gText_Total, gText_TimesCleared, gSaveBlock2Ptr->frontier.pikeTotalStreaks[FRONTIER_LVL_50], 64, 114, 65);
+src/frontier_util.c:    PikePrintCleared(gText_Record, gText_RoomsCleared, gSaveBlock2Ptr->frontier.pikeRecordStreaks[FRONTIER_LVL_OPEN], 64, 114, 113);
+src/frontier_util.c:    PikePrintCleared(gText_Total, gText_TimesCleared, gSaveBlock2Ptr->frontier.pikeTotalStreaks[FRONTIER_LVL_OPEN], 64, 114, 129);
+src/frontier_util.c:    u16 num = gSaveBlock2Ptr->frontier.arenaRecordStreaks[lvlMode];
+src/frontier_util.c:    u16 winStreak = gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode];
+src/frontier_util.c:    u16 num1 = gSaveBlock2Ptr->frontier.factoryRecordWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:    u16 num2 = gSaveBlock2Ptr->frontier.factoryRecordRentsCount[battleMode][lvlMode];
+src/frontier_util.c:    u16 winStreak = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:    u16 rents = gSaveBlock2Ptr->frontier.factoryRentsCount[battleMode][lvlMode];
+src/frontier_util.c:    u16 num = gSaveBlock2Ptr->frontier.pyramidRecordStreaks[lvlMode];
+src/frontier_util.c:    u16 winStreak = gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode];
+src/frontier_util.c:            ConvertIntToDecimalStringN(gStringVar4, gSaveBlock2Ptr->contestLinkResults[i][j], STR_CONV_MODE_RIGHT_ALIGN, 4);
+src/frontier_util.c:    s32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] > gSaveBlock2Ptr->frontier.towerRecordWinStreaks[battleMode][lvlMode])
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.towerRecordWinStreaks[battleMode][lvlMode] = gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:                StringCopy(gSaveBlock2Ptr->frontier.opponentNames[lvlMode], name);
+src/frontier_util.c:                SetTrainerId(gLinkPlayers[gBattleScripting.multiplayerId ^ 1].trainerId, gSaveBlock2Ptr->frontier.opponentTrainerIds[lvlMode]);
+src/frontier_util.c:            if (gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] > 1
+src/frontier_util.c:                    TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode], FRONTIER_SHOW_TOWER_SINGLES);
+src/frontier_util.c:                    TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode], FRONTIER_SHOW_TOWER_DOUBLES);
+src/frontier_util.c:                    TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode], FRONTIER_SHOW_TOWER_MULTIS);
+src/frontier_util.c:                    TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode], FRONTIER_SHOW_TOWER_LINK_MULTIS);
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode] > gSaveBlock2Ptr->frontier.domeRecordWinStreaks[battleMode][lvlMode])
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.domeRecordWinStreaks[battleMode][lvlMode] = gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:            if (gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode] > 1
+src/frontier_util.c:                    TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode], FRONTIER_SHOW_DOME_SINGLES);
+src/frontier_util.c:                    TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode], FRONTIER_SHOW_DOME_DOUBLES);
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode] > gSaveBlock2Ptr->frontier.palaceRecordWinStreaks[battleMode][lvlMode])
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.palaceRecordWinStreaks[battleMode][lvlMode] = gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:            if (gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode] > 1
+src/frontier_util.c:                    TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode], FRONTIER_SHOW_PALACE_SINGLES);
+src/frontier_util.c:                    TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode], FRONTIER_SHOW_PALACE_DOUBLES);
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode] > gSaveBlock2Ptr->frontier.arenaRecordStreaks[lvlMode])
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.arenaRecordStreaks[lvlMode] = gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode];
+src/frontier_util.c:            if (gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode] > 1
+src/frontier_util.c:                TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode], FRONTIER_SHOW_ARENA);
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] > gSaveBlock2Ptr->frontier.factoryRecordWinStreaks[battleMode][lvlMode])
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.factoryRecordWinStreaks[battleMode][lvlMode] = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.factoryRecordRentsCount[battleMode][lvlMode] = gSaveBlock2Ptr->frontier.factoryRentsCount[battleMode][lvlMode];
+src/frontier_util.c:            if (gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] > 1
+src/frontier_util.c:                    TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode], FRONTIER_SHOW_FACTORY_SINGLES);
+src/frontier_util.c:                    TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode], FRONTIER_SHOW_FACTORY_DOUBLES);
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode] > gSaveBlock2Ptr->frontier.pikeRecordStreaks[lvlMode])
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.pikeRecordStreaks[lvlMode] = gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode];
+src/frontier_util.c:            if (gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode] > 1
+src/frontier_util.c:                TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode], FRONTIER_SHOW_PIKE);
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] > gSaveBlock2Ptr->frontier.pyramidRecordStreaks[lvlMode])
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.pyramidRecordStreaks[lvlMode] = gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode];
+src/frontier_util.c:            if (gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] > 1
+src/frontier_util.c:                TryPutFrontierTVShowOnAir(gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode], FRONTIER_SHOW_PYRAMID);
+src/frontier_util.c:            FrontierSpeechToString(gSaveBlock2Ptr->frontier.ereaderTrainer.greeting);
+src/frontier_util.c:            FrontierSpeechToString(gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].greeting);
+src/frontier_util.c:            FrontierSpeechToString(gSaveBlock2Ptr->frontier.ereaderTrainer.farewellPlayerLost);
+src/frontier_util.c:                FrontierSpeechToString(gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].speechWon);
+src/frontier_util.c:                FrontierSpeechToString(gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].speechWon);
+src/frontier_util.c:            FrontierSpeechToString(gSaveBlock2Ptr->frontier.ereaderTrainer.farewellPlayerWon);
+src/frontier_util.c:                FrontierSpeechToString(gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].speechLost);
+src/frontier_util.c:                trainerId = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id;
+src/frontier_util.c:    gSaveBlock2Ptr->frontier.winStreakActiveFlags = 0;
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] = 0;
+src/frontier_util.c:                gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode] = 0;
+src/frontier_util.c:                gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode] = 0;
+src/frontier_util.c:                gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] = 0;
+src/frontier_util.c:                gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode] = 0;
+src/frontier_util.c:                gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode] = 0;
+src/frontier_util.c:                gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] = 0;
+src/frontier_util.c:    if (gSaveBlock2Ptr->frontier.challengeStatus != 0)
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.challengeStatus = CHALLENGE_STATUS_SAVING;
+src/frontier_util.c:    s32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/frontier_util.c:        return gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:        return gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:        return gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:        return gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode];
+src/frontier_util.c:        return gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:        return gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode];
+src/frontier_util.c:        return gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode];
+src/frontier_util.c:    for (i = 0; i < (int)ARRAY_COUNT(gSaveBlock2Ptr->frontier.trainerIds); i++)
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.trainerIds[i] = 0xFFFF;
+src/frontier_util.c:    s32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/frontier_util.c:        challengeNum = gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] / 7;
+src/frontier_util.c:        challengeNum = gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:        challengeNum = gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode] / 7;
+src/frontier_util.c:        challengeNum = gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode] / 7;
+src/frontier_util.c:        challengeNum = gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] / 7;
+src/frontier_util.c:        challengeNum = gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode] / 14;
+src/frontier_util.c:        challengeNum = gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] / 7;
+src/frontier_util.c:    gSaveBlock2Ptr->frontier.battlePoints += points;
+src/frontier_util.c:    if (gSaveBlock2Ptr->frontier.battlePoints > MAX_BATTLE_FRONTIER_POINTS)
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.battlePoints = MAX_BATTLE_FRONTIER_POINTS;
+src/frontier_util.c:    points = gSaveBlock2Ptr->frontier.cardBattlePoints;
+src/frontier_util.c:    gSaveBlock2Ptr->frontier.cardBattlePoints = points;
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.lvlMode = gSpecialVar_Result;
+src/frontier_util.c:    s32 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode] < MAX_STREAK)
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode]++;
+src/frontier_util.c:                SetGameStat(GAME_STAT_BATTLE_TOWER_BEST_STREAK, gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode]);
+src/frontier_util.c:                gSaveBlock2Ptr->frontier.towerSinglesStreak = gSaveBlock2Ptr->frontier.towerWinStreaks[battleMode][lvlMode];
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode] < MAX_STREAK)
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.domeWinStreaks[battleMode][lvlMode]++;
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.domeTotalChampionships[battleMode][lvlMode] < MAX_STREAK)
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.domeTotalChampionships[battleMode][lvlMode]++;
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode] < MAX_STREAK)
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.palaceWinStreaks[battleMode][lvlMode]++;
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode] < MAX_STREAK)
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.arenaWinStreaks[lvlMode]++;
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode] < MAX_STREAK)
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.factoryWinStreaks[battleMode][lvlMode]++;
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode] < MAX_STREAK)
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.pikeWinStreaks[lvlMode]++;
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode] < MAX_STREAK)
+src/frontier_util.c:            gSaveBlock2Ptr->frontier.pyramidWinStreaks[lvlMode]++;
+src/frontier_util.c:        if (gSaveBlock2Ptr->frontier.selectedPartyMons[i] != 0)
+src/frontier_util.c:            u16 item = GetMonData(&gSaveBlock1Ptr->playerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1], MON_DATA_HELD_ITEM, NULL);
+src/frontier_util.c:    gSaveBlock2Ptr->frontier.disableRecordBattle = TRUE;
+src/frontier_util.c:        u16 monId = gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1;
+src/frontier_util.c:                    if (GetMonData(&gSaveBlock1Ptr->playerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1], MON_DATA_MOVE1 + k, NULL)
+src/frontier_util.c:            gSaveBlock1Ptr->playerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1] = gPlayerParty[i];
+src/frontier_util.c:        record1P[i] = gSaveBlock2Ptr->hallRecords1P[hallFacilityId][lvlMode][i];
+src/frontier_util.c:        record2P[i] = gSaveBlock2Ptr->hallRecords2P[lvlMode][i];
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.opponentNames[0][PLAYER_NAME_LENGTH] = EOS;
+src/frontier_util.c:        gSaveBlock2Ptr->frontier.opponentNames[1][PLAYER_NAME_LENGTH] = EOS;
+src/frontier_util.c:                CopyTrainerId(gSaveBlock2Ptr->hallRecords1P[i][j][k].id, ZERO); 
+src/frontier_util.c:                gSaveBlock2Ptr->hallRecords1P[i][j][k].name[0] = EOS;
+src/frontier_util.c:                gSaveBlock2Ptr->hallRecords1P[i][j][k].winStreak = 0;
+src/frontier_util.c:            CopyTrainerId(gSaveBlock2Ptr->hallRecords2P[j][k].id1, ZERO);
+src/frontier_util.c:            CopyTrainerId(gSaveBlock2Ptr->hallRecords2P[j][k].id2, ZERO);
+src/frontier_util.c:            gSaveBlock2Ptr->hallRecords2P[j][k].name1[0] = EOS;
+src/frontier_util.c:            gSaveBlock2Ptr->hallRecords2P[j][k].name2[0] = EOS;
+src/frontier_util.c:            gSaveBlock2Ptr->hallRecords2P[j][k].winStreak = 0;
+src/hall_of_fame.c:    gTasks[taskId].tPlayerSpriteID = CreateTrainerPicSprite(PlayerGenderToFrontTrainerPicId_Debug(gSaveBlock2Ptr->playerGender, TRUE), 1, 120, 72, 6, 0xFFFF);
+src/hall_of_fame.c:    LoadWindowGfx(1, gSaveBlock2Ptr->optionsWindowFrameType, 0x21D, 0xD0);
+src/hall_of_fame.c:    width = GetStringRightAlignXOffset(1, gSaveBlock2Ptr->playerName, 0x70);
+src/hall_of_fame.c:    AddTextPrinterParameterized3(1, 1, width, 1, sPlayerInfoTextColors, -1, gSaveBlock2Ptr->playerName);
+src/hall_of_fame.c:    trainerId = (gSaveBlock2Ptr->playerTrainerId[0]) | (gSaveBlock2Ptr->playerTrainerId[1] << 8);
+src/hall_of_fame.c:    text[0] = (gSaveBlock2Ptr->playTimeHours / 100) + CHAR_0;
+src/hall_of_fame.c:    text[1] = (gSaveBlock2Ptr->playTimeHours % 100) / 10 + CHAR_0;
+src/hall_of_fame.c:    text[2] = (gSaveBlock2Ptr->playTimeHours % 10) + CHAR_0;
+src/hall_of_fame.c:    text[4] = (gSaveBlock2Ptr->playTimeMinutes % 100) / 10 + CHAR_0;
+src/hall_of_fame.c:    text[5] = (gSaveBlock2Ptr->playTimeMinutes % 10) + CHAR_0;
+src/intro.c:        SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);
+src/item.c:    return gSaveBlock2Ptr->encryptionKey ^ *quantity;
+src/item.c:    *quantity =  newValue ^ gSaveBlock2Ptr->encryptionKey;
+src/item.c:    u16 *items = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode];
+src/item.c:    u8 *quantities = gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode];
+src/item.c:    u16 *items = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode];
+src/item.c:    u8 *quantities = gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode];
+src/item.c:    u16 *items = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode];
+src/item.c:    u8 *quantities = gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode];
+src/item.c:    u16 *items = gSaveBlock2Ptr->frontier.pyramidBag.itemId[gSaveBlock2Ptr->frontier.lvlMode];
+src/item.c:    u8 *quantities = gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode];
+src/item.c:        return gSaveBlock2Ptr->itemFlags[index] & mask;
+src/item.c:        gSaveBlock2Ptr->itemFlags[index] |= mask;
+src/item_menu.c:        if (!IsWallysBag() && gSaveBlock2Ptr->playerGender != MALE)
+src/item_menu.c:        if (IsWallysBag() == TRUE || gSaveBlock2Ptr->playerGender == MALE)
+src/item_use.c:	if (!gSaveBlock2Ptr->expShare)
+src/item_use.c:	gSaveBlock2Ptr->expShare = !gSaveBlock2Ptr->expShare;
+src/lilycove_lady.c:    u16 id = ((gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0]);
+src/lilycove_lady.c:    SetFavorLadyPlayerName(gSaveBlock2Ptr->playerName, sFavorLadyPtr->playerName);
+src/lilycove_lady.c:        if (nameLen == GetPlayerNameLength(gSaveBlock2Ptr->playerName))
+src/lilycove_lady.c:                if (name[i] != gSaveBlock2Ptr->playerName[i])
+src/lilycove_lady.c:        if (sQuizLadyPtr->playerTrainerId[i] != gSaveBlock2Ptr->playerTrainerId[i])
+src/lilycove_lady.c:        sQuizLadyPtr->playerTrainerId[i] = gSaveBlock2Ptr->playerTrainerId[i];
+src/lilycove_lady.c:    StringCopy7(sQuizLadyPtr->playerName, gSaveBlock2Ptr->playerName);
+src/lilycove_lady.c:        memcpy(sContestLadyPtr->playerName, gSaveBlock2Ptr->playerName, sizeof(sContestLadyPtr->playerName));
+src/link.c:        gSaveBlock2Ptr->playerTrainerId[i] = Random() % 256;
+src/link.c:    gLocalLinkPlayer.trainerId = gSaveBlock2Ptr->playerTrainerId[0] | (gSaveBlock2Ptr->playerTrainerId[1] << 8) | (gSaveBlock2Ptr->playerTrainerId[2] << 16) | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+src/link.c:    StringCopy(gLocalLinkPlayer.name, gSaveBlock2Ptr->playerName);
+src/link.c:    gLocalLinkPlayer.gender = gSaveBlock2Ptr->playerGender;
+src/link_rfu_2.c:    StringCopy(gHostRFUtgtUnameBuffer, gSaveBlock2Ptr->playerName);
+src/link_rfu_2.c:            gSaveBlock2Ptr->playerTrainerId[i] = Random() % 256;
+src/link_rfu_3.c:        data->unk_00.playerTrainerId[i] = gSaveBlock2Ptr->playerTrainerId[i];
+src/link_rfu_3.c:    data->playerGender = gSaveBlock2Ptr->playerGender;
+src/load_save.c:    gSaveBlock2Ptr->encryptionKey = encryptionKey;
+src/load_save.c:    return gSaveBlock2Ptr->specialSaveWarpFlags & CONTINUE_GAME_WARP;
+src/load_save.c:    gSaveBlock2Ptr->specialSaveWarpFlags &= ~CONTINUE_GAME_WARP;
+src/load_save.c:    gSaveBlock2Ptr->specialSaveWarpFlags |= CONTINUE_GAME_WARP;
+src/load_save.c:    gSaveBlock2Ptr->specialSaveWarpFlags |= CONTINUE_GAME_WARP;
+src/load_save.c:    gSaveBlock2Ptr->specialSaveWarpFlags &= ~CONTINUE_GAME_WARP;
+src/load_save.c:    gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
+src/load_save.c:    encryptionKeyBackup = gSaveBlock2Ptr->encryptionKey;
+src/load_save.c:    gSaveBlock2Ptr->encryptionKey = gLastEncryptionKey;
+src/load_save.c:    gSaveBlock2Ptr->encryptionKey = encryptionKeyBackup; // updated twice?
+src/load_save.c:    *hWord ^= gSaveBlock2Ptr->encryptionKey;
+src/load_save.c:    *word ^= gSaveBlock2Ptr->encryptionKey;
+src/mail.c:            gPlttBufferUnfaded[10] = sBgColors[gSaveBlock2Ptr->playerGender][0];
+src/mail.c:            gPlttBufferFaded[10] = sBgColors[gSaveBlock2Ptr->playerGender][0];
+src/mail.c:            gPlttBufferUnfaded[11] = sBgColors[gSaveBlock2Ptr->playerGender][1];
+src/mail.c:            gPlttBufferFaded[11] = sBgColors[gSaveBlock2Ptr->playerGender][1];
+src/mail_data.c:                gSaveBlock1Ptr->mail[id].playerName[i] = gSaveBlock2Ptr->playerName[i];
+src/mail_data.c:                gSaveBlock1Ptr->mail[id].trainerId[i] = gSaveBlock2Ptr->playerTrainerId[i];
+src/main.c:    if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+src/main_menu.c:        if (gSaveBlock2Ptr->playerGender == MALE)
+src/main_menu.c:            gSaveBlock2Ptr->playerGender = gender;
+src/main_menu.c:            gSaveBlock2Ptr->playerGender = gender;
+src/main_menu.c:        DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_NewGameBirchSpeech_ReturnFromNamingScreen);
+src/main_menu.c:        if (gSaveBlock2Ptr->playerGender != MALE)
+src/main_menu.c:    if (gSaveBlock2Ptr->playerGender != MALE)
+src/main_menu.c:    if (gSaveBlock2Ptr->playerGender == MALE)
+src/main_menu.c:        gSaveBlock2Ptr->playerName[i] = name[i];
+src/main_menu.c:    gSaveBlock2Ptr->playerName[PLAYER_NAME_LENGTH] = EOS;
+src/main_menu.c:    AddTextPrinterParameterized3(2 + 3 * hasParty, 1, GetStringRightAlignXOffset(1, gSaveBlock2Ptr->playerName, 100), 17, sTextColor_MenuInfo, -1, gSaveBlock2Ptr->playerName);
+src/main_menu.c:    ptr = ConvertIntToDecimalStringN(str, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_LEFT_ALIGN, 3);
+src/main_menu.c:    ConvertIntToDecimalStringN(ptr + 1, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+src/main_menu.c:    LoadBgTiles(bgId, GetWindowFrameTilesPal(gSaveBlock2Ptr->optionsWindowFrameType)->tiles, 0x120, tileOffset);
+src/main_menu.c:    LoadPalette(GetWindowFrameTilesPal(gSaveBlock2Ptr->optionsWindowFrameType)->pal, 32, 32);
+src/map_name_popup.c:            mapDisplayHeaderSource = gBattlePyramid_MapHeaderStrings[gSaveBlock2Ptr->frontier.curChallengeBattleNum];
+src/match_call.c:    otId = GetTrainerId(gSaveBlock2Ptr->playerTrainerId) & 0xFFFF;
+src/match_call.c:                if (streak < gSaveBlock2Ptr->frontier.domeRecordWinStreaks[i][j])
+src/match_call.c:                    streak = gSaveBlock2Ptr->frontier.domeRecordWinStreaks[i][j];
+src/match_call.c:            if (streak < gSaveBlock2Ptr->frontier.pikeRecordStreaks[i])
+src/match_call.c:                streak = gSaveBlock2Ptr->frontier.pikeRecordStreaks[i];
+src/match_call.c:                if (streak < gSaveBlock2Ptr->frontier.towerRecordWinStreaks[i][j])
+src/match_call.c:                    streak = gSaveBlock2Ptr->frontier.towerRecordWinStreaks[i][j];
+src/match_call.c:                if (streak < gSaveBlock2Ptr->frontier.palaceRecordWinStreaks[i][j])
+src/match_call.c:                    streak = gSaveBlock2Ptr->frontier.palaceRecordWinStreaks[i][j];
+src/match_call.c:                if (streak < gSaveBlock2Ptr->frontier.factoryRecordWinStreaks[i][j])
+src/match_call.c:                    streak = gSaveBlock2Ptr->frontier.factoryRecordWinStreaks[i][j];
+src/match_call.c:            if (streak < gSaveBlock2Ptr->frontier.arenaRecordStreaks[i])
+src/match_call.c:                streak = gSaveBlock2Ptr->frontier.arenaRecordStreaks[i];
+src/match_call.c:            if (streak < gSaveBlock2Ptr->frontier.pyramidRecordStreaks[i])
+src/match_call.c:                streak = gSaveBlock2Ptr->frontier.pyramidRecordStreaks[i];
+src/mauville_old_man.c:    u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
+src/mauville_old_man.c:    StringCopy(bard->playerName, gSaveBlock2Ptr->playerName);
+src/mauville_old_man.c:        bard->playerTrainerId[i] = gSaveBlock2Ptr->playerTrainerId[i];
+src/mauville_old_man.c:    StorytellerSetPlayerName(player, gSaveBlock2Ptr->playerName);
+src/menu.c:    return gSaveBlock2Ptr->optionsTextSpeed;
+src/menu.c:    if (gSaveBlock2Ptr->optionsTextSpeed > OPTIONS_TEXT_SPEED_FAST)
+src/menu.c:        gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
+src/menu.c:    while (gSaveBlock2Ptr->playerName[count] != EOS)
+src/menu.c:            StringCopy(string, gSaveBlock2Ptr->playerName);
+src/menu.c:            string = ConvertIntToDecimalStringN(string, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_LEFT_ALIGN, 3);
+src/menu.c:            ConvertIntToDecimalStringN(string, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+src/menu_helpers.c:    if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR)
+src/menu_helpers.c:    if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR)
+src/mon_markings.c:    const struct TilesPal *frame = GetWindowFrameTilesPal(gSaveBlock2Ptr->optionsWindowFrameType);
+src/money.c:    return *moneyPtr ^ gSaveBlock2Ptr->encryptionKey;
+src/money.c:    *moneyPtr = gSaveBlock2Ptr->encryptionKey ^ newValue;
+src/mugshots.c:    left = left == ICON_PLAYER ? gSaveBlock2Ptr->playerGender : left;
+src/mugshots.c:    right = right == ICON_PLAYER ? gSaveBlock2Ptr->playerGender : right;
+src/naming_screen.c:    DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
+src/naming_screen.c:    DoNamingScreen(NAMING_SCREEN_BOX, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
+src/naming_screen.c:    DoNamingScreen(NAMING_SCREEN_CAUGHT_MON, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
+src/naming_screen.c:    DoNamingScreen(NAMING_SCREEN_NICKNAME, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldWithOpenMenu);
+src/new_game.c:    SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
+src/new_game.c:    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
+src/new_game.c:    gSaveBlock2Ptr->optionsWindowFrameType = 0;
+src/new_game.c:    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
+src/new_game.c:    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
+src/new_game.c:    gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
+src/new_game.c:    gSaveBlock2Ptr->regionMapZoom = FALSE;
+src/new_game.c:    CpuFill32(0, &gSaveBlock2Ptr->frontier, sizeof(gSaveBlock2Ptr->frontier));
+src/new_game.c:    gSaveBlock2Ptr->frontier.opponentNames[0][0] = EOS;
+src/new_game.c:    gSaveBlock2Ptr->frontier.opponentNames[1][0] = EOS;
+src/new_game.c:    gSaveBlock2Ptr->encryptionKey = 0;
+src/new_game.c:    gSaveBlock2Ptr->specialSaveWarpFlags = 0;
+src/new_game.c:    gSaveBlock2Ptr->gcnLinkFlags = 0;
+src/new_game.c:    gSaveBlock2Ptr->expShare = 0;
+src/new_game.c:    memset(&gSaveBlock2Ptr->itemFlags, 0, sizeof(gSaveBlock2Ptr->itemFlags));
+src/new_game.c:    CpuFill16(0, &gSaveBlock2Ptr->berryCrush, sizeof(struct BerryCrush));
+src/new_game.c:    SetBerryPowder(&gSaveBlock2Ptr->berryCrush.berryPowderAmount, 0);
+src/new_game.c:    CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
+src/option_menu.c:        LoadBgTiles(1, GetWindowFrameTilesPal(gSaveBlock2Ptr->optionsWindowFrameType)->tiles, 0x120, 0x1A2);
+src/option_menu.c:        LoadPalette(GetWindowFrameTilesPal(gSaveBlock2Ptr->optionsWindowFrameType)->pal, 0x70, 0x20);
+src/option_menu.c:        gTasks[taskId].data[TD_TEXTSPEED] = gSaveBlock2Ptr->optionsTextSpeed;
+src/option_menu.c:        gTasks[taskId].data[TD_BATTLESCENE] = gSaveBlock2Ptr->optionsBattleSceneOff;
+src/option_menu.c:        gTasks[taskId].data[TD_BATTLESTYLE] = gSaveBlock2Ptr->optionsBattleStyle;
+src/option_menu.c:        gTasks[taskId].data[TD_SOUND] = gSaveBlock2Ptr->optionsSound;
+src/option_menu.c:        gTasks[taskId].data[TD_BUTTONMODE] = gSaveBlock2Ptr->optionsButtonMode;
+src/option_menu.c:        gTasks[taskId].data[TD_FRAMETYPE] = gSaveBlock2Ptr->optionsWindowFrameType;
+src/option_menu.c:    gSaveBlock2Ptr->optionsTextSpeed = gTasks[taskId].data[TD_TEXTSPEED];
+src/option_menu.c:    gSaveBlock2Ptr->optionsBattleSceneOff = gTasks[taskId].data[TD_BATTLESCENE];
+src/option_menu.c:    gSaveBlock2Ptr->optionsBattleStyle = gTasks[taskId].data[TD_BATTLESTYLE];
+src/option_menu.c:    gSaveBlock2Ptr->optionsSound = gTasks[taskId].data[TD_SOUND];
+src/option_menu.c:    gSaveBlock2Ptr->optionsButtonMode = gTasks[taskId].data[TD_BUTTONMODE];
+src/option_menu.c:    gSaveBlock2Ptr->optionsWindowFrameType = gTasks[taskId].data[TD_FRAMETYPE];
+src/overworld.c:    return gSaveBlock1Ptr->gameStats[index] ^ gSaveBlock2Ptr->encryptionKey;
+src/overworld.c:        gSaveBlock1Ptr->gameStats[index] = value ^ gSaveBlock2Ptr->encryptionKey;
+src/overworld.c:    InitPlayerAvatar(x, y, player->direction, gSaveBlock2Ptr->playerGender);
+src/play_time.c:    gSaveBlock2Ptr->playTimeHours = 0;
+src/play_time.c:    gSaveBlock2Ptr->playTimeMinutes = 0;
+src/play_time.c:    gSaveBlock2Ptr->playTimeSeconds = 0;
+src/play_time.c:    gSaveBlock2Ptr->playTimeVBlanks = 0;
+src/play_time.c:    if (gSaveBlock2Ptr->playTimeHours > 999)
+src/play_time.c:    gSaveBlock2Ptr->playTimeVBlanks++;
+src/play_time.c:    if (gSaveBlock2Ptr->playTimeVBlanks < 60)
+src/play_time.c:    gSaveBlock2Ptr->playTimeVBlanks = 0;
+src/play_time.c:    gSaveBlock2Ptr->playTimeSeconds++;
+src/play_time.c:    if (gSaveBlock2Ptr->playTimeSeconds < 60)
+src/play_time.c:    gSaveBlock2Ptr->playTimeSeconds = 0;
+src/play_time.c:    gSaveBlock2Ptr->playTimeMinutes++;
+src/play_time.c:    if (gSaveBlock2Ptr->playTimeMinutes < 60)
+src/play_time.c:    gSaveBlock2Ptr->playTimeMinutes = 0;
+src/play_time.c:    gSaveBlock2Ptr->playTimeHours++;
+src/play_time.c:    if (gSaveBlock2Ptr->playTimeHours > 999)
+src/play_time.c:    gSaveBlock2Ptr->playTimeHours = 999;
+src/play_time.c:    gSaveBlock2Ptr->playTimeMinutes = 59;
+src/play_time.c:    gSaveBlock2Ptr->playTimeSeconds = 59;
+src/play_time.c:    gSaveBlock2Ptr->playTimeVBlanks = 59;
+src/player_pc.c:        if (gSaveBlock2Ptr->playerGender == MALE)
+src/pokedex.c:    gSaveBlock2Ptr->pokedex.mode = DEX_MODE_HOENN;
+src/pokedex.c:    gSaveBlock2Ptr->pokedex.order = 0;
+src/pokedex.c:    gSaveBlock2Ptr->pokedex.nationalMagic = 0;
+src/pokedex.c:    gSaveBlock2Ptr->pokedex.unknown2 = 0;
+src/pokedex.c:    gSaveBlock2Ptr->pokedex.unownPersonality = 0;
+src/pokedex.c:    gSaveBlock2Ptr->pokedex.spindaPersonality = 0;
+src/pokedex.c:    gSaveBlock2Ptr->pokedex.unknown3 = 0;
+src/pokedex.c:        sPokedexView->dexMode = gSaveBlock2Ptr->pokedex.mode;
+src/pokedex.c:        sPokedexView->dexOrder = gSaveBlock2Ptr->pokedex.order;
+src/pokedex.c:        gSaveBlock2Ptr->pokedex.mode = sPokedexView->dexMode;
+src/pokedex.c:            gSaveBlock2Ptr->pokedex.mode = DEX_MODE_HOENN;
+src/pokedex.c:        gSaveBlock2Ptr->pokedex.order = sPokedexView->dexOrder;
+src/pokedex.c:     || ((JOY_NEW(L_BUTTON)) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR))
+src/pokedex.c:     || ((JOY_NEW(R_BUTTON)) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR))
+src/pokedex.c:         || ((JOY_NEW(L_BUTTON)) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR))
+src/pokedex.c:         || ((JOY_NEW(R_BUTTON)) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR))
+src/pokedex.c:            StringAppend(string, gSaveBlock2Ptr->playerName);
+src/pokedex.c:        spriteId = CreateSizeScreenTrainerPic(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender), 152, 56, 0);
+src/pokedex.c:     || ((JOY_NEW(L_BUTTON)) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR))
+src/pokedex.c:            return gSaveBlock2Ptr->pokedex.unownPersonality;
+src/pokedex.c:            return gSaveBlock2Ptr->pokedex.spindaPersonality;
+src/pokedex.c:                gSaveBlock2Ptr->pokedex.mode = GetSearchModeSelection(taskId, SEARCH_MODE);
+src/pokedex.c:                    gSaveBlock2Ptr->pokedex.mode = DEX_MODE_HOENN;
+src/pokedex.c:                sPokedexView->dexModeBackup = gSaveBlock2Ptr->pokedex.mode;
+src/pokedex.c:                gSaveBlock2Ptr->pokedex.order = GetSearchModeSelection(taskId, SEARCH_ORDER);
+src/pokedex.c:                sPokedexView->dexOrderBackup = gSaveBlock2Ptr->pokedex.order;
+src/pokedex_area_screen.c:        else if (JOY_NEW(DPAD_RIGHT) || (JOY_NEW(R_BUTTON) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR))
+src/pokemon.c:        value = gSaveBlock2Ptr->playerTrainerId[0]
+src/pokemon.c:              | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+src/pokemon.c:              | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+src/pokemon.c:              | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+src/pokemon.c:    SetBoxMonData(boxMon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
+src/pokemon.c:    SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+src/pokemon.c:    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_50)
+src/pokemon.c:        level = GetFrontierEnemyMonLevel(gSaveBlock2Ptr->frontier.lvlMode);
+src/pokemon.c:    SetMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
+src/pokemon.c:    SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+src/pokemon.c:    SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
+src/pokemon.c:        (gSaveBlock2Ptr->playerTrainerId[0]
+src/pokemon.c:         | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+src/pokemon.c:         | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+src/pokemon.c:         | (gSaveBlock2Ptr->playerTrainerId[3] << 24)))
+src/pokemon.c:            if (otName[i] != gSaveBlock2Ptr->playerName[i])
+src/pokemon.c:            gSaveBlock2Ptr->pokedex.unownPersonality = personality;
+src/pokemon.c:            gSaveBlock2Ptr->pokedex.spindaPersonality = personality;
+src/pokemon_jump.c:    return &gSaveBlock2Ptr->pokeJump;
+src/pokemon_size_record.c:        StringCopy(gStringVar2, gSaveBlock2Ptr->playerName);
+src/pokemon_storage_system.c:        if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR)
+src/pokemon_storage_system.c:        if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR)
+src/pokemon_storage_system.c:        if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR)
+src/pokemon_summary_screen.c:        gender = gSaveBlock2Ptr->playerGender;
+src/pokemon_summary_screen.c:        StringCopy(gStringVar1, gSaveBlock2Ptr->playerName);
+src/pokenav_match_call_data.c:    if (matchCall.rival->playerGender != gSaveBlock2Ptr->playerGender)
+src/pokenav_menu_handler_1.c:            state->helpBarIndex = gSaveBlock2Ptr->regionMapZoom ? HELPBAR_MAP_ZOOMED_IN : HELPBAR_MAP_ZOOMED_OUT;
+src/pokenav_region_map.c:    gSaveBlock2Ptr->regionMapZoom = IsRegionMapZoomed();
+src/pokenav_region_map.c:    return gSaveBlock2Ptr->regionMapZoom == TRUE;
+src/post_battle_event_funcs.c:        SetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME, (gSaveBlock2Ptr->playTimeHours << 16) | (gSaveBlock2Ptr->playTimeMinutes << 8) | gSaveBlock2Ptr->playTimeSeconds);
+src/post_battle_event_funcs.c:    if (gSaveBlock2Ptr->playerGender == MALE)
+src/record_mixing.c:    sBattleTowerSave = &gSaveBlock2Ptr->frontier.towerPlayer;
+src/record_mixing.c:    sApprenticesSave = gSaveBlock2Ptr->apprentices;
+src/record_mixing.c:    sBattleTowerSave_Duplicate = &gSaveBlock2Ptr->frontier.towerPlayer;
+src/record_mixing.c:        id = ((i + gSaveBlock2Ptr->playerApprentice.saveId) % (APPRENTICE_COUNT - 1)) + 1;
+src/record_mixing.c:            if (GetTrainerId(src[id].playerId) != GetTrainerId(gSaveBlock2Ptr->playerTrainerId))
+src/record_mixing.c:            if (GetTrainerId(src[id].playerId) == GetTrainerId(gSaveBlock2Ptr->playerTrainerId))
+src/record_mixing.c:            dst[1] = src[gSaveBlock2Ptr->playerApprentice.saveId + 1];
+src/record_mixing.c:            dst[1] = src[((gSaveBlock2Ptr->playerApprentice.saveId + 1) % (APPRENTICE_COUNT - 1) + 1)];
+src/record_mixing.c:            CopyTrainerId(dst->onePlayer[i][j].id, gSaveBlock2Ptr->playerTrainerId);
+src/record_mixing.c:            StringCopy(dst->onePlayer[i][j].name, gSaveBlock2Ptr->playerName);
+src/record_mixing.c:        CopyTrainerId(dst->twoPlayers[j].id1, gSaveBlock2Ptr->playerTrainerId);
+src/record_mixing.c:        CopyTrainerId(dst->twoPlayers[j].id2, gSaveBlock2Ptr->frontier.opponentTrainerIds[j]);
+src/record_mixing.c:        StringCopy(dst->twoPlayers[j].name1, gSaveBlock2Ptr->playerName);
+src/record_mixing.c:        StringCopy(dst->twoPlayers[j].name2, gSaveBlock2Ptr->frontier.opponentNames[j]);
+src/record_mixing.c:        dst->onePlayer[0][i].winStreak = gSaveBlock2Ptr->frontier.towerRecordWinStreaks[FRONTIER_MODE_SINGLES][i];
+src/record_mixing.c:        dst->onePlayer[1][i].winStreak = gSaveBlock2Ptr->frontier.towerRecordWinStreaks[FRONTIER_MODE_DOUBLES][i];
+src/record_mixing.c:        dst->onePlayer[2][i].winStreak = gSaveBlock2Ptr->frontier.towerRecordWinStreaks[FRONTIER_MODE_MULTIS][i];
+src/record_mixing.c:        dst->onePlayer[3][i].winStreak = gSaveBlock2Ptr->frontier.domeRecordWinStreaks[FRONTIER_MODE_SINGLES][i];
+src/record_mixing.c:        dst->onePlayer[4][i].winStreak = gSaveBlock2Ptr->frontier.palaceRecordWinStreaks[FRONTIER_MODE_SINGLES][i];
+src/record_mixing.c:        dst->onePlayer[5][i].winStreak = gSaveBlock2Ptr->frontier.arenaRecordStreaks[i];
+src/record_mixing.c:        dst->onePlayer[6][i].winStreak = gSaveBlock2Ptr->frontier.factoryRecordWinStreaks[FRONTIER_MODE_SINGLES][i];
+src/record_mixing.c:        dst->onePlayer[7][i].winStreak = gSaveBlock2Ptr->frontier.pikeRecordStreaks[i];
+src/record_mixing.c:        dst->onePlayer[8][i].winStreak = gSaveBlock2Ptr->frontier.pyramidRecordStreaks[i];
+src/record_mixing.c:        dst->twoPlayers[i].winStreak = gSaveBlock2Ptr->frontier.towerRecordWinStreaks[FRONTIER_MODE_LINK_MULTIS][i];
+src/record_mixing.c:        if (mixApprenticePtr[i].playerName[0] != EOS && !IsApprenticeAlreadySaved(&mixApprenticePtr[i], &gSaveBlock2Ptr->apprentices[0]))
+src/record_mixing.c:        apprenticeSaveId = gSaveBlock2Ptr->playerApprentice.saveId + 1;
+src/record_mixing.c:        gSaveBlock2Ptr->apprentices[apprenticeSaveId] = mixApprenticePtr[apprenticeId];
+src/record_mixing.c:        gSaveBlock2Ptr->playerApprentice.saveId = (gSaveBlock2Ptr->playerApprentice.saveId + 1) % (APPRENTICE_COUNT - 1);
+src/record_mixing.c:            apprenticeSaveId = ((i ^ 1) + gSaveBlock2Ptr->playerApprentice.saveId) % (APPRENTICE_COUNT - 1) + 1;
+src/record_mixing.c:            gSaveBlock2Ptr->apprentices[apprenticeSaveId] = mixApprenticePtr[i];
+src/record_mixing.c:        gSaveBlock2Ptr->playerApprentice.saveId = (gSaveBlock2Ptr->playerApprentice.saveId + 2) % (APPRENTICE_COUNT - 1);
+src/record_mixing.c:                dst->hallRecords1P[i][j][k] = gSaveBlock2Ptr->hallRecords1P[i][j][k];
+src/record_mixing.c:            dst->hallRecords2P[j][k] = gSaveBlock2Ptr->hallRecords2P[j][k];
+src/record_mixing.c:            sub_80E8880(gSaveBlock2Ptr->hallRecords1P[i][j], arg0->hallRecords1P[i][j]);
+src/record_mixing.c:        sub_80E88CC(gSaveBlock2Ptr->hallRecords2P[j], arg0->hallRecords2P[j]);
+src/recorded_battle.c:        sPlayers[0].trainerId = (gSaveBlock2Ptr->playerTrainerId[0])
+src/recorded_battle.c:                                    | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+src/recorded_battle.c:                                    | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+src/recorded_battle.c:                                    | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+src/recorded_battle.c:        sPlayers[0].gender = gSaveBlock2Ptr->playerGender;
+src/recorded_battle.c:            sPlayers[0].name[i] = gSaveBlock2Ptr->playerName[i];
+src/recorded_battle.c:    battleSave->lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/recorded_battle.c:    battleSave->battleScene = gSaveBlock2Ptr->optionsBattleSceneOff;
+src/recorded_battle.c:    battleSave->textSpeed = gSaveBlock2Ptr->optionsTextSpeed;
+src/recorded_battle.c:            battleSave->recordMixFriendName[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].name[i];
+src/recorded_battle.c:        battleSave->recordMixFriendClass = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
+src/recorded_battle.c:                battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].speechLost[i];
+src/recorded_battle.c:                battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].speechWon[i];
+src/recorded_battle.c:        battleSave->recordMixFriendLanguage = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_FRIEND].language;
+src/recorded_battle.c:            battleSave->recordMixFriendName[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].name[i];
+src/recorded_battle.c:        battleSave->recordMixFriendClass = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
+src/recorded_battle.c:                battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].speechLost[i];
+src/recorded_battle.c:                battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].speechWon[i];
+src/recorded_battle.c:        battleSave->recordMixFriendLanguage = gSaveBlock2Ptr->frontier.towerRecords[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_FRIEND].language;
+src/recorded_battle.c:            battleSave->recordMixFriendName[i] = gSaveBlock2Ptr->frontier.towerRecords[gPartnerTrainerId - TRAINER_RECORD_MIXING_FRIEND].name[i];
+src/recorded_battle.c:        battleSave->recordMixFriendClass = gSaveBlock2Ptr->frontier.towerRecords[gPartnerTrainerId - TRAINER_RECORD_MIXING_FRIEND].facilityClass;
+src/recorded_battle.c:        battleSave->recordMixFriendLanguage = gSaveBlock2Ptr->frontier.towerRecords[gPartnerTrainerId - TRAINER_RECORD_MIXING_FRIEND].language;
+src/recorded_battle.c:        battleSave->apprenticeId = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_APPRENTICE].id;
+src/recorded_battle.c:            battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_APPRENTICE].speechWon[i];
+src/recorded_battle.c:        battleSave->apprenticeLanguage = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_A - TRAINER_RECORD_MIXING_APPRENTICE].language;
+src/recorded_battle.c:        battleSave->apprenticeId = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_APPRENTICE].id;
+src/recorded_battle.c:            battleSave->easyChatSpeech[i] = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_APPRENTICE].speechWon[i];
+src/recorded_battle.c:        battleSave->apprenticeLanguage = gSaveBlock2Ptr->apprentices[gTrainerBattleOpponent_B - TRAINER_RECORD_MIXING_APPRENTICE].language;
+src/recorded_battle.c:        battleSave->apprenticeId = gSaveBlock2Ptr->apprentices[gPartnerTrainerId - TRAINER_RECORD_MIXING_APPRENTICE].id;
+src/recorded_battle.c:        battleSave->apprenticeLanguage = gSaveBlock2Ptr->apprentices[gPartnerTrainerId - TRAINER_RECORD_MIXING_APPRENTICE].language;
+src/recorded_battle.c:    gSaveBlock2Ptr->frontier.lvlMode = sLvlMode;
+src/recorded_battle.c:    sLvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+src/recorded_battle.c:    gSaveBlock2Ptr->frontier.lvlMode = src->lvlMode;
+src/region_map.c:    if (gSaveBlock2Ptr->playerGender == FEMALE)
+src/region_map.c:                    SetWarpDestinationToHealLocation(gSaveBlock2Ptr->playerGender == MALE ? HEAL_LOCATION_YURUSITA_TOWN_BRENDANS_HOUSE : HEAL_LOCATION_YURUSITA_TOWN_MAYS_HOUSE);
+src/reset_rtc_screen.c:            gSaveBlock2Ptr->lastBerryTreeUpdate.days,
+src/reset_rtc_screen.c:            gSaveBlock2Ptr->lastBerryTreeUpdate.hours,
+src/reset_rtc_screen.c:            gSaveBlock2Ptr->lastBerryTreeUpdate.minutes,
+src/reset_rtc_screen.c:            gSaveBlock2Ptr->lastBerryTreeUpdate.seconds);
+src/reset_rtc_screen.c:            gLocalTime = gSaveBlock2Ptr->lastBerryTreeUpdate;
+src/reset_rtc_screen.c:                gSaveBlock2Ptr->lastBerryTreeUpdate = gLocalTime;
+src/reset_save_heap.c:    SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);
+src/reshow_battle_screen.c:            DecompressTrainerBackPic(gSaveBlock2Ptr->playerGender, battler);
+src/reshow_battle_screen.c:            SetMultiuseSpriteTemplateToTrainerBack(gSaveBlock2Ptr->playerGender, GetBattlerPosition(B_POSITION_PLAYER_LEFT));
+src/reshow_battle_screen.c:                                                (8 - gTrainerBackPicCoords[gSaveBlock2Ptr->playerGender].size) * 4 + 80,
+src/rtc.c:    RtcCalcTimeDifference(&sRtc, &gSaveBlock2Ptr->localTimeOffset, &gLocalTime);
+src/save_location.c:        gSaveBlock2Ptr->specialSaveWarpFlags &= ~(POKECENTER_SAVEWARP);
+src/save_location.c:        gSaveBlock2Ptr->specialSaveWarpFlags |= POKECENTER_SAVEWARP;
+src/save_location.c:        gSaveBlock2Ptr->specialSaveWarpFlags &= ~(LOBBY_SAVEWARP);
+src/save_location.c:        gSaveBlock2Ptr->specialSaveWarpFlags |= LOBBY_SAVEWARP;
+src/save_location.c:        gSaveBlock2Ptr->specialSaveWarpFlags &= ~(UNK_SPECIAL_SAVE_WARP_FLAG_3);
+src/save_location.c:        gSaveBlock2Ptr->specialSaveWarpFlags |= UNK_SPECIAL_SAVE_WARP_FLAG_3;
+src/save_location.c:    gSaveBlock2Ptr->gcnLinkFlags |= 0x8000;
+src/save_location.c:    gSaveBlock2Ptr->gcnLinkFlags |= 0x1;
+src/save_location.c:    gSaveBlock2Ptr->gcnLinkFlags |= 0x2;
+src/save_location.c:    gSaveBlock2Ptr->gcnLinkFlags |= 0x4;
+src/save_location.c:    gSaveBlock2Ptr->gcnLinkFlags |= 0x10;
+src/save_location.c:    gSaveBlock2Ptr->gcnLinkFlags |= 0x20;
+src/save_location.c:    gSaveBlock2Ptr->gcnLinkFlags |= 0x8;
+src/save_location.c:    gSaveBlock2Ptr->specialSaveWarpFlags |= CHAMPION_SAVEWARP;
+src/scrcmd.c:    gSpecialVar_Result = gSaveBlock2Ptr->playerGender;
+src/script_menu.c:                length += StringLength(gSaveBlock2Ptr->playerName);
+src/script_menu.c:    AddTextPrinterParameterized(windowId, 1, gSaveBlock2Ptr->playerName, 8, 73, TEXT_SPEED_FF, NULL);
+src/secret_base.c:        gSaveBlock1Ptr->secretBases[0].trainerId[i] = gSaveBlock2Ptr->playerTrainerId[i];
+src/secret_base.c:    StringCopyN(gSaveBlock1Ptr->secretBases[0].trainerName, gSaveBlock2Ptr->playerName, GetNameLength(gSaveBlock2Ptr->playerName));
+src/secret_base.c:    gSaveBlock1Ptr->secretBases[0].gender = gSaveBlock2Ptr->playerGender;
+src/secret_base.c:    if (secretBase->secretBaseId && secretBase->gender != gSaveBlock2Ptr->playerGender)
+src/secret_base.c:        if (secretBase->trainerId[i] != gSaveBlock2Ptr->playerTrainerId[i])
+src/secret_base.c:    for (i = 0; i < PLAYER_NAME_LENGTH && (secretBase->trainerName[i] != EOS || gSaveBlock2Ptr->playerName[i] != EOS); i++)
+src/secret_base.c:        if (secretBase->trainerName[i] != gSaveBlock2Ptr->playerName[i])
+src/start_menu.c:    if (gSaveBlock2Ptr->frontier.curChallengeBattleNum == 7)
+src/start_menu.c:    StringCopy(gStringVar1, sPyramidFloorNames[gSaveBlock2Ptr->frontier.curChallengeBattleNum]);
+src/start_menu.c:    gender = gSaveBlock2Ptr->playerGender;
+src/text_window.c:    LoadWindowGfx(windowId, gSaveBlock2Ptr->optionsWindowFrameType, destOffset, palOffset);
+src/text_window.c:    LoadBgTiles(bg, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType].tiles, 0x120, destOffset);
+src/text_window.c:    LoadPalette(GetWindowFrameTilesPal(gSaveBlock2Ptr->optionsWindowFrameType)->pal, palOffset, 0x20);
+src/trade.c:        DrawTextWindowAndBufferTiles(gSaveBlock2Ptr->playerName, sMenuTextTileBuffers[GFXTAG_PLAYER_NAME_L], 0, 0, 3);
+src/trade.c:        xPos = GetStringCenterAlignXOffset(1, gSaveBlock2Ptr->playerName, 120);
+src/trade.c:        DrawTextWindowAndBufferTiles(gSaveBlock2Ptr->playerName, sMenuTextTileBuffers[GFXTAG_PLAYER_NAME_L], 0, 0, 3);
+src/trade.c:        xPos = GetStringCenterAlignXOffset(1, gSaveBlock2Ptr->playerName, 120);
+src/trade.c:        StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
+src/trader.c:    StringCopy(trader->playerNames[gSpecialVar_0x8005], gSaveBlock2Ptr->playerName);
+src/trainer_card.c:    trainerCard->gender = gSaveBlock2Ptr->playerGender;
+src/trainer_card.c:    trainerCard->playTimeHours = gSaveBlock2Ptr->playTimeHours;
+src/trainer_card.c:    trainerCard->playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes;
+src/trainer_card.c:    trainerCard->trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
+src/trainer_card.c:    StringCopy(trainerCard->playerName, gSaveBlock2Ptr->playerName);
+src/trainer_card.c:    trainerCard->frontierBP = gSaveBlock2Ptr->frontier.cardBattlePoints;
+src/trainer_card.c:    *((u16*)&trainerCard->berryCrushPoints) = gSaveBlock2Ptr->frontier.cardBattlePoints;
+src/trainer_card.c:        hours = gSaveBlock2Ptr->playTimeHours;
+src/trainer_card.c:        minutes = gSaveBlock2Ptr->playTimeMinutes;
+src/trainer_card.c:    sData->timeColonBlinkTimer = gSaveBlock2Ptr->playTimeVBlanks;
+src/trainer_hill.c:    gSaveBlock2Ptr->frontier.savedGame = 0;
+src/trainer_hill.c:    gSaveBlock2Ptr->frontier.unk_EF9 = 0;
+src/trainer_hill.c:    gSaveBlock2Ptr->frontier.trainerFlags = 0;
+src/trainer_hill.c:        gSaveBlock2Ptr->frontier.unk_EF9 = 0;
+src/trainer_hill.c:        gSaveBlock2Ptr->frontier.trainerIds[i] = 0xFFFF;
+src/trainer_hill.c:        gSaveBlock2Ptr->frontier.trainerIds[i] = i + 1;
+src/trainer_hill.c:    return gSaveBlock2Ptr->frontier.trainerIds[localId - 1];
+src/trainer_hill.c:    return gSaveBlock2Ptr->frontier.trainerFlags & gBitTable[bitId];
+src/trainer_hill.c:        if (gSaveBlock2Ptr->frontier.trainerIds[i] == gTrainerBattleOpponent_A)
+src/trainer_hill.c:            gSaveBlock2Ptr->frontier.trainerFlags |= gBitTable[floorId + i];
+src/trainer_hill.c:            if (gSaveBlock2Ptr->frontier.trainerIds[i] == gTrainerBattleOpponent_B)
+src/trainer_hill.c:                gSaveBlock2Ptr->frontier.trainerFlags |= gBitTable[floorId + i];
+src/trainer_hill.c:    gSaveBlock2Ptr->frontier.trainerFlags = 0xFF;
+src/trainer_hill.c:    gSpecialVar_Result = gSaveBlock2Ptr->frontier.savedGame;
+src/trainer_hill.c:    gSaveBlock2Ptr->frontier.savedGame = TRUE;
+src/trainer_hill.c:    gSaveBlock2Ptr->frontier.savedGame = FALSE;
+src/tv.c:                    StringCopy(show->pokemonToday.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:                StringCopy(show->pokemonTodayFailed.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show2->contestLiveUpdates.winningTrainerName, gSaveBlock2Ptr->playerName); // Show only begins running if player won, so always load players name
+src/tv.c:            StringCopy(show->battleUpdate.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:    StringCopy(show->threeCheers.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:    StringCopy(show->fanClubSpecial.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show2->bravoTrainer.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:    StringCopy(show->bravoTrainerTower.trainerName, gSaveBlock2Ptr->playerName);
+src/tv.c:    StringCopy(show->bravoTrainerTower.pokemonName, gSaveBlock2Ptr->frontier.towerInterview.opponentName);
+src/tv.c:    show->bravoTrainerTower.species = gSaveBlock2Ptr->frontier.towerInterview.playerSpecies;
+src/tv.c:    show->bravoTrainerTower.defeatedSpecies = gSaveBlock2Ptr->frontier.towerInterview.opponentSpecies;
+src/tv.c:    show->bravoTrainerTower.numFights = GetCurrentBattleTowerWinStreak(gSaveBlock2Ptr->frontier.towerLvlMode, 0);
+src/tv.c:    show->bravoTrainerTower.wonTheChallenge = gSaveBlock2Ptr->frontier.towerBattleOutcome;
+src/tv.c:    if (gSaveBlock2Ptr->frontier.towerLvlMode == FRONTIER_LVL_50)
+src/tv.c:    if (show->bravoTrainerTower.language == LANGUAGE_JAPANESE || gSaveBlock2Ptr->frontier.towerInterview.opponentLanguage == LANGUAGE_JAPANESE)
+src/tv.c:        show->bravoTrainerTower.pokemonNameLanguage = gSaveBlock2Ptr->frontier.towerInterview.opponentLanguage;
+src/tv.c:                StringCopy(show->smartshopperShow.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        if (StringLength(gSaveBlock2Ptr->playerName) > 1 && StringLength(gStringVar1) > 1)
+src/tv.c:            StringCopy(show->nameRaterShow.trainerName, gSaveBlock2Ptr->playerName);
+src/tv.c:    StringCopy(show->fanclubLetter.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:    StringCopy(show->recentHappenings.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:    StringCopy(show->fanclubOpinions.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->pokemonAngler.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:            StringCopy(show2->worldOfMasters.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        show->rivalTrainer.battlePoints = gSaveBlock2Ptr->frontier.battlePoints;
+src/tv.c:        StringCopy(show->rivalTrainer.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        show->trendWatcher.gender = gSaveBlock2Ptr->playerGender;
+src/tv.c:        StringCopy(show->trendWatcher.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->treasureInvestigators.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->findThatGamer.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->secretBaseVisit.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->breakingNews.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->lottoWinner.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->battleSeminar.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->safariFanClub.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->cuties.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->trainerFanClub.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->frontier.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:            show->frontier.species1 = GetMonData(&gSaveBlock1Ptr->playerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[0] - 1], MON_DATA_SPECIES, NULL);
+src/tv.c:            show->frontier.species2 = GetMonData(&gSaveBlock1Ptr->playerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[1] - 1], MON_DATA_SPECIES, NULL);
+src/tv.c:            StringCopy(show->secretBaseSecrets.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:        StringCopy(show->numberOne.playerName, gSaveBlock2Ptr->playerName);
+src/tv.c:    return (gSaveBlock2Ptr->playerTrainerId[3] << 24) | (gSaveBlock2Ptr->playerTrainerId[2] << 16) | (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
+src/tv.c:    if (gSaveBlock2Ptr->playerGender == MALE)
+src/tv.c:        if (gSaveBlock2Ptr->playerGender == MALE)
+src/union_room.c:    UR_AddTextPrinterParameterized(windowId, 1, gSaveBlock2Ptr->playerName, 0, 1, UR_COLOR_DKE_WHT_LTE);
+src/union_room.c:    ConvertIntToDecimalStringN(txtPtr, ReadAsU16(gSaveBlock2Ptr->playerTrainerId), STR_CONV_MODE_LEADING_ZEROS, 5);
+src/union_room.c:        if (gSpecialVar_0x8004 == LINK_GROUP_BATTLE_TOWER && gSaveBlock2Ptr->frontier.lvlMode == FRONTIER_LVL_OPEN)
+src/union_room.c:        if (gSpecialVar_0x8004 == LINK_GROUP_BATTLE_TOWER && gSaveBlock2Ptr->frontier.lvlMode == FRONTIER_LVL_OPEN)
+src/union_room.c:        if (!(gSaveBlock2Ptr->specialSaveWarpFlags & CHAMPION_SAVEWARP))
+src/union_room.c:                StringCopy(gStringVar1, gSaveBlock2Ptr->playerName);
+src/union_room.c:                    StringCopy(gStringVar1, gSaveBlock2Ptr->playerName);
+src/union_room.c:            TradeBoardPrintItemInfo(windowId, y, rfu, gSaveBlock2Ptr->playerName, 5);
+src/union_room_chat.c:    StringCopy(&buffer[1], gSaveBlock2Ptr->playerName);
+src/union_room_chat.c:    StringCopy(&buffer[1], gSaveBlock2Ptr->playerName);
+src/union_room_chat.c:    StringCopy(&buffer[1], gSaveBlock2Ptr->playerName);
+src/union_room_chat.c:    StringCopy(&buffer[1], gSaveBlock2Ptr->playerName);
+src/union_room_chat.c:    StringCopy(&buffer[1], gSaveBlock2Ptr->playerName);
+src/union_room_chat.c:        DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gSaveBlock2Ptr->playerName);
+src/unk_text_util_2.c:                if (textPrinter->scrollDistance < sScrollDistances[gSaveBlock2Ptr->optionsTextSpeed])
+src/unk_text_util_2.c:                    ScrollWindow(textPrinter->printerTemplate.windowId, 0, sScrollDistances[gSaveBlock2Ptr->optionsTextSpeed], PIXEL_FILL(textPrinter->printerTemplate.bgColor));
+src/unk_text_util_2.c:                    textPrinter->scrollDistance -= sScrollDistances[gSaveBlock2Ptr->optionsTextSpeed];
+src/walda_phrase.c:    u16 trainerId = GetTrainerId(gSaveBlock2Ptr->playerTrainerId);
+src/wild_encounter.c:            headerId = gSaveBlock2Ptr->frontier.curChallengeBattleNum;
+src/wild_encounter.c:            headerId = gSaveBlock2Ptr->frontier.curChallengeBattleNum;

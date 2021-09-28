@@ -311,28 +311,19 @@ void RtcCalcTimeDifference(struct SiiRtcInfo *rtc, struct Time *result, struct T
 void RtcCalcLocalTime(void)
 {
     RtcGetInfo(&sRtc);
-    RtcCalcTimeDifference(&sRtc, &gLocalTime, &gSaveBlock2Ptr->localTimeOffset);
+    gLocalTime.days = RtcGetDayCount(&sRtc);
+    gLocalTime.seconds = ConvertBcdToBinary(sRtc.second);
+    gLocalTime.minutes = ConvertBcdToBinary(sRtc.minute);
+    gLocalTime.hours = ConvertBcdToBinary(sRtc.hour);
 }
 
 void RtcCalcLocalTimeFast(void)
 {
     RtcGetInfoFast(&sRtc);
-    RtcCalcTimeDifference(&sRtc, &gLocalTime, &gSaveBlock2Ptr->localTimeOffset);
-}
-
-void RtcInitLocalTimeOffset(s32 hour, s32 minute)
-{
-    RtcCalcLocalTimeOffset(0, hour, minute, 0);
-}
-
-void RtcCalcLocalTimeOffset(s32 days, s32 hours, s32 minutes, s32 seconds)
-{
-    gLocalTime.days = days;
-    /*gLocalTime.hours = hours;
-    gLocalTime.minutes = minutes;
-    gLocalTime.seconds = seconds;*/
-    RtcGetInfo(&sRtc);
-    RtcCalcTimeDifference(&sRtc, &gSaveBlock2Ptr->localTimeOffset, &gLocalTime);
+    gLocalTime.days = RtcGetDayCount(&sRtc);
+    gLocalTime.seconds = ConvertBcdToBinary(sRtc.second);
+    gLocalTime.minutes = ConvertBcdToBinary(sRtc.minute);
+    gLocalTime.hours = ConvertBcdToBinary(sRtc.hour);
 }
 
 void CalcTimeDifference(struct Time *result, struct Time *t1, struct Time *t2)

@@ -22,6 +22,7 @@ script YurusitaTown_Script_MolequinNinja
 {
 	gettime
 	buffernumberstring(0, VAR_0x8000)
+	buffernumberstring(1, VAR_0x8001)
 	createicons(ICON_PLAYER_FEMALE, ICON_PLAYER_MALE)
 	msgbox(YurusitaTown_Text_MolequinNinja, MSGBOX_NPC)
 	destroyicons
@@ -30,10 +31,10 @@ script YurusitaTown_Script_MolequinNinja
 
 text YurusitaTown_Text_MolequinNinja
 {
-	"qual foi, {PLAYER}?\p"
-	"hã? vai se fuder mlk.\n"
-	"ainda te quebro na porrada.\p"
-	"no meu relogio são {STR_VAR_1} horas, yey!"
+	//"qual foi, {PLAYER}?\p"
+	//"hã? vai se fuder mlk.\n"
+	//"ainda te quebro na porrada.\p"
+	"São {STR_VAR_1}:{STR_VAR_2}."
 }
 
 script YurusitaTown_Script_Uepa

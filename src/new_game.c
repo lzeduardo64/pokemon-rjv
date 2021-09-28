@@ -204,7 +204,7 @@ void NewGameInitData(void)
     ResetContestLinkResults();
     gSaveBlock2Ptr->expShare = 0;
     memset(&gSaveBlock2Ptr->itemFlags, 0, sizeof(gSaveBlock2Ptr->itemFlags));
-    RtcInitLocalTimeOffset(0, 0);
+    RtcCalcLocalTime();
     FlagSet(FLAG_SET_WALL_CLOCK);
 }
 

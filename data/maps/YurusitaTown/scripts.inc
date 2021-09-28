@@ -13,6 +13,7 @@ YurusitaTown_Script_MeninaGasosa::
 YurusitaTown_Script_MolequinNinja::
 	gettime
 	buffernumberstring 0, VAR_0x8000
+	buffernumberstring 1, VAR_0x8001
 	createicons ICON_PLAYER_FEMALE, ICON_PLAYER_MALE
 	msgbox YurusitaTown_Text_MolequinNinja, MSGBOX_NPC
 	destroyicons
@@ -116,10 +117,7 @@ YurusitaTown_Text_MeninaGasosa::
 	.string "{PLAYER}: Concordo plenamente.$"
 
 YurusitaTown_Text_MolequinNinja::
-	.string "qual foi, {PLAYER}?\p"
-	.string "hã? vai se fuder mlk.\n"
-	.string "ainda te quebro na porrada.\p"
-	.string "no meu relogio são {STR_VAR_1} horas, yey!$"
+	.string "São {STR_VAR_1}:{STR_VAR_2}.$"
 
 YurusitaTown_Text_Away::
 	.string "Qual foi {PLAYER}?\n"
