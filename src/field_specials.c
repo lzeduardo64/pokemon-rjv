@@ -22,7 +22,6 @@
 #include "link.h"
 #include "list_menu.h"
 #include "main.h"
-#include "mevent.h"
 #include "match_call.h"
 #include "menu.h"
 #include "overworld.h"
@@ -1656,15 +1655,15 @@ u16 GetMysteryEventCardVal(void)
     switch (gSpecialVar_Result)
     {
         case GET_NUM_STAMPS:
-            return mevent_081445C0(GET_NUM_STAMPS_INTERNAL);
+            return 0;
         case GET_MAX_STAMPS:
-            return mevent_081445C0(GET_MAX_STAMPS_INTERNAL);
+            return 0;
         case GET_CARD_BATTLES_WON:
-            return mevent_081445C0(GET_CARD_BATTLES_WON_INTERNAL);
+            return 0;
         case 3: // Never occurs
-            return mevent_081445C0(1);
+            return 0;
         case 4: // Never occurs
-            return mevent_081445C0(2);
+            return 0;
         default:
             return 0;
     }

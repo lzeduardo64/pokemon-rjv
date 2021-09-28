@@ -111,13 +111,6 @@ SECTIONS {
         src/libisagbprn.o(.rodata);
     } =0
 
-    other_data :
-    ALIGN(4)
-    {
-        data/unknown_serial_data.o(.rodata);
-        data/multiboot_pokemon_colosseum.o(.rodata);
-    } =0
-
     gfx_data :
     ALIGN(4)
     {

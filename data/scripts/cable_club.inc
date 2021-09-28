@@ -6,10 +6,7 @@ CableClub_EventScript_HideOrShowMysteryGiftMan::
 	specialvar VAR_RESULT, ShouldDistributeEonTicket
 	compare VAR_RESULT, TRUE
 	goto_if_eq CableClub_EventScript_ShowMysteryGiftMan
-	specialvar VAR_RESULT, ValidateReceivedWonderCard
-	compare VAR_RESULT, FALSE
-	goto_if_eq CableClub_EventScript_HideMysteryGiftMan
-	goto CableClub_EventScript_ShowMysteryGiftMan
+	goto CableClub_EventScript_HideMysteryGiftMan
 	end
 
 CableClub_EventScript_ShowMysteryGiftMan::

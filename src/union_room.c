@@ -23,8 +23,6 @@
 #include "load_save.h"
 #include "menu.h"
 #include "menu_helpers.h"
-#include "mevent.h"
-#include "mystery_gift.h"
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
@@ -1513,11 +1511,6 @@ static void Task_ExchangeCards(u8 taskId)
             if (GetLinkPlayerCount() == 2)
             {
                 recvBuff = gBlockRecvBuffer[GetMultiplayerId() ^ 1];
-                MEventHandleReceivedWonderCard(recvBuff[48]);
-            }
-            else
-            {
-                ResetReceivedWonderCardFlag();
             }
 
             ResetBlockReceivedFlags();
@@ -1605,14 +1598,13 @@ static void CreateTrainerCardInBuffer(void *dest, bool32 setWonderCard)
 
     TrainerCard_GenerateCardForPlayer((struct TrainerCard *)argAsU16Ptr);
     if (setWonderCard)
-        argAsU16Ptr[48] = GetWonderCardFlagID();
+        argAsU16Ptr[48] = 0;
     else
         argAsU16Ptr[48] = 0;
 }
 
 static void Task_StartActivity(u8 taskId)
 {
-    ResetReceivedWonderCardFlag();
     switch (gPlayerCurrActivity)
     {
     case ACTIVITY_BATTLE_SINGLE:
@@ -1878,10 +1870,9 @@ static void Task_MEvent_Leader(u8 taskId)
         data->listenTaskId = CreateTask_ListenForPartnersWithCompatibleSerialNos(data->field_4, 0xFF);
 
         winTemplate = sWindowTemplate_PlayerList;
-        winTemplate.baseBlock = GetMysteryGiftBaseBlock();
+        winTemplate.baseBlock = 0x1A9;
         winTemplate.paletteNum = 0xC;
         data->listWindowId = AddWindow(&winTemplate);
-        MG_DrawTextBorder(data->listWindowId);
         gMultiuseListMenuTemplate = sListMenuTemplate_PossibleGroupMembers;
         gMultiuseListMenuTemplate.windowId = data->listWindowId;
         data->listTaskId = ListMenuInit(&gMultiuseListMenuTemplate, 0, 0);
@@ -1896,7 +1887,6 @@ static void Task_MEvent_Leader(u8 taskId)
         data->state = 3;
         break;
     case 3:
-        AddTextPrinterToWindow1(gStringVar4);
         data->state = 4;
         break;
     case 4:
@@ -1908,35 +1898,17 @@ static void Task_MEvent_Leader(u8 taskId)
         }
         break;
     case 6:
-        if (MG_PrintTextOnWindow1AndWaitButton(&data->textState, sText_LinkWithFriendDropped))
-        {
             data->playerCount = sub_8013398(data->field_0);
             RedrawListMenu(data->listTaskId);
             data->state = 2;
-        }
         break;
     case 5:
         data->state = 7;
         break;
     case 7:
-        switch (mevent_message_print_and_prompt_yes_no(&data->textState, &data->field_14, 0, gStringVar4))
-        {
-        case 0:
-            LoadWirelessStatusIndicatorSpriteGfx();
-            CreateWirelessStatusIndicatorSprite(0, 0);
-            data->field_0->arr[data->playerCount].field_1B = 0;
-            RedrawListMenu(data->listTaskId);
-            data->joinRequestAnswer = RFU_STATUS_JOIN_GROUP_OK;
-            SendRfuStatusToPartner(data->joinRequestAnswer, ReadAsU16(data->field_0->arr[data->playerCount].gname_uname.gname.unk_00.playerTrainerId), data->field_0->arr[data->playerCount].gname_uname.playerName);
-            data->state = 8;
-            break;
-        case 1:
-        case -1:
-            data->joinRequestAnswer = RFU_STATUS_JOIN_GROUP_NO;
-            SendRfuStatusToPartner(data->joinRequestAnswer, ReadAsU16(data->field_0->arr[data->playerCount].gname_uname.gname.unk_00.playerTrainerId), data->field_0->arr[data->playerCount].gname_uname.playerName);
-            data->state = 8;
-            break;
-        }
+        data->joinRequestAnswer = RFU_STATUS_JOIN_GROUP_NO;
+        SendRfuStatusToPartner(data->joinRequestAnswer, ReadAsU16(data->field_0->arr[data->playerCount].gname_uname.gname.unk_00.playerTrainerId), data->field_0->arr[data->playerCount].gname_uname.playerName);
+        data->state = 8;
         break;
     case 8:
         val = WaitSendRfuStatusToPartner(ReadAsU16(data->field_0->arr[data->playerCount].gname_uname.gname.unk_00.playerTrainerId), data->field_0->arr[data->playerCount].gname_uname.playerName);
@@ -1970,7 +1942,6 @@ static void Task_MEvent_Leader(u8 taskId)
         }
         break;
     case 9:
-        AddTextPrinterToWindow1(gStringVar4);
         data->state = 10;
         break;
     case 10:
@@ -2005,11 +1976,8 @@ static void Task_MEvent_Leader(u8 taskId)
         data->state++;
         break;
     case 14:
-        if (MG_PrintTextOnWindow1AndWaitButton(&data->textState, sText_PleaseStartOver))
-        {
-            DestroyTask(taskId);
-            gSpecialVar_Result = LINKUP_FAILED;
-        }
+        DestroyTask(taskId);
+        gSpecialVar_Result = LINKUP_FAILED;
         break;
     case 15:
         if (RfuGetStatus() == RFU_STATUS_FATAL_ERROR || RfuGetStatus() == RFU_STATUS_CONNECTION_ERROR)
@@ -2073,7 +2041,6 @@ static void Task_CardOrNewsWithFriend(u8 taskId)
         data->state = 1;
         break;
     case 1:
-        AddTextPrinterToWindow1(sText_ChooseTrainer);
         data->state = 2;
         break;
     case 2:
@@ -2082,7 +2049,7 @@ static void Task_CardOrNewsWithFriend(u8 taskId)
         data->listenTaskId = CreateTask_ListenForPartnersWithCompatibleSerialNos(data->field_4, data->isWonderNews + LINK_GROUP_WONDER_CARD);
 
         winTemplate1 = gUnknown_082F0174;
-        winTemplate1.baseBlock = GetMysteryGiftBaseBlock();
+        winTemplate1.baseBlock = 0x1A9;
         winTemplate1.paletteNum = 0xC;
         data->listWindowId = AddWindow(&winTemplate1);
 
@@ -2090,12 +2057,10 @@ static void Task_CardOrNewsWithFriend(u8 taskId)
         winTemplate2.paletteNum = 0xC;
         data->playerNameAndIdWindowId = AddWindow(&winTemplate2);
 
-        MG_DrawTextBorder(data->listWindowId);
         gMultiuseListMenuTemplate = sListMenuTemplate_UnionRoomGroups;
         gMultiuseListMenuTemplate.windowId = data->listWindowId;
         data->listTaskId = ListMenuInit(&gMultiuseListMenuTemplate, 0, 0);
 
-        MG_DrawTextBorder(data->playerNameAndIdWindowId);
         FillWindowPixelBuffer(data->playerNameAndIdWindowId, PIXEL_FILL(1));
         PutWindowTilemap(data->playerNameAndIdWindowId);
         PrintPlayerNameAndIdOnWindow(data->playerNameAndIdWindowId);
@@ -2146,7 +2111,6 @@ static void Task_CardOrNewsWithFriend(u8 taskId)
         }
         break;
     case 4:
-        AddTextPrinterToWindow1(sText_AwaitingPlayersResponse);
         IntlConvPartnerUname7(gStringVar1, &data->field_0->arr[data->leaderId]);
         data->state = 5;
         break;
@@ -2165,7 +2129,6 @@ static void Task_CardOrNewsWithFriend(u8 taskId)
             data->state = 8;
             break;
         case RFU_STATUS_JOIN_GROUP_OK:
-            AddTextPrinterToWindow1(sText_PlayerSentBackOK);
             RfuSetStatus(RFU_STATUS_OK, 0);
             break;
         }
@@ -2183,17 +2146,13 @@ static void Task_CardOrNewsWithFriend(u8 taskId)
         data->state++;
         break;
     case 9:
-        if (MG_PrintTextOnWindow1AndWaitButton(&data->textState, sLinkDroppedTexts[RfuGetStatus()]))
-        {
             DestroyWirelessStatusIndicatorSprite();
             DestroyTask(taskId);
             LinkRfu_Shutdown();
             gSpecialVar_Result = LINKUP_FAILED;
-        }
         break;
     case 7:
         DestroyWirelessStatusIndicatorSprite();
-        AddTextPrinterToWindow1(sText_PleaseStartOver);
         DestroyTask(taskId);
         LinkRfu_Shutdown();
         gSpecialVar_Result = LINKUP_FAILED;
@@ -2242,7 +2201,6 @@ static void Task_CardOrNewsOverWireless(u8 taskId)
         data->state = 1;
         break;
     case 1:
-        AddTextPrinterToWindow1(sText_SearchingForWirelessSystemWait);
         data->state = 2;
         break;
     case 2:
@@ -2253,10 +2211,9 @@ static void Task_CardOrNewsOverWireless(u8 taskId)
         if (data->field_13 != 0)
         {
             winTemplate = gUnknown_082F0174;
-            winTemplate.baseBlock = GetMysteryGiftBaseBlock();
+            winTemplate.baseBlock =0x1A9;
             data->listWindowId = AddWindow(&winTemplate);
 
-            MG_DrawTextBorder(data->listWindowId);
             gMultiuseListMenuTemplate = sListMenuTemplate_UnionRoomGroups;
             gMultiuseListMenuTemplate.windowId = data->listWindowId;
             data->listTaskId = ListMenuInit(&gMultiuseListMenuTemplate, 0, 0);
@@ -2311,7 +2268,6 @@ static void Task_CardOrNewsOverWireless(u8 taskId)
         }
         break;
     case 4:
-        AddTextPrinterToWindow1(sText_AwaitingResponseFromWirelessSystem);
         IntlConvPartnerUname7(gStringVar1, &data->field_0->arr[data->leaderId]);
         data->state = 5;
         break;
@@ -2330,7 +2286,6 @@ static void Task_CardOrNewsOverWireless(u8 taskId)
             data->state = 8;
             break;
         case RFU_STATUS_JOIN_GROUP_OK:
-            AddTextPrinterToWindow1(sText_WirelessLinkEstablished);
             RfuSetStatus(RFU_STATUS_OK, 0);
             break;
         }
@@ -2351,31 +2306,22 @@ static void Task_CardOrNewsOverWireless(u8 taskId)
         data->state++;
         break;
     case 9:
-        if (MG_PrintTextOnWindow1AndWaitButton(&data->textState, sText_WirelessLinkDropped))
-        {
             DestroyWirelessStatusIndicatorSprite();
             DestroyTask(taskId);
             LinkRfu_Shutdown();
             gSpecialVar_Result = LINKUP_FAILED;
-        }
         break;
     case 7:
-        if (MG_PrintTextOnWindow1AndWaitButton(&data->textState, sText_WirelessSearchCanceled))
-        {
             DestroyWirelessStatusIndicatorSprite();
             DestroyTask(taskId);
             LinkRfu_Shutdown();
             gSpecialVar_Result = LINKUP_FAILED;
-        }
         break;
     case 11:
-        if (MG_PrintTextOnWindow1AndWaitButton(&data->textState, sNoWonderSharedTexts[data->isWonderNews]))
-        {
             DestroyWirelessStatusIndicatorSprite();
             DestroyTask(taskId);
             LinkRfu_Shutdown();
             gSpecialVar_Result = LINKUP_FAILED;
-        }
         break;
     case 13:
         data->state++;

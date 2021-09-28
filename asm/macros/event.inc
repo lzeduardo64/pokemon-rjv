@@ -86,12 +86,6 @@
 	.byte 0x0d
 	.endm
 
-	@ Sets some status related to Mystery Event.
-	.macro setmysteryeventstatus value:req
-	.byte 0x0e
-	.byte \value
-	.endm
-
 	@ Sets the specified script bank to value.
 	.macro loadword destination:req, value:req
 	.byte 0x0f

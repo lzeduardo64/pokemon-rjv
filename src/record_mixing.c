@@ -14,7 +14,6 @@
 #include "tv.h"
 #include "battle_tower.h"
 #include "window.h"
-#include "mystery_event_script.h"
 #include "secret_base.h"
 #include "mauville_old_man.h"
 #include "sound.h"
@@ -199,7 +198,7 @@ static void PrepareUnknownExchangePacket(struct PlayerRecordsRS *dest)
     EmeraldBattleTowerRecordToRuby(sBattleTowerSave, &dest->battleTowerRecord);
 
     if (GetMultiplayerId() == 0)
-        dest->giftItem = GetRecordMixingGift();
+        dest->giftItem = 0;
 }
 
 static void PrepareExchangePacketForRubySapphire(struct PlayerRecordsRS *dest)
@@ -218,7 +217,7 @@ static void PrepareExchangePacketForRubySapphire(struct PlayerRecordsRS *dest)
     SanitizeRubyBattleTowerRecord(&dest->battleTowerRecord);
 
     if (GetMultiplayerId() == 0)
-        dest->giftItem = GetRecordMixingGift();
+        dest->giftItem = 0;
 }
 
 static void PrepareExchangePacket(void)
@@ -247,7 +246,7 @@ static void PrepareExchangePacket(void)
         SanitizeEmeraldBattleTowerRecord(&sSentRecord->emerald.battleTowerRecord);
 
         if (GetMultiplayerId() == 0)
-            sSentRecord->emerald.giftItem = GetRecordMixingGift();
+            sSentRecord->emerald.giftItem = 0;
 
         GetSavedApprentices(sSentRecord->emerald.apprentices, sApprenticesSave);
         GetPlayerHallRecords(&sSentRecord->emerald.hallRecords);
