@@ -247,7 +247,6 @@ static void MainMenu_FormatSavegameTime(u8);
 static void MainMenu_FormatSavegameBadges(void);
 static void NewGameBirchSpeech_CreateDialogueWindowBorder(u8, u8, u8, u8, u8, u8);
 static void RenderPlayerParty();
-static void grayPlayerParty();
 
 // .rodata
 
@@ -2158,8 +2157,8 @@ static void RenderPlayerParty()
         species = GetMonData(gPlayerParty + i, MON_DATA_SPECIES);
         pid = GetMonData(gPlayerParty + i, MON_DATA_PERSONALITY);
 
-        id = CreateMonIcon(species, SpriteCallbackDummy, 32 * i + 40, 64, 4, pid);
+        id = CreateMonIcon(species, SpriteCallbackDummy, 32 * i + 40, 64, 0, pid);
         iconsIDs[i] = id;
-        gSprites[id].oam.priority = 4;
+        gSprites[id].oam.priority = 0;
     }
 }
