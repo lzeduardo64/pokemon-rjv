@@ -1,6 +1,6 @@
 # Instructions
 
-These instructions explain how to set up the tools required to build **pokeemerald**, which assembles the source files into a ROM.
+These instructions explain how to set up the tools required to build **Pokémon RJV**, which assembles the source files into a ROM.
 
 These instructions come with notes which can be expanded by clicking the "<i>Note...</i>" text.
 In general, you should not need to open these unless if you get an error or if you need additional clarification.
@@ -27,34 +27,13 @@ All of the Windows instructions assume that the default drive is C:\\. If this d
 **A note of caution**: As Windows 7 is officially unsupported by Microsoft and Windows 8 has very little usage, some maintainers are unwilling to maintain the Windows 7/8 instructions. Thus, these instructions may break in the future with fixes taking longer than fixes to the Windows 10 instructions.
 
 ## Windows 10 (WSL1)
-WSL1 is the preferred terminal to build **pokeemerald**. The following instructions will explain how to install WSL1 (referred to interchangeably as WSL).
+WSL1 is the preferred terminal to build **Pokémon RJV**. The following instructions will explain how to install WSL1 (referred to interchangeably as WSL).
 - If WSL (Debian or Ubuntu) is **not installed**, then go to [Installing WSL1](#Installing-WSL1).
 - Otherwise, if WSL is installed, but it **hasn't previously been set up for another decompilation project**, then go to [Setting up WSL1](#Setting-up-WSL1).
-- Otherwise, **open WSL** and go to [Choosing where to store pokeemerald (WSL1)](#Choosing-where-to-store-pokeemerald-WSL1).
+- Otherwise, **open WSL** and go to [Choosing where to store Pokémon RJV (WSL1)](#Choosing-where-to-store-pokerjv-WSL1).
 
 ### Installing WSL1
-1. Open [Windows Powershell **as Administrator**](https://i.imgur.com/QKmVbP9.png), and run the following command (Right Click or Shift+Insert is paste in the Powershell).
-
-    ```powershell
-    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-    ```
-
-2. Once the process finishes, restart your machine.
-
-3. The next step is to choose and install a Linux distribution from the Microsoft Store. The following instructions will assume Ubuntu as the Linux distribution of choice.
-    <details>
-        <summary><i>Note for advanced users...</i></summary>
-    
-    >   You can pick a preferred Linux distribution, but setup instructions may differ. Debian should work with the given instructions, but has not been tested. 
-    </details>
-
-4. Open the [Microsoft Store Linux Selection](https://aka.ms/wslstore), click Ubuntu, then click Get, which will install the Ubuntu distribution.
-    <details>
-        <summary><i>Notes...</i></summary>
-
-    >   Note 1: If a dialog pops up asking for you to sign into a Microsoft Account, then just close the dialog.  
-    >   Note 2: If the link does not work, then open the Microsoft Store manually, and search for the Ubuntu app (choose the one with no version number).
-    </details>
+Follow the instructions at [Microsofts page](https://docs.microsoft.com/en-us/windows/wsl/install).
 
 ### Setting up WSL1
 Some tips before proceeding:
@@ -79,7 +58,7 @@ Some tips before proceeding:
 
 > Note: If the repository you plan to build has an **[older revision of the INSTALL.md](https://github.com/pret/pokeemerald/blob/571c598/INSTALL.md)**, then follow the [legacy WSL1 instructions](docs/legacy_WSL1_INSTALL.md) from here.
 
-4. Certain packages are required to build pokeemerald. Install these packages by running the following command:
+4. Certain packages are required to build pokémon RJV. Install these packages by running the following command:
 
     ```bash
     sudo apt install build-essential binutils-arm-none-eabi git libpng-dev
@@ -90,10 +69,10 @@ Some tips before proceeding:
     >   If the above command does not work, try the above command but replacing `apt` with `apt-get`.
     </details>
 
-### Choosing where to store pokeemerald (WSL1)
-WSL has its own file system that's not natively accessible from Windows, but Windows files *are* accessible from WSL. So you're going to want to store pokeemerald within Windows.
+### Choosing where to store Pokémon RJV (WSL1)
+WSL has its own file system that's not natively accessible from Windows, but Windows files *are* accessible from WSL. So you're going to want to store pokémon RJV within Windows.
 
-For example, say you want to store pokeemerald (and agbcc) in **C:\Users\\_\<user>_\Desktop\decomps**. First, ensure that the folder already exists. Then, enter this command to **change directory** to said folder, where *\<user>* is your **Windows** username:
+For example, say you want to store pokémon RJV (and agbcc) in **C:\Users\\_\<user>_\Desktop\decomps**. First, ensure that the folder already exists. Then, enter this command to **change directory** to said folder, where *\<user>* is your **Windows** username:
 
 ```bash
 cd /mnt/c/Users/<user>/Desktop/decomps
@@ -369,7 +348,7 @@ If this works, then proceed to [Installation](#installation). Otherwise, ask for
 <details>
     <summary><i>Note for Windows users...</i></summary>
 
->   Consider adding an exception for the `pokeemerald` and/or `decomps` folder in Windows Security using
+>   Consider adding an exception for the `pokemon-rjv` and/or `decomps` folder in Windows Security using
 >   [these instructions](https://support.microsoft.com/help/4028485). This prevents Microsoft Defender from
 >   scanning them which might improve performance while building.
 </details>
@@ -377,7 +356,7 @@ If this works, then proceed to [Installation](#installation). Otherwise, ask for
 1. If pokeemerald is not already downloaded (some users may prefer to download pokeemerald via a git client like GitHub Desktop), run:
 
     ```bash
-    git clone https://github.com/pret/pokeemerald
+    git clone https://github.com/Sangetsuki/pokemon-rjv.git
     ```
 
     <details>
@@ -388,35 +367,35 @@ If this works, then proceed to [Installation](#installation). Otherwise, ask for
     >   cd
     >   sudo umount /mnt/c
     >   sudo mount -t drvfs C: /mnt/c -o metadata,noatime
-    >   cd <folder where pokeemerald is to be stored>
+    >   cd <folder where Pokémon RJV is to be stored>
     >   ```
-    >   Where *\<folder where pokeemerald is to be stored>* is the path of the folder [where you chose to store pokeemerald](#Choosing-where-to-store-pokeemerald-WSL1). Then run the `git clone` command again.
+    >   Where *\<folder where Pokémon RJV is to be stored>* is the path of the folder [where you chose to store Pokémon RJV](#Choosing-where-to-store-Pokémon RJV-WSL1). Then run the `git clone` command again.
     </details>
 
-2. Install agbcc into pokeemerald. The commands to run depend on certain conditions. **You should only follow one of the listed instructions**:
-- If agbcc has **not been built before** in the folder where you chose to store pokeemerald, run the following commands to build and install it into pokeemerald:
+2. Install agbcc into Pokémon RJV. The commands to run depend on certain conditions. **You should only follow one of the listed instructions**:
+- If agbcc has **not been built before** in the folder where you chose to store Pokémon RJV, run the following commands to build and install it into Pokémon RJV:
 
     ```bash
     git clone https://github.com/pret/agbcc
     cd agbcc
     ./build.sh
-    ./install.sh ../pokeemerald
+    ./install.sh ../pokemon-rjv
     ```
 
-- **Otherwise**, if agbcc has been built before (e.g. if the git clone above fails), but was **last built on a different terminal** than the one currently used (only relevant to Windows, e.g. switching from msys2 to WSL1), then run the following commands to build and install it into pokeemerald:
+- **Otherwise**, if agbcc has been built before (e.g. if the git clone above fails), but was **last built on a different terminal** than the one currently used (only relevant to Windows, e.g. switching from msys2 to WSL1), then run the following commands to build and install it into Pokémon RJV:
 
     ```bash
     cd agbcc
     git clean -fX
     ./build.sh
-    ./install.sh ../pokeemerald
+    ./install.sh ../pokemon-rjv
     ```
 
 - **Otherwise**, if agbcc has been built before on the same terminal, run the following commands to install agbcc into pokeemerald:
 
     ```bash
     cd agbcc
-    ./install.sh ../pokeemerald
+    ./install.sh ../pokemon-rjv
     ```
 
     <details>
@@ -435,22 +414,17 @@ Now you're ready to [build **pokeemerald**](#build-pokeemerald)
 ## Build pokeemerald
 If you aren't in the pokeemerald directory already, then **change directory** to the pokeemerald folder:
 ```bash
-cd pokeemerald
+cd pokemon-rjv
 ```
-To build **pokeemerald.gba** for the first time and confirm it matches the official ROM image (Note: to speed up builds, see [Parallel builds](#parallel-builds)):
+To build **pokerjv.gba** for the first time (Note: to speed up builds, see [Parallel builds](#parallel-builds)):
 ```bash
-make compare
+make
 ```
 If an OK is returned, then the installation went smoothly.
 <details>
 <summary>Note for Windows...</summary>
 > If you switched terminals since the last build (e.g. from msys2 to WSL1), you must run `make clean-tools` once before any subsequent `make` commands.
 </details>
-
-To build **pokeemerald.gba** with your changes:
-```bash
-make
-```
 
 # Building guidance
 
