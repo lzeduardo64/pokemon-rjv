@@ -470,12 +470,17 @@ YurusitaTown_BrendansHouse_1F_Script_Bag::
 	
 YurusitaTown_BrendansHouse_1F_Text_BagMoscando::
 	.string "Uma mochila com uma pokédex e\n"
-	.string "alguns pokémons...\l"
-	.string "Não tem ninguém em casa...\l"
-	.string "Parece que hoje é meu dia de sorte!$"
+	.string "alguns pokémons.$"
 
 YurusitaTown_BrendansHouse_1F_Text_BagSteal::
 	.string "Belo {STR_VAR_1}!$"
+
+YurusitaTown_BrendansHouse_1F_Script_Red::
+	msgbox YurusitaTown_BrendansHouse_1F_Text_Red, MSGBOX_NPC
+	end
+
+YurusitaTown_BrendansHouse_1F_Text_Red::
+	.string "Eu não existo.$"
 
 YurusitaTown_BrendansHouse_1F_Script_Sus::
 	msgbox YurusitaTown_BrendansHouse_1F_Text_Sus, MSGBOX_SIGN
