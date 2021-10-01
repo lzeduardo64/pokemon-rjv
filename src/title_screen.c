@@ -21,6 +21,7 @@
 #include "graphics.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "save.h"
 
 #define VERSION_BANNER_RIGHT_TILEOFFSET 64
 #define VERSION_BANNER_LEFT_X 98
@@ -41,6 +42,7 @@ static void MainCB2(void);
 static void Task_TitleScreenPhase1(u8);
 static void Task_TitleScreenPhase2(u8);
 static void Task_TitleScreenPhase3(u8);
+static void CB2_GoToBirchSpeech(void);
 static void CB2_GoToMainMenu(void);
 static void CB2_GoToClearSaveDataScreen(void);
 static void CB2_GoToResetRtcScreen(void);
@@ -730,8 +732,17 @@ static void Task_TitleScreenPhase3(u8 taskId)
     if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(START_BUTTON)))
     {
         FadeOutBGM(4);
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_WHITEALPHA);
-        SetMainCallback2(CB2_GoToMainMenu);
+        
+        if (gSaveFileStatus == SAVE_STATUS_EMPTY)
+        {
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+            SetMainCallback2(CB2_GoToBirchSpeech);
+        }
+        else
+        {
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_WHITEALPHA);
+            SetMainCallback2(CB2_GoToMainMenu);
+        }
     }
     else if (JOY_HELD(CLEAR_SAVE_BUTTON_COMBO) == CLEAR_SAVE_BUTTON_COMBO)
     {
@@ -762,6 +773,12 @@ static void Task_TitleScreenPhase3(u8 taskId)
             SetMainCallback2(CB2_GoToCopyrightScreen);
         }
     }
+}
+
+static void CB2_GoToBirchSpeech(void)
+{
+    if (!UpdatePaletteFade())
+        SetMainCallback2(CB2_InitBirchSpeech);
 }
 
 static void CB2_GoToMainMenu(void)
