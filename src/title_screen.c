@@ -11,7 +11,6 @@
 #include "main.h"
 #include "main_menu.h"
 #include "palette.h"
-#include "reset_rtc_screen.h"
 #include "sound.h"
 #include "sprite.h"
 #include "task.h"
@@ -31,8 +30,6 @@
 #define START_BANNER_X 128
 
 #define CLEAR_SAVE_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_UP)
-#define RESET_RTC_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_LEFT)
-#define BERRY_UPDATE_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON)
 #define A_B_START_SELECT (A_BUTTON | B_BUTTON | START_BUTTON | SELECT_BUTTON)
 
 extern struct MusicPlayerInfo gMPlayInfo_BGM;
@@ -45,7 +42,6 @@ static void Task_TitleScreenPhase3(u8);
 static void CB2_GoToBirchSpeech(void);
 static void CB2_GoToMainMenu(void);
 static void CB2_GoToClearSaveDataScreen(void);
-static void CB2_GoToResetRtcScreen(void);
 static void CB2_GoToCopyrightScreen(void);
 static void UpdateLegendaryMarkingColor(u8);
 
@@ -748,13 +744,6 @@ static void Task_TitleScreenPhase3(u8 taskId)
     {
         SetMainCallback2(CB2_GoToClearSaveDataScreen);
     }
-    else if (JOY_HELD(RESET_RTC_BUTTON_COMBO) == RESET_RTC_BUTTON_COMBO
-      /*&& CanResetRTC() == TRUE*/)
-    {
-        FadeOutBGM(4);
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
-        SetMainCallback2(CB2_GoToResetRtcScreen);
-    }
     else
     {
         SetGpuReg(REG_OFFSET_BG2Y_L, 0);
@@ -797,12 +786,6 @@ static void CB2_GoToClearSaveDataScreen(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_InitClearSaveDataScreen);
-}
-
-static void CB2_GoToResetRtcScreen(void)
-{
-    if (!UpdatePaletteFade())
-        SetMainCallback2(CB2_InitResetRtcScreen);
 }
 
 static void UpdateLegendaryMarkingColor(u8 frameNum)
