@@ -1029,10 +1029,9 @@ void Task_DisplayMainMenuInvalidActionError(u8 taskId)
 static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 isScrolled)
 {
 	u8 i;
-	u16 pal[48];
+	u16 monIconPal[16 * PARTY_SIZE];
 
-	CpuSet(gMonIconPalettes, pal, 0x30);
-
+	CpuSet(gMonIconPalettes, monIconPal, 0x60);
     SetGpuReg(REG_OFFSET_WIN0H, MENU_WIN_HCOORDS);
 
     switch (menuType)
@@ -1071,7 +1070,7 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
                 case 0:
                 default:
                     SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(5));
-					LoadPalette(pal, 256, 0x60);
+					LoadPalette(monIconPal, 256, sizeof(monIconPal));
                     for (i = 0; i < gPlayerPartyCount; i++)
                     {
                     	gSprites[iconsIDs[i]].callback = SpriteCB_MonIcon;
@@ -1079,8 +1078,8 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
                     break;
                 case 1:
                     SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(6));
-                    TintPalette_GrayScale(pal, 0x30);
-                    LoadPalette(pal, 256, 0x60);
+                    TintPalette_GrayScale(monIconPal, 0x60);
+                    LoadPalette(monIconPal, 256, sizeof(monIconPal));
                     for (i = 0; i < gPlayerPartyCount; i++)
                     {
                     	gSprites[iconsIDs[i]].callback = SpriteCallbackDummy;
