@@ -27,7 +27,6 @@
 #include "string_util.h"
 #include "util.h"
 #include "data.h"
-#include "reset_rtc_screen.h"
 #include "reshow_battle_screen.h"
 #include "constants/abilities.h"
 #include "constants/moves.h"
@@ -36,6 +35,7 @@
 #include "constants/hold_effects.h"
 
 #define MAX_MODIFY_DIGITS 4
+#define PALTAG_ARROW 0x1000
 
 struct BattleDebugModifyArrows
 {
@@ -150,6 +150,80 @@ enum
     VARIOUS_SHOW_HP,
     VARIOUS_SUBSTITUTE_HP,
     VARIOUS_IN_LOVE,
+};
+
+static const struct OamData sOamData_Arrow =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .mosaic = 0,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(8x8),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(8x8),
+    .tileNum = 0,
+    .priority = 0,
+    .paletteNum = 0,
+    .affineParam = 0,
+};
+
+static const u8 sArrowDown_Gfx[] = INCBIN_U8("graphics/reset_rtc_screen/arrow_down.4bpp");
+static const u8 sArrowRight_Gfx[] = INCBIN_U8("graphics/reset_rtc_screen/arrow_right.4bpp");
+static const u16 sArrow_Pal[] = INCBIN_U16("graphics/reset_rtc_screen/arrow.gbapal");
+
+static const struct SpriteFrameImage sPicTable_Arrow[] =
+{
+    obj_frame_tiles(sArrowDown_Gfx),
+    obj_frame_tiles(sArrowRight_Gfx)
+};
+
+const struct SpritePalette gSpritePalette_Arrow =
+{
+    sArrow_Pal, PALTAG_ARROW
+};
+
+static const union AnimCmd sAnim_Arrow_Down[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_Arrow_Up[] =
+{
+    ANIMCMD_FRAME(0, 30, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_Arrow_Right[] =
+{
+    ANIMCMD_FRAME(1, 30),
+    ANIMCMD_JUMP(0),
+};
+
+enum {
+    ARROW_DOWN,
+    ARROW_UP,
+    ARROW_RIGHT,
+};
+
+static const union AnimCmd *const sAnims_Arrow[] =
+{
+    [ARROW_DOWN]  = sAnim_Arrow_Down,
+    [ARROW_UP]    = sAnim_Arrow_Up,
+    [ARROW_RIGHT] = sAnim_Arrow_Right,
+};
+
+const struct SpriteTemplate gSpriteTemplate_Arrow =
+{
+    .tileTag = 0xFFFF,
+    .paletteTag = PALTAG_ARROW,
+    .oam = &sOamData_Arrow,
+    .anims = sAnims_Arrow,
+    .images = sPicTable_Arrow,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
 };
 
 // Static Declarations
