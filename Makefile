@@ -1,9 +1,4 @@
 TOOLCHAIN := $(DEVKITARM)
-COMPARE ?= 0
-
-ifeq (compare,$(MAKECMDGOALS))
-  COMPARE := 1
-endif
 
 # don't use dkP's base_tools anymore
 # because the redefinition of $(CC) conflicts
@@ -121,7 +116,6 @@ endif
 
 LDFLAGS = -Map ../../$(MAP)
 
-SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
 GFX := tools/gbagfx/gbagfx$(EXE)
 AIF := tools/aif2pcm/aif2pcm$(EXE)
 MID := tools/mid2agb/mid2agb$(EXE)
@@ -132,7 +126,6 @@ FIX := tools/gbafix/gbafix$(EXE)
 MAPJSON := tools/mapjson/mapjson$(EXE)
 JSONPROC := tools/jsonproc/jsonproc$(EXE)
 SCRIPT := tools/poryscript/poryscript$(EXE)
-PERL := perl
 
 TOOLDIRS := $(filter-out tools/agbcc tools/binutils tools/poryscript,$(wildcard tools/*))
 TOOLBASE = $(TOOLDIRS:tools/%=%)
@@ -146,11 +139,10 @@ MAKEFLAGS += --no-print-directory
 .SECONDARY:
 # Delete files that weren't built properly
 .DELETE_ON_ERROR:
-
 # Secondary expansion is required for dependency variables in object rules.
 .SECONDEXPANSION:
 
-.PHONY: all rom clean compare tidy tools mostlyclean clean-tools $(TOOLDIRS) libagbsyscall modern debugging debugging_modern tidymodern tidynonmodern
+.PHONY: all rom clean tidy tools mostlyclean clean-tools $(TOOLDIRS) libagbsyscall modern debugging debugging_modern tidymodern tidynonmodern
 
 infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
 
@@ -158,7 +150,7 @@ infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst 
 # Disable dependency scanning for clean/tidy/tools
 # Use a separate minimal makefile for speed
 # Since we don't need to reload most of this makefile
-ifeq (,$(filter-out all rom compare modern debugging debugging_modern libagbsyscall syms,$(MAKECMDGOALS)))
+ifeq (,$(filter-out all rom modern debugging debugging_modern libagbsyscall syms,$(MAKECMDGOALS)))
 $(call infoshell, $(MAKE) -f make_tools.mk)
 else
 NODEP ?= 1
@@ -222,12 +214,6 @@ $(TOOLDIRS):
 	@$(MAKE) -C $@
 
 rom: $(ROM)
-ifeq ($(COMPARE),1)
-	@$(SHA1) rom.sha1
-endif
-
-# For contributors to make sure a change didn't affect the contents of the ROM.
-compare: all
 
 clean: mostlyclean clean-tools
 
@@ -303,10 +289,6 @@ $(C_BUILDDIR)/librfu_intr.o: CC1 := tools/agbcc/bin/agbcc_arm$(EXE)
 $(C_BUILDDIR)/librfu_intr.o: CFLAGS := -O2 -mthumb-interwork -quiet
 else
 $(C_BUILDDIR)/librfu_intr.o: CFLAGS := -mthumb-interwork -O2 -mabi=apcs-gnu -mtune=arm7tdmi -march=armv4t -fno-toplevel-reorder -Wno-pointer-to-int-cast
-endif
-
-ifeq ($(DINFO),1)
-override CFLAGS += -g
 endif
 
 # The dep rules have to be explicit or else missing files won't be reported.
@@ -447,11 +429,3 @@ libagbsyscall:
 # Debug menu
 debugging: ; @$(MAKE) DDEBUGGING=1 DINFO=1
 debugging_modern: ; @$(MAKE) MODERN=1 DDEBUGGING=1 DINFO=1
-
-###################
-### Symbol file ###
-###################
-
-$(SYM): $(ELF)
-	$(OBJDUMP) -t $< | sort -u | grep -E "^0[2389]" | $(PERL) -p -e 's/^(\w{8}) (\w).{6} \S+\t(\w{8}) (\S+)$$/\1 \2 \3 \4/g' > $@
-
