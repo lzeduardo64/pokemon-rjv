@@ -121,6 +121,13 @@
       "elevation": 0,
       "dest_map": "MAP_YURUSITA_TOWN_MENDIGO",
       "dest_warp_id": 0
+    },
+    {
+      "x": 25,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_SLAKURG_TOWN_POKEMON_CENTER_1F",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [
